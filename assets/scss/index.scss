@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+body {
+    background-color: #121212;
+    #main {
+        height: 100vh;
+        min-height: 100vh;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            "side-bar top-bar top-bar"
+            "side-bar main-view main-view"
+            "now-playing-bar now-playing-bar now-playing-bar";
+        #side-bar {
+            grid-area: side-bar;
+            padding: 1.5rem 0 0 0;
+            height: 100%;
+            // Để tạm
+            width: 240px;
+            background-color: black;
+            #logo {
+                margin: 0 0 1.125rem;
+                padding: 0 1.5rem;
+                a {
+                    display: block;
+                    width: 100%;
+                    line-height: 2rem;
+                    i {
+                        font-size: 2.5rem;
+                    }
+                }
+            }
+            nav {
+                ul {
+                    padding: 0;
+                    margin: 0;
+                    li {
+                        padding: 0 0.5rem;
+                        a {
+                            padding: 0 1rem;
+                            height: 2.5rem;
+                            gap: 1rem;
+                            i {
+                                font-size: 1.5rem;
+                            }
+                            span {
+                                font-size: 0.875rem;
+                                font-weight: 700;
+                            }
+                        }
+                    }
+                }
+            }
+            #user-actions {
+                .action-button {
+                    padding: 0.5rem 1.5rem;
+                    button {
+                        width: 100%;
+                        background-color: black;
+                        gap: 1rem;
+                        div {
+                            width: 1.5rem;
+                            height: 1.5rem;
+                            // border: 0px;
+                            border-radius: 0.125rem;
+                            i {
+                                font-size: 0.75rem;
+                                font-weight: 600;
+                            }
+                        }
+                        .playlist-add {
+                            background-color: white;
+                            i {
+                                color: black;
+                            }
+                        }
+                        .liked-song {
+                            background: linear-gradient(135deg,#450af5,#c4efd9);
+                            i {
+                                color: white;
+                            }
+                        }
+                        span {
+                            font-size: 0.875rem;
+                            font-weight: 700;
+                            color: white;
+                        }
+                    }
+                }
+            }
+            #user-settings {
+                .cookies {
+                    margin: 2rem 0;
+                    padding: 0 1.5rem;
+                    a {
+                        text-decoration: underline;
+                        font-size: 0.6875rem;
+                    }
+                }
+                .languages {
+                    margin: 0 0 2rem;
+                    padding: 0 1.5rem;
+                    button {
+                        background-color: black;
+                        border: .8px solid white;
+                        border-radius: 1rem;
+                        padding: 0.25rem 0.75rem;
+                        height: 2rem;
+                        color: white;
+                        gap: 0.25rem;
+                        span {
+                            font-size: 0.875rem;
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+        }
+
+        #top-bar {
+            grid-area: top-bar;
+            background-color: black;
+            opacity: .5;
+            height: 64px;
+        }
+
+        #main-view {
+            grid-area: main-view;
+            
+        }
+
+        footer {
+            grid-area: now-playing-bar;
+            width: 100%;
+            background: linear-gradient(90deg,#af2896,#509bf5);
+            color: white;
+            // Để tạm
+            height: auto;
+            #now-playing-bar {
+                padding: 0.75rem 1rem;
+                gap: 1.5rem;
+                #data {
+                    flex: 1;
+                    h6 {
+                        font-size: 0.75rem;
+                        font-weight: 400;
+                        text-transform: uppercase;
+                        letter-spacing: 0.1rem;
+                        margin: 0;
+                    }
+                    p {
+                        font-size: 1rem;
+                        font-weight: 600;
+                        margin: 0;
+                    }
+                }
+                #btn-sign-up {
+                    button {
+                        background-color: white;
+                        padding: 0.75rem 1.5rem;
+                        color: black;
+                        font-size: 1rem;
+                        font-weight: 700;
+                        letter-spacing: 0.05rem;
+                    }
+                }
+            }
+        }
+    }
+}
