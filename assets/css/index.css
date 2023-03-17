@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   border: 0;
+  box-sizing: border-box;
   vertical-align: baseline;
 }
 
@@ -14,7 +15,7 @@ ul {
 }
 
 body {
-  background-color: #121212;
+  background-color: #1a1a1a;
 }
 body #main {
   height: 100vh;
@@ -23,139 +24,161 @@ body #main {
   grid-template-rows: auto 1fr auto;
   grid-template-areas: "side-bar top-bar top-bar" "side-bar main-view main-view" "now-playing-bar now-playing-bar now-playing-bar";
 }
-body #main #side-bar {
+
+#top-bar {
+  grid-area: top-bar;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 64px;
+  padding: 1rem 2rem;
+}
+
+#action-buttons {
+  gap: 1rem;
+}
+#action-buttons button {
+  background-color: #000;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+}
+#action-buttons button i {
+  color: #fff;
+  font-size: 1rem;
+}
+
+#main-view {
+  grid-area: main-view;
+}
+
+#side-bar {
   grid-area: side-bar;
   padding: 1.5rem 0 0 0;
   height: 100%;
   width: 240px;
-  background-color: black;
+  background-color: #000;
 }
-body #main #side-bar #logo {
+
+#logo {
   margin: 0 0 1.125rem;
   padding: 0 1.5rem;
 }
-body #main #side-bar #logo a {
+#logo a {
   display: block;
   width: 100%;
   line-height: 2rem;
 }
-body #main #side-bar #logo a i {
+#logo a i {
   font-size: 2.5rem;
 }
-body #main #side-bar nav ul {
+
+#menu ul {
   padding: 0;
   margin: 0;
 }
-body #main #side-bar nav ul li {
+#menu ul li {
   padding: 0 0.5rem;
 }
-body #main #side-bar nav ul li a {
+#menu ul li a {
   padding: 0 1rem;
   height: 2.5rem;
   gap: 1rem;
 }
-body #main #side-bar nav ul li a i {
+#menu ul li a i {
   font-size: 1.5rem;
 }
-body #main #side-bar nav ul li a span {
+#menu ul li a span {
   font-size: 0.875rem;
   font-weight: 700;
 }
-body #main #side-bar #user-actions .action-button {
+
+#user-actions .action-button {
   padding: 0.5rem 1.5rem;
 }
-body #main #side-bar #user-actions .action-button button {
+#user-actions .action-button button {
   width: 100%;
-  background-color: black;
+  background-color: #000;
   gap: 1rem;
 }
-body #main #side-bar #user-actions .action-button button div {
+#user-actions .action-button button div {
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 0.125rem;
 }
-body #main #side-bar #user-actions .action-button button div i {
+#user-actions .action-button button div i {
   font-size: 0.75rem;
   font-weight: 600;
 }
-body #main #side-bar #user-actions .action-button button .playlist-add {
+#user-actions .action-button button .playlist-add {
   background-color: white;
 }
-body #main #side-bar #user-actions .action-button button .playlist-add i {
+#user-actions .action-button button .playlist-add i {
   color: black;
 }
-body #main #side-bar #user-actions .action-button button .liked-song {
+#user-actions .action-button button .liked-song {
   background: linear-gradient(135deg, #450af5, #c4efd9);
 }
-body #main #side-bar #user-actions .action-button button .liked-song i {
+#user-actions .action-button button .liked-song i {
   color: white;
 }
-body #main #side-bar #user-actions .action-button button span {
+#user-actions .action-button button span {
   font-size: 0.875rem;
   font-weight: 700;
-  color: white;
+  color: #fff;
 }
-body #main #side-bar #user-settings .cookies {
+
+#user-settings .cookies {
   margin: 2rem 0;
   padding: 0 1.5rem;
 }
-body #main #side-bar #user-settings .cookies a {
+#user-settings .cookies a {
   text-decoration: underline;
   font-size: 0.6875rem;
 }
-body #main #side-bar #user-settings .languages {
+#user-settings .languages {
   margin: 0 0 2rem;
   padding: 0 1.5rem;
 }
-body #main #side-bar #user-settings .languages button {
+#user-settings .languages button {
   background-color: black;
   border: 0.8px solid white;
   border-radius: 1rem;
   padding: 0.25rem 0.75rem;
   height: 2rem;
-  color: white;
+  color: #fff;
   gap: 0.25rem;
 }
-body #main #side-bar #user-settings .languages button span {
+#user-settings .languages button span {
   font-size: 0.875rem;
   font-weight: 700;
 }
-body #main #top-bar {
-  grid-area: top-bar;
-  background-color: black;
-  opacity: 0.5;
-  height: 64px;
-}
-body #main #main-view {
-  grid-area: main-view;
-}
-body #main footer {
+
+footer {
   grid-area: now-playing-bar;
   width: 100%;
   background: linear-gradient(90deg, #af2896, #509bf5);
   color: white;
   height: auto;
 }
-body #main footer #now-playing-bar {
+footer #now-playing-bar {
   padding: 0.75rem 1rem;
   gap: 1.5rem;
 }
-body #main footer #now-playing-bar #data {
+footer #now-playing-bar #data {
   flex: 1;
 }
-body #main footer #now-playing-bar #data h6 {
+footer #now-playing-bar #data h6 {
   font-size: 0.75rem;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   margin: 0;
 }
-body #main footer #now-playing-bar #data p {
+footer #now-playing-bar #data p {
   font-size: 1rem;
   font-weight: 600;
   margin: 0;
 }
-body #main footer #now-playing-bar #btn-sign-up button {
+footer #now-playing-bar #btn-sign-up button {
   background-color: white;
   padding: 0.75rem 1.5rem;
   color: black;
