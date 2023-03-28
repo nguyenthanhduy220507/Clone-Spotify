@@ -1,16 +1,16 @@
 @font-face {
   font-family: 'niand-icomoon';
-  src:  url('fonts/niand-icomoon.eot?3tstxs');
-  src:  url('fonts/niand-icomoon.eot?3tstxs#iefix') format('embedded-opentype'),
-    url('fonts/niand-icomoon.ttf?3tstxs') format('truetype'),
-    url('fonts/niand-icomoon.woff?3tstxs') format('woff'),
-    url('fonts/niand-icomoon.svg?3tstxs#niand-icomoon') format('svg');
+  src:  url('fonts/niand-icomoon.eot?wsayni');
+  src:  url('fonts/niand-icomoon.eot?wsayni#iefix') format('embedded-opentype'),
+    url('fonts/niand-icomoon.ttf?wsayni') format('truetype'),
+    url('fonts/niand-icomoon.woff?wsayni') format('woff'),
+    url('fonts/niand-icomoon.svg?wsayni#niand-icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-i {
+[class^="niand-icon-"], [class*=" niand-icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'niand-icomoon' !important;
   speak: never;
@@ -25,85 +25,112 @@ i {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.niand-icon-internet:before {
-  content: "\ecc0";
-}
-.niand-icon-add:before {
-  content: "\e900";
-}
-.niand-icon-bookmark:before {
-  content: "\e901";
-}
-.niand-icon-disconnect:before {
-  content: "\e902";
-}
-.niand-icon-down:before {
+.niand-icon-spotify-clock:before {
   content: "\e903";
 }
-.niand-icon-heart:before {
-  content: "\e904";
-}
-.niand-icon-home:before {
-  content: "\e905";
-}
-.niand-icon-install:before {
-  content: "\e906";
-}
-.niand-icon-left:before {
-  content: "\e907";
-}
-.niand-icon-library:before {
-  content: "\e908";
-}
-.niand-icon-loudspeaker:before {
-  content: "\e909";
-}
-.niand-icon-mic:before {
-  content: "\e90a";
-}
-.niand-icon-mix:before {
-  content: "\e90b";
-}
-.niand-icon-next:before {
-  content: "\e90c";
-}
-.niand-icon-play:before {
-  content: "\e90d";
-}
-.niand-icon-playlist:before {
-  content: "\e90e";
-}
-.niand-icon-prev:before {
-  content: "\e90f";
-}
-.niand-icon-recur:before {
+.niand-icon-spotify-close:before {
   content: "\e910";
 }
-.niand-icon-right:before {
+.niand-icon-spotify-desc:before {
+  content: "\e916";
+}
+.niand-icon-spotify-edit:before {
+  content: "\ecc0";
+}
+.niand-icon-spotify-insc:before {
+  content: "\ecc1";
+}
+.niand-icon-spotify-internet:before {
+  content: "\ecc2";
+}
+.niand-icon-spotify-loop:before {
+  content: "\ecc3";
+}
+.niand-icon-spotify-music-note:before {
+  content: "\ecc4";
+}
+.niand-icon-spotify-pause:before {
+  content: "\ecc5";
+}
+.niand-icon-spotify-picture-in-picture:before {
+  content: "\ecc6";
+}
+.niand-icon-spotify-share-2:before {
+  content: "\ecc7";
+}
+.niand-icon-spotify-three-dots:before {
+  content: "\ecc8";
+}
+.niand-icon-spotify-user:before {
+  content: "\ecc9";
+}
+.niand-icon-spotify-add:before {
+  content: "\e900";
+}
+.niand-icon-spotify-bookmark:before {
+  content: "\e901";
+}
+.niand-icon-spotify-disconnect:before {
+  content: "\e902";
+}
+.niand-icon-spotify-heart:before {
+  content: "\e904";
+}
+.niand-icon-spotify-home:before {
+  content: "\e905";
+}
+.niand-icon-spotify-install:before {
+  content: "\e906";
+}
+.niand-icon-spotify-left:before {
+  content: "\e907";
+}
+.niand-icon-spotify-library:before {
+  content: "\e908";
+}
+.niand-icon-spotify-loudspeaker:before {
+  content: "\e909";
+}
+.niand-icon-spotify-mic:before {
+  content: "\e90a";
+}
+.niand-icon-spotify-mix:before {
+  content: "\e90b";
+}
+.niand-icon-spotify-next:before {
+  content: "\e90c";
+}
+.niand-icon-spotify-play:before {
+  content: "\e90d";
+}
+.niand-icon-spotify-playlist:before {
+  content: "\e90e";
+}
+.niand-icon-spotify-prev:before {
+  content: "\e90f";
+}
+.niand-icon-spotify-right:before {
   content: "\e911";
 }
-.niand-icon-save-heart:before {
+.niand-icon-spotify-heart-empty:before {
   content: "\e912";
 }
-.niand-icon-search:before {
+.niand-icon-spotify-search:before {
   content: "\e913";
 }
-.niand-icon-share:before {
+.niand-icon-spotify-share-1:before {
   content: "\e914";
 }
 .niand-icon-spotify-logo:before {
   content: "\e915";
 }
-.niand-icon-tivi:before {
-  content: "\e916";
-}
-.niand-icon-volumn:before {
+.niand-icon-spotify-volumn:before {
   content: "\e917";
 }
-.niand-icon-zoom-in:before {
+.niand-icon-spotify-zoom-in:before {
   content: "\e918";
 }
-.niand-icon-zoom-out:before {
+.niand-icon-spotify-zoom-out:before {
   content: "\e919";
 }
 .niand-icon-1password:before {
