@@ -1,0 +1,525 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.active {
+  opacity: 1;
+  color: white;
+}
+
+.my-scroll {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(241, 241, 241, 0.5215686275) #121212;
+}
+
+.my-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.my-scroll::-webkit-scrollbar-track {
+  background-color: #121212;
+}
+
+.my-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(241, 241, 241, 0.5215686275);
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: "CircularSp,CircularSp-Arab,CircularSp-Hebr,CircularSp-Cyrl,CircularSp-Grek,CircularSp-Deva", sans-serif;
+  background-color: #1a1a1a;
+}
+body #main {
+  min-height: 100vh;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "side-bar top-bar top-bar" "side-bar main-view main-view" "now-playing-bar now-playing-bar now-playing-bar";
+}
+
+#top-bar {
+  transition: opacity 1s ease-in-out;
+  grid-area: top-bar;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 4rem;
+  padding: 1rem 2rem;
+  z-index: 1;
+}
+#top-bar .btn-nav {
+  opacity: 0.6;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+}
+#top-bar .btn-nav:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+#action-buttons {
+  gap: 1rem;
+  flex: 1;
+  
+}
+
+#action-buttons button {
+  opacity: 0.6;
+  background-color: #000;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+}
+#action-buttons button i {
+  color: #fff;
+  font-size: 1rem;
+}
+#action-buttons button:is(.active) {
+  opacity: 1;
+}
+#action-buttons button:hover {
+  cursor: not-allowed;
+}
+
+
+
+#vertical-line {
+  width: 1px;
+  height: 1.5rem;
+  margin: 0 1rem;
+  background: #fff;
+}
+
+#sign-up-in {
+  height: 2.5px;
+}
+#sign-up-in #sign-up {
+  opacity: 0.6;
+  line-height: 2rem;
+  background-color: transparent;
+  font-weight: 700;
+  margin-left: 10px;
+}
+#sign-up-in #sign-up:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+#sign-up-in #sign-in {
+  line-height: 2rem;
+  background-color: white;
+  padding: 0.5rem 2rem;
+  color: black;
+  font-size: 1rem;
+  font-weight: 700;
+}
+#sign-up-in #sign-in:hover {
+  transform: scale(1.05);
+}
+.dropdown-menu a:hover {
+  background-color: #343a40; /* Thay đổi màu sắc tùy theo nhu cầu */
+}
+#main-view {
+  grid-area: main-view;
+}
+
+#home-page {
+  max-height: calc(100vh - 8.5rem);
+}
+#home-page section {
+  padding: 0 2rem;
+}
+#home-page section .title {
+  margin-bottom: 1rem;
+}
+#home-page section .title h3 > a {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+#home-page section .title a {
+  display: block;
+  font-size: 0.875rem;
+}
+#home-page section .title a:hover {
+  text-decoration: underline;
+}
+#home-page section .content {
+  transition: opacity 1s ease-in-out;
+}
+#home-page section .content .overlay {
+  cursor: pointer;
+  background-color: #121212;
+  padding: 1rem;
+}
+#home-page section .content .overlay .item .item-img {
+  margin-bottom: 1rem;
+}
+#home-page section .content .overlay .item .item-content a {
+  padding-bottom: 0.3rem;
+}
+#home-page section .content .overlay .item .item-content a span {
+  font-size: 1rem;
+  font-weight: 700;
+}
+#home-page section .content .overlay .item .item-content p {
+  padding-top: 0.25rem;
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  opacity: 0.5;
+}
+#home-page section .content .overlay:hover {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.25));
+  opacity: 0.8;
+}
+
+#side-bar {
+  grid-area: side-bar;
+  padding: 1.5rem 0 0 0;
+  height: 100%;
+  width: 240px;
+  background-color: #000;
+}
+
+#logo {
+  margin: 0 0 1.125rem;
+  padding: 0 1.5rem;
+}
+#logo a {
+  display: block;
+  width: 100%;
+  line-height: 2rem;
+}
+#logo a i {
+  font-size: 2.5rem;
+}
+
+#menu ul {
+  padding: 0;
+  margin: 0;
+}
+#menu ul li {
+  padding: 0 0.5rem;
+}
+#menu ul li a {
+  opacity: 0.6;
+  padding: 0 1rem;
+  height: 2.5rem;
+  gap: 1rem;
+}
+#menu ul li a i {
+  font-size: 1.5rem;
+}
+#menu ul li a span {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+#menu ul li a:is(.active),
+#menu ul li a:hover {
+  opacity: 1;
+}
+
+#user-actions .action-button {
+  padding: 0.5rem 1.5rem;
+}
+#user-actions .action-button button {
+  opacity: 0.6;
+  width: 100%;
+  background-color: #000;
+  gap: 1rem;
+}
+#user-actions .action-button button span:first-child {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.125rem;
+}
+#user-actions .action-button button span:first-child i {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+#user-actions .action-button button .playlist-add {
+  background-color: white;
+}
+#user-actions .action-button button .playlist-add i {
+  color: black;
+}
+#user-actions .action-button button .liked-song {
+  background: linear-gradient(135deg, #450af5, #c4efd9);
+}
+#user-actions .action-button button .liked-song i {
+  color: white;
+}
+#user-actions .action-button button span {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #fff;
+}
+#user-actions .action-button button:is(.active),
+#user-actions .action-button button:hover {
+  opacity: 1;
+}
+
+#user-settings .cookie {
+  margin: 2rem 0;
+  padding: 0 1.5rem;
+  
+}
+#user-settings .cookie a {
+  opacity: 0.6;
+  text-decoration: none;
+  font-size: 0.6875rem;
+}
+#user-settings .cookie a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+#user-settings .languages {
+  margin: 0 0 2rem ;
+  padding: 0 1.5rem;
+  margin-bottom: 100px;
+}
+#user-settings .languages button {
+  background-color: black;
+  border: 0.8px solid rgba(255, 255, 255, 0.6);
+  border-radius: 1rem;
+  padding: 0.25rem 0.75rem;
+  height: 2rem;
+  color: #fff;
+  gap: 0.25rem;
+}
+#user-settings .languages button span {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+#user-settings .languages button:hover {
+  border: 0.8px solid rgb(255, 255, 255);
+  transform: scale(1.05);
+}
+
+footer {
+  grid-area: now-playing-bar;
+  width: 100%;
+  background: linear-gradient(90deg, #af2896, #509bf5);
+  color: white;
+  height: auto;
+}
+footer #now-playing-bar {
+  padding: 0.75rem 1rem;
+  gap: 1.5rem;
+}
+footer #now-playing-bar #data {
+  flex: 1;
+}
+footer #now-playing-bar #data h6 {
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin: 0;
+}
+footer #now-playing-bar #data p {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+footer #now-playing-bar #btn-sign-up button {
+  background-color: white;
+  padding: 0.75rem 1.5rem;
+  color: black;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+}
+footer #now-playing-bar #btn-sign-up button:hover {
+  transform: scale(1.05);
+}
+
+/*# sourceMappingURL=index.css.map */
+
+a{
+color: white;
+}
+  .btn-secondary:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  .hightlightWord:hover{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  #menu{
+    padding-left: 0;
+    z-index: 1;
+  }
+  
+ /* Ẩn nút "play" mặc định */
+.play-bttt {
+  border-radius: 50%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 5px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+/*size anh audio*/
+#sizeImg{
+   height: 100%; width: 100px;
+}
+
+
+
+
+
+#progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: hsla(0,0%,100%,.3);
+  position: relative;
+  margin-top: 20px;
+}
+
+#progress-bar-fill {
+  height: 100%;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  transition: width 0.1s linear;
+}
+#progress-bar-time{
+  color: #fff;
+  margin-top: 25%;
+}
+#progress-bar-time-full{
+  color: #fff;
+  margin-top: 25%;
+}
+.detailHover:hover{
+  background-color: #282828;
+  }
+  /* test */
+#popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#popup-content {
+  background-color: rgb(39, 40, 41);
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#close-popup {
+  background-color: #ccc;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+/* Doi mau popover */
+.popover {
+  background-color: #007bff;
+}
+#main-view {
+  grid-area: main-view;
+  max-height: 600px; 
+  overflow-y: scroll; 
+}
+#main-view::-webkit-scrollbar {
+  display: none;
+}
+/* Thiết lập các quy tắc CSS cho các khung hình nhỏ hơn 1101px */
+@media (max-width: 1100px) {
+  .t1{
+    display: none;
+  }
+  
+}
+
+
+@media (max-width: 768px) {
+  footer #now-playing-bar #data h6 {
+    font-size: 0.4rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin: 0;
+  }
+  footer #now-playing-bar #data p {
+    font-size: 0.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+}
+
+@media (max-width: 450px) {
+  #sign-up-in #sign-in {
+    background-color: white;
+    color: black;
+    font-size: x-small;
+    font-weight: 700;
+    
+}
+#sign-up-in #sign-up {
+  background-color: black;
+  color: white;
+  font-size: x-small;
+  font-weight: 700;
+  height: 50px;
+}
+  
+  
+}
+@media (max-width: 321px) {
+  #sign-up-in #sign-in {
+    background-color: white;
+    color: black;
+    font-size: 7px;
+    font-weight: 700;
+    height: 50px;
+    width: 120px;
+   
+    
+}
+#sign-up-in #sign-up {
+  background-color: black;
+  color: white;
+  font-size: x-small;
+  font-weight: 700;
+  height: 50px;
+  width: 45px;
+}
+  
+  
+}
+
+
+

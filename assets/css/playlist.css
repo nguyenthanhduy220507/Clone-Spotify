@@ -1,0 +1,127 @@
+@charset "UTF-8";
+#playlist-page {
+  overflow: scroll;
+  overflow-x: hidden;
+  width: 100%;
+  max-height: calc(100vh - 8.5rem);
+  background-color: #121212;
+}
+#playlist-page #playlist-content {
+  background-color: #627181;
+  padding: 1.5rem 2rem;
+  gap: 1.5rem;
+}
+#playlist-page #playlist-content img {
+  width: 232px;
+  box-shadow: inset;
+}
+#playlist-page #playlist-content #playlist-content-header {
+  color: #FFF;
+}
+#playlist-page #playlist-content #playlist-content-header > span:first-child {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+#playlist-page #playlist-content #playlist-content-header > span:nth-child(2) {
+  font-size: 5rem;
+  font-weight: 900;
+  vertical-align: baseline;
+}
+#playlist-page #playlist-content #playlist-content-header > span:nth-child(3) {
+  font-size: 0.875rem;
+  color: #c7ced3;
+}
+#playlist-page #playlist-content #playlist-content-header > div {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+#playlist-page #playlist-content #playlist-content-header > div figure {
+  font-size: 1.5rem;
+}
+#playlist-page #playlist-content #playlist-content-header > div a {
+  color: #FFF;
+  font-weight: 600;
+}
+#playlist-page #playlist-content #playlist-content-header > div a:hover {
+  text-decoration: underline;
+}
+#playlist-page #playlist-content #playlist-content-header > div > span::before {
+  content: "•";
+  margin: 0px 4px;
+}
+#playlist-page #playlist-content #playlist-content-header > div > span {
+  font-weight: 500;
+}
+#playlist-page #playlist-content #playlist-content-header > div > span span {
+  font-weight: normal;
+}
+#playlist-page #playlist-control {
+  padding: 1.5rem 2rem;
+  background-color: #323a42;
+}
+#playlist-page #playlist-control button {
+  background-color: #323a42;
+}
+#playlist-page #playlist-control button #playlist-button-play {
+  background-color: #1fdf64;
+  width: 56px;
+  height: 56px;
+}
+#playlist-page #playlist-control button #playlist-button-play i {
+  font-size: 1.5rem;
+}
+#playlist-page #playlist-control button #playlist-button-three-dots,
+#playlist-page #playlist-control button #playlist-button-heart {
+  height: 2rem;
+}
+#playlist-page #playlist-control button #playlist-button-three-dots i,
+#playlist-page #playlist-control button #playlist-button-heart i {
+  color: #8b8f92;
+  font-size: 2rem;
+}
+#playlist-page #playlist-control button #playlist-button-play:hover {
+  transform: scale(1.05);
+}
+#playlist-page #playlist-control button #playlist-button-three-dots:hover i,
+#playlist-page #playlist-control button #playlist-button-heart:hover i {
+  color: #FFF;
+}
+#playlist-page #playlist-list {
+  background-color: #121212;
+}
+#playlist-page #playlist-list #playlist-list-header {
+  background-color: #181818;
+}
+#playlist-page #playlist-list #playlist-list-header > div:first-child {
+  padding: 0 3rem;
+  color: #898989;
+  min-height: 36px;
+  height: 36px;
+}
+#playlist-page #playlist-list #playlist-list-content {
+  padding: 0 3rem;
+  color: #FFF;
+}
+#playlist-page #playlist-list #playlist-list-content a:hover {
+  text-decoration: underline;
+}
+#playlist-page #playlist-list #playlist-list-content .playlist-items {
+  height: 56px;
+  min-height: 56px;
+}
+#playlist-page #playlist-list #playlist-list-content .playlist-items img {
+  width: 40px;
+}
+#playlist-page #playlist-list #playlist-list-content .playlist-items div > a:first-child {
+  color: #FFF;
+  font-size: 1rem;
+}
+#playlist-page #playlist-list #playlist-list-content .playlist-items div > a:last-child {
+  color: #898989;
+  font-size: 0.875rem;
+}
+#playlist-page #playlist-list #playlist-list-content .playlist-list-content-item:hover {
+  background-color: #282828;
+}
+
+/*# sourceMappingURL=playlist.css.map */

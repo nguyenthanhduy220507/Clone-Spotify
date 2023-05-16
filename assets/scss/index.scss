@@ -92,7 +92,7 @@ body {
     flex: 1;
     button {
         opacity: .6;
-        background-color: $background-black;
+        background-color: $background-black-50;
         border-radius: 50%;
         width: 2rem;
         height: 2rem;
@@ -119,8 +119,7 @@ body {
     #sign-up {
         opacity: .6;
         line-height: 2rem;
-        background-color: $background-black;
-        padding: 0.5rem 2rem 0.5rem 0.5rem;
+        background-color: transparent;
         font-weight: 700;
     }
     #sign-up:hover {
@@ -252,7 +251,7 @@ body {
             width: 100%;
             background-color: $background-black;
             gap: 1rem;
-            div {
+            span:first-child {
                 width: 1.5rem;
                 height: 1.5rem;
                 // border: 0px;
@@ -287,7 +286,7 @@ body {
     }
 }
 #user-settings {
-    .cookies {
+    .cookie {
         margin: 2rem 0;
         padding: 0 1.5rem;
         a {

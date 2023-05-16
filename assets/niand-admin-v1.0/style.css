@@ -1,0 +1,72 @@
+@font-face {
+  font-family: 'niand-admin';
+  src:  url('fonts/niand-admin.eot?d2cmgv');
+  src:  url('fonts/niand-admin.eot?d2cmgv#iefix') format('embedded-opentype'),
+    url('fonts/niand-admin.ttf?d2cmgv') format('truetype'),
+    url('fonts/niand-admin.woff?d2cmgv') format('woff'),
+    url('fonts/niand-admin.svg?d2cmgv#niand-admin') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="niand-icon-"], [class*=" niand-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'niand-admin' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.niand-icon-trashcan:before {
+  content: "\e902";
+}
+.niand-icon-delete:before {
+  content: "\e902";
+}
+.niand-icon-edit:before {
+  content: "\e903";
+}
+.niand-icon-update:before {
+  content: "\e903";
+}
+.niand-icon-music:before {
+  content: "\f001";
+}
+.niand-icon-star:before {
+  content: "\f006";
+}
+.niand-icon-user:before {
+  content: "\f007";
+}
+.niand-icon-cog:before {
+  content: "\f013";
+}
+.niand-icon-gear:before {
+  content: "\f013";
+}
+.niand-icon-chevron-left:before {
+  content: "\f053";
+}
+.niand-icon-chevron-right:before {
+  content: "\f054";
+}
+.niand-icon-group:before {
+  content: "\f0c0";
+}
+.niand-icon-users:before {
+  content: "\f0c0";
+}
+.niand-icon-music-album:before {
+  content: "\e900";
+}
+.niand-icon-playlist:before {
+  content: "\e901";
+}

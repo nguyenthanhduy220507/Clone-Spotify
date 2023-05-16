@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'niand-icomoon';
-  src:  url('fonts/niand-icomoon.eot?wsayni');
-  src:  url('fonts/niand-icomoon.eot?wsayni#iefix') format('embedded-opentype'),
-    url('fonts/niand-icomoon.ttf?wsayni') format('truetype'),
-    url('fonts/niand-icomoon.woff?wsayni') format('woff'),
-    url('fonts/niand-icomoon.svg?wsayni#niand-icomoon') format('svg');
+  src:  url('fonts/niand-icomoon.eot?u6pnne');
+  src:  url('fonts/niand-icomoon.eot?u6pnne#iefix') format('embedded-opentype'),
+    url('fonts/niand-icomoon.ttf?u6pnne') format('truetype'),
+    url('fonts/niand-icomoon.woff?u6pnne') format('woff'),
+    url('fonts/niand-icomoon.svg?u6pnne#niand-icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.niand-icon-spotify-mic:before {
+  content: "\e90a";
+}
 .niand-icon-spotify-clock:before {
   content: "\e903";
 }
@@ -90,9 +93,6 @@
 }
 .niand-icon-spotify-loudspeaker:before {
   content: "\e909";
-}
-.niand-icon-spotify-mic:before {
-  content: "\e90a";
 }
 .niand-icon-spotify-mix:before {
   content: "\e90b";

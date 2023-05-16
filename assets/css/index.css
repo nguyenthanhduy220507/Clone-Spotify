@@ -77,7 +77,7 @@ body #main {
 }
 #action-buttons button {
   opacity: 0.6;
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
   width: 2rem;
   height: 2rem;
@@ -106,8 +106,7 @@ body #main {
 #sign-up-in #sign-up {
   opacity: 0.6;
   line-height: 2rem;
-  background-color: #000;
-  padding: 0.5rem 2rem 0.5rem 0.5rem;
+  background-color: transparent;
   font-weight: 700;
 }
 #sign-up-in #sign-up:hover {
@@ -236,12 +235,12 @@ body #main {
   background-color: #000;
   gap: 1rem;
 }
-#user-actions .action-button button div {
+#user-actions .action-button button span:first-child {
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 0.125rem;
 }
-#user-actions .action-button button div i {
+#user-actions .action-button button span:first-child i {
   font-size: 0.75rem;
   font-weight: 600;
 }
@@ -267,16 +266,16 @@ body #main {
   opacity: 1;
 }
 
-#user-settings .cookies {
+#user-settings .cookie {
   margin: 2rem 0;
   padding: 0 1.5rem;
 }
-#user-settings .cookies a {
+#user-settings .cookie a {
   opacity: 0.6;
   text-decoration: none;
   font-size: 0.6875rem;
 }
-#user-settings .cookies a:hover {
+#user-settings .cookie a:hover {
   opacity: 1;
   text-decoration: underline;
 }

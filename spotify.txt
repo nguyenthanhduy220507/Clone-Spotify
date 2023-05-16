@@ -1,0 +1,70 @@
+CREATE TABLE users (
+  user_id INT NOT NULL AUTO_INCREMENT,
+  username VARCHAR(50) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  day_of_birth VARCHAR(255) NOT NULL,
+  gender VARCHAR(10) NOT NULL,
+  type TEXT NOT NULL,
+  PRIMARY KEY (user_id)
+);
+
+CREATE TABLE playlists (
+  playlist_id INT NOT NULL AUTO_INCREMENT,
+  playlist_name VARCHAR(255) NOT NULL,
+  playlists_description TEXT,
+  playlists_user_id INT NOT NULL,
+  playlists_image_url TEXT NOT NULL,
+  PRIMARY KEY (playlist_id),
+  FOREIGN KEY (playlists_user_id) REFERENCES users(user_id)
+);
+
+CREATE TABLE artists (
+  artist_id INT NOT NULL AUTO_INCREMENT,
+  artist_name VARCHAR(255) NOT NULL,
+  artist_description TEXT NOT NULL,
+  artist_image_url TEXT NOT NULL,
+  PRIMARY KEY (artist_id)
+);
+
+CREATE TABLE albums (
+  album_id INT NOT NULL AUTO_INCREMENT,
+  album_title VARCHAR(255) NOT NULL,
+  album_artist_id INT NOT NULL,
+  album_release_date DATE NOT NULL,
+  album_image_url TEXT NOT NULL,
+  PRIMARY KEY (album_id),
+  FOREIGN KEY (album_artist_id) REFERENCES artists(artist_id)
+);
+
+CREATE TABLE songs (
+  song_id INT NOT NULL AUTO_INCREMENT,
+  song_title VARCHAR(255) NOT NULL,
+  song_artist_id INT NOT NULL,
+  song_album_id INT NOT NULL,
+  song_image_url TEXT NOT NULL,
+  song_url TEXT NOT NULL,
+  song_duration INT NOT NULL,
+  PRIMARY KEY (song_id),
+  FOREIGN KEY (song_artist_id) REFERENCES artists(artist_id),
+  FOREIGN KEY (song_album_id) REFERENCES albums(album_id)
+);
+
+CREATE TABLE song_playlist (
+  song_id INT NOT NULL,
+  playlist_id INT NOT NULL,
+  song_order INT NOT NULL,
+  PRIMARY KEY (song_id, playlist_id),
+  FOREIGN KEY (song_id) REFERENCES songs(song_id),
+  FOREIGN KEY (playlist_id) REFERENCES playlists(playlist_id)
+);
+
+CREATE TABLE song_listen_history (
+  listen_id INT NOT NULL AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  song_id INT NOT NULL,
+  listen_date DATETIME NOT NULL,
+  PRIMARY KEY (listen_id),
+  FOREIGN KEY (user_id) REFERENCES users(user_id),
+  FOREIGN KEY (song_id) REFERENCES songs(song_id)
+);

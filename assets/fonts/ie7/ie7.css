@@ -1,3 +1,6 @@
+.niand-icon-spotify-mic {
+  *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe90a;');
+}
 .niand-icon-spotify-clock {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe903;');
 }
@@ -63,9 +66,6 @@
 }
 .niand-icon-spotify-loudspeaker {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe909;');
-}
-.niand-icon-spotify-mic {
-  *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe90a;');
 }
 .niand-icon-spotify-mix {
   *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe90b;');

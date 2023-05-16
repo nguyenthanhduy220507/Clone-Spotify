@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/images/spotify.ico">
+    <meta property="og:image" content="./assets/images/spotify.png">
+    <title>Spotify - Trình phát trên web</title>
+    <!-- Icon Css -->
+    <link rel="stylesheet" href="./assets/fonts/style.css">
+    <!--[if lt IE 8]><!-->
+    <link rel="stylesheet" href="./assets/fonts/ie7/ie7.css">
+    <!--<![endif]-->
+    <!-- Bootstrap 5.3.0 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <!-- CSS - SCSS -->
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <link rel="stylesheet" href="./assets/css/playlist.css">
+</head>
+
+<body>
+    <div id="main" class="d-grid">
+        <header id="top-bar">
+            <div class="d-flex align-items-center justify-content-between gap-3">
+                <div id="action-buttons" class="d-flex flex-shrink-1">
+                    <button type="button" title="Quay lại" class="d-flex justify-content-center align-items-center">
+                        <i class="niand-icon-spotify-left"></i>
+                    </button>
+                    <button type="button" title="Tiếp theo" class="d-flex justify-content-center align-items-center">
+                        <i class="niand-icon-spotify-right"></i>
+                    </button>
+                </div>
+                <div class="btn-nav flex-shrink-1"><a href="#" class="text-white">Premium</a></div>
+                <div class="btn-nav flex-shrink-1"><a href="#" class="text-white">Hỗ trợ</a></div>
+                <div class="btn-nav flex-shrink-1"><a href="#" class="text-white">Tải xuống</a></div>
+                <div id="vertical-line"></div>
+                <div id="sign-up-in" class="d-flex align-items-center flex-shrink-1">
+                    <button id="sign-up" type="button" class="text-white me-4">Đăng ký</button>
+                    <button id="sign-in" type="button" class="rounded-5">Đăng nhập</button>
+                </div>
+            </div>
+        </header>
+
+        <main id="main-view">
+            <section id="playlist-page" class="my-scroll">
+                <div id="playlist-content" class="d-flex">
+                    <img class="img-fluid" src="./assets/images/ab67706f00000002ca5a7517156021292e5663a6.jfif" alt="ảnh">
+                    <div id="playlist-content-header" class="d-flex flex-column justify-content-end flex-grow-1">
+                        <span class="d-block w-100 mb-1">Playlist</span>
+                        <span class="d-block w-100">Peaceful Piano</span>
+                        <span class="d-block w-100">Relax and indulge with beautiful piano pieces</span>
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="d-flex align-items-center gap-1">
+                                <figure class="m-0"><i class="niand-icon-spotify"></i></figure>
+                                <a href="#">Spotify</a>
+                            </div>
+                            <span>7.010.774 lượt thích</span>
+                            <span>302 bài hát, <span>khoảng 11 giờ</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="playlist-control" class="d-flex gap-4">
+                    <button type="button" class="d-block">
+                        <div id="playlist-button-play" class="d-flex justify-content-center align-items-center rounded-circle">
+                            <i class="niand-icon-spotify-play"></i>
+                        </div>
+                    </button>
+                    <button type="button" class="d-flex justify-content-center align-items-center">
+                        <div id="playlist-button-heart">
+                            <i class="niand-icon-spotify-heart-empty"></i>
+                        </div>
+                    </button>
+                    <button type="button" class="d-flex justify-content-center align-items-center">
+                        <div id="playlist-button-three-dots">
+                            <i class="niand-icon-spotify-three-dots"></i>
+                        </div>
+                    </button>
+                </div>
+                <div id="playlist-list" class="mb-5">
+                    <div id="playlist-list-header">
+                        <div class="row align-items-center">
+                            <div class="col-1 text-center">#</div>
+                            <div class="col-4">Tiêu đề</div>
+                            <div class="col-3">Album</div>
+                            <div class="col-2">Ngày thêm</div>
+                            <div class="col-2 text-center"><i class="niand-icon-spotify-clock"></i></div>
+                        </div>
+                    </div>
+                    <div id="playlist-list-content" class="mt-3">
+                        <div class="row align-items-center playlist-list-content-item">
+                            <div class="col-1 text-center">1</div>
+                            <div class="col-4 playlist-items d-flex align-items-center">
+                                <div class="d-flex gap-2 align-items-center">
+                                    <img class="img-fluid" src="https://i.scdn.co/image/ab67616d0000485128ccaf8cb23d857cb9361ec4" alt="ảnh">
+                                    <div class="flex-grow-1">
+                                        <a href="#" class="d-block">Tjärnheden</a>
+                                        <a href="#" class="d-block">Farsjön</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <a href="#" class="text-white">Fjäderlätt</a>
+                            </div>
+                            <div class="col-2">1 tuần trước</div>
+                            <div class="col-2 text-center">
+                                <span class="text-white">1:40</span>
+                            </div>
+                        </div>
+                        <div class="row align-items-center playlist-list-content-item">
+                            <div class="col-1 text-center">1</div>
+                            <div class="col-4 playlist-items d-flex align-items-center">
+                                <div class="d-flex gap-2 align-items-center">
+                                    <img class="img-fluid" src="https://i.scdn.co/image/ab67616d0000485128ccaf8cb23d857cb9361ec4" alt="ảnh">
+                                    <div class="flex-grow-1">
+                                        <a href="#" class="d-block">Tjärnheden</a>
+                                        <a href="#" class="d-block">Farsjön</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <a href="#" class="text-white">Fjäderlätt</a>
+                            </div>
+                            <div class="col-2">1 tuần trước</div>
+                            <div class="col-2 text-center">
+                                <span class="text-white">1:40</span>
+                            </div>
+                        </div>
+                        <div class="row align-items-center playlist-list-content-item">
+                            <div class="col-1 text-center">1</div>
+                            <div class="col-4 playlist-items d-flex align-items-center">
+                                <div class="d-flex gap-2 align-items-center">
+                                    <img class="img-fluid" src="https://i.scdn.co/image/ab67616d0000485128ccaf8cb23d857cb9361ec4" alt="ảnh">
+                                    <div class="flex-grow-1">
+                                        <a href="#" class="d-block">Tjärnheden</a>
+                                        <a href="#" class="d-block">Farsjön</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <a href="#" class="text-white">Fjäderlätt</a>
+                            </div>
+                            <div class="col-2">1 tuần trước</div>
+                            <div class="col-2 text-center">
+                                <span class="text-white">1:40</span>
+                            </div>
+                        </div>
+                        <div class="row align-items-center playlist-list-content-item">
+                            <div class="col-1 text-center">1</div>
+                            <div class="col-4 playlist-items d-flex align-items-center">
+                                <div class="d-flex gap-2 align-items-center">
+                                    <img class="img-fluid" src="https://i.scdn.co/image/ab67616d0000485128ccaf8cb23d857cb9361ec4" alt="ảnh">
+                                    <div class="flex-grow-1">
+                                        <a href="#" class="d-block">Tjärnheden</a>
+                                        <a href="#" class="d-block">Farsjön</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <a href="#" class="text-white">Fjäderlätt</a>
+                            </div>
+                            <div class="col-2">1 tuần trước</div>
+                            <div class="col-2 text-center">
+                                <span class="text-white">1:40</span>
+                            </div>
+                        </div>
+                        <div class="row align-items-center playlist-list-content-item">
+                            <div class="col-1 text-center">1</div>
+                            <div class="col-4 playlist-items d-flex align-items-center">
+                                <div class="d-flex gap-2 align-items-center">
+                                    <img class="img-fluid" src="https://i.scdn.co/image/ab67616d0000485128ccaf8cb23d857cb9361ec4" alt="ảnh">
+                                    <div class="flex-grow-1">
+                                        <a href="#" class="d-block">Tjärnheden</a>
+                                        <a href="#" class="d-block">Farsjön</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <a href="#" class="text-white">Fjäderlätt</a>
+                            </div>
+                            <div class="col-2">1 tuần trước</div>
+                            <div class="col-2 text-center">
+                                <span class="text-white">1:40</span>
+                            </div>
+                        </div>
+                        <div class="row align-items-center playlist-list-content-item">
+                            <div class="col-1 text-center">1</div>
+                            <div class="col-4 playlist-items d-flex align-items-center">
+                                <div class="d-flex gap-2 align-items-center">
+                                    <img class="img-fluid" src="https://i.scdn.co/image/ab67616d0000485128ccaf8cb23d857cb9361ec4" alt="ảnh">
+                                    <div class="flex-grow-1">
+                                        <a href="#" class="d-block">Tjärnheden</a>
+                                        <a href="#" class="d-block">Farsjön</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <a href="#" class="text-white">Fjäderlätt</a>
+                            </div>
+                            <div class="col-2">1 tuần trước</div>
+                            <div class="col-2 text-center">
+                                <span class="text-white">1:40</span>
+                            </div>
+                        </div>
+                        <div class="row align-items-center playlist-list-content-item">
+                            <div class="col-1 text-center">1</div>
+                            <div class="col-4 playlist-items d-flex align-items-center">
+                                <div class="d-flex gap-2 align-items-center">
+                                    <img class="img-fluid" src="https://i.scdn.co/image/ab67616d0000485128ccaf8cb23d857cb9361ec4" alt="ảnh">
+                                    <div class="flex-grow-1">
+                                        <a href="#" class="d-block">Tjärnheden</a>
+                                        <a href="#" class="d-block">Farsjön</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <a href="#" class="text-white">Fjäderlätt</a>
+                            </div>
+                            <div class="col-2">1 tuần trước</div>
+                            <div class="col-2 text-center">
+                                <span class="text-white">1:40</span>
+                            </div>
+                        </div>
+                        <div class="row align-items-center playlist-list-content-item">
+                            <div class="col-1 text-center">1</div>
+                            <div class="col-4 playlist-items d-flex align-items-center">
+                                <div class="d-flex gap-2 align-items-center">
+                                    <img class="img-fluid" src="https://i.scdn.co/image/ab67616d0000485128ccaf8cb23d857cb9361ec4" alt="ảnh">
+                                    <div class="flex-grow-1">
+                                        <a href="#" class="d-block">Tjärnheden</a>
+                                        <a href="#" class="d-block">Farsjön</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <a href="#" class="text-white">Fjäderlätt</a>
+                            </div>
+                            <div class="col-2">1 tuần trước</div>
+                            <div class="col-2 text-center">
+                                <span class="text-white">1:40</span>
+                            </div>
+                        </div>
+                        <div class="row align-items-center playlist-list-content-item">
+                            <div class="col-1 text-center">1</div>
+                            <div class="col-4 playlist-items d-flex align-items-center">
+                                <div class="d-flex gap-2 align-items-center">
+                                    <img class="img-fluid" src="https://i.scdn.co/image/ab67616d0000485128ccaf8cb23d857cb9361ec4" alt="ảnh">
+                                    <div class="flex-grow-1">
+                                        <a href="#" class="d-block">Tjärnheden</a>
+                                        <a href="#" class="d-block">Farsjön</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <a href="#" class="text-white">Fjäderlätt</a>
+                            </div>
+                            <div class="col-2">1 tuần trước</div>
+                            <div class="col-2 text-center">
+                                <span class="text-white">1:40</span>
+                            </div>
+                        </div>
+                        <div class="row align-items-center playlist-list-content-item">
+                            <div class="col-1 text-center">1</div>
+                            <div class="col-4 playlist-items d-flex align-items-center">
+                                <div class="d-flex gap-2 align-items-center">
+                                    <img class="img-fluid" src="https://i.scdn.co/image/ab67616d0000485128ccaf8cb23d857cb9361ec4" alt="ảnh">
+                                    <div class="flex-grow-1">
+                                        <a href="#" class="d-block">Tjärnheden</a>
+                                        <a href="#" class="d-block">Farsjön</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <a href="#" class="text-white">Fjäderlätt</a>
+                            </div>
+                            <div class="col-2">1 tuần trước</div>
+                            <div class="col-2 text-center">
+                                <span class="text-white">1:40</span>
+                            </div>
+                        </div>
+                        <div class="row align-items-center playlist-list-content-item">
+                            <div class="col-1 text-center">1</div>
+                            <div class="col-4 playlist-items d-flex align-items-center">
+                                <div class="d-flex gap-2 align-items-center">
+                                    <img class="img-fluid" src="https://i.scdn.co/image/ab67616d0000485128ccaf8cb23d857cb9361ec4" alt="ảnh">
+                                    <div class="flex-grow-1">
+                                        <a href="#" class="d-block">Tjärnheden</a>
+                                        <a href="#" class="d-block">Farsjön</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <a href="#" class="text-white">Fjäderlätt</a>
+                            </div>
+                            <div class="col-2">1 tuần trước</div>
+                            <div class="col-2 text-center">
+                                <span class="text-white">1:40</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div id="side-bar" class="d-flex flex-column">
+            <div id="logo">
+                <div class="w-100">
+                    <a href="./index.html" class="text-white">
+                        <i class="niand-icon-spotify-logo"></i>
+                    </a>
+                </div>
+            </div>
+            <nav id="menu" class="w-100">
+                <ul>
+                    <li>
+                        <a href="#" class="active text-white d-flex align-items-center">
+                            <i class="niand-icon-spotify-home"></i>
+                            <span>Trang chủ</span></a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-white d-flex align-items-center">
+                            <i class="niand-icon-spotify-search"></i>
+                            <span>Tìm kiếm</span></a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-white d-flex align-items-center">
+                            <i class="niand-icon-spotify-library"></i>
+                            <span>Thư viện</span></a>
+                    </li>
+                </ul>
+            </nav>
+            <div id="user-actions" class="d-flex flex-column flex-grow-1">
+                <div class="mt-4">
+                    <div class="w-100 action-button">
+                        <button type="button" class="d-flex align-items-center">
+                            <div class="playlist-add">
+                                <i class="niand-icon-spotify-add"></i>
+                            </div>
+                            <span>Tạo playlist</span>
+                        </button>
+                    </div>
+                    <div class="w-100 action-button">
+                        <button type="button" class="d-flex align-items-center">
+                            <div class="liked-song">
+                                <i class="niand-icon-spotify-heart"></i>
+                            </div>
+                            <span>Bài hát đã thích</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="user-settings">
+                <div class="cookie w-100">
+                    <a href="#" class="text-white">Cookie</a>
+                </div>
+                <div class="languages">
+                    <button type="button" class="d-flex align-items-center">
+                        <i class="niand-icon-spotify-internet"></i>
+                        <span>Tiếng Việt</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div id="now-playing-bar" class="d-flex align-items-center">
+                <div id="data">
+                    <h6>xem trước spotify</h6>
+                    <p>Đăng ký để nghe không giới hạn các bài hát và podcast với quảng cáo không thường xuyên. Không cần
+                        thẻ tín dụng.</p>
+                </div>
+                <div id="btn-sign-up">
+                    <button type="button" class="rounded-5">Đăng ký miễn phí</button>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="./assets/js/effect.js"></script>
+</body>
+
+</html>

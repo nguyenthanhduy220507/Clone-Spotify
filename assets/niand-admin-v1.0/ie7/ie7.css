@@ -1,0 +1,46 @@
+.niand-icon-trashcan {
+  *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe902;');
+}
+.niand-icon-delete {
+  *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe902;');
+}
+.niand-icon-edit {
+  *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe903;');
+}
+.niand-icon-update {
+  *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe903;');
+}
+.niand-icon-music {
+  *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf001;');
+}
+.niand-icon-star {
+  *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf006;');
+}
+.niand-icon-user {
+  *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf007;');
+}
+.niand-icon-cog {
+  *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf013;');
+}
+.niand-icon-gear {
+  *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf013;');
+}
+.niand-icon-chevron-left {
+  *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf053;');
+}
+.niand-icon-chevron-right {
+  *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf054;');
+}
+.niand-icon-group {
+  *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf0c0;');
+}
+.niand-icon-users {
+  *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf0c0;');
+}
+.niand-icon-music-album {
+  *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe900;');
+}
+.niand-icon-playlist {
+  *zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe901;');
+}
+

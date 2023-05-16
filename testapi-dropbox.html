@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs"
+        data-app-key="hkfz26murxhut0d"></script>
+</head>
+
+<body>
+    <input onclick="openDropboxChooser()" type="button" value="Nhấn vào có thưởng">
+    <script>
+        // Gọi hàm để mở cửa sổ Dropbox Chooser
+        function openDropboxChooser() {
+            Dropbox.choose({
+                success: function (files) {
+                    // Xử lý thành công
+                    console.log(files);
+                    // files là một mảng chứa thông tin về các file đã được chọn từ Dropbox
+                },
+                cancel: function () {
+                    // Xử lý khi người dùng hủy bỏ
+                    console.log("Hủy bỏ");
+                },
+                linkType: "direct", // Chỉ chọn file (không thư mục)
+                multiselect: false, // Cho phép chọn một file duy nhất
+            });
+        }
+    </script>
+</body>
+
+</html>

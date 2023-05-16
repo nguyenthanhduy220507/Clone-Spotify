@@ -13,6 +13,7 @@
 		el.innerHTML = '<span style="font-family: \'niand-icomoon\'">' + entity + '</span>' + html;
 	}
 	var icons = {
+		'niand-icon-spotify-mic': '&#xe90a;',
 		'niand-icon-spotify-clock': '&#xe903;',
 		'niand-icon-spotify-close': '&#xe910;',
 		'niand-icon-spotify-desc': '&#xe916;',
@@ -35,7 +36,6 @@
 		'niand-icon-spotify-left': '&#xe907;',
 		'niand-icon-spotify-library': '&#xe908;',
 		'niand-icon-spotify-loudspeaker': '&#xe909;',
-		'niand-icon-spotify-mic': '&#xe90a;',
 		'niand-icon-spotify-mix': '&#xe90b;',
 		'niand-icon-spotify-next': '&#xe90c;',
 		'niand-icon-spotify-play': '&#xe90d;',

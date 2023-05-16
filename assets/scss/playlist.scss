@@ -1,0 +1,127 @@
+#playlist-page {
+    overflow: scroll;
+    overflow-x: hidden;
+    width: 100%;
+    max-height: calc(100vh - 8.5rem);
+    background-color: #121212;
+    #playlist-content {
+        background-color: #627181;
+        padding: 1.5rem 2rem;
+        gap: 1.5rem;
+        img {
+            width: 232px;
+            box-shadow: inset;
+        }
+        #playlist-content-header {
+            color: #FFF;
+            >span:first-child {
+                font-size: 0.875rem;
+                font-weight: 700;
+            }
+            >span:nth-child(2) {
+                font-size: 5rem;
+                font-weight: 900;
+                vertical-align: baseline;
+            }
+            >span:nth-child(3) {
+                font-size: 0.875rem;
+                color: #c7ced3;
+            }
+            >div {
+                margin-top: 0.5rem;
+                font-size: 0.875rem;
+                figure {
+                    font-size: 1.5rem;
+                }
+                a {
+                    color: #FFF;
+                    font-weight: 600;
+                }
+                a:hover {
+                    text-decoration: underline;
+                }
+                >span::before {
+                    content: "•";
+                    margin: 0px 4px;
+                }
+                >span {
+                    font-weight: 500;
+                    span {
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
+    }
+    #playlist-control {
+        padding: 1.5rem 2rem;
+        background-color: #323a42;
+        button {
+            background-color: #323a42;
+            #playlist-button-play {
+                background-color: #1fdf64;
+                width: 56px;
+                height: 56px;
+                i {
+                    font-size: 1.5rem;
+                }
+            }
+            #playlist-button-three-dots,
+            #playlist-button-heart {
+                height: 2rem;
+                i {
+                    color: #8b8f92;
+                    font-size: 2rem;
+                }
+            }
+            #playlist-button-play:hover {
+                transform: scale(1.05);
+            }
+            #playlist-button-three-dots:hover,
+            #playlist-button-heart:hover {
+                i {
+                    color: #FFF;
+                }
+            }
+        }
+    }
+    #playlist-list {
+        background-color: #121212;
+        #playlist-list-header {
+            background-color: #181818;
+            >div:first-child {
+                padding: 0 3rem;
+                color: #898989;
+                min-height: 36px;
+                height: 36px;
+            }
+        }
+        #playlist-list-content {
+            padding: 0 3rem;
+            color: #FFF;
+            a:hover {
+                text-decoration: underline;
+            }
+            .playlist-items {
+                height: 56px;
+                min-height: 56px;
+                img {
+                    width: 40px;
+                }
+                div {
+                    >a:first-child {
+                        color: #FFF;
+                        font-size: 1rem;
+                    }
+                    >a:last-child {
+                        color: #898989;
+                        font-size: 0.875rem;
+                    }
+                }
+            }
+            .playlist-list-content-item:hover {
+                background-color: #282828;
+            }
+        }
+    }
+}
