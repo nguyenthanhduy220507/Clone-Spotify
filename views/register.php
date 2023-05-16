@@ -119,7 +119,7 @@
                 var pattern_name = /^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễếệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹý ]+$/;
                 if (!pattern_name.test(username)) {
                     let html = `<div class="alert alert-danger mt-1">
-                                    <strong>Failed!</strong> Username must be at least 6 characters and contain no special characters.
+                                    <strong>Failed!</strong> Username must be contain no special characters.
                                 </div>`
                     $('#username-message').html(html);
                     return;
