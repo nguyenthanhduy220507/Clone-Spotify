@@ -53,6 +53,8 @@ body #main {
   grid-template-areas: "side-bar top-bar top-bar" "side-bar main-view main-view" "now-playing-bar now-playing-bar now-playing-bar";
 }
 
+
+    
 #top-bar {
   transition: opacity 1s ease-in-out;
   grid-area: top-bar;
@@ -99,15 +101,29 @@ body #main {
   margin: 0 1rem;
   background: #fff;
 }
+/* viết từ đây */
+#sign-up-in #icon {
+  line-height: 2rem;
+  background-color: #000;
+  padding: 0rem 1rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+}
+#sign-up-in #icon:hover {
+  transform: scale(1.05);
+}
+
+/*  đến đây  */
+
 
 #sign-up-in {
   height: 2.5px;
 }
 #sign-up-in #sign-up {
-  opacity: 0.6;
   line-height: 2rem;
-  background-color: #000;
-  padding: 0.5rem 2rem 0.5rem 0.5rem;
+  /* background-color: black; */
+  padding: 0rem 1rem;
   font-weight: 700;
 }
 #sign-up-in #sign-up:hover {
@@ -116,15 +132,16 @@ body #main {
 }
 #sign-up-in #sign-in {
   line-height: 2rem;
-  background-color: white;
-  padding: 0.5rem 2rem;
-  color: black;
+  background-color: black;
+  padding: 0rem 1rem;
+  color: white;
   font-size: 1rem;
   font-weight: 700;
 }
 #sign-up-in #sign-in:hover {
   transform: scale(1.05);
 }
+
 
 #main-view {
   grid-area: main-view;
@@ -283,6 +300,7 @@ body #main {
 #user-settings .languages {
   margin: 0 0 2rem;
   padding: 0 1.5rem;
+  margin-bottom: 100px;
 }
 #user-settings .languages button {
   background-color: black;
@@ -359,3 +377,187 @@ footer #now-playing-bar #now-playing-bar-right .volumn-bar {
 }
 
 /*# sourceMappingURL=index_login.css.map */
+
+.hightlightWord:hover {
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.card-text{
+  color: lightgray;
+  font-size: x-small;
+}
+
+#menu{
+  padding-left: 0;
+  z-index: 1;
+}
+
+/* border-bnt*/
+.bd-btn{
+  border: 1px solid black;
+}
+/* Ẩn nút "play" mặc định */
+.play-btn {
+display: none;
+border-radius: 50%;
+background-color: #4CAF50;
+color: white;
+padding: 16px 20px;
+text-align: center;
+text-decoration: none;
+font-size: 3px;
+margin: 4px 2px;
+cursor: pointer;
+}
+
+
+/* Hiển thị nút "play" khi có lớp "show" */
+.play-btn.show {
+background-color: #1ed760;
+display: block;
+}
+/* Hiện play ở giữa card */
+.play-btn-wrapper {
+
+position: absolute; /* hoặc sử dụng relative nếu cần */
+top: 39%;
+left: 72%;
+transform: translate(-50%, -50%);
+width: 20%;
+height: 20%;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+.play-btn-wrapper2 {
+
+  position: absolute; /* hoặc sử dụng relative nếu cần */
+  top: 42%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  width: 20%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  }
+
+/* background sang */
+.card.bg-bg {
+background-color: #282828;
+transition: background-color 0.5s ease;
+cursor: pointer;
+}
+
+.card.bg-bg:hover {
+background-color: gray;
+}
+
+
+#progress-bar {
+width: 100%;
+height: 10px;
+background-color: hsla(0,0%,100%,.3);
+position: relative;
+margin-top: 20px;
+}
+
+#progress-bar-fill {
+height: 100%;
+background-color: #fff;
+position: absolute;
+top: 0;
+left: 0;
+width: 0;
+transition: width 0.1s linear;
+}
+#progress-bar-time{
+color: #fff;
+margin-top: 25%;
+}
+#progress-bar-time-full{
+color: #fff;
+margin-top: 25%;
+}
+
+#main-view {
+  grid-area: main-view;
+  max-height: 600px; 
+  overflow-y: scroll; 
+}
+#main-view::-webkit-scrollbar {
+  display: none;
+}
+
+/* Thiết lập các quy tắc CSS cho các khung hình nhỏ hơn 1101px */
+@media (max-width: 1100px) {
+  .t1{
+    display: none;
+  }
+  
+}
+
+@media (max-width: 768px) {
+    #anh{
+      margin-left: 10px;
+      height: 55px;
+      width: 100px;
+      
+    }
+   
+    .player-controls-center{
+      margin-left: 100px;
+    }
+  
+}
+
+@media (max-width: 600px) {
+  #anh{
+    margin-left: 10px;
+    height: 55px;
+    width: 100px;
+    
+  }
+  
+  .player-controls-center{
+    margin-left: 130px;
+  }
+  #now-playing-bar-center{
+    margin-left: 80px;
+  }
+  .playback-bar{
+    margin-left: 20px;
+  }
+  .title{
+    width: 140px;
+  }
+}
+
+@media (max-width: 415px) {
+  #anh{
+    margin-left: 10px;
+    height: 55px;
+    width: 100px;
+    
+  }
+  
+  .player-controls-center{
+    margin-left: 120px;
+  }
+  #now-playing-bar-center{
+    margin-left: 80px;
+  }
+  .playback-bar{
+    margin-left: 10px;
+  }
+  .title{
+    width: 70px;
+  }
+  #sign-in{
+    display: none;
+  }
+}
+
