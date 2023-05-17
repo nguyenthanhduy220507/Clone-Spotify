@@ -67,12 +67,46 @@
             <div class="mb-3 mt-3">
                 <label for="image-url">Image url:</label>
                 <input type="url" class="form-control" value="<?php if (isset($data['song'])) echo $data['song']->getSongImageUrl(); ?>" id="image-url" placeholder="Enter image url" name="image-url" required>
-                <input id="chooser-image" class="btn btn-success mt-1" type="button" value="Chooser">
+                <!-- <input id="chooser-image" class="btn btn-success mt-1" type="button" value="Chooser"> -->
+                <div id="screen-image"></div>
+                <script>
+                    var options = {
+                        // Shared link to Dropbox file
+                        link: "https://www.dropbox.com/scl/fo/fj4zbvtfjaz38d1a6laxh/h?dl=0&rlkey=3di3qqnglaadmjq2br7f5oggq",
+                        file: {
+                            // Sets the zoom mode for embedded files. Defaults to 'best'.
+                            zoom: "best" // or "fit"
+                        },
+                        folder: {
+                            // Sets the view mode for embedded folders. Defaults to 'list'.
+                            view: "list", // or "grid"
+                            headerSize: "normal" // or "small"
+                        }
+                    }
+                    Dropbox.embed(options, document.getElementById('screen-image'));
+                </script>
             </div>
             <div class="mb-3 mt-3">
                 <label for="song-url">Song url:</label>
                 <input type="url" class="form-control" value="<?php if (isset($data['song'])) echo $data['song']->getSongUrl(); ?>" id="song-url" placeholder="Enter song url" name="song-url" required>
-                <input id="chooser-audio" class="btn btn-success mt-1" type="button" value="Chooser">
+                <!-- <input id="chooser-audio" class="btn btn-success mt-1" type="button" value="Chooser"> -->
+                <div id="screen-audio"></div>
+                <script>
+                    var options = {
+                        // Shared link to Dropbox file
+                        link: "https://www.dropbox.com/scl/fo/2ojgz37lercc1djeobmfq/h?dl=0&rlkey=eyyjx1geiav4m2rf2iasvwtnw",
+                        file: {
+                            // Sets the zoom mode for embedded files. Defaults to 'best'.
+                            zoom: "best" // or "fit"
+                        },
+                        folder: {
+                            // Sets the view mode for embedded folders. Defaults to 'list'.
+                            view: "list", // or "grid"
+                            headerSize: "normal" // or "small"
+                        }
+                    }
+                    Dropbox.embed(options, document.getElementById('screen-audio'));
+                </script>
             </div>
             <div class="mb-3 mt-3">
                 <label for="song_duration">Song duration:</label>
@@ -84,24 +118,24 @@
     </div>
     <script>
         $(document).ready(function() {
-            $('#chooser-image').click(function(e) {
-                openDropboxChooser(function(files) {
-                    if (files != null) {
-                        let object = files[0]; // Lấy phần tử đầu tiên trong mảng
-                        let link = object.link;
-                        $('#image-url').val(link);
-                    }
-                });
-            });
-            $('#chooser-audio').click(function(e) {
-                openDropboxChooser(function(files) {
-                    if (files != null) {
-                        let object = files[0]; // Lấy phần tử đầu tiên trong mảng
-                        let link = object.link;
-                        $('#song-url').val(link);
-                    }
-                });
-            });
+            // $('#chooser-image').click(function(e) {
+            //     openDropboxChooser(function(files) {
+            //         if (files != null) {
+            //             let object = files[0]; // Lấy phần tử đầu tiên trong mảng
+            //             let link = object.link;
+            //             $('#image-url').val(link);
+            //         }
+            //     });
+            // });
+            // $('#chooser-audio').click(function(e) {
+            //     openDropboxChooser(function(files) {
+            //         if (files != null) {
+            //             let object = files[0]; // Lấy phần tử đầu tiên trong mảng
+            //             let link = object.link;
+            //             $('#song-url').val(link);
+            //         }
+            //     });
+            // });
             $('#form').submit(function(e) {
                 e.preventDefault(); // prevent form submission
                 var id = $('#id').val();

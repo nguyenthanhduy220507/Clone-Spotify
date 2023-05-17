@@ -60,7 +60,24 @@
             <div class="mb-3 mt-3">
                 <label for="image-url">Image url:</label>
                 <input type="url" class="form-control" id="image-url" value="<?php if (isset($data['playlist'])) echo $data['playlist']->getPlaylistImageUrl(); ?>" placeholder="Enter image url" name="image-url" readonly required>
-                <input id="chooser" class="btn btn-success mt-1" type="button" value="Chooser">
+                <!-- <input id="chooser" class="btn btn-success mt-1" type="button" value="Chooser"> -->
+                <div id="screen-image"></div>
+                <script>
+                    var options = {
+                        // Shared link to Dropbox file
+                        link: "https://www.dropbox.com/scl/fo/fj4zbvtfjaz38d1a6laxh/h?dl=0&rlkey=3di3qqnglaadmjq2br7f5oggq",
+                        file: {
+                            // Sets the zoom mode for embedded files. Defaults to 'best'.
+                            zoom: "best" // or "fit"
+                        },
+                        folder: {
+                            // Sets the view mode for embedded folders. Defaults to 'list'.
+                            view: "list", // or "grid"
+                            headerSize: "normal" // or "small"
+                        }
+                    }
+                    Dropbox.embed(options, document.getElementById('screen-image'));
+                </script>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -68,15 +85,15 @@
     </div>
     <script>
         $(document).ready(function() {
-            $('#chooser').click(function(e) {
-                openDropboxChooser(function(files) {
-                    if (files != null) {
-                        let object = files[0]; // Lấy phần tử đầu tiên trong mảng
-                        let link = object.link;
-                        $('#image-url').val(link);
-                    }
-                });
-            });
+            // $('#chooser').click(function(e) {
+            //     openDropboxChooser(function(files) {
+            //         if (files != null) {
+            //             let object = files[0]; // Lấy phần tử đầu tiên trong mảng
+            //             let link = object.link;
+            //             $('#image-url').val(link);
+            //         }
+            //     });
+            // });
             $('#form').submit(function(e) {
                 e.preventDefault(); // prevent form submission
                 var id = $('#id').val();

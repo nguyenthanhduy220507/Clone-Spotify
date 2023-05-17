@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs"
+        data-app-key="d4x95j5y8f6pv0s"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- include jQuery library -->
+</head>
+
+<body>
+    <input id="fileinput" type="file">
+    <div id="screen-image"></div>
+    <script>
+        var options = {
+            // Shared link to Dropbox file
+            link: "https://www.dropbox.com/scl/fo/fj4zbvtfjaz38d1a6laxh/h?dl=0&rlkey=3di3qqnglaadmjq2br7f5oggq",
+            file: {
+                // Sets the zoom mode for embedded files. Defaults to 'best'.
+                zoom: "best" // or "fit"
+            },
+            folder: {
+                // Sets the view mode for embedded folders. Defaults to 'list'.
+                view: "list", // or "grid"
+                headerSize: "normal" // or "small"
+            }
+        }
+        Dropbox.embed(options, document.getElementById('screen-image'));
+    </script>
+</body>
+
+</html>

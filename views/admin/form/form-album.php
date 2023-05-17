@@ -1,13 +1,13 @@
 <?php
-    require_once "./config/basehref.php";
-    $url = getUrl();
-    if (!isset($_SESSION['username'])) {
+require_once "./config/basehref.php";
+$url = getUrl();
+if (!isset($_SESSION['username'])) {
+    header("Location: ?url=home/index");
+} else {
+    if (!isset($_SESSION['type']) || !$_SESSION['type'] == 'admin') {
         header("Location: ?url=home/index");
-    } else {
-        if (!isset($_SESSION['type']) || !$_SESSION['type'] == 'admin') {
-            header("Location: ?url=home/index");
-        }
     }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +48,7 @@
                 <datalist id="artists">
                     <?php
                     foreach ($data['artists'] as $artist) {
-                        echo '<option value="'.$artist->getArtistId().'">'.$artist->getArtistName().'</option>';
+                        echo '<option value="' . $artist->getArtistId() . '">' . $artist->getArtistName() . '</option>';
                     }
                     ?>
                 </datalist>
@@ -59,8 +59,25 @@
             </div>
             <div class="mb-3 mt-3">
                 <label for="image-url">Image url:</label>
-                <input type="url" class="form-control" id="image-url" value="<?php if (isset($data['album'])) echo $data['album']->getAlbumImageUrl(); ?>" placeholder="Enter image url" name="image-url" readonly required>
-                <input id="chooser" class="btn btn-success mt-1" type="button" value="Chooser">
+                <input type="url" class="form-control" id="image-url" value="<?php if (isset($data['album'])) echo $data['album']->getAlbumImageUrl(); ?>" placeholder="Enter image url" name="image-url" required>
+                <!-- <input id="chooser" class="btn btn-success mt-1" type="button" value="Chooser"> -->
+                <div id="screen-image"></div>
+                <script>
+                    var options = {
+                        // Shared link to Dropbox file
+                        link: "https://www.dropbox.com/scl/fo/fj4zbvtfjaz38d1a6laxh/h?dl=0&rlkey=3di3qqnglaadmjq2br7f5oggq",
+                        file: {
+                            // Sets the zoom mode for embedded files. Defaults to 'best'.
+                            zoom: "best" // or "fit"
+                        },
+                        folder: {
+                            // Sets the view mode for embedded folders. Defaults to 'list'.
+                            view: "list", // or "grid"
+                            headerSize: "normal" // or "small"
+                        }
+                    }
+                    Dropbox.embed(options, document.getElementById('screen-image'));
+                </script>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -68,15 +85,15 @@
     </div>
     <script>
         $(document).ready(function() {
-            $('#chooser').click(function(e) {
-                openDropboxChooser(function(files) {
-                    if (files != null) {
-                        let object = files[0]; // Lấy phần tử đầu tiên trong mảng
-                        let link = object.link;
-                        $('#image-url').val(link);
-                    }
-                });
-            });
+            // $('#chooser').click(function(e) {
+            //     openDropboxChooser(function(files) {
+            //         if (files != null) {
+            //             let object = files[0]; // Lấy phần tử đầu tiên trong mảng
+            //             let link = object.link;
+            //             $('#image-url').val(link);
+            //         }
+            //     });
+            // });
             $('#form').submit(function(e) {
                 e.preventDefault(); // prevent form submission
                 var id = $('#id').val();
