@@ -58,7 +58,7 @@ class Auth extends Controller
             $date = $_POST['date'];
             $gender = $_POST['gender'];
             $type = 'admin';
-            $success = $this->user_model->createUser($username, $hashed_password, $email, $date, $gender, $type);
+            $success = $this->user_model->create($username, $hashed_password, $email, $date, $gender, $type);
             // return JSON response
             header('Content-Type: application/json');
             echo json_encode(array('success' => $success));

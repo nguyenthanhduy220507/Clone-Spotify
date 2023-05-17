@@ -74,10 +74,12 @@ body #main {
 #action-buttons {
   gap: 1rem;
   flex: 1;
+  
 }
+
 #action-buttons button {
   opacity: 0.6;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #000;
   border-radius: 50%;
   width: 2rem;
   height: 2rem;
@@ -89,9 +91,10 @@ body #main {
 #action-buttons button:is(.active) {
   opacity: 1;
 }
-#action-buttons button:hover {
+/* #action-buttons button:hover {
   cursor: not-allowed;
-}
+} */
+
 
 #vertical-line {
   width: 1px;
@@ -108,6 +111,7 @@ body #main {
   line-height: 2rem;
   background-color: transparent;
   font-weight: 700;
+  
 }
 #sign-up-in #sign-up:hover {
   opacity: 1;
@@ -269,6 +273,7 @@ body #main {
 #user-settings .cookie {
   margin: 2rem 0;
   padding: 0 1.5rem;
+  
 }
 #user-settings .cookie a {
   opacity: 0.6;
@@ -280,8 +285,9 @@ body #main {
   text-decoration: underline;
 }
 #user-settings .languages {
-  margin: 0 0 2rem;
+  margin: 0 0 2rem ;
   padding: 0 1.5rem;
+  margin-bottom: 100px;
 }
 #user-settings .languages button {
   background-color: black;
@@ -340,3 +346,157 @@ footer #now-playing-bar #btn-sign-up button:hover {
 }
 
 /*# sourceMappingURL=index.css.map */
+
+
+.hightlightWord:hover {
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.card-text{
+  color: lightgray;
+  font-size: x-small;
+}
+
+#menu{
+  padding-left: 0;
+  z-index: 1;
+}
+
+/* border-bnt*/
+.bd-btn{
+  border: 1px solid black;
+}
+/* Ẩn nút "play" mặc định */
+.play-btn {
+display: none;
+border-radius: 50%;
+background-color: #4CAF50;
+color: white;
+padding: 16px 20px;
+text-align: center;
+text-decoration: none;
+font-size: 3px;
+margin: 4px 2px;
+cursor: pointer;
+}
+
+
+/* Hiển thị nút "play" khi có lớp "show" */
+.play-btn.show {
+background-color: #1ed760;
+display: block;
+}
+/* Hiện play ở giữa card */
+.play-btn-wrapper {
+
+position: absolute; /* hoặc sử dụng relative nếu cần */
+top: 39%;
+left: 73%;
+transform: translate(-50%, -50%);
+width: 30%;
+height: 30%;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+
+/* background sang */
+.card.bg-bg {
+background-color: #282828;
+transition: background-color 0.5s ease;
+cursor: pointer;
+}
+
+.card.bg-bg:hover {
+background-color: gray;
+}
+a{
+  color: white;
+}
+#main-view {
+  grid-area: main-view;
+  max-height: 600px; 
+  overflow-y: scroll; 
+}
+#main-view::-webkit-scrollbar {
+  display: none;
+}
+/* Mobile width < 740px */
+@media only screen and  (max-width: 46.1875em) {
+  
+}
+
+
+/* Mobile width >= 740px and <= 1024px */
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+  
+}
+
+
+/* Thiết lập các quy tắc CSS cho các khung hình nhỏ hơn 1101px */
+@media (max-width: 1100px) {
+  .t1{
+    display: none;
+  }
+  
+}
+
+@media (max-width: 768px) {
+  footer #now-playing-bar #data h6 {
+    font-size: 0.4rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin: 0;
+  }
+  footer #now-playing-bar #data p {
+    font-size: 0.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+}
+
+@media (max-width: 450px) {
+  #sign-up-in #sign-in {
+    background-color: white;
+    color: black;
+    font-size: x-small;
+    font-weight: 700;
+    
+}
+#sign-up-in #sign-up {
+  background-color: black;
+  color: white;
+  font-size: x-small;
+  font-weight: 700;
+  height: 50px;
+}
+  
+  
+}
+@media (max-width: 321px) {
+  #sign-up-in #sign-in {
+    background-color: white;
+    color: black;
+    font-size: 7px;
+    font-weight: 700;
+    height: 50px;
+    width: 120px;
+   
+    
+}
+#sign-up-in #sign-up {
+  background-color: black;
+  color: white;
+  font-size: x-small;
+  font-weight: 700;
+  height: 50px;
+  width: 45px;
+}
+  
+  
+}
