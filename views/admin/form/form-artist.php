@@ -50,7 +50,7 @@
                 <label for="image-url">Image url:</label>
                 <input type="url" class="form-control" id="image-url" value="<?php if (isset($data['artist'])) echo $data['artist']->getArtistImageUrl(); ?>" placeholder="Enter image url" name="image-url" readonly required>
                 <!-- <input id="chooser" class="btn btn-success mt-1" type="button" value="Chooser"> -->
-                <div id="screen-image"></div>
+                <div style="height: 300px;" id="screen-image"></div>
                 <script>
                     var options = {
                         // Shared link to Dropbox file

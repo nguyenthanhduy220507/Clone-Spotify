@@ -2,7 +2,7 @@
     require_once "./config/basehref.php";
     $url = getUrl();
     if (isset($_SESSION['username'])) {
-        header("Location: ?url=home/index_login");
+        header("Location: ?url=playlists/playlist_login/".$data['id']);
     }
 ?>
 <!DOCTYPE html>
@@ -82,8 +82,8 @@
                     <div class="col-lg-12 col-xl-9 my-5 text-white fw-bold" id="title">
                       <div  class="my-5">
                         Playlist
-                       <div  style="font-size: 6rem;">Peaceful Piano</div>
-                       <div >Relax and indulge with beautiful piano pieces</div>
+                       <div  style="font-size: 6rem;"><?php echo $data['playlist']->getPlaylistName(); ?></div>
+                       <div ><?php echo $data['playlist']->getPlaylistDescription(); ?></div>
                        <div> 
                         <img src="/image/ab67757000003b8255c25988a6ac314394d3fbf5.jpg" alt="error"  style="width: 25px; height: 25px;"> Spotify 7.010.830 lượt thích
                         ,302 bài hát <span>khoảng 11 giờ</span>

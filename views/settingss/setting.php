@@ -1,15 +1,15 @@
 <?php
     require_once "./config/basehref.php";
     $url = getUrl();
-    if (!isset($_SESSION['username'])) {
-        header("Location: ?url=artists/artist/" .$data['id']);
+    if (isset($_SESSION['username'])) {
+        header("Location: ?url=home/index_login");
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    
 <?php
         echo "<base href='".$url."'>";
     ?>
@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./assets/images/spotify.ico">
     <meta property="og:image" content="./assets/images/spotify.png">
-    <title>Artist-Login</title>
+    <title>Spotify - Trình phát trên web</title>
     <link rel="stylesheet" href="/css/style.css">
     <!-- Icon Css -->
     <link rel="stylesheet" href="./assets/fonts/style.css">
@@ -33,17 +33,18 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
     <!-- CSS - SCSS -->
-    <link rel="stylesheet" href="/assets/css/artist_login.css">
+    <link rel="stylesheet" href="./assets/css/setting.css">
     <?php
         if (isset($css)) {
             echo $css;
         }
     ?>
+    
 </head>
 
 <body>
     <div id="main" class="d-grid">
-        <header id="top-bar" style="background-color:#34343a">
+        <header id="top-bar" >
             <div class="d-flex align-items-center justify-content-between gap-3">
                 <div id="action-buttons" class="d-flex flex-shrink-1">
                     <button type="button" title="Quay lại" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex justify-content-center align-items-center ">
@@ -95,113 +96,44 @@
 
         <main id="main-view">
             <!-- TODO Nội dung của trang con -->
-            <div class="row  bg-image" style="background-image: url(/image/artist/Adele/Adele-Artist.jpg);">
-                           
+            <div class="row">
+              <div class="col-2">
 
-              <div class="col-12 my-5 text-white fw-bold">
-                <div  class="my-5">
-                  <i class="niand-icon-confirm text-primary"></i> Nghệ sĩ được xác nhận
-                 <div  style="font-size: 6rem;"><?php  echo $data['artist']->getArtistName();?></div>
-
-                 <div class="my-4"> 
-                  <!-- 51.307.561 người nghe hằng tháng -->
-                   </div>
-                </div>
               </div>
-            </div>
-            <div class="row " >
-                      
-              <div class="col-6">
-               <button class="btn play-bttt" > <i class="niand-icon-spotify-play text-black fs-5 "  > </i></button>
-               <button type="button" class="follow">Theo dõi</button>
-               <button class="btn " style="border: 1px solid black; "><i class="niand-icon-spotify-three-dots  hightlight1 my-5 fs-4"  > </i></button>
-              </div>
-             </div>
-             <div class="my-4 fw-bold fs-2 text-white">
-              Phổ biến
-             </div>
-             <!-- Bai 1 -->
-
-             <?php foreach ($data['songs'] as $song) { ?>
-              <div class="row my-3 mx-3 detailHover">
-              <div class=" col-1 text-white d-flex align-items-center justify-content-center">
-              <?php echo $song->getSongId()?>
-              </div>
-              <div class=" col-2">
-                <img class="p-1 img-fluid" src="/image/artist/Adele/adele.jpg " alt="error"  style="height: 60px;">
-              </div>
-              <div class="col-5">
-                <div class="my-1 text-white d-flex align-items-center">
-                  <a href="#"><?php echo $song->getSongTitle() ?></a> 
-                 </div>
+              <div class="col-8 my-5">
+                  <div class="row">
+                      <div class="col-6">
+                          <span class="fw-bolder fs-5 text-white">Cài đặt  </span>
+                      </div>
+                      <div class="col-6 d-flex justify-content-end">
+                          <button id="search-btn" onclick="toggleSearchContainer()">
+                            <i class="niand-icon-spotify-search text-white"></i>
+                          </button>
+                          <div id="search-container" class="search-container">
+                            <input type="text" id="search-input" placeholder="">
+                          </div>
+                        </div>
+                        
+                        
+                  </div>
+                  <div class="row">
+                      <span class="fw-bolder my-5 fs-5 text-white">Ngôn ngữ</span>
+                      <div class="col-8">
+                          <span style="font-size:small" class="text-white">Chọn ngôn ngữ - Các thay đổi sẽ được áp dụng sau khi bạn khởi động lại ứng dụng  </span>
+                      </div>
+                      <div class="col-4 d-flex justify-content-end">
+                         <select class="zrvvPyoxE6wQNqnu0yWA" id="desktop.settings.selectLanguage" dir="auto"><option value="system-language">System Default Language (Ngôn ngữ mặc định của hệ thống)</option><option value="en">English (English)</option><option value="af">Afrikaans (Afrikaans)</option><option value="am">አማርኛ (Amharic)</option><option value="ar">العَرَبِيَّة (Arabic)</option><option value="az">Azərbaycanca (Azerbaijani)</option><option value="bg">Български (Bulgarian)</option><option value="bho">भोजपुरी (Bhojpuri)</option><option value="bn">বাংলা (Bengali)</option><option value="ca">Català (Catalan)</option><option value="cs">Čeština (Czech)</option><option value="da">Dansk (Danish)</option><option value="de">Deutsch (German)</option><option value="el">Eλληνικά (Greek)</option><option value="es">Español de España (European Spanish)</option><option value="es-419">Español de Latinoamérica (Latin American Spanish)</option><option value="et">Eesti (Estonian)</option><option value="fa">فارسی (Persian)</option><option value="fi">Suomeksi (Finnish)</option><option value="fil">Filipino (Filipino)</option><option value="fr">Français (French)</option><option value="fr-CA">Français Canadien (Canadian French)</option><option value="gu">ગુજરાતી (Gujarati)</option><option value="he">עברית (Hebrew)</option><option value="hi">हिन्दी (Hindi)</option><option value="hr">Hrvatski (Croatian)</option><option value="hu">Magyar (Hungarian)</option><option value="id">Bahasa Indonesia (Indonesian)</option><option value="is">Íslenska (Icelandic)</option><option value="it">Italiano (Italian)</option><option value="ja">日本語 (Japanese)</option><option value="kn">ಕನ್ನಡ (Kannada)</option><option value="ko">한국어 (Korean)</option><option value="lt">Lietuvių (Lithuanian)</option><option value="lv">Latviešu (Latvian)</option><option value="ml">മലയാളം (Malayalam)</option><option value="mr">मराठी (Marathi)</option><option value="ms">Melayu (Malay)</option><option value="nb">Norsk (Norwegian)</option><option value="ne">नेपाली (Nepali)</option><option value="nl">Nederlands (Dutch)</option><option value="or">ଓଡ଼ିଆ (Odia)</option><option value="pa-IN">ਪੰਜਾਬੀ (Punjabi)</option><option value="pa-PK">پنجابی (Punjabi)</option><option value="pl">Polski (Polish)</option><option value="pt-BR">Português do Brasil (Brazilian Portuguese)</option><option value="pt-PT">Português (European Portuguese)</option><option value="ro">Română (Romanian)</option><option value="ru">Русский (Russian)</option><option value="sk">Slovenčina (Slovak)</option><option value="sl">Slovenski (Slovenian)</option><option value="sr">Srpski (Serbian)</option><option value="sv">Svenska (Swedish)</option><option value="sw">Kiswahili (Swahili)</option><option value="ta">தமிழ் (Tamil)</option><option value="te">తెలుగు (Telugu)</option><option value="th">ภาษาไทย (Thai)</option><option value="tr">Türkçe (Turkish)</option><option value="uk">Українська (Ukrainian)</option><option value="ur">اردو (Urdu)</option><option value="vi">Tiếng Việt (Vietnamese)</option><option value="zh-CN">简体中文 (Simplified Chinese)</option><option value="zh-TW">中文 (Traditional Chinese)</option><option value="zu">IsiZulu (Zulu)</option></select>
+                       </div>
+                  </div>
+                 
                 
               </div>
-              <div class="col-3 d-flex align-items-center text-white">
-                   <!-- <a href="#">1.306.895.925</a>  -->
+              <div class="col-2">
+  
               </div>
-             
-              <div class=" col-1 d-flex align-items-center">
-              <h6 class="card-title">
-              <span class="text-white">
-              <?php
-    $seconds = $song->getSongDuration();
-    $minutes = floor($seconds / 60); // Lấy phần nguyên của số phút
-    $remainingSeconds = $seconds % 60; // Lấy số giây còn lại
-
-    // Định dạng chuỗi phút:giây
-    $formattedTime = sprintf("%d:%02d", $minutes, $remainingSeconds);
-
-    echo $formattedTime;
-    ?>
-              </span>
-   
-</h6>
-
-              </div>
-          </div>
-                <?php } ?>
-
-
-          
-          
-          <div class="mx-5 hightlightWord text-white">
-              <!-- Xem thêm -->
-          </div>
-          <div class="row">
-            <div class="fs-5 fw-bold my-4 mx-2 text-white">
-                Album
             </div>
-
-            <?php foreach ($data['albums'] as $album) { ?>
-                   
-            <div class="col-sm-4 col-md-4 col-lg-2 col-xl-2 d-flex mx-3 flex-column ">
-                <div class="m-1 flex-grow-1">
-                  <div class="card  bg-bg h-100">
-                    <div class="card-body">
-                      <a href="/base.html" style="color: white;">
-                        <img class="card-img-top img-fluid" src="/image/artist/Adele/Album21.jpg" alt="Card image">
-                      </a>
-
-                    </div>
-                    <div class="card-body">
-                      <div class="play-btn-wrapper" style="text-align: center;">
-                        <a href="#" class="btn   play-btn"><i
-                            class="niand-icon-spotify-play text-black fs-5 hightlight1"> </i></a>
-                      </div>
-                      <a href="/base.html" style="color: white;">
-                        <h6 class="card-title"> <?php echo $album->getAlbumTitle(); ?> </h6>
-                        <p class="card-text">Hồ sơ </p>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-                <?php } ?>
-
-             
-          </div>
-              <br> <br><br> <br><br> <br> <br> <br><br> <br><br> <br><br> <br>
-         
+           
+       
         </main>
 
         <div id="side-bar" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex flex-column">
@@ -359,5 +291,4 @@
   
       </script>
 </body>
-
 </html>
