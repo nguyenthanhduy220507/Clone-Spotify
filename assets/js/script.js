@@ -31,14 +31,18 @@ cardBodies.forEach((cardBody) => {
   cardBody.addEventListener("mouseover", () => {
     // Chọn nút "play" và thêm lớp "show" vào nó
     const playBtn = cardBody.querySelector(".play-btn");
-    playBtn.classList.add("show");
+    if (playBtn != null) {
+      playBtn.classList.add("show");
+    }
   });
 
   // Gán sự kiện "mouseout" vào phần tử hiện tại
   cardBody.addEventListener("mouseout", () => {
     // Chọn nút "play" và xóa lớp "show" khỏi nó
     const playBtn = cardBody.querySelector(".play-btn");
-    playBtn.classList.remove("show");
+    if (playBtn != null) {
+      playBtn.classList.remove("show");
+    }
   });
 });
 
@@ -104,10 +108,12 @@ for (var i = 0; i < elements.length; i++) {
 }
 
 var closePopupBtn = document.getElementById("close-popup");
-closePopupBtn.addEventListener("click", function() {
-  var popup = document.getElementById("popup");
-  popup.style.display = "none";
-});
+if (closePopupBtn != null) {
+  closePopupBtn.addEventListener("click", function() {
+    var popup = document.getElementById("popup");
+    popup.style.display = "none";
+  });
+}
 //popover
 $(document).ready(function(){
   $('[data-toggle="popover"]').popover();   
