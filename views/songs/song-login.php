@@ -1,34 +1,67 @@
+<?php
+    require_once "./config/basehref.php";
+    $url = getUrl();
+    if (!isset($_SESSION['username'])) {
+        header("Location: ?url=songs/song/".$data['id']);
+    }
+?>
 <?php require_once 'style.php'; ?>
 <link rel="stylesheet" href="./assets/css/song-login.css">
 
 <body>
     <div id="main" class="d-grid">
-        <header id="top-bar">
+    <header id="top-bar" style="background-color:#34343a">
             <div class="d-flex align-items-center justify-content-between gap-3">
-                <div id="action-buttons" class="d-flex flex-shrink-1">
-                    <button type="button" title="Quay lại" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex justify-content-center align-items-center next_prev">
+                <div id="action-buttons" class=" d-flex flex-shrink-1">
+                    <button type="button" title="Quay lại" class="d-md-flex d-lg-flex d-xl-flex d-sm-none d-none d-flex justify-content-center align-items-center next_prev">
                         <i class="niand-icon-spotify-left"></i>
                     </button>
-                    <button type="button" title="Tiếp theo" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex justify-content-center align-items-center next_prev">
+                    <button type="button" title="Tiếp theo" class="d-md-flex d-lg-flex d-xl-flex d-sm-none d-none d-flex justify-content-center align-items-center next_prev">
                         <i class="niand-icon-spotify-right"></i>
                     </button>
                     <div class="d-md-none d-block">
                         <button type="button" class="d-flex justify-content-center align-items-center" id="open-btn">
-                            <i class="znake-icon-spotify-hambeger"></i>
+                            <i class="niand-icon-spotify-heart"></i>
                         </button>
                     </div>
                 </div>
-                <div class="btn-nav flex-shrink-1 d-xl-flex d-lg-flex d-md-flex d-sm-none d-none"><a href="#" class="text-white">Premium</a></div>
-                <div class="btn-nav flex-shrink-1 d-xl-flex d-lg-flex d-md-flex d-sm-none d-none"><a href="#" class="text-white">Hỗ trợ</a></div>
-                <div class="btn-nav flex-shrink-1 d-xl-flex d-lg-flex d-md-flex d-sm-none d-none"><a href="#" class="text-white">Tải xuống</a></div>
-                <div id="vertical-line" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none"></div>
+
                 <div id="sign-up-in" class="d-flex align-items-center flex-shrink-1">
-                    <button id="sign-up" type="button" class="text-white">Đăng ký</button>
-                    <button id="sign-in" type="button" class="rounded-5">Đăng nhập</button>
+                    <button id="sign-up" type="button" class="d-lg-flex d-xl-flex d-md-flex d-sm-none d-none text-black rounded-5 ms-2">Nâng
+                        cấp</button>
+                    <button id="sign-in" type="button" class="d-lg-flex d-xl-flex d-md-flex d-sm-none d-none rounded-5 ms-2 d-flex justify-content-center align-items-center"><i class="niand-icon-spotify-install"></i>
+                        Cài đặt ứng dụng</button>
+                    <button id="icon" type="button" class="rounded-5 ms-2 dropdown-toggle" data-bs-toggle="dropdown"><i class="niand-icon-spotify-user"></i></button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div class="d-flex dropdown-item">
+                                <a class="text-dark flex-grow-1" href="#">Tài khoản</a>
+                                <i class="niand-icon-spotify-share-user text-dark"></i>
+                            </div>
+                        </li>
+                        <li><a class="dropdown-item text-dark" href="#">Hồ sơ</a></li>
+                        <li>
+                            <div class="d-flex dropdown-item">
+                                <a class="text-dark flex-grow-1" href="#">Nâng cấp lên Premium</a>
+                                <i class="niand-icon-spotify-share-user text-dark"></i>
+                            </div>
+                        </li>
+                        <li><a class="dropdown-item text-dark" href="#">Hỗ trợ</a></li>
+                        <li>
+                            <div class="d-flex dropdown-item">
+                                <a class="text-dark flex-grow-1" href="#">Tải xuống</a>
+                                <i class="niand-icon-spotify-share-user text-dark"></i>
+                            </div>
+                        </li>
+                        <li><a class="dropdown-item text-dark" href="#">Cài đặt</a></li>
+                        <li>
+                            <hr class="dropdown-divider" style="border-top-color: #000000;">
+                        </li>
+                        <li><a class="dropdown-item text-dark" href="">Đăng xuất</a></li>
+                    </ul>
                 </div>
             </div>
         </header>
-
         <main id="main-view">
             <div class="p-2 lg-3 md-4 sm-6" style="background-color: #34343a">
                 <div class="card mb-3" style="background-color: #34343a; border: none">
@@ -41,7 +74,7 @@
                                 <h5 class="card-title text-white">Album</h5>
                                 <p class="card-text text-white fw-bold" style="font-size:60px">21</p>
                                 <div class="d-flex text-white">
-                                    <i class="znake-icon-spotify-clock"></i>
+                                    <i class="niand-icon-spotify-clock"></i>
                                     <a href="" class="mx-1 text-white hover_a">
                                         Adele</a>
                                     <p class="mx-1"> • 2011 • 11 bài hát,</p>
@@ -57,83 +90,14 @@
                     <i class="niand-icon-spotify-play text-black"></i>
                 </button>
                 <a href="" class="rounded-circle me-3 fs-3">
-                    <i class="znake-icon-spotify-heart-empty text-light"></i>
+                    <i class="niand-icon-spotify-heart-empty text-light"></i>
                 </a>
                 <a href="" class="rounded-circle fs-3">
-                    <i class="znake-icon-spotify-three-dots text-light"></i>
+                    <i class="niand-icon-spotify-three-dots text-light"></i>
                 </a>
 
             </div>
             <div class="sm-12 md-4 lg-3">
-                <div class="container">
-                    <h3 class="text-white"> Lời bài hát</h3>
-                    <pre class="text-white">
-
-Ya, Đen Vâu
-Em vào đời bằng đại lộ còn anh vào đời bằng lối nhỏ
-Anh nhớ mình đã từng thổ lộ, anh nhớ rằng em đã chối bỏ
-Anh nhớ chuyến xe buổi tối đó, trên xe chỉ có một người ngồi
-Anh thấy thật buồn nhưng nhẹ nhõm, anh nhớ mình đã mỉm cười rồi
-Anh nghĩ anh cần cảm ơn em, vì những gì mà anh đã nếm trải
-Kỉ niệm sẽ là thứ duy nhất, đi theo anh cả cuộc đời dài
-Nếu không có gì để nhớ về, anh sợ lòng mình khô nứt nẻ
-Hình dung em như là Nữ Oa, có thể vá tâm hồn này sứt mẻ
-Anh thường một mình, tìm đến nơi có nhiều cây cối (Yeah)
-Nghĩ về những ngày tàn, đã trôi qua theo chiều tay với
-Cũng chẳng nghĩ nhiều, anh không mong những điều may tới
-Vài nỗi buồn đã cũ, sao bỗng nhiên giữa chiều nay mới (Ah)
-Anh vẫn thường nghe, thời Trống vắng hay là Kiếp ve sầu
-Những giấc mộng non, như tán lá cây xanh biếc che đầu
-Tình yêu thật ra đơn giản như là một cái bánh bao chay
-Thắp lên lửa nhỏ, hơn là cứ đi tìm hái ánh sao bay
-Đường xa quá, lắm lúc thấy mình lẻ loi
-Người đã đến, vui đấy, nhưng rồi cũng đi
-Chạm lên trái tim thấy cơn mơ còn cháy nồng
-Nhiều đêm trắng xoá bay, lòng như có gió đầu mùa (Ay, Ya)
-Em vào đời từ cao tầng còn anh vào đời từ mái lá
-Thế nên những điều anh mong cầu, không bao giờ là thái quá
-Những thứ anh làm thường đơn giản, nên không hay được đánh giá cao
-Vài người thường ăn hải sản, rồi lại chê bai mùi cá ao
-Giống như con người anh, dễ nắm bắt và dễ chịu
-Bài hát này không sâu xa, rất dễ nghe và dễ hiểu
-Anh không có nhiều lưu ý, anh cảm thấy mình dễ chiều
-Đây không phải là nhạc buồn, đây thứ nhạc để chill
-Em vào đời bằng náo nhiệt
-Anh vào đời bằng âm thầm
-Em đi tìm nốt thăng hoa
-Lòng anh lại là âm trầm
-Em đi tìm lời phố thị
-Anh đi tìm tiếng ghi-ta
-Em đưa anh vào trong náo nhiệt
-Anh lắc đầu và đi ra
-Em vào đời bằng vang đỏ
-Anh vào đời bằng nước trà
-Bằng cơn mưa thơm mùi đất và bằng hoa dại mọc trước nhà
-Em vào đời bằng kế hoạch
-Anh vào đời bằng mộng mơ
-Lý trí em là công cụ còn trái tim anh là động cơ
-Em vào đời nhiều đồng nghiệp
-Anh vào nhiều thân tình
-Anh chỉ muốn chân mình đạp đất
-Không muốn đạp ai dưới chân mình
-Em vào đời bằng mây trắng
-Em vào đời bằng nắng xan
-Em vào đời bằng đại lộ và con đường đó giờ vắng anh
-Đường xa quá, lắm lúc thấy mình lẻ loi
-Người đã đến, vui đấy, nhưng rồi cũng đi
-Chạm lên trái tim thấy cơn mơ còn cháy nồng
-Nhiều đêm trắng xoá bay, lòng như có gió đầu mùa
-Đường xa quá, lắm lúc thấy mình lẻ loi
-Người đã đến, vui đấy, nhưng rồi cũng đi
-Chạm lên trái tim thấy cơn mơ còn cháy nồng
-Nhiều đêm trắng xoá bay, lòng như có gió đầu mùa
-Na-na-na, na-na, na-na-na-na
-Na-na-na, na-na, na-na-na-na
-Na-na-na, na-na-na-na-na-na-na
-Na-na-na-na-na
-Na-na-na-na-na-na
-                    </pre>
-                </div>
                 <div class="container mt-2 data-row">
                     <div class="container-fuild">
                         <div class="my_row ms-4 my-5">
@@ -175,11 +139,11 @@ Na-na-na-na-na-na
                             </div>
                             <div class="col-2 d-flex align-items-center justify-content-center">
                                 <div class="col-12 col-md-2 d-flex align-items-center justify-content-end">
-                                    <a href="" class="text-white me-4 icon"><i class="znake-icon-spotify-heart-full-green"></i> </a>
+                                    <a href="" class="text-white me-4 icon"><i class="niand-icon-spotify-heart-full-green"></i> </a>
                                     <span class="text-white">
                                         1:39
                                     </span>
-                                    <a href="" class="text-white ms-4 icon"><i class="znake-icon-spotify-three-dots"></i></a>
+                                    <a href="" class="text-white ms-4 icon"><i class="niand-icon-spotify-three-dots"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -207,11 +171,11 @@ Na-na-na-na-na-na
                             </div>
                             <div class="col-2 d-flex align-items-center justify-content-center">
                                 <div class="col-12 col-md-2 d-flex align-items-center justify-content-end">
-                                    <a href="" class="text-white me-4 icon"><i class="znake-icon-spotify-heart-full-green"></i> </a>
+                                    <a href="" class="text-white me-4 icon"><i class="niand-icon-spotify-heart-full-green"></i> </a>
                                     <span class="text-white">
                                         1:39
                                     </span>
-                                    <a href="" class="text-white ms-4 icon"><i class="znake-icon-spotify-three-dots"></i></a>
+                                    <a href="" class="text-white ms-4 icon"><i class="niand-icon-spotify-three-dots"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -239,11 +203,11 @@ Na-na-na-na-na-na
                             </div>
                             <div class="col-2 d-flex align-items-center justify-content-center">
                                 <div class="col-12 col-md-2 d-flex align-items-center justify-content-end">
-                                    <a href="" class="text-white me-4 icon"><i class="znake-icon-spotify-heart-full-green"></i> </a>
+                                    <a href="" class="text-white me-4 icon"><i class="niand-icon-spotify-heart-full-green"></i> </a>
                                     <span class="text-white">
                                         1:39
                                     </span>
-                                    <a href="" class="text-white ms-4 icon"><i class="znake-icon-spotify-three-dots"></i></a>
+                                    <a href="" class="text-white ms-4 icon"><i class="niand-icon-spotify-three-dots"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -269,7 +233,7 @@ Na-na-na-na-na-na
                             </div>
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                    <a href="#" class="btn play-btn"><i class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -284,7 +248,7 @@ Na-na-na-na-na-na
                             </div>
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                    <a href="#" class="btn play-btn"><i class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -298,7 +262,7 @@ Na-na-na-na-na-na
                             </div>
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                    <a href="#" class="btn play-btn"><i class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -312,7 +276,7 @@ Na-na-na-na-na-na
                             </div>
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                    <a href="#" class="btn play-btn"><i class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -326,7 +290,7 @@ Na-na-na-na-na-na
                             </div>
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                    <a href="#" class="btn play-btn"><i class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -352,7 +316,7 @@ Na-na-na-na-na-na
                             </div>
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                    <a href="#" class="btn play-btn"><i class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -367,7 +331,7 @@ Na-na-na-na-na-na
                             </div>
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                    <a href="#" class="btn play-btn"><i class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -381,7 +345,7 @@ Na-na-na-na-na-na
                             </div>
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                    <a href="#" class="btn play-btn"><i class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -395,7 +359,7 @@ Na-na-na-na-na-na
                             </div>
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                    <a href="#" class="btn play-btn"><i class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -409,7 +373,7 @@ Na-na-na-na-na-na
                             </div>
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                    <a href="#" class="btn play-btn"><i class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -569,5 +533,4 @@ Na-na-na-na-na-na
     </div>
 </body>
 <?php require_once 'script.php'; ?>
-
 </html>

@@ -28,6 +28,4 @@
             document.getElementById("main-view").classList.toggle('d-none');
         })
     }
-
-
 </script>

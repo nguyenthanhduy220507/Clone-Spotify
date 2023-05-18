@@ -1,84 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./assets/images/spotify.ico">
-    <meta property="og:image" content="./assets/images/spotify.png">
-    <title>Spotify - Trình phát trên web</title>
-    <!-- Icon Css -->
-    <link rel="stylesheet" href="./assets/fonts/style.css">
-    <!--[if lt IE 8]><!-->
-    <link rel="stylesheet" href="./assets/fonts/ie7/ie7.css">
-    <!--<![endif]-->
-    <!-- Bootstrap 5.3.0 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
-    <!-- CSS - SCSS -->
-    <link rel="stylesheet" href="./assets/css/song.css">
-
-    <style>
-        .data-row:hover {
-            background-color: #2a2a2a;
-        }
-
-        .data-row .icon {
-            visibility: hidden;
-        }
-
-        .data-row:hover .icon {
-            visibility: visible;
-        }
-
-        .hover_a:hover {
-            text-decoration: underline;
-        }
-
-        .play-btn {
-            visibility: hidden;
-            display: none;
-            border-radius: 50%;
-            background-color: #4CAF50;
-            color: white;
-            padding: 16px 20px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 5px;
-            margin: 4px 2px;
-            cursor: pointer;
-        }
-
-
-        /* Hiển thị nút "play" khi có lớp "show" */
-        .play-btn.show {
-            background-color: #1ed760;
-            display: block;
-            visibility: visible;
-        }
-
-        /* Hiện play ở giữa card */
-        .play-btn-wrapper {
-
-            position: absolute;
-            /* hoặc sử dụng relative nếu cần */
-            top: 39%;
-            left: 80%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-        }
-    </style>
-</head>
-
+<?php
+    require_once "./config/basehref.php";
+    $url = getUrl();
+    if (isset($_SESSION['username'])) {
+        header("Location: ?url=songs/song_login/".$data['id']);
+    }
+?>
+<?php require_once 'style.php'?>
+<link rel="stylesheet" href="./assets/css/song.css">
 <body>
     <div id="main" class="d-grid">
         <header id="top-bar">
@@ -94,7 +22,7 @@
                     </button>
                     <div class="d-md-none d-block">
                         <button type="button" class="d-flex justify-content-center align-items-center" id="open-btn">
-                            <i class="znake-icon-spotify-hambeger"></i>
+                            <i class="niand-icon-spotify-heart"></i>
                         </button>
                     </div>
                 </div>
@@ -123,10 +51,10 @@
                         </div>
                         <div class="col-md-8 col-sm-12" style="margin-top: 100px">
                             <div class="card-body">
-                                <h5 class="card-title text-white">Album</h5>
-                                <p class="card-text text-white fw-bold" style="font-size:60px">21</p>
+                                <h5 class="card-title text-white">Bài hát</h5>
+                                <p class="card-text text-white fw-bold" style="font-size:60px"><?php $data['song']->getSongTitle() ?></p>
                                 <div class="d-flex text-white">
-                                    <i class="znake-icon-spotify-clock"></i>
+                                    <i class="niand-icon-spotify-clock"></i>
                                     <a href="" class="mx-1 text-white hover_a">
                                         Adele</a>
                                     <p class="mx-1"> • 2011 • 11 bài hát,</p>
@@ -144,10 +72,10 @@
                     <i class="niand-icon-spotify-play text-black"></i>
                 </button>
                 <a href="" class="rounded-circle me-3 fs-3">
-                    <i class="znake-icon-spotify-heart-empty text-light"></i>
+                    <i class="niand-icon-spotify-heart-empty text-light"></i>
                 </a>
                 <a href="" class="rounded-circle fs-3">
-                    <i class="znake-icon-spotify-three-dots text-light"></i>
+                    <i class="niand-icon-spotify-three-dots text-light"></i>
                 </a>
 
             </div>
@@ -214,12 +142,12 @@
                             <div class="col-2 d-flex align-items-center justify-content-center">
                                 <div class="col-12 col-md-2 d-flex align-items-center justify-content-end">
                                     <a href="" class="text-white me-4 icon"><i
-                                            class="znake-icon-spotify-heart-full-green"></i> </a>
+                                            class="niand-icon-spotify-heart-full-green"></i> </a>
                                     <span class="text-white">
                                         1:39
                                     </span>
                                     <a href="" class="text-white ms-4 icon"><i
-                                            class="znake-icon-spotify-three-dots"></i></a>
+                                            class="niand-icon-spotify-three-dots"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -252,12 +180,12 @@
                             <div class="col-2 d-flex align-items-center justify-content-center">
                                 <div class="col-12 col-md-2 d-flex align-items-center justify-content-end">
                                     <a href="" class="text-white me-4 icon"><i
-                                            class="znake-icon-spotify-heart-full-green"></i> </a>
+                                            class="niand-icon-spotify-heart-full-green"></i> </a>
                                     <span class="text-white">
                                         1:39
                                     </span>
                                     <a href="" class="text-white ms-4 icon"><i
-                                            class="znake-icon-spotify-three-dots"></i></a>
+                                            class="niand-icon-spotify-three-dots"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -290,12 +218,12 @@
                             <div class="col-2 d-flex align-items-center justify-content-center">
                                 <div class="col-12 col-md-2 d-flex align-items-center justify-content-end">
                                     <a href="" class="text-white me-4 icon"><i
-                                            class="znake-icon-spotify-heart-full-green"></i> </a>
+                                            class="niand-icon-spotify-heart-full-green"></i> </a>
                                     <span class="text-white">
                                         1:39
                                     </span>
                                     <a href="" class="text-white ms-4 icon"><i
-                                            class="znake-icon-spotify-three-dots"></i></a>
+                                            class="niand-icon-spotify-three-dots"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -323,7 +251,7 @@
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
                                     <a href="#" class="btn play-btn"><i
-                                            class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                            class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -340,7 +268,7 @@
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
                                     <a href="#" class="btn play-btn"><i
-                                            class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                            class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -356,7 +284,7 @@
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
                                     <a href="#" class="btn play-btn"><i
-                                            class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                            class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -372,7 +300,7 @@
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
                                     <a href="#" class="btn play-btn"><i
-                                            class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                            class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -388,7 +316,7 @@
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
                                     <a href="#" class="btn play-btn"><i
-                                            class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                            class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -416,7 +344,7 @@
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
                                     <a href="#" class="btn play-btn"><i
-                                            class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                            class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -433,7 +361,7 @@
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
                                     <a href="#" class="btn play-btn"><i
-                                            class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                            class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -449,7 +377,7 @@
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
                                     <a href="#" class="btn play-btn"><i
-                                            class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                            class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -465,7 +393,7 @@
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
                                     <a href="#" class="btn play-btn"><i
-                                            class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                            class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -481,7 +409,7 @@
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
                                     <a href="#" class="btn play-btn"><i
-                                            class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                            class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -572,38 +500,5 @@
         </footer>
     </div>
 </body>
-<script>
-    // Lấy tất cả các phần tử card-body
-    var cardBodies = document.querySelectorAll('.card-body');
-
-    // Lặp qua từng phần tử card-body
-    cardBodies.forEach(function (cardBody) {
-        // Lấy phần tử chứa nút "play" của từng card-body
-        var playBtn = cardBody.querySelector('.play-btn');
-
-        // Khi hover vào card-body
-        cardBody.addEventListener('mouseover', function () {
-            // Thêm lớp "show" vào phần tử chứa nút "play"
-            playBtn.classList.add('show');
-        });
-
-        // Khi rời chuột khỏi card-body
-        cardBody.addEventListener('mouseout', function () {
-            // Loại bỏ lớp "show" khỏi phần tử chứa nút "play"
-            playBtn.classList.remove('show');
-        });
-    });
-
-    window.onload = function () {
-        document.getElementById("open-btn").addEventListener('click', function () {
-            document.getElementById("side-bar").classList.toggle('d-sm-none');
-            document.getElementById("side-bar").classList.toggle('d-none');
-            document.getElementById("side-bar").style.width = '85vw';
-            document.getElementById("main-view").classList.toggle('d-none');
-        })
-    }
-
-
-</script>
-
+<?php require_once 'script.php'; ?>
 </html>
