@@ -11,11 +11,12 @@ class Home extends Controller
         //     "pro-db"=>$productDB,
         // ]);
         $DB = $this->model("PlaylistModel");
-        $this->view('index', [
+        $this->view('home/index', [
             'playlists' => $DB->getAll()
 
         ]);
     }
+    
 
     public function index_login()
     {
@@ -26,7 +27,7 @@ class Home extends Controller
         //     "pro-db"=>$productDB,
         // ]);
         $DB = $this->model("PlaylistModel");
-        $this->view('index_login', [
+        $this->view('home/index_login', [
             'playlists' => $DB->getAll()
         ]);
     }

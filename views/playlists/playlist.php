@@ -337,7 +337,7 @@
             </div>
         </footer>
     </div>
-    <script src="/js/playlist.js"></script>
+    <script src="./assets/js/playlist.js"></script>
     <script>
       
       window.onload = function () {
