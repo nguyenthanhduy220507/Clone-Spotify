@@ -86,7 +86,8 @@
                        <div ><?php echo $data['playlist']->getPlaylistDescription(); ?></div>
                        <div> 
                         <img src="/assets/images/spotify.png" alt="error"  style="width: 25px; height: 25px;"> Spotify 
-                        ,<?php echo $data['songplaylists_num'] . " bài hát" ?> <span>khoảng 11 giờ</span>
+                        ,<?php echo $data['songplaylists_num'] . " bài hát" ?> 
+                        <span>khoảng 11 giờ</span>
                          </div>
                       </div>
                     </div>
@@ -131,31 +132,13 @@
                            <i class="niand-icon-spotify-clock"></i>
                         </div>
                 </div>
-                <!-- thanh hien thi thong bao can dang nhap -->
-                <div id="popup">
-                  <div id="popup-content">
-                    <div class="row">
-                        <div class="col-6 d-flex justify-content-center my-3">
-                          <img src="/image//song/Tjärnheden1.jpg " alt="error" class="d-flex rounded-3" style="height: 250px; width: 250px;">
-                        </div>
-                        <div class="col-6">
-                          <h2 class="fw-bold">Bắt đầu nghe bằng tài khoản Spotify Free</h2>
-                          <a href="#" class="text-decoration-none">
-                            <span class="btn btn-success rounded-5 my-5 text-dark fw-bold">Đăng ký</span>
-                          </a>
-                                           <br>
-                          Bạn có tài khoản không? <a href="#" class="hightlightWord" >Đăng nhập</a>
-                        </div>
-                    </div>
-                   
-                    <button id="close-popup" class="btn">Close</button>
-                  </div>
-                </div>
+               
+              
                 <!-- Bai 1 -->
                 <?php
              $counter = 1; 
               foreach ($data['songplaylists'] as $songplaylists) { ?>
-                     <div class="row my-3 mx-3 detailHover">
+                     <div class="row my-3 mx-3 r">
                   <div class=" col-1 d-flex align-items-center">
                   <?php echo $counter;?>
                   </div>
