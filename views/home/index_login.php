@@ -1,8 +1,8 @@
 <?php
     require_once "./config/basehref.php";
     $url = getUrl();
-    if (isset($_SESSION['username'])) {
-        header("Location: ?url=home/index_login");
+    if (!isset($_SESSION['username'])) {
+        header("Location: ?url=home/index");
     }
 ?>
 <!DOCTYPE html>
