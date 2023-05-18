@@ -95,13 +95,13 @@
 
         <main id="main-view">
             <!-- TODO Nội dung của trang con -->
-            <div class="row  bg-image" style="background-image: url(/image/artist/Adele/Adele-Artist.jpg);">
+            <div class="row  bg-image" style="background-image: url();">
                            
 
               <div class="col-12 my-5 text-white fw-bold">
                 <div  class="my-5">
-                  <i class="niand-icon-confirm text-primary"></i> Nghệ sĩ được xác nhận
-                 <div  style="font-size: 6rem;"><?php  echo $data['artist']->getArtistName();?></div>
+                  <i class="niand-icon-confirm text-primary mx-2"></i> Nghệ sĩ được xác nhận
+                 <div  style="font-size: 6rem;" class="mx-2"><?php  echo $data['artist']->getArtistName();?></div>
 
                  <div class="my-4"> 
                   <!-- 51.307.561 người nghe hằng tháng -->
@@ -122,13 +122,15 @@
              </div>
              <!-- Bai 1 -->
 
-             <?php foreach ($data['songs'] as $song) { ?>
+             <?php
+             $counter = 1; 
+              foreach ($data['songs'] as $song) { ?>
               <div class="row my-3 mx-3 detailHover">
               <div class=" col-1 text-white d-flex align-items-center justify-content-center">
-              <?php echo $song->getSongId()?>
+              <?php echo $counter;?>
               </div>
               <div class=" col-2">
-                <img class="p-1 img-fluid" src="/image/artist/Adele/adele.jpg " alt="error"  style="height: 60px;">
+                <img class="p-1 img-fluid" src="<?php echo $song->getSongImageUrl() ?> " alt="error"  style="height: 60px;">
               </div>
               <div class="col-5">
                 <div class="my-1 text-white d-flex align-items-center">
@@ -152,6 +154,7 @@
     $formattedTime = sprintf("%d:%02d", $minutes, $remainingSeconds);
 
     echo $formattedTime;
+    $counter++;
     ?>
               </span>
    
@@ -172,14 +175,16 @@
                 Album
             </div>
 
-            <?php foreach ($data['albums'] as $album) { ?>
+            <?php
+
+             foreach ($data['albums'] as $album) { ?>
                    
             <div class="col-sm-4 col-md-4 col-lg-2 col-xl-2 d-flex mx-3 flex-column ">
                 <div class="m-1 flex-grow-1">
                   <div class="card  bg-bg h-100">
                     <div class="card-body">
                       <a href="/base.html" style="color: white;">
-                        <img class="card-img-top img-fluid" src="/image/artist/Adele/Album21.jpg" alt="Card image">
+                        <img class="card-img-top img-fluid" src="<?php echo $album->getAlbumImageUrl() ?>" alt="Card image">
                       </a>
 
                     </div>
