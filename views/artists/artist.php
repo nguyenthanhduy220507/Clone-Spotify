@@ -2,7 +2,7 @@
     require_once "./config/basehref.php";
     $url = getUrl();
     if (isset($_SESSION['username'])) {
-        header("Location: ?url=home/index_login");
+        header("Location: ?url=artists/artist_login/" .$data['id']);
     }
 ?>
 <!DOCTYPE html>
@@ -108,7 +108,7 @@
                 
               </div>
               <div class="col-3 d-flex align-items-center text-white">
-                   <a href="#">1.306.895.925</a> 
+                   <!-- <a href="#">1.306.895.925</a>  -->
               </div>
              
               <div class=" col-1 d-flex align-items-center">
@@ -136,7 +136,7 @@
           
           
           <div class="mx-5 hightlightWord text-white">
-              Xem thêm
+              <!-- Xem thêm -->
           </div>
           <div class="row">
             <div class="fs-5 fw-bold my-4 mx-2 text-white">

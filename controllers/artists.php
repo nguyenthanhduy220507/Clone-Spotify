@@ -23,6 +23,7 @@ class Artists extends Controller
             }
         }
         $this->view('artists/artist', [
+            "id" => $id,
             'artist' => $DB->getByID($id),
             // 'artist'=>$current_artist,
             'song_num'=>count($list_song),
@@ -48,6 +49,7 @@ class Artists extends Controller
         }
        
         $this->view('artists/artist_login', [
+            "id" => $id,
             'artist' => $DB->getByID($id),
             // 'artist'=>$current_artist,
             'song_num'=>count($list_song),
