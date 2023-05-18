@@ -2,7 +2,7 @@
 require_once "./config/basehref.php";
 $url = getUrl();
 if (isset($_SESSION['username'])) {
-    header("Location: ?url=albums/album_login/".$data['id']);
+    header("Location: ?url=albums/album_login/" . $data['id']);
 }
 ?>
 
@@ -90,29 +90,7 @@ if (isset($_SESSION['username'])) {
 <body>
     <div id="main" class="d-grid">
         <header id="top-bar">
-            <div class="d-flex align-items-center justify-content-between gap-3">
-                <div id="action-buttons" class="d-flex flex-shrink-1">
-                    <button type="button" title="Quay lại" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex justify-content-center align-items-center next_prev">
-                        <i class="niand-icon-spotify-left"></i>
-                    </button>
-                    <button type="button" title="Tiếp theo" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex justify-content-center align-items-center next_prev">
-                        <i class="niand-icon-spotify-right"></i>
-                    </button>
-                    <div class="d-md-none d-block">
-                        <button type="button" class="d-flex justify-content-center align-items-center" id="open-btn">
-                            <i class="niand-icon-spotify-heart"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="btn-nav flex-shrink-1 d-xl-flex d-lg-flex d-md-flex d-sm-none d-none"><a href="#" class="text-white">Premium</a></div>
-                <div class="btn-nav flex-shrink-1 d-xl-flex d-lg-flex d-md-flex d-sm-none d-none"><a href="#" class="text-white">Hỗ trợ</a></div>
-                <div class="btn-nav flex-shrink-1 d-xl-flex d-lg-flex d-md-flex d-sm-none d-none"><a href="#" class="text-white">Tải xuống</a></div>
-                <div id="vertical-line" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none"></div>
-                <div id="sign-up-in" class="d-flex align-items-center flex-shrink-1">
-                    <button id="sign-up" type="button" class="text-white">Đăng ký</button>
-                    <button id="sign-in" type="button" class="rounded-5">Đăng nhập</button>
-                </div>
-            </div>
+            <?php require_once("./views/header-bar.php") ?>
         </header>
 
         <main id="main-view">

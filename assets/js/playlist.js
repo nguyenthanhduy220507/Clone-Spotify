@@ -1,34 +1,33 @@
 // Lấy tất cả các phần tử có class là 'hightlight1'
-var highlightElements = document.querySelectorAll('.hightlight1');
+var highlightElements = document.querySelectorAll(".hightlight1");
 
 // Định dạng màu chữ ban đầu bằng CSS
-highlightElements.forEach(function(highlightElement) {
+highlightElements.forEach(function (highlightElement) {
   highlightElement.style.color = "#6c757d";
 });
 
 // Tạo function để xử lý sự kiện hover
 function highlightOnHover(highlightElement) {
-  highlightElement.onmouseover = function() {
+  highlightElement.onmouseover = function () {
     highlightElement.style.color = "white"; // Thay đổi màu chữ khi hover
   };
 
-  highlightElement.onmouseout = function() {
+  highlightElement.onmouseout = function () {
     highlightElement.style.color = "#6c757d"; // Đặt lại màu chữ khi không hover
   };
 }
 
 // Áp dụng function cho tất cả các phần tử có class là 'hightlight1'
-highlightElements.forEach(function(highlightElement) {
+highlightElements.forEach(function (highlightElement) {
   highlightOnHover(highlightElement);
 });
 
-
 // lưu trữ đường dẫn ảnh cho mỗi bài hát
 var imagePaths = {
-  "Tjärnheden": "/image/song/Tjärnheden1.jpg",
+  Tjärnheden: "/image/song/Tjärnheden1.jpg",
   "Quand vous souriez": "/image/song/Quand_vous_souriez1.jpg",
-  "Allena": "/image/song/Allena1.jpg",
-  "Saying Things": "/image/song/Saying_Things1.jpg"
+  Allena: "/image/song/Allena1.jpg",
+  "Saying Things": "/image/song/Saying_Things1.jpg",
 };
 
 // hien nút play khi hover
@@ -37,17 +36,15 @@ var elements = document.getElementsByClassName("detailHover");
 for (var i = 0; i < elements.length; i++) {
   let originalContent = elements[i].querySelector(".col-1").innerHTML;
 
-  elements[i].addEventListener("mouseover", function() {
+  elements[i].addEventListener("mouseover", function () {
     if (!this.getAttribute("data-isContentChanged")) {
-      this.querySelector(".col-1").innerHTML = '<i style="cursor: pointer;" class="niand-icon-spotify-play text-white hightlight1"></i>';
+      this.querySelector(".col-1").innerHTML =
+        '<i style="cursor: pointer;" class="niand-icon-spotify-play text-white hightlight1"></i>';
       this.setAttribute("data-isContentChanged", "true");
     }
   });
 
- 
- 
-
-  elements[i].addEventListener("mouseleave", function() {
+  elements[i].addEventListener("mouseleave", function () {
     // var popup = document.getElementById("popup");
     // popup.style.display = "none";
     // restore original content when mouse leaves the element
@@ -58,16 +55,11 @@ for (var i = 0; i < elements.length; i++) {
   });
 }
 
-
-
-
 //hieu ung nút search setting
 function toggleSearchContainer() {
   var searchContainer = document.getElementById("search-container");
   searchContainer.classList.toggle("show");
 }
-
-
 
 const cardBodies = document.querySelectorAll(".card-body");
 
@@ -90,11 +82,12 @@ cardBodies.forEach((cardBody) => {
 
 //set mouseover && mouseout cho cac the
 let card = document.querySelector(".bg-bg");
+if (card != null) {
+  card.addEventListener("mouseover", function () {
+    this.classList.add("active");
+  });
 
-card.addEventListener("mouseover", function () {
-  this.classList.add("active");
-});
-
-card.addEventListener("mouseout", function () {
-  this.classList.remove("active");
-});
+  card.addEventListener("mouseout", function () {
+    this.classList.remove("active");
+  });
+}

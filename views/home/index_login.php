@@ -38,7 +38,7 @@ $url = getUrl();
     <div id="main" class="d-grid">
         <header id="top-bar" style="background-color:#34343a">
             <!-- TODO -->
-            <?php require_once("./views/header-bar.php") ?>
+            <?php require_once("./views/header-bar-login.php") ?>
         </header>
 
         <main id="main-view">
@@ -59,18 +59,18 @@ $url = getUrl();
                             <div class="m-1 flex-grow-1">
                                 <div class="card  bg-bg h-100">
                                     <div class="card-body">
-                                        <a href="/base.html" style="color: white;">
-                                            <img class="card-img-top img-fluid" src="<?php echo $playlist->getPlaylistImageUrl()  ?>" alt="Card image">
+                                        <a href="?url=playlists/playlist/<?php echo $playlist->getPlaylistId() ?>" style="color: white;">
+                                            <img class="card-img-top img-fluid" src="<?php echo $playlist->getPlaylistImageUrl() ?>" alt="Card image">
                                         </a>
 
                                     </div>
                                     <div class="card-body">
                                         <div class="play-btn-wrapper" style="text-align: center;">
-                                            <a href="#" class="btn   play-btn"><i class="niand-icon-spotify-play text-black fs-5 hightlight1"> </i></a>
+                                            <a href="?url=playlists/playlist/<?php echo $playlist->getPlaylistId() ?>" class="btn play-btn"><i class="niand-icon-spotify-play text-black fs-5 hightlight1"> </i></a>
                                         </div>
-                                        <a href="/base.html" style="color: white;">
-                                            <h6 class="card-title"> <?php echo $playlist->getPlaylistName()  ?> </h6>
-                                            <p class="card-text"><?php echo $playlist->getPlaylistDescription()  ?> </p>
+                                        <a href="?url=playlists/playlist/<?php echo $playlist->getPlaylistId() ?>" style="color: white;">
+                                            <h6 class="card-title"> <?php echo $playlist->getPlaylistName() ?> </h6>
+                                            <p class="card-text"><?php echo $playlist->getPlaylistDescription() ?> </p>
                                         </a>
                                     </div>
                                 </div>
@@ -95,15 +95,15 @@ $url = getUrl();
                             <div class="m-1 flex-grow-1">
                                 <div class="card  bg-bg h-100">
                                     <div class="card-body">
-                                        <a href="#" style="color: white;">
+                                        <a href="?url=playlists/playlist/<?php echo $playlist->getPlaylistId() ?>" style="color: white;">
                                             <img class="card-img-top img-fluid" src="<?php echo $playlist->getPlaylistImageUrl() ?>" alt="<?php echo $playlist->getPlaylistName() ?>">
                                         </a>
                                     </div>
                                     <div class="card-body">
                                         <div class="play-btn-wrapper" style="text-align: center;">
-                                            <a href="#" class="btn play-btn"><i class="niand-icon-spotify-play text-black fs-5 hightlight1"> </i></a>
+                                            <a href="?url=playlists/playlist/<?php echo $playlist->getPlaylistId() ?>" class="btn play-btn"><i class="niand-icon-spotify-play text-black fs-5 hightlight1"> </i></a>
                                         </div>
-                                        <a href="#" style="color: white;">
+                                        <a href="?url=playlists/playlist/<?php echo $playlist->getPlaylistId() ?>" style="color: white;">
                                             <h6 class="card-title"><?php echo $playlist->getPlaylistName() ?></h6>
                                             <p class="card-text"><?php echo $playlist->getPlaylistDescription() ?></p>
                                         </a>

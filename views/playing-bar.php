@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 <div class="playback-bar  d-flex align-items-center justify-content-center gap-2">
-                    <div class="playback-position">
+                    <div id="playback-position" class="playback-position">
                         0:00
                     </div>
                     <div class="progress border w-100" style="height: 4px;">
@@ -59,7 +59,6 @@
                         $seconds = $data['song']->getSongDuration();
                         $minutes = floor($seconds / 60); // Lấy phần nguyên của số phút
                         $remainingSeconds = $seconds % 60; // Lấy số giây còn lại
-
                         // Định dạng chuỗi phút:giây
                         $formattedTime = sprintf("%d:%02d", $minutes, $remainingSeconds);
 
@@ -91,7 +90,14 @@
     <script>
         var audio = document.getElementById("audio-player");
         var playButton = document.getElementById("play-button");
-
+        var playbackPosition = document.getElementById("playback-position");
+        // Hàm định dạng thời gian (giây -> mm:ss)
+        function formatTime(time) {
+            var minutes = Math.floor(time / 60);
+            var seconds = Math.floor(time % 60);
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+            return minutes + ":" + seconds;
+        }
         playButton.addEventListener("click", function() {
             if (audio.paused) {
                 audio.play();
@@ -110,6 +116,9 @@
                 var currentTime = audio.currentTime; // Thời gian hiện tại (tính theo giây)
                 var progress = (currentTime / duration) * 100; // Tính toán phần trăm hoàn thành
                 progressBar.style.width = progress + "%"; // Cập nhật chiều rộng của thanh tiến trình
+
+                // Cập nhật hiển thị thời gian hiện tại
+                playbackPosition.innerHTML = formatTime(currentTime);
             });
         });
         audio.addEventListener('ended', function() {

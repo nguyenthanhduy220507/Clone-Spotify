@@ -77,19 +77,6 @@ for (var i = 0; i < elements.length; i++) {
       this.setAttribute("data-isContentChanged", "true");
     }
   });
-
-  elements[i].addEventListener("mousedown", function() {
-    // lấy đường dẫn ảnh tương ứng và đặt nó cho thẻ ảnh trong popup
-    var songName = this.querySelector("a").innerHTML.trim();
-    var imagePath = imagePaths[songName];
-    var popupImg = document.getElementById("popup-content").querySelector("img");
-    popupImg.setAttribute("src", imagePath);
-
-    // hiển thị popup
-    var popup = document.getElementById("popup");
-    popup.style.display = "flex";
-  });
-
   elements[i].addEventListener("mouseup", function() {
     // restore original content when play button is released
     this.querySelector(".col-1").innerHTML = originalContent;

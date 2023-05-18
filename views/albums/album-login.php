@@ -99,12 +99,13 @@ if (!isset($_SESSION['username'])) {
             }
         }
     </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- include jQuery library -->
 </head>
 
 <body>
     <div id="main" class="d-grid">
         <header id="top-bar" style="background-color:#34343a">
-            <?php require_once("./views/header-bar.php") ?>
+            <?php require_once("./views/header-bar-login.php") ?>
         </header>
 
         <main id="main-view">
@@ -120,7 +121,7 @@ if (!isset($_SESSION['username'])) {
                                 <p class="card-text text-white fw-bold" style="font-size:60px"><?php echo $data['album']->getAlbumTitle(); ?></p>
                                 <div class="d-flex text-white">
                                     <i class="niand-icon-spotify-clock"></i>
-                                    <a href="" class="mx-1 text-white hover_a">
+                                    <a href="?url=artists/artist/<?php echo $data['album']->getAlbumArtist()->getArtistId(); ?>" class="mx-1 text-white hover_a">
                                         <?php echo $data['album']->getAlbumArtist()->getArtistName(); ?></a>
                                     <p class="mx-1"> • <?php echo date('Y', strtotime($data['album']->getAlbumReleaseDate())); ?> • <?php echo $data['song_num']; ?> bài hát</p>
                                 </div>
@@ -165,7 +166,7 @@ if (!isset($_SESSION['username'])) {
                                 </div>
                                 <div class="col-10 d-flex align-items-center justify-content-left ps-0">
                                     <div class="card-body">
-                                        <a href="?url=albums/album/<?php echo $data['id'];?>" class="card-title mt-2 text-white hover_a" style="font-size:15px"><?php echo $song->getSongTitle() ?>
+                                        <a data-id="<?php echo $song->getSongId() ?>" class="play-song card-title mt-2 text-white hover_a" style="font-size:15px"><?php echo $song->getSongTitle() ?>
                                         </a><br>
                                     </div>
                                 </div>
@@ -185,7 +186,6 @@ if (!isset($_SESSION['username'])) {
                 <p class="mb-0 text-white" style="font-size:13px"><?php echo date('d', strtotime($data['album']->getAlbumReleaseDate())) . ' tháng ' . date('m, Y', strtotime($data['album']->getAlbumReleaseDate())) ?></p>
                 <p class="mb-0 text-white" style="font-size:13px">℗ <?php echo date('Y', strtotime($data['album']->getAlbumReleaseDate())); ?> XL Recordings Ltd</p>
                 <p class="mb-0 text-white" style="font-size:13px">℗ <?php echo date('Y', strtotime($data['album']->getAlbumReleaseDate())); ?> XL Recordings Ltd</p>
-
             </div>
 
 
@@ -320,6 +320,34 @@ if (!isset($_SESSION['username'])) {
             document.getElementById("main-view").classList.toggle('d-none');
         })
     }
+
+    $(document).ready(function() {
+        $('.play-song').click(function(e) {
+            e.preventDefault(); // prevent form submission
+            var clickedButton = $(this); // Nút được click
+            $('.play-song').each(function() {
+                if ($(this).is(clickedButton)) {
+                    // Xử lý khi tìm thấy nút được click
+                    var value = $(this).attr('data-id');
+                    $.ajax({
+                        url: '?url=home/play_music',
+                        type: 'POST',
+                        data: {
+                            value: value
+                        },
+                        success: function(response) {
+                            if (response.success) {
+                                location.reload(true); // Tải lại trang hiện tại và bỏ qua cache
+                            }
+                        },
+                        error: function() {
+                            console.log('Error processing request');
+                        }
+                    });
+                }
+            });
+        });
+    });
 </script>
 
 </html>

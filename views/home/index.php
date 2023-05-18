@@ -18,7 +18,6 @@ if (isset($_SESSION['username'])) {
 	<link rel="icon" href="./assets/images/spotify.ico">
 	<meta property="og:image" content="./assets/images/spotify.png">
 	<title>Spotify - Trình phát trên web</title>
-	<link rel="stylesheet" href="/css/style.css">
 	<!-- Icon Css -->
 	<link rel="stylesheet" href="./assets/fonts/style.css">
 	<!--[if lt IE 8]><!-->
@@ -30,6 +29,7 @@ if (isset($_SESSION['username'])) {
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 	<!-- CSS - SCSS -->
 	<link rel="stylesheet" href="./assets/css/index.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- include jQuery library -->
 </head>
 <?php
 if (isset($css)) {
@@ -40,31 +40,8 @@ if (isset($css)) {
 <body>
 	<div id="main" class="d-grid">
 		<header id="top-bar">
-			<div class="d-flex align-items-center justify-content-between gap-3">
-				<div id="action-buttons" class="d-flex flex-shrink-1 t1" style="display: none;">
-					<button type="button" title="Quay lại" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex justify-content-center align-items-center ">
-						<i class="niand-icon-spotify-left "></i>
-					</button>
-					<button type="button" title="Tiếp theo" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex justify-content-center align-items-center ">
-						<i class="niand-icon-spotify-right"></i>
-					</button>
-					<button type="button" title="Tiếp theo" id="open-btn" class="d-md-none d-block d-flex justify-content-center align-items-center ">
-						<i class="niand-icon-spotify-heart"></i>
-					</button>
-				</div>
-				<div class="btn-nav flex-shrink-1"><a href="#" class="text-white t1">Premium</a></div>
-				<div class="btn-nav flex-shrink-1"><a href="#" class="text-white t1">Hỗ trợ</a></div>
-				<div class="btn-nav flex-shrink-1"><a href="#" class="text-white t1">Tải xuống</a></div>
-				<div id="vertical-line" class="t1"></div>
-				<div id="sign-up-in" class="d-flex align-items-center flex-shrink-1">
-					<button onclick="window.location.href='?url=auth/register_view'" id="sign-up" type="button" class="text-white me-4">
-						Đăng ký
-					</button>
-					<button onclick="window.location.href='?url=auth/login_view'" id="sign-in" type="button" class="rounded-5">
-						Đăng nhập
-					</button>
-				</div>
-			</div>
+			<!-- TODO -->
+			<?php require_once("./views/header-bar.php") ?>
 		</header>
 
 		<main id="main-view">
@@ -78,329 +55,33 @@ if (isset($css)) {
 						<div class=" col-sm-3 col-lg-2 col-md-2 col-lg-2">
 							<span class="fw-bold fs-6  hightlightWord d-flex justify-content-end ">Hiện tất cả</span>
 						</div>
-
 					</div>
 					<br><br>
 
 					<!-- Dong 1 -->
 					<?php foreach ($data['playlists'] as $playlist) { ?>
 						<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex flex-column ">
-
 							<div class="m-1 flex-grow-1">
 								<div class="card  bg-bg h-100">
 									<div class="card-body">
-										<a href="/base.html">
-											<img class="card-img-top img-fluid" src="<?php echo $playlist->getPlaylistImageUrl()  ?>" alt="Card image">
+										<a href="?url=playlists/playlist/<?php echo $playlist->getPlaylistId() ?>" style="color: white;">
+											<img class="card-img-top img-fluid" src="<?php echo $playlist->getPlaylistImageUrl() ?>" alt="Card image">
 										</a>
 
 									</div>
 									<div class="card-body">
 										<div class="play-btn-wrapper" style="text-align: center;">
-											<a href="#" class="btn   play-btn"><i class="niand-icon-spotify-play text-black fs-5 hightlight1"> </i></a>
+											<a href="?url=playlists/playlist/<?php echo $playlist->getPlaylistId() ?>" class="btn play-btn"><i class="niand-icon-spotify-play text-black fs-5 hightlight1"> </i></a>
 										</div>
-										<a href="/base.html">
-											<h6 class="card-title"> <?php echo $playlist->getPlaylistName()  ?></h6>
+										<a href="?url=playlists/playlist/<?php echo $playlist->getPlaylistId() ?>" style="color: white;">
+											<h6 class="card-title"> <?php echo $playlist->getPlaylistName() ?> </h6>
 											<p class="card-text"><?php echo $playlist->getPlaylistDescription() ?> </p>
 										</a>
 									</div>
 								</div>
 							</div>
-
 						</div>
 					<?php } ?>
-				</div>
-				<!-- Spotify Playlist -->
-				<div class="row my-3">
-					<div class="row">
-						<div class="col-xs-12 col-sm-9 col-lg-10">
-							<span class="fw-bold fs-4 hightlightWord mx-2">Spotify Playlist</span>
-						</div>
-						<div class="col-lg-2">
-							<span class="fw-bold fs-6  hightlightWord d-flex justify-content-end">Hiện tất cả</span>
-						</div>
-
-					</div>
-					<br><br>
-
-					<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex flex-column col-lg-2">
-						<div class="m-1 flex-grow-1">
-							<div class="card  bg-bg h-100">
-								<div class="card-body">
-									<a href="#">
-										<img class="card-img-top img-fluid" src="/image/home/top_hit.jpg" alt="Card image">
-									</a>
-
-								</div>
-								<div class="card-body">
-									<div class="play-btn-wrapper" style="text-align: center;">
-										<a href="#" class="btn   play-btn"><i class="niand-icon-spotify-play text-black fs-5 hightlight1"> </i></a>
-									</div>
-									<a href="#">
-										<h6 class="card-title">Today's Top Hits</h6>
-										<p class="card-text">The Weeknd is on top of the Hottest 50! </p>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex flex-column col-lg-2">
-						<div class="m-1 flex-grow-1">
-							<div class="card bg-bg h-100">
-								<div class="card-body">
-									<a href="#">
-										<img class="card-img-top img-fluid" src="/image/home/rap_caviar.jpg" alt="Card image">
-									</a>
-								</div>
-								<div class="card-body">
-									<div class="play-btn-wrapper" style="text-align: center;">
-										<a href="#" class="btn play-btn"><i class="niand-icon-spotify-play text-black fs-5 hightlight1"></i></a>
-									</div>
-									<a href="#">
-										<h6 class="card-title">TRapCaviar</h6>
-										<p class="card-text">Music from Lil Uzi Vert, Drake and Moneybagg Yo.</p>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex flex-column col-lg-2">
-						<div class="m-1 flex-grow-1">
-							<div class="card bg-bg h-100">
-								<div class="card-body">
-									<a href="#">
-										<img class="card-img-top img-fluid" src="/image/home/all_out.jpg" alt="Card image">
-									</a>
-								</div>
-								<div class="card-body">
-									<div class="play-btn-wrapper" style="text-align: center;">
-										<a href="#" class="btn play-btn"><i class="niand-icon-spotify-play text-black fs-5 hightlight1"></i></a>
-									</div>
-									<a href="#">
-										<h6 class="card-title">All Out 2010s</h6>
-										<p class="card-text">The biggest songs of the 2010s.</p>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-					<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 col-lg-2 d-flex flex-column">
-						<div class="m-1 flex-grow-1">
-							<div class="card  bg-bg h-100">
-								<div class="card-body">
-									<a href="#">
-										<img class="card-img-top img-fluid" src="/image/home/rock_classics.jpg" alt="Card image">
-									</a>
-								</div>
-								<div class="card-body">
-									<div class="play-btn-wrapper" style="text-align: center;">
-										<a href="#" class="btn   play-btn"><i class="niand-icon-spotify-play text-black fs-5 hightlight1"> </i></a>
-									</div>
-									<a href="#">
-										<h6 class="card-title">Rock Classics</h6>
-										<p class="card-text">Rock legends & epic songs that continue to inspire generations. Cover:
-											Foo Fighters </p>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 col-lg-2 d-flex flex-column">
-						<div class="m-1 flex-grow-1 card5">
-							<div class="card  bg-bg h-100">
-								<div class="card-body">
-									<a href="#">
-										<img class="card-img-top img-fluid" src="/image/home/chill_hits.jpg" alt="Card image">
-									</a>
-								</div>
-								<div class="card-body">
-									<div class="play-btn-wrapper" style="text-align: center;">
-										<a href="#" class="btn   play-btn"><i class="niand-icon-spotify-play text-black fs-5 hightlight1"> </i></a>
-									</div>
-									<a href="#">
-										<h6 class="card-title">Chill Hits</h6>
-										<p class="card-text">Kick back to the best new and recent chill hits.</p>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex flex-column">
-						<div class="m-1 flex-grow-1 card6">
-							<div class="card  bg-bg h-100">
-								<div class="card-body">
-									<a href="#">
-										<img class="card-img-top img-fluid" src="/image/home/viva.jpg" alt="Card image">
-									</a>
-								</div>
-								<div class="card-body">
-									<div class="play-btn-wrapper" style="text-align: center;">
-										<a href="#" class="btn   play-btn"><i class="niand-icon-spotify-play text-black fs-5 hightlight1"> </i></a>
-									</div>
-									<a href="#">
-										<h6 class="card-title">Viva Latino</h6>
-										<p class="card-text">Today's top Latin hits, elevando nuestra música. Cover: Grupo Frontera &
-											Bad Bunny </p>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- them moi -->
-				<div class="row my-3">
-					<div class="row">
-						<div class="col-xs-12 col-sm-9 col-lg-10">
-							<span class="fw-bold fs-4 hightlightWord mx-2">Spotify Playlist</span>
-						</div>
-						<div class="col-lg-2">
-							<span class="fw-bold fs-6  hightlightWord d-flex justify-content-end">Hiện tất cả</span>
-						</div>
-
-					</div>
-					<br><br>
-
-					<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex flex-column col-lg-2">
-						<div class="m-1 flex-grow-1">
-							<div class="card  bg-bg h-100">
-								<div class="card-body">
-									<a href="#">
-										<img class="card-img-top img-fluid" src="/image/home/top_hit.jpg" alt="Card image">
-									</a>
-
-								</div>
-								<div class="card-body">
-									<div class="play-btn-wrapper" style="text-align: center;">
-										<a href="#" class="btn   play-btn"><i class="niand-icon-spotify-play text-black fs-5 hightlight1"> </i></a>
-									</div>
-									<a href="#">
-										<h6 class="card-title">Today's Top Hits</h6>
-										<p class="card-text">The Weeknd is on top of the Hottest 50! </p>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex flex-column col-lg-2">
-						<div class="m-1 flex-grow-1">
-							<div class="card bg-bg h-100">
-								<div class="card-body">
-									<a href="#">
-										<img class="card-img-top img-fluid" src="/image/home/rap_caviar.jpg" alt="Card image">
-									</a>
-								</div>
-								<div class="card-body">
-									<div class="play-btn-wrapper" style="text-align: center;">
-										<a href="#" class="btn play-btn"><i class="niand-icon-spotify-play text-black fs-5 hightlight1"></i></a>
-									</div>
-									<a href="#">
-										<h6 class="card-title">TRapCaviar</h6>
-										<p class="card-text">Music from Lil Uzi Vert, Drake and Moneybagg Yo.</p>
-									</a>
-
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex flex-column col-lg-2">
-						<div class="m-1 flex-grow-1">
-							<div class="card bg-bg h-100">
-								<div class="card-body">
-									<a href="#">
-										<img class="card-img-top img-fluid" src="/image/home/all_out.jpg" alt="Card image">
-									</a>
-
-								</div>
-								<div class="card-body">
-									<div class="play-btn-wrapper" style="text-align: center;">
-										<a href="#" class="btn play-btn"><i class="niand-icon-spotify-play text-black fs-5 hightlight1"></i></a>
-									</div>
-									<a href="#">
-										<h6 class="card-title">All Out 2010s</h6>
-										<p class="card-text">The biggest songs of the 2010s.</p>
-									</a>s
-
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-					<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex flex-column">
-						<div class="m-1 flex-grow-1">
-							<div class="card  bg-bg h-100">
-								<div class="card-body">
-									<a href="#">
-										<img class="card-img-top img-fluid" src="/image/home/rock_classics.jpg" alt="Card image">
-									</a>
-								</div>
-								<div class="card-body">
-									<div class="play-btn-wrapper" style="text-align: center;">
-										<a href="#" class="btn   play-btn"><i class="niand-icon-spotify-play text-black fs-5 hightlight1"> </i></a>
-									</div>
-									<a href="#">
-										<h6 class="card-title">Rock Classics</h6>
-										<p class="card-text">Rock legends & epic songs that continue to inspire generations. Cover:
-											Foo Fighters </p>
-
-									</a>
-
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex flex-column">
-						<div class="m-1 flex-grow-1 card6">
-							<div class="card  bg-bg h-100">
-								<div class="card-body">
-									<a href="#">
-										<img class="card-img-top img-fluid" src="/image/home/chill_hits.jpg" alt="Card image">
-									</a>
-								</div>
-								<div class="card-body">
-									<div class="play-btn-wrapper" style="text-align: center;">
-										<a href="#" class="btn   play-btn"><i class="niand-icon-spotify-play text-black fs-5 hightlight1"> </i></a>
-									</div>
-									<a href="#">
-										<h6 class="card-title">Chill Hits</h6>
-										<p class="card-text">Kick back to the best new and recent chill hits.</p>
-									</a>
-
-
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex flex-column">
-						<div class="m-1 flex-grow-1 card6">
-							<div class="card  bg-bg h-100">
-								<div class="card-body">
-									<a href="#">
-										<img class="card-img-top img-fluid" src="/image/home/viva.jpg" alt="Card image">
-									</a>
-								</div>
-								<div class="card-body">
-									<div class="play-btn-wrapper" style="text-align: center;">
-										<a href="#" class="btn   play-btn"><i class="niand-icon-spotify-play text-black fs-5 hightlight1"> </i></a>
-									</div>
-									<a href="#">
-										<h6 class="card-title">Viva Latino</h6>
-										<p class="card-text">Today's top Latin hits, elevando nuestra música. Cover: Grupo Frontera &
-											Bad Bunny </p>
-									</a>
-
-
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 			<hr style="color: aliceblue; margin-top: 50px;">

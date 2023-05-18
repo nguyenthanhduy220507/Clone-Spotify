@@ -1,17 +1,17 @@
 <?php
-    require_once "./config/basehref.php";
-    $url = getUrl();
-    if (!isset($_SESSION['username'])) {
-        header("Location: ?url=artists/artist/" .$data['id']);
-    }
+require_once "./config/basehref.php";
+$url = getUrl();
+if (!isset($_SESSION['username'])) {
+    header("Location: ?url=artists/artist/" . $data['id']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    
-<?php
-        echo "<base href='".$url."'>";
+
+    <?php
+    echo "<base href='" . $url . "'>";
     ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,7 +19,6 @@
     <link rel="icon" href="./assets/images/spotify.ico">
     <meta property="og:image" content="./assets/images/spotify.png">
     <title>Artist-Login</title>
-    <link rel="stylesheet" href="/css/style.css">
     <!-- Icon Css -->
     <link rel="stylesheet" href="./assets/fonts/style.css">
     <!--[if lt IE 8]><!-->
@@ -27,181 +26,119 @@
     <!--<![endif]-->
     <!-- Bootstrap 5.3.0 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <!-- CSS - SCSS -->
     <link rel="stylesheet" href="/assets/css/artist_login.css">
     <?php
-        if (isset($css)) {
-            echo $css;
-        }
+    if (isset($css)) {
+        echo $css;
+    }
     ?>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- include jQuery library -->
 </head>
 
 <body>
     <div id="main" class="d-grid">
-        <header id="top-bar" >
-            <div class="d-flex align-items-center justify-content-between gap-3">
-                <div id="action-buttons" class="d-flex flex-shrink-1">
-                    <button type="button" title="Quay lại" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex justify-content-center align-items-center ">
-                        <i class="niand-icon-spotify-left "></i>
-                    </button>
-                    <button type="button" title="Tiếp theo" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex justify-content-center align-items-center ">
-                        <i class="niand-icon-spotify-right"></i>
-                    </button>
-                    <button type="button" title="Tiếp theo" id="open-btn" class="d-md-none d-block d-flex justify-content-center align-items-center ">
-                      <i class="niand-icon-spotify-heart"></i>
-                  </button>
-                </div>
-                <div id="sign-up-in" class="d-flex align-items-center flex-shrink-1">
-                    <button id="sign-up" type="button" class="text-black rounded-5 ms-2">Nâng cấp</button>
-                    <button id="sign-in" type="button" class="rounded-5 ms-2"><i class="znake-icon-spotify-install"></i>
-                        Cài đặt ứng dụng</button>
-                    <button id="icon" type="button" class="rounded-5 ms-2 dropdown-toggle" data-bs-toggle="dropdown"><i
-                            class="znake-icon-spotify-user"></i></button>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <div class="d-flex dropdown-item">
-                                <a class="text-dark flex-grow-1" href="#">Tài khoản</a>
-                                <i class="znake-icon-spotify-share-user text-dark"></i>
-                            </div>
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="#">Hồ sơ</a></li>
-                        <li>
-                            <div class="d-flex dropdown-item">
-                                <a class="text-dark flex-grow-1" href="#">Nâng cấp lên Premium</a>
-                                <i class="znake-icon-spotify-share-user text-dark"></i>
-                            </div>
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="#">Hỗ trợ</a></li>
-                        <li>
-                            <div class="d-flex dropdown-item">
-                                <a class="text-dark flex-grow-1" href="#">Tải xuống</a>
-                                <i class="znake-icon-spotify-share-user text-dark"></i>
-                            </div>
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="#">Cài đặt</a></li>
-                        <li>
-                            <hr class="dropdown-divider" style="border-top-color: #000000;">
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="">Đăng xuất</a></li>
-                    </ul>
-                </div>
-            </div>
+        <header id="top-bar">
+            <?php require_once("./views/header-bar-login.php") ?>
         </header>
 
         <main id="main-view">
             <!-- TODO Nội dung của trang con -->
-            <div class="row  bg-image" style="background-image: url(/image/artist/Adele/Adele-Artist.jpg);">
-                           
+            <div class="row  bg-image" style="background-image: url(<?php echo $data['artist']->getArtistImageUrl(); ?>);">
+                <div class="col-12 my-5 text-white fw-bold">
+                    <div class="my-5">
+                        <i class="niand-icon-confirm text-primary"></i> Nghệ sĩ được xác nhận
+                        <div style="font-size: 6rem;"><?php echo $data['artist']->getArtistName(); ?></div>
 
-              <div class="col-12 my-5 text-white fw-bold">
-                <div  class="my-5">
-                  <i class="niand-icon-confirm text-primary"></i> Nghệ sĩ được xác nhận
-                 <div  style="font-size: 6rem;"><?php  echo $data['artist']->getArtistName();?></div>
-
-                 <div class="my-4"> 
-                  <!-- 51.307.561 người nghe hằng tháng -->
-                   </div>
+                        <div class="my-4">
+                            <!-- 51.307.561 người nghe hằng tháng -->
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-            <div class="row " >
-                      
-              <div class="col-6">
-               <button class="btn play-bttt" > <i class="niand-icon-spotify-play text-black fs-5 "  > </i></button>
-               <button type="button" class="follow">Theo dõi</button>
-               <button class="btn " style="border: 1px solid black; "><i class="niand-icon-spotify-three-dots  hightlight1 my-5 fs-4"  > </i></button>
-              </div>
-             </div>
-             <div class="my-4 fw-bold fs-2 text-white">
-              Phổ biến
-             </div>
-             <!-- Bai 1 -->
+            <div class="row ">
 
-             <?php foreach ($data['songs'] as $song) { ?>
-              <div class="row my-3 mx-3 detailHover">
-              <div class=" col-1 text-white d-flex align-items-center justify-content-center">
-              <?php echo $song->getSongId()?>
-              </div>
-              <div class=" col-2">
-                <img class="p-1 img-fluid" src="/image/artist/Adele/adele.jpg " alt="error"  style="height: 60px;">
-              </div>
-              <div class="col-5">
-                <div class="my-1 text-white d-flex align-items-center">
-                  <a href="#"><?php echo $song->getSongTitle() ?></a> 
-                 </div>
-                
-              </div>
-              <div class="col-3 d-flex align-items-center text-white">
-                   <!-- <a href="#">1.306.895.925</a>  -->
-              </div>
-             
-              <div class=" col-1 d-flex align-items-center">
-              <h6 class="card-title">
-              <span class="text-white">
-              <?php
-    $seconds = $song->getSongDuration();
-    $minutes = floor($seconds / 60); // Lấy phần nguyên của số phút
-    $remainingSeconds = $seconds % 60; // Lấy số giây còn lại
-
-    // Định dạng chuỗi phút:giây
-    $formattedTime = sprintf("%d:%02d", $minutes, $remainingSeconds);
-
-    echo $formattedTime;
-    ?>
-              </span>
-   
-</h6>
-
-              </div>
-          </div>
-                <?php } ?>
-
-
-          
-          
-          <div class="mx-5 hightlightWord text-white">
-              <!-- Xem thêm -->
-          </div>
-          <div class="row">
-            <div class="fs-5 fw-bold my-4 mx-2 text-white">
-                Album
+                <div class="col-6">
+                    <button class="btn play-bttt"> <i class="niand-icon-spotify-play text-black fs-5 "> </i></button>
+                    <button type="button" class="follow">Theo dõi</button>
+                    <button class="btn " style="border: 1px solid black; "><i class="niand-icon-spotify-three-dots hightlight1 my-5 fs-4"> </i></button>
+                </div>
             </div>
+            <div class="my-4 fw-bold fs-2 text-white">
+                Phổ biến
+            </div>
+            <!-- Bai 1 -->
+            <?php foreach ($data['songs'] as $song) { ?>
+                <div class="row my-3 mx-3 detailHover">
+                    <div class=" col-1 text-white d-flex align-items-center justify-content-center">
+                        <?php echo array_search($song, $data['songs']) + 1; ?>
+                    </div>
+                    <div class=" col-2">
+                        <img class="p-1 img-fluid" src="<?php echo $song->getSongImageUrl() ?>" alt="error" style="height: 60px;">
+                    </div>
+                    <div class="col-5">
+                        <div class="my-1 text-white d-flex align-items-center">
+                            <a href="" data-id="<?php echo $song->getSongId() ?>" class="play-song"><?php echo $song->getSongTitle() ?></a>
+                        </div>
+                    </div>
+                    <div class="col-3 d-flex align-items-center text-white">
+                        <!-- <a href="#">1.306.895.925</a>  -->
+                    </div>
 
-            <?php foreach ($data['albums'] as $album) { ?>
-                   
-            <div class="col-sm-4 col-md-4 col-lg-2 col-xl-2 d-flex mx-3 flex-column ">
-                <div class="m-1 flex-grow-1">
-                  <div class="card  bg-bg h-100">
-                    <div class="card-body">
-                      <a href="/base.html" style="color: white;">
-                        <img class="card-img-top img-fluid" src="/image/artist/Adele/Album21.jpg" alt="Card image">
-                      </a>
+                    <div class=" col-1 d-flex align-items-center">
+                        <h6 class="card-title">
+                            <span class="text-white">
+                                <?php
+                                $seconds = $song->getSongDuration();
+                                $minutes = floor($seconds / 60); // Lấy phần nguyên của số phút
+                                $remainingSeconds = $seconds % 60; // Lấy số giây còn lại
+
+                                // Định dạng chuỗi phút:giây
+                                $formattedTime = sprintf("%d:%02d", $minutes, $remainingSeconds);
+
+                                echo $formattedTime;
+                                ?>
+                            </span>
+
+                        </h6>
 
                     </div>
-                    <div class="card-body">
-                      <div class="play-btn-wrapper" style="text-align: center;">
-                        <a href="#" class="btn   play-btn"><i
-                            class="niand-icon-spotify-play text-black fs-5 hightlight1"> </i></a>
-                      </div>
-                      <a href="/base.html" style="color: white;">
-                        <h6 class="card-title"> <?php echo $album->getAlbumTitle(); ?> </h6>
-                        <p class="card-text">Hồ sơ </p>
-                      </a>
-                    </div>
-                  </div>
                 </div>
-              </div>
-                <?php } ?>
+            <?php } ?>
+            <div class="mx-5 hightlightWord text-white">
+                <!-- Xem thêm -->
+            </div>
+            <div class="row">
+                <div class="fs-5 fw-bold my-4 mx-2 text-white">
+                    Album
+                </div>
+                <?php foreach ($data['albums'] as $album) { ?>
+                    <div class="col-sm-4 col-md-4 col-lg-2 col-xl-2 d-flex mx-3 flex-column ">
+                        <div class="m-1 flex-grow-1">
+                            <div class="card  bg-bg h-100">
+                                <div class="card-body">
+                                    <a href="?url=albums/album/<?php echo $album->getAlbumId() ?>" style="color: white;">
+                                        <img class="card-img-top img-fluid" src="<?php echo $album->getAlbumImageUrl() ?>" alt="Card image">
+                                    </a>
 
-             
-          </div>
-              <br> <br><br> <br><br> <br> <br> <br><br> <br><br> <br><br> <br>
-         
+                                </div>
+                                <div class="card-body">
+                                    <div class="play-btn-wrapper" style="text-align: center;">
+                                        <a href="?url=albums/album/<?php echo $album->getAlbumId() ?>" class="btn   play-btn"><i class="niand-icon-spotify-play text-black fs-5 hightlight1"> </i></a>
+                                    </div>
+                                    <a href="?url=albums/album/<?php echo $album->getAlbumId() ?>" style="color: white;">
+                                        <h6 class="card-title"> <?php echo $album->getAlbumTitle(); ?> </h6>
+                                        <p class="card-text">Hồ sơ </p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+            <br> <br><br> <br><br> <br> <br> <br><br> <br><br> <br><br> <br>
         </main>
 
         <div id="side-bar" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex flex-column">
@@ -265,99 +202,47 @@
         </div>
 
         <footer>
-            <div id="now-playing-bar" class="pe-2 ps-2">
-                <div class="row row-cols-3 m-auto">
-                    <div id="now-playing-bar-left" class="col d-flex align-items-center">
-                        <div class="d-flex gap-3 justify-content-start align-items-center">
-                            <div  id="anh">
-                                <img class="img-fluid rounded-1"  src="https://i.scdn.co/image/ab67616d0000485170cb943c9a67b7eda3414366" alt="">
-                            </div>
-                            <div class="word">
-                                <div class="title">
-                                    không nói ai mà biết
-                                </div>
-                                <div class="authors">
-                                    <a href="#">14 Casper</a>
-                                    <a href="#">Bon Nghiêm</a>
-                                </div>
-                            </div>
-                            <div>
-                                <i class="niand-icon-spotify-heart-empty d-lg-flex d-md-flex d-sm-none d-none"></i>
-                            </div>
-                            <div>
-                                <i class="niand-icon-spotify-picture-in-picture d-lg-flex d-md-flex d-sm-none d-none"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="now-playing-bar-center" class="col d-flex align-items-center">
-                        <div class="d-flex flex-column w-100 gap-2">
-                            <div class="player-controls d-xl-flex  d-flex align-items-center justify-content-center gap-4">
-                                <div class="player-controls-left d-lg-flex d-md-flex d-sm-none d-none   d-flex align-items-center justify-content-center gap-4">
-                                    <button type="button" >
-                                        <i class="niand-icon-spotify-mix "></i>
-                                    </button>
-                                    <button type="button" class="">
-                                        <i class="niand-icon-spotify-prev "></i>
-                                    </button>
-                                </div>
-                                <div class="player-controls-center">
-                                    <button type="button" class="bg-white m-0 p-1 rounded-circle d-flex justify-content-center align-items-center">
-                                        <i class="niand-icon-spotify-play text-black"></i>
-                                    </button>
-                                </div>
-                                <div class="player-controls-right  d-flex align-items-center justify-content-center gap-4">
-                                    <button type="button">
-                                        <i class="niand-icon-spotify-next d-lg-flex d-md-flex d-sm-none d-none"></i>
-                                    </button>
-                                    <button type="button">
-                                        <i class="niand-icon-spotify-loop d-lg-flex d-md-flex d-sm-none d-none"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="playback-bar  d-flex align-items-center justify-content-center gap-2">
-                                <div class="playback-position">
-                                    0:00
-                                </div>
-                                <div class="progress-bar w-100 rounded-2">
-                                </div>
-                                <div class="playback-duration">
-                                    4:34
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="now-playing-bar-right" class="col d-lg-flex d-md-flex d-sm-none d-none d-flex justify-content-end align-items-center gap-3">
-                        <div>
-                            <i class="niand-icon-spotify-mic"></i>
-                        </div>
-                        <div>
-                            <i class="niand-icon-spotify-playlist"></i>
-                        </div>
-                        <div>
-                            <i class="niand-icon-spotify-loudspeaker"></i>
-                        </div>
-                        <div class="d-flex align-items-center gap-2">
-                            <i class="niand-icon-spotify-volumn"></i>
-                            <div class="volumn-bar rounded-2"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php require_once("./views/playing-bar.php") ?>
         </footer>
     </div>
     <script src="/assets/js/script.js"></script>
     <script>
-      
-        window.onload = function () {
-          document.getElementById("open-btn").addEventListener('click', function () {
-              document.getElementById("side-bar").classList.toggle('d-sm-none');
-              document.getElementById("side-bar").classList.toggle('d-none');
-              document.getElementById("side-bar").style.width = '85vw';
-              document.getElementById("main-view").classList.toggle('d-none');
-          })
+        window.onload = function() {
+            document.getElementById("open-btn").addEventListener('click', function() {
+                document.getElementById("side-bar").classList.toggle('d-sm-none');
+                document.getElementById("side-bar").classList.toggle('d-none');
+                document.getElementById("side-bar").style.width = '85vw';
+                document.getElementById("main-view").classList.toggle('d-none');
+            })
         }
-  
-      </script>
+        $(document).ready(function() {
+            $('.play-song').click(function(e) {
+                e.preventDefault(); // prevent form submission
+                var clickedButton = $(this); // Nút được click
+                $('.play-song').each(function() {
+                    if ($(this).is(clickedButton)) {
+                        // Xử lý khi tìm thấy nút được click
+                        var value = $(this).attr('data-id');
+                        $.ajax({
+                            url: '?url=home/play_music',
+                            type: 'POST',
+                            data: {
+                                value: value
+                            },
+                            success: function(response) {
+                                if (response.success) {
+                                    location.reload(true); // Tải lại trang hiện tại và bỏ qua cache
+                                }
+                            },
+                            error: function() {
+                                console.log('Error processing request');
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
