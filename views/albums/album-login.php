@@ -104,56 +104,7 @@ if (!isset($_SESSION['username'])) {
 <body>
     <div id="main" class="d-grid">
         <header id="top-bar" style="background-color:#34343a">
-            <div class="d-flex align-items-center justify-content-between gap-3">
-                <div id="action-buttons" class=" d-flex flex-shrink-1">
-                    <button type="button" title="Quay lại" class="d-md-flex d-lg-flex d-xl-flex d-sm-none d-none d-flex justify-content-center align-items-center next_prev">
-                        <i class="niand-icon-spotify-left"></i>
-                    </button>
-                    <button type="button" title="Tiếp theo" class="d-md-flex d-lg-flex d-xl-flex d-sm-none d-none d-flex justify-content-center align-items-center next_prev">
-                        <i class="niand-icon-spotify-right"></i>
-                    </button>
-                    <div class="d-md-none d-block">
-                        <button type="button" class="d-flex justify-content-center align-items-center" id="open-btn">
-                            <i class="niand-icon-spotify-heart"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div id="sign-up-in" class="d-flex align-items-center flex-shrink-1">
-                    <button id="sign-up" type="button" class="d-lg-flex d-xl-flex d-md-flex d-sm-none d-none text-black rounded-5 ms-2">Nâng
-                        cấp</button>
-                    <button id="sign-in" type="button" class="d-lg-flex d-xl-flex d-md-flex d-sm-none d-none rounded-5 ms-2 d-flex justify-content-center align-items-center"><i class="niand-icon-spotify-install"></i>
-                        Cài đặt ứng dụng</button>
-                    <button id="icon" type="button" class="rounded-5 ms-2 dropdown-toggle" data-bs-toggle="dropdown"><i class="niand-icon-spotify-user"></i></button>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <div class="d-flex dropdown-item">
-                                <a class="text-dark flex-grow-1" href="#">Tài khoản</a>
-                                <i class="niand-icon-spotify-share-user text-dark"></i>
-                            </div>
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="#">Hồ sơ</a></li>
-                        <li>
-                            <div class="d-flex dropdown-item">
-                                <a class="text-dark flex-grow-1" href="#">Nâng cấp lên Premium</a>
-                                <i class="niand-icon-spotify-share-user text-dark"></i>
-                            </div>
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="#">Hỗ trợ</a></li>
-                        <li>
-                            <div class="d-flex dropdown-item">
-                                <a class="text-dark flex-grow-1" href="#">Tải xuống</a>
-                                <i class="niand-icon-spotify-share-user text-dark"></i>
-                            </div>
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="#">Cài đặt</a></li>
-                        <li>
-                            <hr class="dropdown-divider" style="border-top-color: #000000;">
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="">Đăng xuất</a></li>
-                    </ul>
-                </div>
-            </div>
+            <?php require_once("./views/header-bar.php") ?>
         </header>
 
         <main id="main-view">
@@ -210,15 +161,12 @@ if (!isset($_SESSION['username'])) {
                         <div class="container-fuild">
                             <div class="row my_row sm-6 md-4">
                                 <div class="col-1 d-flex align-items-center justify-content-center">
-                                    <span class="text-white"><?php echo $song->getSongId() ?></span>
+                                    <span class="text-white"><?php echo array_search($song, $data['songs']) + 1; ?></span>
                                 </div>
                                 <div class="col-10 d-flex align-items-center justify-content-left ps-0">
                                     <div class="card-body">
-                                        <a href="#" class="card-title mt-2 text-white hover_a" style="font-size:15px"><?php echo $song->getSongTitle() ?>
+                                        <a href="?url=albums/album/<?php echo $data['id'];?>" class="card-title mt-2 text-white hover_a" style="font-size:15px"><?php echo $song->getSongTitle() ?>
                                         </a><br>
-                                        <!-- <i class="niand-icon-spotify-clock"></i>
-                                    <a href="#" class="card-text hover_a" style="font-size:15px; color:#4b4b4b">
-                                        Adele</a> -->
                                     </div>
                                 </div>
                                 <div class="col-1 d-flex align-items-center justify-content-center">
@@ -333,84 +281,7 @@ if (!isset($_SESSION['username'])) {
         </div>
 
         <footer>
-            <div id="now-playing-bar" class="pe-2 ps-2">
-                <div class="row row-cols-3 m-auto">
-                    <div id="now-playing-bar-left" class="col d-flex align-items-center">
-                        <div class="d-flex gap-3 justify-content-start align-items-center">
-                            <div>
-                                <img class="img-fluid rounded-1" src="https://i.scdn.co/image/ab67616d0000485170cb943c9a67b7eda3414366" alt="">
-                            </div>
-                            <div>
-                                <div class="title">
-                                    không nói ai mà biết
-                                </div>
-                                <div class="authors">
-                                    <a href="#">14 Casper</a>
-                                    <a href="#">Bon Nghiêm</a>
-                                </div>
-                            </div>
-                            <div>
-                                <i class="niand-icon-spotify-heart-empty icon-hidden"></i>
-                            </div>
-                            <div>
-                                <i class="niand-icon-spotify-picture-in-picture icon-hidden"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="now-playing-bar-center" class="col d-flex align-items-center">
-                        <div class="d-flex flex-column w-100 gap-2">
-                            <div class="player-controls d-flex align-items-center justify-content-center gap-4">
-                                <div class="player-controls-left d-flex align-items-center justify-content-center gap-4">
-                                    <button type="button">
-                                        <i class="niand-icon-spotify-mix"></i>
-                                    </button>
-                                    <button type="button">
-                                        <i class="niand-icon-spotify-prev"></i>
-                                    </button>
-                                </div>
-                                <div class="player-controls-center">
-                                    <button type="button" class="bg-white m-0 p-1 rounded-circle d-flex justify-content-center align-items-center">
-                                        <i class="niand-icon-spotify-play text-black"></i>
-                                    </button>
-                                </div>
-                                <div class="player-controls-right d-flex align-items-center justify-content-center gap-4">
-                                    <button type="button">
-                                        <i class="niand-icon-spotify-next"></i>
-                                    </button>
-                                    <button type="button">
-                                        <i class="niand-icon-spotify-loop"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="d-md-flex d-lg-flex d-xl-flex d-sm-none d-none playback-bar d-flex align-items-center justify-content-center gap-2">
-                                <div class="playback-position">
-                                    0:00
-                                </div>
-                                <div class="progress-bar w-100 rounded-2">
-                                </div>
-                                <div class="playback-duration">
-                                    4:34
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="now-playing-bar-right" class="d-md-flex d-lg-flex d-xl-flex d-sm-none d-none col d-flex justify-content-end align-items-center gap-3">
-                        <div>
-                            <i class="niand-icon-spotify-mic"></i>
-                        </div>
-                        <div>
-                            <i class="niand-icon-spotify-playlist"></i>
-                        </div>
-                        <div>
-                            <i class="niand-icon-spotify-loudspeaker"></i>
-                        </div>
-                        <div class="d-flex align-items-center gap-2">
-                            <i class="niand-icon-spotify-volumn"></i>
-                            <div class="volumn-bar rounded-2"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php require_once("./views/playing-bar.php") ?>
         </footer>
     </div>
 </body>
@@ -440,7 +311,7 @@ if (!isset($_SESSION['username'])) {
         });
     }
 
-    //reponsive
+    //responsive
     window.onload = function() {
         document.getElementById("open-btn").addEventListener('click', function() {
             document.getElementById("side-bar").classList.toggle('d-sm-none');

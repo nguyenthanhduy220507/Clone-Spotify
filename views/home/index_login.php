@@ -37,52 +37,8 @@ $url = getUrl();
 <body>
     <div id="main" class="d-grid">
         <header id="top-bar" style="background-color:#34343a">
-            <div class="d-flex align-items-center justify-content-between gap-3">
-                <div id="action-buttons" class="d-flex flex-shrink-1">
-                    <button type="button" title="Quay lại" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex justify-content-center align-items-center">
-                        <i class="niand-icon-spotify-left"></i>
-                    </button>
-                    <button type="button" title="Tiếp theo" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex justify-content-center align-items-center">
-                        <i class="niand-icon-spotify-right"></i>
-                    </button>
-                    <button type="button" title="Tiếp theo" id="open-btn" class="d-md-none d-block d-flex justify-content-center align-items-center ">
-                        <i class="niand-icon-spotify-heart"></i>
-                    </button>
-                </div>
-                <div id="sign-up-in" class="d-flex align-items-center flex-shrink-1">
-                    <button id="sign-up" type="button" class="text-black rounded-5 ms-2">Nâng cấp</button>
-                    <button id="sign-in" type="button" class="rounded-5 ms-2"><i class="znake-icon-spotify-install"></i>
-                        Cài đặt ứng dụng</button>
-                    <button id="icon" type="button" class="rounded-5 ms-2 dropdown-toggle" data-bs-toggle="dropdown"><i class="znake-icon-spotify-user"></i></button>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <div class="d-flex dropdown-item">
-                                <a class="text-dark flex-grow-1" href="#">Tài khoản</a>
-                                <i class="znake-icon-spotify-share-user text-dark"></i>
-                            </div>
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="#">Hồ sơ</a></li>
-                        <li>
-                            <div class="d-flex dropdown-item">
-                                <a class="text-dark flex-grow-1" href="#">Nâng cấp lên Premium</a>
-                                <i class="znake-icon-spotify-share-user text-dark"></i>
-                            </div>
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="#">Hỗ trợ</a></li>
-                        <li>
-                            <div class="d-flex dropdown-item">
-                                <a class="text-dark flex-grow-1" href="#">Tải xuống</a>
-                                <i class="znake-icon-spotify-share-user text-dark"></i>
-                            </div>
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="#">Cài đặt</a></li>
-                        <li>
-                            <hr class="dropdown-divider" style="border-top-color: #000000;">
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="?url=auth/logout">Đăng xuất</a></li>
-                    </ul>
-                </div>
-            </div>
+            <!-- TODO -->
+            <?php require_once("./views/header-bar.php") ?>
         </header>
 
         <main id="main-view">
@@ -96,10 +52,8 @@ $url = getUrl();
                         <div class="col-sm-3 col-lg-2 col-md-2 col-lg-2">
                             <span class="fw-bold fs-6  hightlightWord d-flex justify-content-end ">Hiện tất cả</span>
                         </div>
-
                     </div>
                     <br><br>
-
                     <?php foreach ($data['playlist_sugs'] as $playlist) { ?>
                         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex flex-column ">
                             <div class="m-1 flex-grow-1">
@@ -123,10 +77,6 @@ $url = getUrl();
                             </div>
                         </div>
                     <?php } ?>
-
-
-
-
                 </div>
                 <!-- Tuyển tập hàng đầu của bạn -->
                 <div class="row my-3">
@@ -265,155 +215,8 @@ $url = getUrl();
         </div>
 
         <footer>
-            <div id="now-playing-bar" class="pe-2 ps-2">
-                <div class="row row-cols-3 m-auto">
-                    <div id="now-playing-bar-left" class="col d-flex align-items-center">
-                        <div class="d-flex gap-3 justify-content-start align-items-center">
-                            <div id="anh">
-                                <img class="img-fluid rounded-1" src="<?php echo $data['song']->getSongImageUrl(); ?>" alt="<?php echo $data['song']->getSongTitle(); ?>">
-                            </div>
-                            <div class="word">
-                                <div class="title">
-                                    <?php echo $data['song']->getSongTitle(); ?>
-                                </div>
-                                <div class="authors">
-                                    <a href="#"><?php echo $data['song']->getSongAlbum()->getAlbumTitle(); ?></a>
-                                    <a href="#"><?php echo $data['song']->getSongArtist()->getArtistName(); ?></a></a>
-                                </div>
-                            </div>
-                            <div>
-                                <i class="niand-icon-spotify-heart-empty d-lg-flex d-md-flex d-sm-none d-none"></i>
-                            </div>
-                            <div>
-                                <i class="niand-icon-spotify-picture-in-picture d-lg-flex d-md-flex d-sm-none d-none"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="now-playing-bar-center" class="col d-flex align-items-center">
-                        <div class="d-flex flex-column w-100 gap-2">
-                            <div class="player-controls d-xl-flex  d-flex align-items-center justify-content-center gap-4">
-                                <div class="player-controls-left d-lg-flex d-md-flex d-sm-none d-none   d-flex align-items-center justify-content-center gap-4">
-                                    <button type="button">
-                                        <i class="niand-icon-spotify-mix "></i>
-                                    </button>
-                                    <button type="button" class="">
-                                        <i class="niand-icon-spotify-prev "></i>
-                                    </button>
-                                </div>
-                                <div class="player-controls-center">
-                                    <button id="play-button" type="button" class="bg-white m-0 p-1 rounded-circle d-flex justify-content-center align-items-center">
-                                        <i class="niand-icon-spotify-play text-black"></i>
-                                    </button>
-                                </div>
-                                <div class="player-controls-right  d-flex align-items-center justify-content-center gap-4">
-                                    <button type="button">
-                                        <i class="niand-icon-spotify-next d-lg-flex d-md-flex d-sm-none d-none"></i>
-                                    </button>
-                                    <button type="button">
-                                        <i class="niand-icon-spotify-loop d-lg-flex d-md-flex d-sm-none d-none"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="playback-bar  d-flex align-items-center justify-content-center gap-2">
-                                <div class="playback-position">
-                                    0:00
-                                </div>
-                                <div class="progress border w-100" style="height: 4px;">
-                                    <div id="progress-bar-song" class="progress-bar bg-dark"></div>
-                                </div>
-                                <div class="playback-duration">
-                                    <?php
-                                    $seconds = $data['song']->getSongDuration();
-                                    $minutes = floor($seconds / 60); // Lấy phần nguyên của số phút
-                                    $remainingSeconds = $seconds % 60; // Lấy số giây còn lại
-
-                                    // Định dạng chuỗi phút:giây
-                                    $formattedTime = sprintf("%d:%02d", $minutes, $remainingSeconds);
-
-                                    echo $formattedTime;
-                                    ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <audio id="audio-player" src="<?php echo $data['song']->getSongUrl(); ?>"></audio>
-                    <div id="now-playing-bar-right" class="col d-lg-flex d-md-flex d-sm-none d-none d-flex justify-content-end align-items-center gap-3">
-                        <div>
-                            <i class="niand-icon-spotify-mic"></i>
-                        </div>
-                        <div>
-                            <i class="niand-icon-spotify-playlist"></i>
-                        </div>
-                        <div>
-                            <i class="niand-icon-spotify-loudspeaker"></i>
-                        </div>
-                        <div class="d-flex align-items-center gap-2">
-                            <i class="niand-icon-spotify-volumn"></i>
-                            <div id="volume-bar" class="progress border" style="width: 100px; height: 4px;">
-                                <div id="volume-progress" class="progress-bar bg-dark" style="width: 100%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php require_once("./views/playing-bar.php") ?>
         </footer>
-        <script>
-            var audio = document.getElementById("audio-player");
-            var playButton = document.getElementById("play-button");
-
-            playButton.addEventListener("click", function() {
-                if (audio.paused) {
-                    audio.play();
-                    playButton.innerHTML = '<i class="niand-icon-spotify-pause text-black"></i>';
-                } else {
-                    audio.pause();
-                    playButton.innerHTML = '<i class="niand-icon-spotify-play text-black"></i>';
-                }
-            });
-            var progressBar = document.getElementById("progress-bar-song");
-
-            // Đợi sự kiện 'canplay' được kích hoạt trước khi đính kèm sự kiện 'timeupdate'
-            audio.addEventListener('canplay', function() {
-                audio.addEventListener('timeupdate', function() {
-                    var duration = audio.duration; // Thời lượng của đoạn nhạc (tính theo giây)
-                    var currentTime = audio.currentTime; // Thời gian hiện tại (tính theo giây)
-                    var progress = (currentTime / duration) * 100; // Tính toán phần trăm hoàn thành
-                    progressBar.style.width = progress + "%"; // Cập nhật chiều rộng của thanh tiến trình
-                });
-            });
-            audio.addEventListener('ended', function() {
-                playButton.innerHTML = '<i class="niand-icon-spotify-pause text-black"></i>'; // Thay đổi biểu tượng thành nút pause
-            });
-            var volumeBar = document.getElementById('volume-bar');
-            var volumeProgress = document.getElementById('volume-progress');
-
-            function setVolume(event) {
-                var volumeBarWidth = volumeBar.offsetWidth;
-                var mouseX = event.pageX - volumeBar.offsetLeft;
-                var volume = mouseX / volumeBarWidth;
-
-                // Giới hạn giá trị âm lượng từ 0 đến 1
-                volume = Math.max(0, Math.min(1, volume));
-
-                // Cập nhật âm lượng của audio
-                audio.volume = volume;
-
-                // Cập nhật chiều rộng của thanh tiến trình
-                volumeProgress.style.width = (volume * 100) + '%';
-            }
-
-            volumeBar.addEventListener('mousedown', function(event) {
-                setVolume(event);
-
-                // Thêm sự kiện 'mousemove' để theo dõi việc kéo
-                document.addEventListener('mousemove', setVolume);
-            });
-
-            document.addEventListener('mouseup', function() {
-                // Loại bỏ sự kiện 'mousemove' khi ngừng kéo
-                document.removeEventListener('mousemove', setVolume);
-            });
-        </script>
     </div>
     <script src="/assets/js/script.js"></script>
     <script>

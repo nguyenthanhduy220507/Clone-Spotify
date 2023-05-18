@@ -485,7 +485,7 @@ margin-top: 25%;
 
 #main-view {
   grid-area: main-view;
-  max-height: 600px; 
+  max-height: 80vh; 
   overflow-y: scroll; 
 }
 #main-view::-webkit-scrollbar {
