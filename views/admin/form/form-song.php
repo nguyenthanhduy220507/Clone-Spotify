@@ -31,20 +31,24 @@
 </head>
 
 <body>
-    <div class="container mt-3">
+    <div class="container mt-3 mb-5">
         <h2>Song</h2>
         <form id="form" method="post">
             <div class="mb-3 mt-3">
                 <label for="id">ID:</label>
-                <input type="number" class="form-control" id="id" value="<?php if (isset($data['song'])) echo $data['song']->getSongId(); ?>" placeholder="Album id" name="id" disabled>
+                <input type="number" class="form-control" id="id" value="<?php if (isset($data['song'])) echo $data['song']->getSongId(); ?>" placeholder="Id" name="id" disabled>
             </div>
             <div class="mb-3 mt-3">
                 <label for="title">Title:</label>
                 <input type="text" class="form-control" id="title" value="<?php if (isset($data['song'])) echo $data['song']->getSongTitle(); ?>" placeholder="Enter title" name="title" required>
             </div>
+            <div class="mb-3 mt-3">
+                <label for="song_duration">Song duration:</label>
+                <input type="number" class="form-control" value="<?php if (isset($data['song'])) echo $data['song']->getSongDuration(); ?>" id="song_duration" placeholder="Enter song duration" name="song_duration" required>
+            </div>
             <div class="mb-3">
                 <label for="artist" class="form-label">Select artist:</label>
-                <input class="form-control" list="artists" value="<?php if (isset($data['song'])) echo $data['song']->getSongArtist()->getPlaylistId(); ?>" name="artist" id="artist" placeholder="Select artist">
+                <input class="form-control" list="artists" value="<?php if (isset($data['song'])) echo $data['song']->getSongArtist()->getArtistId(); ?>" name="artist" id="artist" placeholder="Select artist">
                 <datalist id="artists">
                     <?php
                     foreach ($data['artists'] as $artist) {
@@ -68,7 +72,7 @@
                 <label for="image-url">Image url:</label>
                 <input type="url" class="form-control" value="<?php if (isset($data['song'])) echo $data['song']->getSongImageUrl(); ?>" id="image-url" placeholder="Enter image url" name="image-url" required>
                 <!-- <input id="chooser-image" class="btn btn-success mt-1" type="button" value="Chooser"> -->
-                <div style="height: 300px;" id="screen-image"></div>
+                <div style="height: 500px;" id="screen-image"></div>
                 <script>
                     var options = {
                         // Shared link to Dropbox file
@@ -90,7 +94,7 @@
                 <label for="song-url">Song url:</label>
                 <input type="url" class="form-control" value="<?php if (isset($data['song'])) echo $data['song']->getSongUrl(); ?>" id="song-url" placeholder="Enter song url" name="song-url" required>
                 <!-- <input id="chooser-audio" class="btn btn-success mt-1" type="button" value="Chooser"> -->
-                <div style="height: 300px;" id="screen-audio"></div>
+                <div style="height: 500px;" id="screen-audio"></div>
                 <script>
                     var options = {
                         // Shared link to Dropbox file
@@ -107,10 +111,6 @@
                     }
                     Dropbox.embed(options, document.getElementById('screen-audio'));
                 </script>
-            </div>
-            <div class="mb-3 mt-3">
-                <label for="song_duration">Song duration:</label>
-                <input type="number" class="form-control" value="<?php if (isset($data['song'])) echo $data['song']->getSongDuration(); ?>" id="song_duration" placeholder="Enter song duration" name="song_duration" required>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -160,11 +160,11 @@
                     success: function(response) {
                         if (response.success) {
                             // authentication succeeds, redirect to dashboard or home page
-                            window.location.href = '?url=admin/management/songs';
+                            window.location.href = '?url=admin/management/songs/1';
                         } else {
                             // authentication fails, display error message
                             let html = `<div class="alert alert-danger mt-2">
-                                            <strong>Failed!</strong> Failed to add. Please try again.
+                                            <strong>Failed!</strong> Failed. Please try again.
                                         </div>`
                             $('#response-message').html(html);
                         }

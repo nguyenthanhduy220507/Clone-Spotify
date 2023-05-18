@@ -21,7 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./assets/images/spotify.ico">
     <meta property="og:image" content="../assets/images/spotify.png">
-    <title>Artist</title>
+    <title>Listen History</title>
     <!-- Bootstrap 5.3.0 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
@@ -32,41 +32,37 @@
 
 <body>
     <div class="container mt-3 mb-5">
-        <h2>Artist</h2>
-        <form method="post" id="form">
+        <h2>Listen History</h2>
+        <form id="form" method="post">
             <div class="mb-3 mt-3">
                 <label for="id">ID:</label>
-                <input type="number" class="form-control" id="id" value="<?php if (isset($data['artist'])) echo $data['artist']->getArtistId(); ?>" placeholder="Id" name="id" disabled>
+                <input type="number" class="form-control" id="id" value="<?php if (isset($data['ls'])) echo $data['ls']->getListenId(); ?>" placeholder="Id" name="id" disabled>
             </div>
             <div class="mb-3 mt-3">
-                <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" value="<?php if (isset($data['artist'])) echo $data['artist']->getArtistName(); ?>" placeholder="Enter name" name="name" required>
+                <label for="listen_date">Listen date:</label>
+                <input type="datetime-local" class="form-control" value="<?php if (isset($data['ls'])) echo $data['ls']->getListenDate(); ?>" id="listen_date" placeholder="Enter listen date" name="listen_date" required>
             </div>
-            <div class="mb-3 mt-3">
-                <label for="description">Description:</label>
-                <input type="text" class="form-control" id="description" value="<?php if (isset($data['artist'])) echo $data['artist']->getArtistDescription(); ?>" placeholder="Enter description" name="description" required>
-            </div>
-            <div class="mb-3 mt-3">
-                <label for="image-url">Image url:</label>
-                <input type="url" class="form-control" id="image-url" value="<?php if (isset($data['artist'])) echo $data['artist']->getArtistImageUrl(); ?>" placeholder="Enter image url" name="image-url" required>
-                <!-- <input id="chooser" class="btn btn-success mt-1" type="button" value="Chooser"> -->
-                <div style="height: 500px;" id="screen-image"></div>
-                <script>
-                    var options = {
-                        // Shared link to Dropbox file
-                        link: "https://www.dropbox.com/scl/fo/fj4zbvtfjaz38d1a6laxh/h?dl=0&rlkey=3di3qqnglaadmjq2br7f5oggq",
-                        file: {
-                            // Sets the zoom mode for embedded files. Defaults to 'best'.
-                            zoom: "best" // or "fit"
-                        },
-                        folder: {
-                            // Sets the view mode for embedded folders. Defaults to 'list'.
-                            view: "list", // or "grid"
-                            headerSize: "normal" // or "small"
-                        }
+            <div class="mb-3">
+                <label for="user" class="form-label">Select user:</label>
+                <input class="form-control" list="users" value="<?php if (isset($data['ls'])) echo $data['ls']->getUser()->getUserId(); ?>" name="user" id="user" placeholder="Select user">
+                <datalist id="users">
+                    <?php
+                    foreach ($data['users'] as $user) {
+                        echo '<option value="'.$user->getUserId().'">'.$user->getUsername().'</option>';
                     }
-                    Dropbox.embed(options, document.getElementById('screen-image'));
-                </script>
+                    ?>
+                </datalist>
+            </div>
+            <div class="mb-3">
+                <label for="song" class="form-label">Select song:</label>
+                <input class="form-control" list="songs" value="<?php if (isset($data['ls'])) echo $data['ls']->getSong()->getSongId(); ?>" name="song" id="song" placeholder="Select song">
+                <datalist id="songs">
+                    <?php
+                    foreach ($data['songs'] as $song) {
+                        echo '<option value="'.$song->getSongId().'">'.$song->getSongTitle().'</option>';
+                    }
+                    ?>
+                </datalist>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -74,34 +70,25 @@
     </div>
     <script>
         $(document).ready(function() {
-            // $('#chooser').click(function(e) {
-            //     openDropboxChooser(function(files) {
-            //         if (files != null) {
-            //             let object = files[0]; // Lấy phần tử đầu tiên trong mảng
-            //             let link = object.link;
-            //             $('#image-url').val(link);
-            //         }
-            //     });
-            // });
             $('#form').submit(function(e) {
                 e.preventDefault(); // prevent form submission
                 var id = $('#id').val();
-                var name = $('#name').val();
-                var description = $('#description').val();
-                var image_url = $('#image-url').val();
+                var user = $('#user').val();
+                var song = $('#song').val();
+                var listen_date = $('#listen_date').val();
                 $.ajax({
-                    url: '?url=admin/auth_artist_form/<?php echo $data['type'] ?>',
+                    url: '?url=admin/auth_ls_form/<?php echo $data['type'] ?>',
                     type: 'POST',
                     data: {
                         id: id,
-                        name: name,
-                        description: description,
-                        image_url: image_url
+                        user: user,
+                        song: song,
+                        listen_date: listen_date
                     },
                     success: function(response) {
                         if (response.success) {
                             // authentication succeeds, redirect to dashboard or home page
-                            window.location.href = '?url=admin/management/artists/1';
+                            window.location.href = '?url=admin/management/song_listen_history/1';
                         } else {
                             // authentication fails, display error message
                             let html = `<div class="alert alert-danger mt-2">

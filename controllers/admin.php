@@ -4,6 +4,8 @@ require_once "./models/Album.php";
 require_once "./models/Artist.php";
 require_once "./models/Playlist.php";
 require_once "./models/Song.php";
+require_once "./models/SongListenHistory.php";
+require_once "./models/User.php";
 class Admin extends Controller
 {
     public function dashboard()
@@ -13,63 +15,148 @@ class Admin extends Controller
         ]);
     }
 
-    public function management($type)
+    public function management($type, $page)
     {
         switch ($type) {
             case 'albums':
                 $table_header = ['album id', 'album title', 'album artist', 'album release date', 'album image', 'actions'];
                 $DB = $this->model("AlbumModel");
+                $list = $DB->getAll();
+                $list_in_page = [];
+                $total_items = count($list);
+                $total_pages = ceil($total_items / 10); // Số lượng trang
+                for ($i = 0; $i < $total_items; $i++) {
+                    if ($i < ($page * 10) && $i >= (($page - 1) * 10)) {
+                        $list_in_page[] = $list[$i];
+                    }
+                }
                 $this->view('admin/admin-management', [
                     "title"=>'Albums',
                     "table-header"=>$table_header,
-                    "table-body"=>$DB->getAll(),
+                    "table-body"=>$list_in_page,
+                    "total-pages"=>$total_pages,
+                    "current-page"=>$page,
                     "url"=>"albums"
                 ]);
                 break;
             case 'artists':
                 $table_header = ['artist id', 'artist name', 'artist description', 'artist image', 'actions'];
                 $DB = $this->model("ArtistModel");
+                $list = $DB->getAll();
+                $list_in_page = [];
+                $total_items = count($list);
+                $total_pages = ceil($total_items / 10); // Số lượng trang
+                for ($i = 0; $i < $total_items; $i++) {
+                    if ($i < ($page * 10) && $i >= (($page - 1) * 10)) {
+                        $list_in_page[] = $list[$i];
+                    }
+                }
                 $this->view('admin/admin-management', [
                     "title"=>'Artists',
                     "table-header"=>$table_header,
-                    "table-body"=>$DB->getAll(),
+                    "table-body"=>$list_in_page,
+                    "total-pages"=>$total_pages,
+                    "current-page"=>$page,
                     "url"=>"artists"
                 ]);
                 break;
             case 'playlists':
                 $table_header = ['playlist id', 'playlist name', 'playlist description', 'playlists_user', 'playlist image', 'actions'];
                 $DB = $this->model("PlaylistModel");
+                $list = $DB->getAll();
+                $list_in_page = [];
+                $total_items = count($list);
+                $total_pages = ceil($total_items / 10); // Số lượng trang
+                for ($i = 0; $i < $total_items; $i++) {
+                    if ($i < ($page * 10) && $i >= (($page - 1) * 10)) {
+                        $list_in_page[] = $list[$i];
+                    }
+                }
                 $this->view('admin/admin-management', [
                     "title"=>'Playlists',
                     "table-header"=>$table_header,
-                    "table-body"=>$DB->getAll(),
+                    "table-body"=>$list_in_page,
+                    "total-pages"=>$total_pages,
+                    "current-page"=>$page,
                     "url"=>"playlists"
                 ]);
                 break;
             case 'songs':
-                $table_header = ['song id', 'song title', 'song artist', 'song album','artist image', 'song url', 'song duration', 'actions'];
+                $table_header = ['song id', 'song title', 'song artist', 'song album', 'artist image', 'song url', 'song duration', 'actions'];
                 $DB = $this->model("SongModel");
+                $list = $DB->getAll();
+                $list_in_page = [];
+                $total_items = count($list);
+                $total_pages = ceil($total_items / 10); // Số lượng trang
+                for ($i = 0; $i < $total_items; $i++) {
+                    if ($i < ($page * 10) && $i >= (($page - 1) * 10)) {
+                        $list_in_page[] = $list[$i];
+                    }
+                }
                 $this->view('admin/admin-management', [
                     "title"=>'Songs',
                     "table-header"=>$table_header,
-                    "table-body"=>$DB->getAll(),
+                    "table-body"=>$list_in_page,
+                    "total-pages"=>$total_pages,
+                    "current-page"=>$page,
                     "url"=>"songs"
                 ]);
                 break;
             case 'song_listen_history':
+                $table_header = ['listen id', 'user', 'song', 'listen date', 'actions'];
+                $DB = $this->model("SongListenHistoryModel");
+                $list = $DB->getAll();
+                $list_in_page = [];
+                $total_items = count($list);
+                $total_pages = ceil($total_items / 10); // Số lượng trang
+                for ($i = 0; $i < $total_items; $i++) {
+                    if ($i < ($page * 10) && $i >= (($page - 1) * 10)) {
+                        $list_in_page[] = $list[$i];
+                    }
+                }
+                $this->view('admin/admin-management', [
+                    "title"=>'Song Listen History',
+                    "table-header"=>$table_header,
+                    "table-body"=>$list_in_page,
+                    "total-pages"=>$total_pages,
+                    "current-page"=>$page,
+                    "url"=>"song_listen_history"
+                ]);
                 break;
             case 'song_playlist':
                 break;
             case 'users':
+                $table_header = ['user id', 'username', 'email', 'day of birth', 'gender', 'type', 'actions'];
+                $DB = $this->model("UserModel");
+                $list = $DB->getAll();
+                $list_in_page = [];
+                $total_items = count($list);
+                $total_pages = ceil($total_items / 10); // Số lượng trang
+                for ($i = 0; $i < $total_items; $i++) {
+                    if ($i < ($page * 10) && $i >= (($page - 1) * 10)) {
+                        $list_in_page[] = $list[$i];
+                    }
+                }
+                $this->view('admin/admin-management', [
+                    "title"=>'Users',
+                    "table-header"=>$table_header,
+                    "table-body"=>$list_in_page,
+                    "total-pages"=>$total_pages,
+                    "current-page"=>$page,
+                    "url"=>"users"
+                ]);
                 break;
         }
     }
 
     public function add_form($type)
     {
+        $userDB = $this->model("UserModel");
+        $artistDB = $this->model("ArtistModel");
+        $songDB = $this->model("SongModel");
+        $albumDB = $this->model("AlbumModel");
         switch ($type) {
             case 'albums':
-                $artistDB = $this->model("ArtistModel");
                 $this->view('admin/form/form-album', [
                     "type"=>"add",
                     "artists"=>$artistDB->getAll()
@@ -81,15 +168,12 @@ class Admin extends Controller
                 ]);
                 break;
             case 'playlists':
-                $userDB = $this->model("UserModel");
                 $this->view('admin/form/form-playlist', [
                     "type"=>"add",
                     "users"=>$userDB->getAll()
                 ]);
                 break;
             case 'songs':
-                $artistDB = $this->model("ArtistModel");
-                $albumDB = $this->model("AlbumModel");
                 $this->view('admin/form/form-song', [
                     "type"=>"add",
                     "artists"=>$artistDB->getAll(),
@@ -97,20 +181,32 @@ class Admin extends Controller
                 ]);
                 break;
             case 'song_listen_history':
+                $this->view('admin/form/form-listenhistory', [
+                    "type"=>"add",
+                    "users"=>$userDB->getAll(),
+                    "songs"=>$songDB->getAll()
+                ]);
                 break;
             case 'song_playlist':
                 break;
             case 'users':
+                $this->view('admin/form/form-user', [
+                    "type"=>"add"
+                ]);
                 break;
         }
     }
 
     public function update_form($type, $id)
     {
+        $userDB = $this->model("UserModel");
+        $artistDB = $this->model("ArtistModel");
+        $songDB = $this->model("SongModel");
+        $albumDB = $this->model("AlbumModel");
+        $playlistDB = $this->model("PlaylistModel");
+        $songlsDB = $this->model("SongListenHistoryModel");
         switch ($type) {
             case 'albums':
-                $albumDB = $this->model("AlbumModel");
-                $artistDB = $this->model("ArtistModel");
                 $this->view('admin/form/form-album', [
                     "type"=>"update",
                     "artists"=>$artistDB->getAll(),
@@ -118,15 +214,12 @@ class Admin extends Controller
                 ]);
                 break;
             case 'artists':
-                $artistDB = $this->model("ArtistModel");
                 $this->view('admin/form/form-artist', [
                     "type"=>"update",
                     "artist"=>$artistDB->getById($id)
                 ]);
                 break;
             case 'playlists':
-                $playlistDB = $this->model("PlaylistModel");
-                $userDB = $this->model("UserModel");
                 $this->view('admin/form/form-playlist', [
                     "type"=>"update",
                     "users"=>$userDB->getAll(),
@@ -134,9 +227,6 @@ class Admin extends Controller
                 ]);
                 break;
             case 'songs':
-                $songDB = $this->model("SongModel");
-                $artistDB = $this->model("ArtistModel");
-                $albumDB = $this->model("AlbumModel");
                 $this->view('admin/form/form-song', [
                     "type"=>"update",
                     "artists"=>$artistDB->getAll(),
@@ -145,10 +235,20 @@ class Admin extends Controller
                 ]);
                 break;
             case 'song_listen_history':
+                $this->view('admin/form/form-listenhistory', [
+                    "type"=>"update",
+                    "users"=>$userDB->getAll(),
+                    "songs"=>$songDB->getAll(),
+                    "ls"=>$songlsDB->getById($id)
+                ]);
                 break;
             case 'song_playlist':
                 break;
             case 'users':
+                $this->view('admin/form/form-user', [
+                    "type"=>"update",
+                    "user"=>$userDB->getById($id)
+                ]);
                 break;
         }
     }
@@ -179,7 +279,7 @@ class Admin extends Controller
         }
         if ($DB != null) {
             $DB->delete($id);
-            header('Location: ?url=admin/management/'.$type);
+            header('Location: ?url=admin/management/'.$type.'1');
         }
     }
 
@@ -318,6 +418,83 @@ class Admin extends Controller
                 $album = $this->model("AlbumModel")->getById($album_id);
                 $song = new Song($id, $title, $artist, $album, $image_url, $song_url, $song_duration);
                 $success = $this->model("SongModel")->update($song);
+                // return JSON response
+                header('Content-Type: application/json');
+                echo json_encode(array('success' => $success));
+            }
+        }
+    }
+
+    public function auth_ls_form($type)
+    {
+        if ($type == 'add') {
+            if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])
+                && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
+                $user_id = $_POST['user'];
+                $song_id = $_POST['song'];
+                $listen_date = $_POST['listen_date'];
+                $user = $this->model("UserModel")->getById($user_id);
+                $song = $this->model("SongModel")->getById($song_id);
+                $songls = new SongListenHistory(0, $user, $song, $listen_date);
+                $success = $this->model("SongListenHistoryModel")->create($songls);
+                // return JSON response
+                header('Content-Type: application/json');
+                echo json_encode(array('success' => $success));
+            }
+        }
+        else if ($type == 'update') {
+            if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])
+                && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
+                $id = $_POST['id'];
+                $user_id = $_POST['user'];
+                $song_id = $_POST['song'];
+                $listen_date = $_POST['listen_date'];
+                $user = $this->model("UserModel")->getById($user_id);
+                $song = $this->model("SongModel")->getById($song_id);
+                $songls = new SongListenHistory($id, $user, $song, $listen_date);
+                $success = $this->model("SongListenHistoryModel")->update($songls);
+                // return JSON response
+                header('Content-Type: application/json');
+                echo json_encode(array('success' => $success));
+            }
+        }
+    }
+
+
+    public function auth_user_form($type)
+    {
+        if ($type == 'add') {
+            if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])
+                && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+                $options = [
+                    'cost' => 12,
+                    'max_cost' => 12
+                ];
+                $hashed_password = password_hash($password, PASSWORD_BCRYPT, $options);
+                $email = $_POST['email'];
+                $day_of_birth = $_POST['day_of_birth'];
+                $gender = $_POST['gender'];
+                $type = $_POST['type'];
+                $success = $this->model("UserModel")->create($username, $hashed_password, $email, $day_of_birth, $gender, $type);
+                // return JSON response
+                header('Content-Type: application/json');
+                echo json_encode(array('success' => $success));
+            }
+        }
+        else if ($type == 'update') {
+            if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])
+                && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
+                $id = $_POST['id'];
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+                $email = $_POST['email'];
+                $day_of_birth = $_POST['day_of_birth'];
+                $gender = $_POST['gender'];
+                $type = $_POST['type'];
+                $user = new User($id, $username, $password, $email, $day_of_birth, $gender, $type);
+                $success = $this->model("UserModel")->update($user);
                 // return JSON response
                 header('Content-Type: application/json');
                 echo json_encode(array('success' => $success));

@@ -122,4 +122,40 @@ class SongModel
         $stmt->close();
         return $songs;
     }
+
+    public function search($search_string)
+    {
+        $artist_model = new ArtistModel();
+        $album_model = new AlbumModel();
+        $query = "SELECT * FROM songs WHERE song_title LIKE ?";
+        $stmt = $this->db->prepare($query);
+        $search_term = "%" . $search_string . "%";
+        $stmt->bind_param('s', $search_term);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $songs = [];
+        while ($row = $result->fetch_assoc()) {
+            $song_id_new = $row['song_id'];
+            $song_title = $row['song_title'];
+            $song_artist_id = $row['song_artist_id'];
+            $song_album_id = $row['song_album_id'];
+            $song_image_url = $row['song_image_url'];
+            $song_url = $row['song_url'];
+            $song_duration = $row['song_duration'];
+            $song_artist = $artist_model->getById($song_artist_id);
+            $song_album = $album_model->getById($song_album_id);
+            $song = new Song(
+                $song_id_new,
+                $song_title,
+                $song_artist,
+                $song_album,
+                $song_image_url,
+                $song_url,
+                $song_duration
+            );
+            $songs[] = $song;
+        }
+        $stmt->close();
+        return $songs;
+    }
 }

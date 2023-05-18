@@ -105,4 +105,34 @@ class AlbumModel
         $stmt->close();
         return $albums;
     }
+
+    public function search($search_string)
+    {
+        $artist_model = new ArtistModel();
+        $query = "SELECT * FROM albums WHERE album_title LIKE ?";
+        $stmt = $this->db->prepare($query);
+        $search_term = "%" . $search_string . "%";
+        $stmt->bind_param('s', $search_term);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $albums = [];
+        while ($row = $result->fetch_assoc()) {
+            $album_id_new = $row['album_id'];
+            $album_title = $row['album_title'];
+            $album_artist_id = $row['album_artist_id'];
+            $album_release_date = $row['album_release_date'];
+            $album_image_url = $row['album_image_url'];
+            $album_artist = $artist_model->getById($album_artist_id);
+            $album = new Album(
+                $album_id_new,
+                $album_title,
+                $album_artist,
+                $album_release_date,
+                $album_image_url
+            );
+            $albums[] = $album;
+        }
+        $stmt->close();
+        return $albums;
+    }
 }

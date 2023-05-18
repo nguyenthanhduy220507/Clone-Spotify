@@ -94,4 +94,30 @@ class ArtistModel
         $stmt->close();
         return $artists;
     }
+
+    public function search($search_string)
+    {
+        $query = "SELECT * FROM artists WHERE artist_name LIKE ?";
+        $stmt = $this->db->prepare($query);
+        $search_term = "%" . $search_string . "%";
+        $stmt->bind_param('s', $search_term);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $artists = [];
+        while ($row = $result->fetch_assoc()) {
+            $artist_id_new = $row['artist_id'];
+            $artist_name = $row['artist_name'];
+            $artist_description = $row['artist_description'];
+            $artist_image_url = $row['artist_image_url'];
+            $artist = new Artist(
+                $artist_id_new,
+                $artist_name,
+                $artist_description,
+                $artist_image_url
+            );
+            $artists[] = $artist;
+        }
+        $stmt->close();
+        return $artists;
+    }
 }
