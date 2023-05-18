@@ -46,7 +46,6 @@ if (!isset($_SESSION['username'])) {
 
         <main id="main-view">
             <!-- TODO Nội dung của trang con -->
-<<<<<<< HEAD
             <div class="row  bg-image" style="background-image: url(<?php echo $data['artist']->getArtistImageUrl(); ?>);">
                 <div class="col-12 my-5 text-white fw-bold">
                     <div class="my-5">
@@ -57,82 +56,15 @@ if (!isset($_SESSION['username'])) {
                             <!-- 51.307.561 người nghe hằng tháng -->
                         </div>
                     </div>
-=======
-            <div class="row  bg-image" style="background-image: url();">
-                           
-
-              <div class="col-12 my-5 text-white fw-bold">
-                <div  class="my-5">
-                  <i class="niand-icon-confirm text-primary mx-2"></i> Nghệ sĩ được xác nhận
-                 <div  style="font-size: 6rem;" class="mx-2"><?php  echo $data['artist']->getArtistName();?></div>
-
-                 <div class="my-4"> 
-                  <!-- 51.307.561 người nghe hằng tháng -->
-                   </div>
->>>>>>> 17d1a1ae70383134a5674bb7798635fb698d362a
                 </div>
             </div>
             <div class="row ">
 
-<<<<<<< HEAD
                 <div class="col-6">
                     <button class="btn play-bttt"> <i class="niand-icon-spotify-play text-black fs-5 "> </i></button>
                     <button type="button" class="follow">Theo dõi</button>
                     <button class="btn " style="border: 1px solid black; "><i class="niand-icon-spotify-three-dots hightlight1 my-5 fs-4"> </i></button>
                 </div>
-=======
-             <?php
-             $counter = 1; 
-              foreach ($data['songs'] as $song) { ?>
-              <div class="row my-3 mx-3 detailHover">
-              <div class=" col-1 text-white d-flex align-items-center justify-content-center">
-              <?php echo $counter;?>
-              </div>
-              <div class=" col-2">
-                <img class="p-1 img-fluid" src="<?php echo $song->getSongImageUrl() ?> " alt="error"  style="height: 60px;">
-              </div>
-              <div class="col-5">
-                <div class="my-1 text-white d-flex align-items-center">
-                  <a href="#"><?php echo $song->getSongTitle() ?></a> 
-                 </div>
-                
-              </div>
-              <div class="col-3 d-flex align-items-center text-white">
-                   <!-- <a href="#">1.306.895.925</a>  -->
-              </div>
-             
-              <div class=" col-1 d-flex align-items-center">
-              <h6 class="card-title">
-              <span class="text-white">
-              <?php
-    $seconds = $song->getSongDuration();
-    $minutes = floor($seconds / 60); // Lấy phần nguyên của số phút
-    $remainingSeconds = $seconds % 60; // Lấy số giây còn lại
-
-    // Định dạng chuỗi phút:giây
-    $formattedTime = sprintf("%d:%02d", $minutes, $remainingSeconds);
-
-    echo $formattedTime;
-    $counter++;
-    ?>
-              </span>
-   
-</h6>
-
-              </div>
-          </div>
-                <?php } ?>
-
-
-          
-          
-          <div class="mx-5 hightlightWord text-white">
-              <!-- Xem thêm -->
-          </div>
-          <div class="row">
-            <div class="fs-5 fw-bold my-4 mx-2 text-white">
-                Album
->>>>>>> 17d1a1ae70383134a5674bb7798635fb698d362a
             </div>
             <div class="my-4 fw-bold fs-2 text-white">
                 Phổ biến
@@ -155,7 +87,6 @@ if (!isset($_SESSION['username'])) {
                         <!-- <a href="#">1.306.895.925</a>  -->
                     </div>
 
-<<<<<<< HEAD
                     <div class=" col-1 d-flex align-items-center">
                         <h6 class="card-title">
                             <span class="text-white">
@@ -172,19 +103,6 @@ if (!isset($_SESSION['username'])) {
                             </span>
 
                         </h6>
-=======
-            <?php
-
-             foreach ($data['albums'] as $album) { ?>
-                   
-            <div class="col-sm-4 col-md-4 col-lg-2 col-xl-2 d-flex mx-3 flex-column ">
-                <div class="m-1 flex-grow-1">
-                  <div class="card  bg-bg h-100">
-                    <div class="card-body">
-                      <a href="/base.html" style="color: white;">
-                        <img class="card-img-top img-fluid" src="<?php echo $album->getAlbumImageUrl() ?>" alt="Card image">
-                      </a>
->>>>>>> 17d1a1ae70383134a5674bb7798635fb698d362a
 
                     </div>
                 </div>
