@@ -85,9 +85,28 @@
                        <div  style="font-size: 6rem;"><?php echo $data['playlist']->getPlaylistName(); ?></div>
                        <div ><?php echo $data['playlist']->getPlaylistDescription(); ?></div>
                        <div> 
-                        <img src="/assets/images/spotify.png" alt="error"  style="width: 25px; height: 25px;"> Spotify 
-                        ,<?php echo $data['songplaylists_num'] . " bài hát" ?> 
-                        <span>khoảng 11 giờ</span>
+                        <img src="/assets/images/spotify.png" alt="error"  style="width: 25px; height: 25px;"> Spotify, 
+                        <?php echo $data['songplaylists_num'] . " bài hát" ?> 
+                        <span><?php
+                        $totalDuration = 0; 
+
+                        foreach ($data['songplaylists'] as $songplaylist) {
+                            $seconds = $songplaylist->getSong()->getSongDuration();
+                            $minutes = floor($seconds / 60); 
+                            $remainingSeconds = $seconds % 60; 
+
+                            $formattedTime = sprintf("%d:%02d", $minutes, $remainingSeconds);
+                            
+
+                            $totalDuration += $seconds; 
+                        }
+
+                        $totalMinutes = floor($totalDuration / 60); 
+                        $totalRemainingSeconds = $totalDuration % 60; 
+
+                        $totalFormattedTime = sprintf("%d:%02d", $totalMinutes, $totalRemainingSeconds);
+                        echo ", khoảng " . $totalFormattedTime . " phút";
+                        ?></span>
                          </div>
                       </div>
                     </div>
@@ -138,7 +157,7 @@
                 <?php
              $counter = 1; 
               foreach ($data['songplaylists'] as $songplaylists) { ?>
-                     <div class="row my-3 mx-3 r">
+                     <div class="row my-3 mx-3  detailHover">
                   <div class=" col-1 d-flex align-items-center">
                   <?php echo $counter;?>
                   </div>
@@ -179,14 +198,7 @@
                   </div>
               </div>
                 <?php } ?>
-
-
-               
-              
-                
-                 
               </div>  
-                <!-- Spotify Playlist -->
                  
               </div>  
               <hr style="color: aliceblue; margin-top: 50px;">

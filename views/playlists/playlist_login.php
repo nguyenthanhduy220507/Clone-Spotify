@@ -94,167 +94,141 @@
 
         <main id="main-view">
             <!-- TODO Nội dung của trang con -->
-            <div class="  text-white mx-3" id="chon">
-                <div class="row">
-                 
-                    <div class="row " style="background-color: rgb(144, 168, 192);">
-                       
-                        <div class="col-md-12 col-lg-12 col-xl-3 d-flex align-items-center justify-content-center anh">
-                            <img src="/image/home/peaceful.jpg" alt="error" class="img-fluid w-45 mx-2 my-5"> 
-                        </div>
-                        <div class="col-lg-12 col-xl-9 my-5 text-white fw-bold" id="title">
-                          <div  class="my-5">
-                            Playlist
-                           <div  style="font-size: 6rem;">Peaceful Piano</div>
-                           <div >Relax and indulge with beautiful piano pieces</div>
-                           <div> 
-                            <img src="/image/ab67757000003b8255c25988a6ac314394d3fbf5.jpg"  alt="error" style="width: 25px; height: 25px;"> Spotify 7.010.830 lượt thích
-                            ,302 bài hát <span>khoảng 11 giờ</span>
-                             </div>
-                          </div>
-                        </div>
-                      </div>
-                       <div class="row " >
-                          
-                         <div class="col-6">
-                          <button class="btn play-bttt" > <i class="niand-icon-spotify-play text-black fs-5 "  > </i></button>
-                          <button class="btn " style="border: 1px solid black; "><i class="niand-icon-spotify-heart-empty  hightlight1 my-5 fs-4"  > </i></button>
-                          <button class="btn " style="border: 1px solid black; "><i class="niand-icon-spotify-three-dots  hightlight1 my-5 fs-4"  > </i></button>
-                         </div>
-                        </div>
-                        <div class="row my-3 mx-3">
-                            <div class=" col-1 d-flex">
-                              # 
-                            </div>
-                            <div class=" col-4">
-                            <span > Tiêu đề</span> 
-                            </div>
-                            <div class=" col-3 album">
-                                Album
-                            </div>
-                            <div class=" col-3 xemthem">
-                              Ngày thêm
-                          </div>
-                            <div class=" col-1 thoigian">
-                               <i class="niand-icon-spotify-clock"></i>
-                            </div>
-                    </div>
+            <div class="  text-white " id="chon">
+              <div class="row">
                
-                    
-                  <!-- Bai 1 -->
-                  <div class="row my-3 mx-3 detailHover">
-                    <div class=" col-1 d-flex align-items-center">
-                        1
-                      </div>
-                      <div class=" col-1 d-flex align-items-center">
-                        <img src="/image//song/Tjärnheden.jpg " alt="error" class="img-fluid " id="fix_img"  >
-                      </div>
-                      <div class="  col-3">
-                        <div class="my-1 hightlightWord">
-                          <a href="#">Tjärnheden</a> 
+                <div class="row " style="background-color: rgb(144, 168, 192);">
+                       
+                    <div class="col-md-12 col-lg-12 col-xl-3 d-flex align-items-center justify-content-center anh">
+                        <img src="<?php echo $data['playlist']->getPlaylistImageUrl(); ?>" alt="error" class="img-fluid w-45 mx-3 my-5"> 
+                    </div>
+                    <div class="col-lg-12 col-xl-9 my-5 text-white fw-bold" id="title">
+                      <div  class="my-5">
+                        Playlist
+                       <div  style="font-size: 6rem;"><?php echo $data['playlist']->getPlaylistName(); ?></div>
+                       <div ><?php echo $data['playlist']->getPlaylistDescription(); ?></div>
+                       <div> 
+                        <img src="/assets/images/spotify.png" alt="error"  style="width: 25px; height: 25px;"> Spotify, 
+                        <?php echo $data['songplaylists_num'] . " bài hát" ?> 
+                        <span><?php
+                        $totalDuration = 0; 
+
+                        foreach ($data['songplaylists'] as $songplaylist) {
+                            $seconds = $songplaylist->getSong()->getSongDuration();
+                            $minutes = floor($seconds / 60); 
+                            $remainingSeconds = $seconds % 60; 
+
+                            $formattedTime = sprintf("%d:%02d", $minutes, $remainingSeconds);
+                            
+
+                            $totalDuration += $seconds; 
+                        }
+
+                        $totalMinutes = floor($totalDuration / 60); 
+                        $totalRemainingSeconds = $totalDuration % 60; 
+
+                        $totalFormattedTime = sprintf("%d:%02d", $totalMinutes, $totalRemainingSeconds);
+                        echo ", khoảng " . $totalFormattedTime . " phút";
+                        ?></span>
                          </div>
-                         <div class="my-1 hightlightWord">
-                          <a href="#"> Farsjön</a> 
-                         </div>
                       </div>
-                      <div class="  col-3 d-flex align-items-center hightlightWord">
-                        Fjäderlätt
-                      </div>
-                      <div class="col-3 d-flex align-items-center xemthem">
-                        ...
-                    </div>
-                      <div class=" col-1 d-flex align-items-center thoigian">
-                         <i class="niand-icon-spotify-clock"></i>
-                      </div>
-                  </div>
-                  <!-- Bai 2 -->
-                  <div class="row my-3 mx-3 detailHover">
-                    <div class="col-1 d-flex align-items-center">
-                      2
-                    </div>
-                    <div class="col-1 d-flex align-items-center">
-                      <img src="/image/song/Quand_vous_souriez.jpg " alt="error" class="img-fluid" >
-                    </div>
-                    <div class="col-3">
-                      <div class="my-1 hightlightWord">
-                        <a href="#"> Quand vous souriez</a> 
-                       </div>
-                       <div class="my-1 hightlightWord">
-                        <a href="#"> Libor Kolman</a> 
-                       </div>
-                    </div>
-                    <div class="col-3 d-flex align-items-center hightlightWord">
-                      Quand vous souriez
-                    </div>
-                    <div class="col-3 d-flex align-items-center ">
-                      ...
-                    </div>
-                    <div class="col-1 d-flex align-items-center">
-                       <i class="niand-icon-spotify-clock"></i>
                     </div>
                   </div>
-                   
-                   <!-- Bai 3 -->
-                   <div class="row my-3 mx-3 detailHover">
-                    <div class="col-1 d-flex align-items-center" >
-                      3
-                    </div>
-                    <div class="col-1 d-flex align-items-center">
-                      <img src="/image/song/Allena.jpg" alt="error" class="img-fluid" >
-                    </div>
-                    <div class="col-3">
-                      <div class="my-1 hightlightWord">
-                        <a href="#">   Allena</a> 
-                       </div>
-                       <div class="my-1 hightlightWord">
-                        <a href="#">  M. Ljungström</a> 
-                       </div>
-                    </div>
-                    <div class="col-3 d-flex align-items-center hightlightWord">
-                      Nostalgia
-                    </div>
-                    <div class="col-3 d-flex align-items-center ">
-                      ...
-                    </div>
-                    <div class="col-1 d-flex align-items-center">
-                       <i class="niand-icon-spotify-clock"></i>
-                    </div>
-                  </div>
-                  <!-- Bai 4 -->
-                  <div class="row my-3 mx-3 detailHover">
-                    <div class="col-1 d-flex align-items-center">
-                      4
-                    </div>
-                    <div class="col-1 d-flex align-items-center">
-                      <img src="/image/song/Saying_Things.jpg" alt="error" class="img-fluid" >
-                    </div>
-                    <div class="col-3">
-                      <div class="my-1 hightlightWord">
-                        <a href="#"> Saying Things</a> 
-                       </div>
-                       <div class="my-1 hightlightWord">
-                        <a href="#"> Emanuel Fremont</a> 
-                       </div>
-                    </div>
-                    <div class="col-3 d-flex align-items-center hightlightWord">
-                      Saying Things
-                    </div>
-                    <div class="col-3 d-flex align-items-center ">
-                      ...
-                    </div>
-                    <div class="col-1 d-flex align-items-center">
-                       <i class="niand-icon-spotify-clock"></i>
-                    </div>
-                  </div>
-                  
-                   
-                </div>  
+
                 
-                   
-                </div>  
-                <hr style="color: aliceblue; margin-top: 50px;">
                 
-                <br><br><br> <br><br>
+                 
+                
+               
+               
+                     <div class="row " >
+                        
+                       <div class="col-6">
+                        <button class="btn play-bttt" > <i class="niand-icon-spotify-play text-black fs-5 "  > </i></button>
+                        <button class="btn " style="border: 1px solid black; "><i class="niand-icon-spotify-heart-empty  hightlight1 my-5 fs-4"  > </i></button>
+                        <button class="btn dropdown-toggle " data-bs-toggle="dropdown" style="border: 1px solid black; "><i class="niand-icon-spotify-three-dots  hightlight1 my-5 fs-4"  > </i></button>
+                        <ul class="dropdown-menu " style="background-color: #242424">
+                          <li><a class="dropdown-item text-white" href="#">Thêm vào thư viện</a></li>
+                          <li><a class="dropdown-item text-white" href="#">Giới thiệu về nội dung đề xuất</a></li>
+                          
+                        </ul>
+                      </div>
+                      </div>
+                  <div class="row my-3 mx-3">
+                        <div class=" col-1 d-flex">
+                          # 
+                        </div>
+                        <div class=" col-4">
+                        <span > Tiêu đề</span> 
+                        </div>
+                        <div class=" col-3 ">
+                            
+                        </div>
+                        <div class=" col-3 album">
+                            Album
+                        </div>
+                        <!-- <div class=" col-3 xemthem">
+                         
+                      </div> -->
+                        <div class=" col-1 thoigian">
+                           <i class="niand-icon-spotify-clock"></i>
+                        </div>
+                </div>
+               
+              
+                <!-- Bai 1 -->
+                <?php
+             $counter = 1; 
+              foreach ($data['songplaylists'] as $songplaylists) { ?>
+                     <div class="row my-3 mx-3  detailHover">
+                  <div class=" col-1 d-flex align-items-center">
+                  <?php echo $counter;?>
+                  </div>
+                  <div class=" col-1 d-flex align-items-center">
+                    <img src="<?php echo $songplaylists->getSong()->getSongImageUrl() ?> " alt="error" class="img-fluid " id="fix_img"  >
+                  </div>
+                  <div class="  col-3">
+                    <div class="my-1 hightlightWord">
+                      <a href="#"> <?php echo $songplaylists->getSong()->getSongTitle() ?></a> 
+                     </div>
+                     <div class="my-1 hightlightWord">
+                      <a href="#">  <?php echo $songplaylists->getSong()->getSongArtist()->getArtistName() ?></a> 
+                     </div>
+                  </div>
+                  <div class="col-3 d-flex align-items-center xemthem">
+                
+                </div>
+                  <div class="  col-3 d-flex align-items-center hightlightWord">
+                  <?php echo $songplaylists->getSong()->getSongAlbum()->getAlbumTitle() ?>
+                  </div>
+                  <!-- <div class="col-3 d-flex align-items-center xemthem">
+                
+                </div> -->
+                  <div class=" col-1 d-flex align-items-center thoigian">
+                  <span class="text-white">
+              <?php
+    $seconds = $songplaylists->getSong()->getSongDuration();
+    $minutes = floor($seconds / 60); // Lấy phần nguyên của số phút
+    $remainingSeconds = $seconds % 60; // Lấy số giây còn lại
+
+    // Định dạng chuỗi phút:giây
+    $formattedTime = sprintf("%d:%02d", $minutes, $remainingSeconds);
+
+    echo $formattedTime;
+    $counter++;
+    ?>
+              </span>
+                  </div>
+              </div>
+                <?php } ?>
+
+              </div>  
+              
+                 
+              </div>  
+              <hr style="color: aliceblue; margin-top: 50px;">
+              
+              <br><br><br> <br><br>
         </main>
 
         <div id="side-bar" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex flex-column">

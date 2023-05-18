@@ -44,23 +44,8 @@ for (var i = 0; i < elements.length; i++) {
     }
   });
 
-  elements[i].addEventListener("mousedown", function() {
-    // lấy đường dẫn ảnh tương ứng và đặt nó cho thẻ ảnh trong popup
-    var songName = this.querySelector("a").innerHTML.trim();
-    var imagePath = imagePaths[songName];
-    var popupImg = document.getElementById("popup-content").querySelector("img");
-    popupImg.setAttribute("src", imagePath);
-
-    // hiển thị popup
-    var popup = document.getElementById("popup");
-    popup.style.display = "flex";
-  });
-
-  elements[i].addEventListener("mouseup", function() {
-    // restore original content when play button is released
-    this.querySelector(".col-1").innerHTML = originalContent;
-    this.removeAttribute("data-isContentChanged");
-  });
+ 
+ 
 
   elements[i].addEventListener("mouseleave", function() {
     // var popup = document.getElementById("popup");
@@ -73,31 +58,9 @@ for (var i = 0; i < elements.length; i++) {
   });
 }
 
-var closePopupBtn = document.getElementById("close-popup");
-closePopupBtn.addEventListener("click", function() {
-  var popup = document.getElementById("popup");
-  popup.style.display = "none";
-});
-//popover
-$(document).ready(function(){
-  $('[data-toggle="popover"]').popover();   
-});
-const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
-const popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl, {
-    trigger: 'click',
-    html: true,
-    content: popoverTriggerEl.getAttribute('data-content')
-  })
-})
 
-$(function() {
-  $('[data-toggle="popover"]').popover({
-    container: 'body'
-  }).on('shown.bs.popover', function() {
-    $('[data-toggle="popover"]').not(this).popover('hide');
-  });
-});
+
+
 //hieu ung nút search setting
 function toggleSearchContainer() {
   var searchContainer = document.getElementById("search-container");
