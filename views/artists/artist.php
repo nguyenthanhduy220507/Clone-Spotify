@@ -75,7 +75,7 @@
                  <div  style="font-size: 6rem;"><?php  echo $data['artist']->getArtistName();?></div>
 
                  <div class="my-4"> 
-                  51.307.561 người nghe hằng tháng
+                  <!-- 51.307.561 người nghe hằng tháng -->
                    </div>
                 </div>
               </div>

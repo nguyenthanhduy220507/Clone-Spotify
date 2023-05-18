@@ -119,12 +119,12 @@ body #main {
   height: 270px;
 
 }
-.znake-icon-spotify-medals{
+.niand-icon-spotify-heart{
   font-size: 55px;
   color: #1ed760;
 }
 
-.znake-icon-spotify-tick-playlist1{
+.niand-icon-spotify-tick-playlist1{
   color: #1ed760;
 }
 
@@ -159,8 +159,81 @@ body #main {
 /* viết từ */
 #main-view {
   grid-area: main-view;
-  max-height: 609px; 
+  max-height: 690px; 
   overflow-y: scroll; 
+}
+.hover_div:hover {
+  background-color: #34343a;
+}
+
+.data-row:hover {
+  background-color: #2a2a2a;
+}
+
+.data-row .icon_hidden {
+  visibility: hidden;
+}
+
+.niand-icon-spotify-heart-full-green {
+  color: #1ed760;
+}
+
+.data-row:hover .icon_hidden {
+  visibility: visible;
+}
+
+.hover_a:hover {
+  text-decoration: underline;
+}
+
+
+.play-btn {
+  visibility: hidden;
+  display: none;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 5px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+/* Hiển thị nút "play" khi có lớp "show" */
+.play-btn.show {
+  background-color: #1ed760;
+  display: block;
+  visibility: visible;
+}
+
+/* Hiện play ở giữa card */
+.play-btn-wrapper {
+
+  position: absolute;
+  /* hoặc sử dụng relative nếu cần */
+  top: 39%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* reponsive */
+@media(max-width: 767px) {
+  #now-playing-bar-left {
+      width: 100%;
+  }
+
+  .player-controls-center {
+      margin-top: -70px;
+      margin-left: 650px;
+  }
 }
 /* đến đây */
 

@@ -1,7 +1,17 @@
+<?php
+    require_once "./config/basehref.php";
+    $url = getUrl();
+    if (isset($_SESSION['username'])) {
+        header("Location: ?url=home/index_login");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+  <?php
+        echo "<base href='".$url."'>";
+  ?>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,7 +31,6 @@
     crossorigin="anonymous"></script>
   <!-- CSS - SCSS -->
   <link rel="stylesheet" href="./assets/css/index_help.css" />
-  <link rel="stylesheet" href="./Znake-Spotify-v1.0/style.css" />
   <style>
     @media(max-width: 767px) {
       #action-buttons {
@@ -39,7 +48,7 @@
         <div class="d-flex align-items-center justify-content-between gap-3">
           <div id="action-buttons" class="d-flex flex-shrink-1">
             <button type="button" title="Quay lại" class="d-flex justify-content-center align-items-center">
-              <i class="znake-icon-spotify-logo"></i>
+              <i class="niand-icon-spotify-logo"></i>
             </button>
           </div>
           <div class="btn-nav flex-shrink-1 d-xl-flex d-lg-flex d-md-flex d-sm-none d-none">
@@ -72,7 +81,7 @@
         </p>
         <div class="bg-light mb-3 mt-5">
           <form class="d-flex justify-content-center align-items-center">
-            <a href="" class="text-dark ms-2"><i class="znake-icon-spotify-search"></i></a>
+            <a href="" class="text-dark ms-2"><i class="niand-icon-spotify-search"></i></a>
             <input class="form-control border-0 ms-2" type="search" placeholder="Tìm Kiếm" aria-label="Search" />
           </form>
         </div>
@@ -210,7 +219,7 @@
               <a href="" class="text-white hover_a">Không thể đặt mật khẩu</a>
             </div>
             <div>
-              <a href=""><i class="znake-icon-spotify-right text-white"></i></a>
+              <a href=""><i class="niand-icon-spotify-right text-white"></i></a>
             </div>
           </div>
           <div class="d-flex gap-2 mb-4">
@@ -218,7 +227,7 @@
               <a href="" class="text-white hover_a">Bạn không nhớ thông tin đăng nhập</a>
             </div>
             <div>
-              <a href=""><i class="znake-icon-spotify-right text-white"></i></a>
+              <a href=""><i class="niand-icon-spotify-right text-white"></i></a>
             </div>
           </div>
           <div class="d-flex gap-2 mb-4">
@@ -226,7 +235,7 @@
               <a href="" class="text-white hover_a">Trợ giúp về đăng nhập bằng Facebook</a>
             </div>
             <div>
-              <a href=""><i class="znake-icon-spotify-right text-white"></i></a>
+              <a href=""><i class="niand-icon-spotify-right text-white"></i></a>
             </div>
           </div>
           <div class="d-flex gap-2 mb-4">
@@ -234,7 +243,7 @@
               <a href="" class="text-white hover_a">Phương tiện thanh toán</a>
             </div>
             <div>
-              <a href=""><i class="znake-icon-spotify-right text-white"></i></a>
+              <a href=""><i class="niand-icon-spotify-right text-white"></i></a>
             </div>
           </div>
         </div>
@@ -243,7 +252,7 @@
         <div class="container" style="background-color:#000000; padding-top: 65px">
           <div class="row">
             <div class="col-md-2 col-sm-12">
-              <a href=""><i class="znake-icon-spotify-logo text-white" style="font-size:2rem"></i></a>
+              <a href=""><i class="niand-icon-spotify-logo text-white" style="font-size:2rem"></i></a>
             </div>
             <div class="col-md-6 col-sm-12">
               <div class="row">
@@ -281,11 +290,11 @@
               <div class="col-md-6 col-sm-12  col-lg-3">
                 <ul class="d-flex list-unstyled">
                   <li class="me-3"><a href="" class="rounded-5 p-2 fs-4 border border-circle"
-                      style="background-color:#3b3b3b"><i class="znake-icon-instagram text-white"></i></a></li>
+                      style="background-color:#3b3b3b"><i class="niand-icon-instagram text-white"></i></a></li>
                   <li class="me-3"><a href="" class="rounded-5 p-2 fs-4 border border-circle"
-                      style="background-color:#3b3b3b"><i class="znake-icon-twitter text-white"></i></a></li>
+                      style="background-color:#3b3b3b"><i class="niand-icon-twitter text-white"></i></a></li>
                   <li class="me-3"><a href="" class="rounded-5 p-2 fs-4 border border-circle"
-                      style="background-color:#3b3b3b"><i class="znake-icon-facebook text-white"></i></a></li>
+                      style="background-color:#3b3b3b"><i class="niand-icon-facebook text-white"></i></a></li>
 
                 </ul>
               </div>
