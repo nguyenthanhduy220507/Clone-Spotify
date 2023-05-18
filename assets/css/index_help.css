@@ -90,9 +90,9 @@ body #main {
 #action-buttons button:is(.active) {
   opacity: 1;
 }
-#action-buttons button:hover {
+/* #action-buttons button:hover {
   cursor: not-allowed;
-}
+} */
 
 
 /* viết từ đây */
