@@ -5,6 +5,7 @@ require_once "./models/Artist.php";
 require_once "./models/Playlist.php";
 require_once "./models/Song.php";
 require_once "./models/SongListenHistory.php";
+require_once "./models/SongPlaylist.php";
 require_once "./models/User.php";
 class Admin extends Controller
 {
@@ -61,7 +62,7 @@ class Admin extends Controller
                 ]);
                 break;
             case 'playlists':
-                $table_header = ['playlist id', 'playlist name', 'playlist description', 'playlists_user', 'playlist image', 'actions'];
+                $table_header = ['playlist id', 'playlist name', 'playlist description', 'playlists_user', 'playlist image', 'add song', 'clear all', 'actions'];
                 $DB = $this->model("PlaylistModel");
                 $list = $DB->getAll();
                 $list_in_page = [];
@@ -124,6 +125,25 @@ class Admin extends Controller
                 ]);
                 break;
             case 'song_playlist':
+                $table_header = ['song', 'playlist', 'order', 'actions'];
+                $DB = $this->model("SongPlaylistModel");
+                $list = $DB->getAll();
+                $list_in_page = [];
+                $total_items = count($list);
+                $total_pages = ceil($total_items / 10); // Số lượng trang
+                for ($i = 0; $i < $total_items; $i++) {
+                    if ($i < ($page * 10) && $i >= (($page - 1) * 10)) {
+                        $list_in_page[] = $list[$i];
+                    }
+                }
+                $this->view('admin/admin-management', [
+                    "title"=>'Song Playlist',
+                    "table-header"=>$table_header,
+                    "table-body"=>$list_in_page,
+                    "total-pages"=>$total_pages,
+                    "current-page"=>$page,
+                    "url"=>"song_playlist"
+                ]);
                 break;
             case 'users':
                 $table_header = ['user id', 'username', 'email', 'day of birth', 'gender', 'type', 'actions'];
@@ -187,8 +207,6 @@ class Admin extends Controller
                     "songs"=>$songDB->getAll()
                 ]);
                 break;
-            case 'song_playlist':
-                break;
             case 'users':
                 $this->view('admin/form/form-user', [
                     "type"=>"add"
@@ -243,6 +261,12 @@ class Admin extends Controller
                 ]);
                 break;
             case 'song_playlist':
+                $parts = explode(".", $id);
+                $this->view('admin/form/form-songplaylist', [
+                    "type"=>"update",
+                    "song_id"=>$parts[0],
+                    "id"=>$parts[1]
+                ]);
                 break;
             case 'users':
                 $this->view('admin/form/form-user', [
@@ -271,16 +295,35 @@ class Admin extends Controller
             case 'song_listen_history':
                 $DB = $this->model("SongListenHistoryModel");
                 break;
-            case 'song_playlist':
-                break;
             case 'users':
                 $DB = $this->model("UserModel");
                 break;
         }
         if ($DB != null) {
             $DB->delete($id);
-            header('Location: ?url=admin/management/'.$type.'1');
+            header('Location: ?url=admin/management/'.$type.'/1');
+        } else if ($type == 'song_playlist') {
+            $parts = explode(".", $id);
+            $DB = $this->model("SongPlaylistModel")->removeSongFromPlaylist($parts[0], $parts[1]);
+            header('Location: ?url=admin/management/'.$type.'/1');
         }
+    }
+
+    public function add_song_to_playlist($id) {
+        $playlistDB = $this->model('PlaylistModel');
+        $songDB = $this->model('SongModel');
+        $DB = $this->model('SongPlaylistModel');
+        $this->view('admin/form/form-songplaylist', [
+            'name'=>$playlistDB->getById($id)->getPlaylistName(),
+            'id'=>$id,
+            'songs'=>$songDB->getAll()
+        ]);
+    }
+
+    public function clear_all_song_from_playlist($id) {
+        $DB = $this->model('SongPlaylistModel');
+        $DB->clearPlaylist($id);
+        header('Location: ?url=admin/management/playlists/1');
     }
 
     public function auth_album_form($type)
@@ -460,6 +503,36 @@ class Admin extends Controller
         }
     }
 
+    public function auth_sp_form($type)
+    {
+        if ($type == 'add') {
+            if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])
+                && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
+                $id = $_POST['id'];
+                $order = $_POST['order'];
+                $song_id = $_POST['song'];
+                $playlist = $this->model("PlaylistModel")->getById($id);
+                $song = $this->model("SongModel")->getById($song_id);
+                $sp = new SongPlaylist($song, $playlist, $order);
+                $success = $this->model("SongPlayListModel")->addSongToPlaylist($sp);
+                // return JSON response
+                header('Content-Type: application/json');
+                echo json_encode(array('success' => $success));
+            }
+        }
+        else if ($type == 'update') {
+            if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])
+                && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
+                $id = $_POST['id'];
+                $order = $_POST['order'];
+                $song_id = $_POST['song'];
+                $success = $this->model("SongPlayListModel")->updateSongOrder($song_id, $id, $order);
+                // return JSON response
+                header('Content-Type: application/json');
+                echo json_encode(array('success' => $success));
+            }
+        }
+    }
 
     public function auth_user_form($type)
     {

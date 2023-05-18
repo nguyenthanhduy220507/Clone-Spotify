@@ -116,7 +116,9 @@ if (!isset($_SESSION['username'])) {
             <section id="content" class="my-scroll flex-grow-1 m-1 p-5 bg-white rounded-5">
                 <div class="d-flex justify-content-between align-items-center">
                     <h2 class="text-black mb-3"><?php echo $data["title"] ?></h2>
-                    <button onclick="window.location.href='?url=admin/add_form/<?php echo $data['url'] ?>'" class="btn btn-dark">Create new</button>
+                    <button onclick="window.location.href='?url=admin/add_form/<?php echo $data['url'] ?>'" class="btn <?php if ($data['title'] == 'Song Playlist') {
+                    echo 'd-none';
+                } ?> btn-dark">Create new</button>
                 </div>
                 <div class="input-container my-3 mx-auto">
                     <input type="text" name="text" class="input" placeholder="search...">
@@ -192,6 +194,12 @@ if (!isset($_SESSION['username'])) {
                                             <td>' . $tb->getPlaylistUser()->getUserId() . '</td>
                                             <td><img class="img-fluid" src="' . $tb->getPlaylistImageUrl() . '" alt="' . $tb->getPlaylistName() . '"></td>
                                             <td>
+                                                <a href="?url=admin/add_song_to_playlist/' . $tb->getPlaylistId() . '" class="btn btn-outline-dark">Add Song</a>
+                                            </td>
+                                            <td>
+                                                <a href="?url=admin/clear_all_song_from_playlist/' . $tb->getPlaylistId() . '" class="btn btn-outline-dark">Clear</a>
+                                            </td>
+                                            <td>
                                                 <a class="text-decoration-none text-black" href="?url=admin/update_form/playlists/' . $tb->getPlaylistId() . '">
                                                     <i class="niand-icon-edit"></i>
                                                 </a>
@@ -242,6 +250,21 @@ if (!isset($_SESSION['username'])) {
                                 }
                                 break;
                             case 'Song Playlist':
+                                foreach ($data["table-body"] as $tb) {
+                                    echo '<tr>
+                                            <td>' . $tb->getSong()->getSongTitle() . '</td>
+                                            <td>' . $tb->getPlaylist()->getPlaylistName() . '</td>
+                                            <td>' . $tb->getSongOrder() . '</td>
+                                            <td>
+                                                <a class="text-decoration-none text-black" href="?url=admin/update_form/song_playlist/' . $tb->getSong()->getSongId() .'.'. $tb->getPlaylist()->getPlaylistId() . '">
+                                                    <i class="niand-icon-edit"></i>
+                                                </a>
+                                                <a class="text-decoration-none text-black" href="?url=admin/delete/song_playlist/' . $tb->getSong()->getSongId() .'.'. $tb->getPlaylist()->getPlaylistId() . '">
+                                                    <i class="niand-icon-delete"></i>
+                                                </a>
+                                            </td>
+                                        </tr>';
+                                }
                                 break;
                             case 'Users':
                                 foreach ($data["table-body"] as $tb) {
@@ -271,9 +294,9 @@ if (!isset($_SESSION['username'])) {
                     <?php
                     for ($i = 1; $i <= $data['total-pages']; $i++) {
                         if ($i == $data['current-page']) {
-                            echo '<a href="?url=admin/management/'.$data['url'].'/'.$i.'" class="active-pag">'.$i.'</a> ';
+                            echo '<a href="?url=admin/management/' . $data['url'] . '/' . $i . '" class="active-pag">' . $i . '</a> ';
                         } else {
-                            echo '<a href="?url=admin/management/'.$data['url'].'/'.$i.'">'.$i.'</a> ';
+                            echo '<a href="?url=admin/management/' . $data['url'] . '/' . $i . '">' . $i . '</a> ';
                         }
                     }
                     ?>

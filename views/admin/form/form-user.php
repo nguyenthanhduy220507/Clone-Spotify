@@ -39,17 +39,20 @@ if (!isset($_SESSION['username'])) {
                 <input type="number" class="form-control" id="id" value="<?php if (isset($data['user'])) echo $data['user']->getUserId(); ?>" placeholder="Id" name="id" disabled>
             </div>
             <div class="mb-3 mt-3">
-                <label for="name">Username:</label>
-                <input type="text" class="form-control" id="name" value="<?php if (isset($data['user'])) echo $data['user']->getUsername(); ?>" placeholder="Enter name" name="name" required>
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" value="<?php if (isset($data['user'])) echo $data['user']->getUsername(); ?>" placeholder="Enter username" name="username" required>
             </div>
             <div class="mb-3 mt-3">
                 <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" value="<?php if (isset($data['user'])) echo $data['user']->getPassword();
-                                                                                    echo 'disabled'; ?>" placeholder="Enter password" name="password" required>
+                <input type="password" class="form-control" id="password" value="<?php if (isset($data['user'])) echo $data['user']->getPassword(); ?>" <?php if (isset($data['user'])) echo 'disabled'; ?> placeholder="Enter password" name="password" required>
             </div>
             <div class="mb-3 mt-3">
                 <label for="email">Email:</label>
                 <input type="email" class="form-control" id="email" value="<?php if (isset($data['user'])) echo $data['user']->getEmail(); ?>" placeholder="Enter email" name="email" required>
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="day_of_birth">Birthday:</label>
+                <input type="date" class="form-control" id="day_of_birth" value="<?php if (isset($data['user'])) echo $data['user']->getDayOfBirth(); ?>" placeholder="Enter birthday" name="day_of_birth" required>
             </div>
             <div class="mb-3 mt-3">
                 <div class="form-check">
@@ -68,8 +71,12 @@ if (!isset($_SESSION['username'])) {
             <div class="mb-3 mt-3">
                 <label for="type_">Type:</label>
                 <select class="form-select" id="type_" name="type_" value="<?php if (isset($data['user'])) echo $data['user']->getType(); ?>">
-                    <option>admin</option>
-                    <option>normal</option>
+                    <option <?php if (isset($data['user'])) {
+                        if ($data['user']->getType() == 'admin') echo 'selected';
+                    } ?> >admin</option>
+                    <option <?php if (isset($data['user'])) {
+                        if ($data['user']->getType() == 'normal') echo 'selected';
+                    } ?> >normal</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>

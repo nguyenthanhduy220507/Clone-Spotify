@@ -2,6 +2,7 @@
 require_once "./config/database.php";
 require_once "./models/SongPlaylist.php";
 require_once "./models/SongModel.php";
+require_once "./models/PlaylistModel.php";
 
 class SongPlaylistModel
 {
@@ -63,6 +64,26 @@ class SongPlaylistModel
             }
         }
         return $songs;
+    }
+
+    public function getAll() {
+        $song_model = new SongModel();
+        $playlist_model = new PlaylistModel();
+        $query = "SELECT * FROM song_playlist";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $song_playlists = [];
+        while ($row = $result->fetch_assoc()) {
+            $song_id = $row['song_id'];
+            $playlist_id = $row['playlist_id'];
+            $song_order = $row['song_order'];
+            $song = $song_model->getById($song_id);
+            $playlist = $playlist_model->getById($playlist_id);
+            $song_playlist = new SongPlaylist($song, $playlist, $song_order);
+            $song_playlists[] = $song_playlist;
+        }
+        return $song_playlists;
     }
 
     public function clearPlaylist($playlist_id)

@@ -25,7 +25,7 @@ class UserModel
         $gender = $user->getGender();
         $type = $user->getType();
         $user_id = $user->getUserId();
-        $stmt->bind_param('sssi', $username, $password, $email, $day_of_birth, $gender, $type, $user_id);
+        $stmt->bind_param('ssssssi', $username, $password, $email, $day_of_birth, $gender, $type, $user_id);
         $stmt->execute();
         return $stmt->affected_rows > 0;
     }
