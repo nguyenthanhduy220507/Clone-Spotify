@@ -2,8 +2,9 @@
     require_once "./config/basehref.php";
     $url = getUrl();
     if (!isset($_SESSION['username'])) {
-        header("Location: ?url=home/index");
+        header("Location: ?url=albums/album/".$data['id']);
     }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -223,7 +224,7 @@
                                 <div class="col-1 d-flex align-items-center justify-content-center">
                                     <div class="col-12 col-md-2 d-flex align-items-center justify-content-end">
                                         <a href="" class="text-white me-4"><i class="niand-icon-spotify-heart-empty icon"></i></a>
-                                        <span class="text-white"><?php echo $song->getSongDuration() ?></span>
+                                        <span class="text-white"><?php echo sprintf("%d:%02d", floor($song->getSongDuration() / 60), $song->getSongDuration()%60); ?></span>
                                         <a href="" class="text-white ms-4"><i class="niand-icon-spotify-three-dots icon"></i></a>
                                     </div>
                                 </div>
