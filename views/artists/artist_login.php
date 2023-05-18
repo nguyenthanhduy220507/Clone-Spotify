@@ -95,195 +95,113 @@
 
         <main id="main-view">
             <!-- TODO Nội dung của trang con -->
-            <div class="row  bg-image m-0" style="background-image: url(/image/artist/Adele/Adele-Artist.jpg);">
+            <div class="row  bg-image" style="background-image: url(/image/artist/Adele/Adele-Artist.jpg);">
                            
 
-                <div class="col-12 my-5 text-white fw-bold">
-                  <div  class="my-5">
-                    <i class="niand-icon-confirm text-primary"></i> Nghệ sĩ được xác nhận
-                   <div  style="font-size: 6rem;">Adele</div>
+              <div class="col-12 my-5 text-white fw-bold">
+                <div  class="my-5">
+                  <i class="niand-icon-confirm text-primary"></i> Nghệ sĩ được xác nhận
+                 <div  style="font-size: 6rem;"><?php  echo $data['artist']->getArtistName();?></div>
 
-                   <div class="my-4"> 
-                    51.307.561 người nghe hằng tháng
-                     </div>
-                  </div>
+                 <div class="my-4"> 
+                  <!-- 51.307.561 người nghe hằng tháng -->
+                   </div>
                 </div>
               </div>
-                <div class="row " >
-                          
-                  <div class="col-6">
-                   <button class="btn play-bttt" > <i class="niand-icon-spotify-play text-black fs-5 "  > </i></button>
-                   <button type="button" class="follow">Theo dõi</button>
-                   <button class="btn " style="border: 1px solid black; "><i class="niand-icon-spotify-three-dots  hightlight1 my-5 fs-4"  > </i></button>
-                  </div>
-                 </div>
-                 <div class="my-4 text-white mx-2 fw-bold fs-2">
-                  Phổ biến
-                 </div>
-                 <!-- Bai 1 -->
-                 <div class="row my-3 mx-3 detailHover">
-                  <div class=" col-1 text-white d-flex align-items-center justify-content-center">
-                    1
-                  </div>
-                  <div class=" col-2">
-                    <img class="p-1 img-fluid" src="/image/artist/Adele/adele.jpg "   style="height: 60px;">
-                  </div>
-                  <div class="col-5">
-                    <div class="my-1 text-white d-flex align-items-center">
-                      <a href="#">Easy On Me</a> 
-                     </div>
-                    
-                  </div>
-                  <div class="col-3 d-flex align-items-center text-white">
-                       <a href="#">1.306.895.925</a> 
-                  </div>
-                 
-                  <div class=" col-1 d-flex align-items-center">
-                     <i class="niand-icon-spotify-clock text-white"></i>
-                  </div>
+            </div>
+            <div class="row " >
+                      
+              <div class="col-6">
+               <button class="btn play-bttt" > <i class="niand-icon-spotify-play text-black fs-5 "  > </i></button>
+               <button type="button" class="follow">Theo dõi</button>
+               <button class="btn " style="border: 1px solid black; "><i class="niand-icon-spotify-three-dots  hightlight1 my-5 fs-4"  > </i></button>
               </div>
-               <!-- Bai 2 -->
-               <div class="row my-3 mx-3 detailHover">
-                  <div class="col-1 text-white d-flex align-items-center justify-content-center">
-                    2
-                  </div>
-                  <div class="col-2">
-                    <img class="p-1 img-fluid" src="/image/artist/Adele/Album21.jpg "  style="height: 60px;">
-                  </div>
-                  <div class="col-5">
-                    <div class="my-1 text-white d-flex align-items-center">
-                      <a href="#">Easy On Me</a> 
-                     </div>
-                    
-                  </div>
-                  <div class="col-3 d-flex align-items-center text-white">
-                       <a href="#">1.306.895.925</a> 
-                  </div>
-                 
-                  <div class="col-1 d-flex align-items-center">
-                     <i class="niand-icon-spotify-clock text-white"></i>
-                  </div>
-              </div>
-               <!-- Bai 3 -->
-               <div class="row my-3 mx-3 detailHover">
-                  <div class="col-1 d-flex align-items-center justify-content-center text-white">
-                    3
-                  </div>
-                  <div class="col-2">
-                    <img class="p-1 img-fluid" src="/image/artist/Adele/Album21.jpg "   style="height: 60px;">
-                  </div>
-                  <div class="col-5">
-                    <div class="my-1 text-white d-flex align-items-center">
-                      <a href="#">Easy On Me</a> 
-                     </div>
-                    
-                  </div>
-                  <div class="col-3 d-flex align-items-center text-white">
-                       <a href="#">1.306.895.925</a> 
-                  </div>
-                 
-                  <div class="col-1 d-flex align-items-center">
-                     <i class="niand-icon-spotify-clock text-white"></i>
-                  </div>
-              </div>
-              <!-- Bai 4 -->
+             </div>
+             <div class="my-4 fw-bold fs-2 text-white">
+              Phổ biến
+             </div>
+             <!-- Bai 1 -->
+
+             <?php foreach ($data['songs'] as $song) { ?>
               <div class="row my-3 mx-3 detailHover">
-                  <div class="col-1 d-flex align-items-center justify-content-center text-white">
-                    4
-                  </div>
-                  <div class="col-2">
-                    <img class="p-1 img-fluid" src="/image/artist/Adele/Album21.jpg "   style="height: 60px;">
-                  </div>
-                  <div class="col-5">
-                    <div class="my-1 text-white d-flex align-items-center">
-                      <a href="#">Easy On Me</a> 
-                     </div>
-                    
-                  </div>
-                  <div class="col-3 d-flex align-items-center text-white">
-                       <a href="#">1.306.895.925</a> 
-                  </div>
-                 
-                  <div class="col-1 d-flex align-items-center">
-                     <i class="niand-icon-spotify-clock text-white"></i>
-                  </div>
+              <div class=" col-1 text-white d-flex align-items-center justify-content-center">
+              <?php echo $song->getSongId()?>
               </div>
-              <div class="mx-5 text-white text-white">
-                  Xem thêm
+              <div class=" col-2">
+                <img class="p-1 img-fluid" src="/image/artist/Adele/adele.jpg " alt="error"  style="height: 60px;">
               </div>
-              <div class="row">
-                  <div class="fs-5 fw-bold my-4 mx-2 text-white">
-                      Bản phát hành nổi tiếng 
-                  </div>
-                  <div class="col-sm-4 col-md-4 col-lg-2 col-xl-2 d-flex mx-3 flex-column ">
-                      <div class="m-1 flex-grow-1">
-                        <div class="card  bg-bg h-100">
-                          <div class="card-body">
-                            <a href="/base.html" style="color: white;">
-                              <img class="card-img-top img-fluid" src="/image/artist/Adele/Album21.jpg" alt="Card image">
-                            </a>
-    
-                          </div>
-                          <div class="card-body">
-                            <div class="play-btn-wrapper" style="text-align: center;">
-                              <a href="#" class="btn   play-btn"><i
-                                  class="niand-icon-spotify-play text-black fs-5 hightlight1"> </i></a>
-                            </div>
-                            <a href="/base.html" style="color: white;">
-                              <h6 class="card-title">21</h6>
-                              <p class="card-text">Hồ sơ </p>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-4 col-md-4 col-lg-2 col-xl-2 d-flex flex-column ">
-                      <div class="m-1 flex-grow-1">
-                        <div class="card  bg-bg h-100">
-                          <div class="card-body">
-                            <a href="/base.html" style="color: white;">
-                              <img class="card-img-top img-fluid" src="/image/artist/Adele/adele.jpg" alt="Card image">
-                            </a>
-    
-                          </div>
-                          <div class="card-body">
-                            <div class="play-btn-wrapper" style="text-align: center;">
-                              <a href="#" class="btn   play-btn"><i
-                                  class="niand-icon-spotify-play text-black fs-5 hightlight1"> </i></a>
-                            </div>
-                            <a href="/base.html" style="color: white;">
-                              <h6 class="card-title">30</h6>
-                              <p class="card-text">Hồ sơ </p>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-4 col-md-4 col-lg-2 col-xl-2 d-flex flex-column ">
-                      <div class="m-1 flex-grow-1">
-                        <div class="card  bg-bg h-100">
-                          <div class="card-body">
-                            <a href="/base.html" style="color: white;">
-                              <img class="card-img-top img-fluid" src="/image/artist/Adele/Album25.jpg" alt="Card image">
-                            </a>
-    
-                          </div>
-                          <div class="card-body">
-                            <div class="play-btn-wrapper" style="text-align: center;">
-                              <a href="#" class="btn   play-btn"><i
-                                  class="niand-icon-spotify-play text-black fs-5 hightlight1"> </i></a>
-                            </div>
-                            <a href="/base.html" style="color: white;">
-                              <h6 class="card-title">25</h6>
-                              <p class="card-text">Hồ sơ </p>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-                  <br> <br><br> <br><br> <br> <br> <br><br> <br><br> <br><br> <br>
+              <div class="col-5">
+                <div class="my-1 text-white d-flex align-items-center">
+                  <a href="#"><?php echo $song->getSongTitle() ?></a> 
+                 </div>
+                
+              </div>
+              <div class="col-3 d-flex align-items-center text-white">
+                   <!-- <a href="#">1.306.895.925</a>  -->
+              </div>
              
+              <div class=" col-1 d-flex align-items-center">
+              <h6 class="card-title">
+              <span class="text-white">
+              <?php
+    $seconds = $song->getSongDuration();
+    $minutes = floor($seconds / 60); // Lấy phần nguyên của số phút
+    $remainingSeconds = $seconds % 60; // Lấy số giây còn lại
+
+    // Định dạng chuỗi phút:giây
+    $formattedTime = sprintf("%d:%02d", $minutes, $remainingSeconds);
+
+    echo $formattedTime;
+    ?>
+              </span>
+   
+</h6>
+
+              </div>
+          </div>
+                <?php } ?>
+
+
+          
+          
+          <div class="mx-5 hightlightWord text-white">
+              <!-- Xem thêm -->
+          </div>
+          <div class="row">
+            <div class="fs-5 fw-bold my-4 mx-2 text-white">
+                Album
+            </div>
+
+            <?php foreach ($data['albums'] as $album) { ?>
+                   
+            <div class="col-sm-4 col-md-4 col-lg-2 col-xl-2 d-flex mx-3 flex-column ">
+                <div class="m-1 flex-grow-1">
+                  <div class="card  bg-bg h-100">
+                    <div class="card-body">
+                      <a href="/base.html" style="color: white;">
+                        <img class="card-img-top img-fluid" src="/image/artist/Adele/Album21.jpg" alt="Card image">
+                      </a>
+
+                    </div>
+                    <div class="card-body">
+                      <div class="play-btn-wrapper" style="text-align: center;">
+                        <a href="#" class="btn   play-btn"><i
+                            class="niand-icon-spotify-play text-black fs-5 hightlight1"> </i></a>
+                      </div>
+                      <a href="/base.html" style="color: white;">
+                        <h6 class="card-title"> <?php echo $album->getAlbumTitle(); ?> </h6>
+                        <p class="card-text">Hồ sơ </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <?php } ?>
+
+             
+          </div>
+              <br> <br><br> <br><br> <br> <br> <br><br> <br><br> <br><br> <br>
+         
         </main>
 
         <div id="side-bar" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex flex-column">
