@@ -66,7 +66,7 @@
                 <nav class="flex-grow-1" aria-labelledby="navigation header">
                     <ul class="list-unstyled d-flex justify-content-center align-items-center gap-5 m-0">
                         <li><a class="text-decoration-none text-uppercase active fw-medium" href="?url=admin/dashboard">dashboard</a></li>
-                        <li><a class="text-decoration-none text-uppercase fw-medium" href="?url=admin/management/albums">management</a></li>
+                        <li><a class="text-decoration-none text-uppercase fw-medium" href="?url=admin/management/albums/1">management</a></li>
                         <li><a class="text-decoration-none text-uppercase fw-medium" href="?url=admin/setting">settings user</a></li>
                     </ul>
                 </nav>

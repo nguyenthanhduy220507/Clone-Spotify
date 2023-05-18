@@ -31,12 +31,12 @@
 </head>
 
 <body>
-<div class="container mt-3">
+<div class="container mt-3 mb-5">
         <h2>Playlist</h2>
         <form id="form" method="post">
             <div class="mb-3 mt-3">
                 <label for="id">ID:</label>
-                <input type="number" class="form-control" id="id" value="<?php if (isset($data['playlist'])) echo $data['playlist']->getPlaylistId(); ?>" placeholder="Album id" name="id" disabled>
+                <input type="number" class="form-control" id="id" value="<?php if (isset($data['playlist'])) echo $data['playlist']->getPlaylistId(); ?>" placeholder="Id" name="id" disabled>
             </div>
             <div class="mb-3 mt-3">
                 <label for="name">Name:</label>
@@ -59,9 +59,9 @@
             </div>
             <div class="mb-3 mt-3">
                 <label for="image-url">Image url:</label>
-                <input type="url" class="form-control" id="image-url" value="<?php if (isset($data['playlist'])) echo $data['playlist']->getPlaylistImageUrl(); ?>" placeholder="Enter image url" name="image-url" readonly required>
+                <input type="url" class="form-control" id="image-url" value="<?php if (isset($data['playlist'])) echo $data['playlist']->getPlaylistImageUrl(); ?>" placeholder="Enter image url" name="image-url" required>
                 <!-- <input id="chooser" class="btn btn-success mt-1" type="button" value="Chooser"> -->
-                <div style="height: 300px;" id="screen-image"></div>
+                <div style="height: 500px;" id="screen-image"></div>
                 <script>
                     var options = {
                         // Shared link to Dropbox file
@@ -114,11 +114,11 @@
                     success: function(response) {
                         if (response.success) {
                             // authentication succeeds, redirect to dashboard or home page
-                            window.location.href = '?url=admin/management/playlists';
+                            window.location.href = '?url=admin/management/playlists/1';
                         } else {
                             // authentication fails, display error message
                             let html = `<div class="alert alert-danger mt-2">
-                                            <strong>Failed!</strong> Failed to add. Please try again.
+                                            <strong>Failed!</strong> Failed. Please try again.
                                         </div>`
                             $('#response-message').html(html);
                         }

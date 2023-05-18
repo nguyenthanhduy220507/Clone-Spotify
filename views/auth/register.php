@@ -90,16 +90,16 @@
                     <label class="form-label fw-bold">Giới tính của bạn là gì?</label>
                     <div class="form-check w-100">
                         <input type="radio" class="form-check-input" id="male" name="gender" value="Nam" checked required>Nam
-                        <label class="form-check-label" for="radio1"></label>
+                        <label class="form-check-label" for="male"></label>
                     </div>
                     <div class="form-check w-100">
                         <input type="radio" class="form-check-input" id="female" name="gender" value="Nữ" required>Nữ
-                        <label class="form-check-label" for="radio2"></label>
+                        <label class="form-check-label" for="female"></label>
                     </div>
-                    <div class="form-check w-100">
+                    <!-- <div class="form-check w-100">
                         <input type="radio" class="form-check-input" id="other" name="gender" value="Khác" required>Khác
                         <label class="form-check-label"></label>
-                    </div>
+                    </div> -->
                 </div>
                 <p class="text-center" style="font-size: 10px;">Bằng việc nhấp vào nút Đăng ký, bạn đồng ý với <a href="">Điều khoản và điều kiện sử dụng</a> của Spotify.</p>
                 <p class="text-center" style="font-size: 10px;">Để tìm hiểu thêm về cách thức Spotify thu thập, sử dụng, chia sẻ và bảo vệ dữ liệu cá nhân của bạn, vui lòng xem <a href="">Chính sách quyền riêng tư của Spotify.</a></p>
