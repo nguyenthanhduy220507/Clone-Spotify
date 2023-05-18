@@ -166,7 +166,11 @@ if (!isset($_SESSION['username'])) {
                                 </div>
                                 <div class="col-10 d-flex align-items-center justify-content-left ps-0">
                                     <div class="card-body">
+<<<<<<< HEAD
                                         <a data-id="<?php echo $song->getSongId() ?>" class="play-song card-title mt-2 text-white hover_a" style="font-size:15px"><?php echo $song->getSongTitle() ?>
+=======
+                                        <a href="?url=albums/album/<?php echo $data['id']; ?>" class="card-title mt-2 text-white hover_a" style="font-size:15px"><?php echo $song->getSongTitle() ?>
+>>>>>>> 17d1a1ae70383134a5674bb7798635fb698d362a
                                         </a><br>
                                     </div>
                                 </div>
@@ -174,7 +178,15 @@ if (!isset($_SESSION['username'])) {
                                     <div class="col-12 col-md-2 d-flex align-items-center justify-content-end">
                                         <a href="" class="text-white me-4"><i class="niand-icon-spotify-heart-empty icon"></i></a>
                                         <span class="text-white"><?php echo sprintf("%d:%02d", floor($song->getSongDuration() / 60), $song->getSongDuration() % 60); ?></span>
-                                        <a href="" class="text-white ms-4"><i class="niand-icon-spotify-three-dots icon"></i></a>
+                                        <button type="button" class="rounded-5 ms-4 " data-bs-toggle="dropdown" style="background-color: #1a1a1a"><i class="niand-icon-spotify-three-dots text-white icon"></i></button>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <div class="d-flex dropdown-item">
+                                                    <a class="text-dark flex-grow-1" href="#">Thêm vào danh sách chờ</a>
+                                                    <i class="znake-icon-spotify-share-user text-dark"></i>
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>

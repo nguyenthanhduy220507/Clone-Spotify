@@ -1,6 +1,22 @@
 <?php
 require_once "./config/basehref.php";
 $url = getUrl();
+
+// if (isset($_COOKIE['username'])) {
+//     $username = $_COOKIE['username'];
+//     // Sử dụng giá trị 'username' từ cookie
+//     // ...
+// } else {
+//     // Nếu cookie 'username' chưa tồn tại, thực hiện việc lưu cookie
+//     if (isset($_POST['username'])) {
+//         $username = $_POST['username'];
+//         // Thiết lập cookie 'username' với giá trị từ $_POST['username']
+//         setcookie('username', $username, time() + (86400 * 30), '/'); // Thời gian tồn tại của cookie: 30 ngày
+//         // Reload lại trang
+//         header('Location: ' . $url);
+//         exit;
+//     }
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
