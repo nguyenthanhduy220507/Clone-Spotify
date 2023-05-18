@@ -42,7 +42,7 @@
 
 <body>
     <div id="main" class="d-grid">
-        <header id="top-bar" style="background-color:#34343a">
+        <header id="top-bar" >
             <div class="d-flex align-items-center justify-content-between gap-3">
                 <div id="action-buttons" class="d-flex flex-shrink-1">
                     <button type="button" title="Quay lại" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex justify-content-center align-items-center ">
