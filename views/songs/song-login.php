@@ -1,16 +1,15 @@
 <?php require_once 'style.php'; ?>
 <link rel="stylesheet" href="./assets/css/song-login.css">
+
 <body>
     <div id="main" class="d-grid">
         <header id="top-bar">
             <div class="d-flex align-items-center justify-content-between gap-3">
                 <div id="action-buttons" class="d-flex flex-shrink-1">
-                    <button type="button" title="Quay lại"
-                        class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex justify-content-center align-items-center next_prev">
+                    <button type="button" title="Quay lại" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex justify-content-center align-items-center next_prev">
                         <i class="niand-icon-spotify-left"></i>
                     </button>
-                    <button type="button" title="Tiếp theo"
-                        class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex justify-content-center align-items-center next_prev">
+                    <button type="button" title="Tiếp theo" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex justify-content-center align-items-center next_prev">
                         <i class="niand-icon-spotify-right"></i>
                     </button>
                     <div class="d-md-none d-block">
@@ -19,12 +18,9 @@
                         </button>
                     </div>
                 </div>
-                <div class="btn-nav flex-shrink-1 d-xl-flex d-lg-flex d-md-flex d-sm-none d-none"><a href="#"
-                        class="text-white">Premium</a></div>
-                <div class="btn-nav flex-shrink-1 d-xl-flex d-lg-flex d-md-flex d-sm-none d-none"><a href="#"
-                        class="text-white">Hỗ trợ</a></div>
-                <div class="btn-nav flex-shrink-1 d-xl-flex d-lg-flex d-md-flex d-sm-none d-none"><a href="#"
-                        class="text-white">Tải xuống</a></div>
+                <div class="btn-nav flex-shrink-1 d-xl-flex d-lg-flex d-md-flex d-sm-none d-none"><a href="#" class="text-white">Premium</a></div>
+                <div class="btn-nav flex-shrink-1 d-xl-flex d-lg-flex d-md-flex d-sm-none d-none"><a href="#" class="text-white">Hỗ trợ</a></div>
+                <div class="btn-nav flex-shrink-1 d-xl-flex d-lg-flex d-md-flex d-sm-none d-none"><a href="#" class="text-white">Tải xuống</a></div>
                 <div id="vertical-line" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none"></div>
                 <div id="sign-up-in" class="d-flex align-items-center flex-shrink-1">
                     <button id="sign-up" type="button" class="text-white">Đăng ký</button>
@@ -37,10 +33,8 @@
             <div class="p-2 lg-3 md-4 sm-6" style="background-color: #34343a">
                 <div class="card mb-3" style="background-color: #34343a; border: none">
                     <div class="row g-0">
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-12 d-flex justify-content-center align-items-center"
-                            style="margin-right: -50px;">
-                            <img src="https://i.scdn.co/image/ab67616d00001e02164feb363334f93b6458d2a9"
-                                class="img-fluid rounded-start" alt="..." style="width: 65%">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-12 d-flex justify-content-center align-items-center" style="margin-right: -50px;">
+                            <img src="https://i.scdn.co/image/ab67616d00001e02164feb363334f93b6458d2a9" class="img-fluid rounded-start" alt="..." style="width: 65%">
                         </div>
                         <div class="col-md-8 col-sm-12" style="margin-top: 100px">
                             <div class="card-body">
@@ -59,9 +53,7 @@
                 </div>
             </div>
             <div class="container d-flex align-items-center my-3" style="background-color: #18181a; height:50px">
-                <button type="button"
-                    class="m-0 ms-2 rounded-circle d-flex justify-content-center align-items-center p-3 me-3"
-                    style="background-color: #1ed760;font-size:20px">
+                <button type="button" class="m-0 ms-2 rounded-circle d-flex justify-content-center align-items-center p-3 me-3" style="background-color: #1ed760;font-size:20px">
                     <i class="niand-icon-spotify-play text-black"></i>
                 </button>
                 <a href="" class="rounded-circle me-3 fs-3">
@@ -146,16 +138,13 @@ Na-na-na-na-na-na
                     <div class="container-fuild">
                         <div class="my_row ms-4 my-5">
                             <div class="d-flex align-items-center justify-content-left px-0">
-                                <img src="https://i.scdn.co/image/ab67616d00004851bffc14adc7cc41fbb03bbaa8"
-                                    class="py-2 img-fluid rounded-start" alt="...">
+                                <img src="https://i.scdn.co/image/ab67616d00004851bffc14adc7cc41fbb03bbaa8" class="py-2 img-fluid rounded-start" alt="...">
                                 <div class="ms-3">
                                     <div class="">
-                                        <a href="" class="card-title fw-bold mt-2 hover_a text-white"
-                                            style="font-size:13px">Nghệ sĩ</a>
+                                        <a href="" class="card-title fw-bold mt-2 hover_a text-white" style="font-size:13px">Nghệ sĩ</a>
                                     </div>
                                     <div class="d-flex">
-                                        <a href="" class="card-text hover_a text-white fw-bold"
-                                            style="font-size:13px;">Farsjön</a>
+                                        <a href="" class="card-text hover_a text-white fw-bold" style="font-size:13px;">Farsjön</a>
                                     </div>
                                 </div>
                             </div>
@@ -171,32 +160,26 @@ Na-na-na-na-na-na
                                 <span class="text-white">1</span>
                             </div>
                             <div class="col-3 d-flex align-items-center justify-content-left px-0">
-                                <img src="https://i.scdn.co/image/ab67616d00004851bffc14adc7cc41fbb03bbaa8"
-                                    class="py-2 img-fluid rounded-start" alt="...">
+                                <img src="https://i.scdn.co/image/ab67616d00004851bffc14adc7cc41fbb03bbaa8" class="py-2 img-fluid rounded-start" alt="...">
                                 <div class="ms-3">
                                     <div class="">
-                                        <a href="" class="card-title fw-bold mt-2 hover_a text-white"
-                                            style="font-size:13px">Farsjön</a>
+                                        <a href="" class="card-title fw-bold mt-2 hover_a text-white" style="font-size:13px">Farsjön</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-6 px-0  d-flex align-items-center justify-content-center">
                                 <div class="card-body d-flex align-items-center justify-content-center">
-                                    <a href="#"
-                                        class="card-title mt-2 text-white hover_a d-xl-flex d-lg-flex d-md-flex d-sm-none d-none"
-                                        style="font-size:15px">20.016.634
+                                    <a href="#" class="card-title mt-2 text-white hover_a d-xl-flex d-lg-flex d-md-flex d-sm-none d-none" style="font-size:15px">20.016.634
                                     </a><br>
                                 </div>
                             </div>
                             <div class="col-2 d-flex align-items-center justify-content-center">
                                 <div class="col-12 col-md-2 d-flex align-items-center justify-content-end">
-                                    <a href="" class="text-white me-4 icon"><i
-                                            class="znake-icon-spotify-heart-full-green"></i> </a>
+                                    <a href="" class="text-white me-4 icon"><i class="znake-icon-spotify-heart-full-green"></i> </a>
                                     <span class="text-white">
                                         1:39
                                     </span>
-                                    <a href="" class="text-white ms-4 icon"><i
-                                            class="znake-icon-spotify-three-dots"></i></a>
+                                    <a href="" class="text-white ms-4 icon"><i class="znake-icon-spotify-three-dots"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -209,32 +192,26 @@ Na-na-na-na-na-na
                                 <span class="text-white">1</span>
                             </div>
                             <div class="col-3 d-flex align-items-center justify-content-left px-0">
-                                <img src="https://i.scdn.co/image/ab67616d00004851bffc14adc7cc41fbb03bbaa8"
-                                    class="py-2 img-fluid rounded-start" alt="...">
+                                <img src="https://i.scdn.co/image/ab67616d00004851bffc14adc7cc41fbb03bbaa8" class="py-2 img-fluid rounded-start" alt="...">
                                 <div class="ms-3">
                                     <div class="">
-                                        <a href="" class="card-title fw-bold mt-2 hover_a text-white"
-                                            style="font-size:13px">Farsjön</a>
+                                        <a href="" class="card-title fw-bold mt-2 hover_a text-white" style="font-size:13px">Farsjön</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-6 px-0  d-flex align-items-center justify-content-center">
                                 <div class="card-body d-flex align-items-center justify-content-center">
-                                    <a href="#"
-                                        class="card-title mt-2 text-white hover_a d-xl-flex d-lg-flex d-md-flex d-sm-none d-none"
-                                        style="font-size:15px">20.016.634
+                                    <a href="#" class="card-title mt-2 text-white hover_a d-xl-flex d-lg-flex d-md-flex d-sm-none d-none" style="font-size:15px">20.016.634
                                     </a><br>
                                 </div>
                             </div>
                             <div class="col-2 d-flex align-items-center justify-content-center">
                                 <div class="col-12 col-md-2 d-flex align-items-center justify-content-end">
-                                    <a href="" class="text-white me-4 icon"><i
-                                            class="znake-icon-spotify-heart-full-green"></i> </a>
+                                    <a href="" class="text-white me-4 icon"><i class="znake-icon-spotify-heart-full-green"></i> </a>
                                     <span class="text-white">
                                         1:39
                                     </span>
-                                    <a href="" class="text-white ms-4 icon"><i
-                                            class="znake-icon-spotify-three-dots"></i></a>
+                                    <a href="" class="text-white ms-4 icon"><i class="znake-icon-spotify-three-dots"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -247,32 +224,26 @@ Na-na-na-na-na-na
                                 <span class="text-white">1</span>
                             </div>
                             <div class="col-3 d-flex align-items-center justify-content-left px-0">
-                                <img src="https://i.scdn.co/image/ab67616d00004851bffc14adc7cc41fbb03bbaa8"
-                                    class="py-2 img-fluid rounded-start" alt="...">
+                                <img src="https://i.scdn.co/image/ab67616d00004851bffc14adc7cc41fbb03bbaa8" class="py-2 img-fluid rounded-start" alt="...">
                                 <div class="ms-3">
                                     <div class="">
-                                        <a href="" class="card-title fw-bold mt-2 hover_a text-white"
-                                            style="font-size:13px">Farsjön</a>
+                                        <a href="" class="card-title fw-bold mt-2 hover_a text-white" style="font-size:13px">Farsjön</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-6 px-0  d-flex align-items-center justify-content-center">
                                 <div class="card-body d-flex align-items-center justify-content-center">
-                                    <a href="#"
-                                        class="card-title mt-2 text-white hover_a d-xl-flex d-lg-flex d-md-flex d-sm-none d-none"
-                                        style="font-size:15px">20.016.634
+                                    <a href="#" class="card-title mt-2 text-white hover_a d-xl-flex d-lg-flex d-md-flex d-sm-none d-none" style="font-size:15px">20.016.634
                                     </a><br>
                                 </div>
                             </div>
                             <div class="col-2 d-flex align-items-center justify-content-center">
                                 <div class="col-12 col-md-2 d-flex align-items-center justify-content-end">
-                                    <a href="" class="text-white me-4 icon"><i
-                                            class="znake-icon-spotify-heart-full-green"></i> </a>
+                                    <a href="" class="text-white me-4 icon"><i class="znake-icon-spotify-heart-full-green"></i> </a>
                                     <span class="text-white">
                                         1:39
                                     </span>
-                                    <a href="" class="text-white ms-4 icon"><i
-                                            class="znake-icon-spotify-three-dots"></i></a>
+                                    <a href="" class="text-white ms-4 icon"><i class="znake-icon-spotify-three-dots"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -294,13 +265,11 @@ Na-na-na-na-na-na
                     <div class="col-lg-2 col-md-4 col-sm-6 col-6 border border-dark m-3 hover_div">
                         <div class="card">
                             <div class="card">
-                                <img src="https://i.scdn.co/image/ab67616d00001e02164feb363334f93b6458d2a9"
-                                    class="card-img-top" alt="...">
+                                <img src="https://i.scdn.co/image/ab67616d00001e02164feb363334f93b6458d2a9" class="card-img-top" alt="...">
                             </div>
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i
-                                            class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                    <a href="#" class="btn play-btn"><i class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -311,13 +280,11 @@ Na-na-na-na-na-na
                     <div class="col-lg-2 col-md-4 col-sm-6 col-6 border border-dark m-3 hover_div">
                         <div class="card ">
                             <div class="card mt-2">
-                                <img src="https://i.scdn.co/image/ab67616d00001e02164feb363334f93b6458d2a9"
-                                    class="card-img-top" alt="...">
+                                <img src="https://i.scdn.co/image/ab67616d00001e02164feb363334f93b6458d2a9" class="card-img-top" alt="...">
                             </div>
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i
-                                            class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                    <a href="#" class="btn play-btn"><i class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -327,13 +294,11 @@ Na-na-na-na-na-na
                     <div class="col-lg-2 col-md-4 col-sm-6 col-6 border border-dark m-3 hover_div">
                         <div class="card ">
                             <div class="card mt-2">
-                                <img src="https://i.scdn.co/image/ab67616d00001e02164feb363334f93b6458d2a9"
-                                    class="card-img-top" alt="...">
+                                <img src="https://i.scdn.co/image/ab67616d00001e02164feb363334f93b6458d2a9" class="card-img-top" alt="...">
                             </div>
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i
-                                            class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                    <a href="#" class="btn play-btn"><i class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -343,13 +308,11 @@ Na-na-na-na-na-na
                     <div class="col-lg-2 col-md-4 col-sm-6 col-6 border border-dark m-3 hover_div">
                         <div class="card ">
                             <div class="card mt-2">
-                                <img src="https://i.scdn.co/image/ab67616d00001e02164feb363334f93b6458d2a9"
-                                    class="card-img-top" alt="...">
+                                <img src="https://i.scdn.co/image/ab67616d00001e02164feb363334f93b6458d2a9" class="card-img-top" alt="...">
                             </div>
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i
-                                            class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                    <a href="#" class="btn play-btn"><i class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -359,13 +322,11 @@ Na-na-na-na-na-na
                     <div class="col-lg-2 col-md-4 col-sm-6 col-6 border border-dark m-3 hover_div">
                         <div class="card ">
                             <div class="card mt-2">
-                                <img src="https://i.scdn.co/image/ab67616d00001e02164feb363334f93b6458d2a9"
-                                    class="card-img-top" alt="...">
+                                <img src="https://i.scdn.co/image/ab67616d00001e02164feb363334f93b6458d2a9" class="card-img-top" alt="...">
                             </div>
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i
-                                            class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                    <a href="#" class="btn play-btn"><i class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -387,13 +348,11 @@ Na-na-na-na-na-na
                     <div class="col-lg-2 col-md-4 col-sm-6 col-6 border border-dark m-3 hover_div">
                         <div class="card">
                             <div class="card">
-                                <img src="https://i.scdn.co/image/ab67616d00001e02164feb363334f93b6458d2a9"
-                                    class="card-img-top" alt="...">
+                                <img src="https://i.scdn.co/image/ab67616d00001e02164feb363334f93b6458d2a9" class="card-img-top" alt="...">
                             </div>
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i
-                                            class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                    <a href="#" class="btn play-btn"><i class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -404,13 +363,11 @@ Na-na-na-na-na-na
                     <div class="col-lg-2 col-md-4 col-sm-6 col-6 border border-dark m-3 hover_div">
                         <div class="card ">
                             <div class="card mt-2">
-                                <img src="https://i.scdn.co/image/ab67616d00001e02164feb363334f93b6458d2a9"
-                                    class="card-img-top" alt="...">
+                                <img src="https://i.scdn.co/image/ab67616d00001e02164feb363334f93b6458d2a9" class="card-img-top" alt="...">
                             </div>
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i
-                                            class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                    <a href="#" class="btn play-btn"><i class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -420,13 +377,11 @@ Na-na-na-na-na-na
                     <div class="col-lg-2 col-md-4 col-sm-6 col-6 border border-dark m-3 hover_div">
                         <div class="card ">
                             <div class="card mt-2">
-                                <img src="https://i.scdn.co/image/ab67616d00001e02164feb363334f93b6458d2a9"
-                                    class="card-img-top" alt="...">
+                                <img src="https://i.scdn.co/image/ab67616d00001e02164feb363334f93b6458d2a9" class="card-img-top" alt="...">
                             </div>
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i
-                                            class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                    <a href="#" class="btn play-btn"><i class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -436,13 +391,11 @@ Na-na-na-na-na-na
                     <div class="col-lg-2 col-md-4 col-sm-6 col-6 border border-dark m-3 hover_div">
                         <div class="card ">
                             <div class="card mt-2">
-                                <img src="https://i.scdn.co/image/ab67616d00001e02164feb363334f93b6458d2a9"
-                                    class="card-img-top" alt="...">
+                                <img src="https://i.scdn.co/image/ab67616d00001e02164feb363334f93b6458d2a9" class="card-img-top" alt="...">
                             </div>
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i
-                                            class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                    <a href="#" class="btn play-btn"><i class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -452,13 +405,11 @@ Na-na-na-na-na-na
                     <div class="col-lg-2 col-md-4 col-sm-6 col-6 border border-dark m-3 hover_div">
                         <div class="card ">
                             <div class="card mt-2">
-                                <img src="https://i.scdn.co/image/ab67616d00001e02164feb363334f93b6458d2a9"
-                                    class="card-img-top" alt="...">
+                                <img src="https://i.scdn.co/image/ab67616d00001e02164feb363334f93b6458d2a9" class="card-img-top" alt="...">
                             </div>
                             <div class="card-body">
                                 <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i
-                                            class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                    <a href="#" class="btn play-btn"><i class="znake-icon-spotify-play fs-5 hightlight1"> </i></a>
                                 </div>
                                 <h6 class="card-title fw-bold">21</h6>
                                 <p class="card-text text_font">2011</p>
@@ -535,9 +486,88 @@ Na-na-na-na-na-na
             </div>
         </div>
 
-    <?php require_once 'footer.php';?>
+        <footer>
+            <div id="now-playing-bar" class="pe-2 ps-2">
+                <div class="row row-cols-3 m-auto">
+                    <div id="now-playing-bar-left" class="col d-flex align-items-center">
+                        <div class="d-flex gap-3 justify-content-start align-items-center">
+                            <div>
+                                <img class="img-fluid rounded-1" src="https://i.scdn.co/image/ab67616d0000485170cb943c9a67b7eda3414366" alt="">
+                            </div>
+                            <div>
+                                <div class="title">
+                                    không nói ai mà biết
+                                </div>
+                                <div class="authors">
+                                    <a href="#">14 Casper</a>
+                                    <a href="#">Bon Nghiêm</a>
+                                </div>
+                            </div>
+                            <div>
+                                <i class="niand-icon-spotify-heart-empty icon-hidden"></i>
+                            </div>
+                            <div>
+                                <i class="niand-icon-spotify-picture-in-picture icon-hidden"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="now-playing-bar-center" class="col d-flex align-items-center">
+                        <div class="d-flex flex-column w-100 gap-2">
+                            <div class="player-controls d-flex align-items-center justify-content-center gap-4">
+                                <div class="player-controls-left d-flex align-items-center justify-content-center gap-4">
+                                    <button type="button">
+                                        <i class="niand-icon-spotify-mix"></i>
+                                    </button>
+                                    <button type="button">
+                                        <i class="niand-icon-spotify-prev"></i>
+                                    </button>
+                                </div>
+                                <div class="player-controls-center">
+                                    <button type="button" class="bg-white m-0 p-1 rounded-circle d-flex justify-content-center align-items-center">
+                                        <i class="niand-icon-spotify-play text-black"></i>
+                                    </button>
+                                </div>
+                                <div class="player-controls-right d-flex align-items-center justify-content-center gap-4">
+                                    <button type="button">
+                                        <i class="niand-icon-spotify-next"></i>
+                                    </button>
+                                    <button type="button">
+                                        <i class="niand-icon-spotify-loop"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="d-md-flex d-lg-flex d-xl-flex d-sm-none d-none playback-bar d-flex align-items-center justify-content-center gap-2">
+                                <div class="playback-position">
+                                    0:00
+                                </div>
+                                <div class="progress-bar w-100 rounded-2">
+                                </div>
+                                <div class="playback-duration">
+                                    4:34
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="now-playing-bar-right" class="d-md-flex d-lg-flex d-xl-flex d-sm-none d-none col d-flex justify-content-end align-items-center gap-3">
+                        <div>
+                            <i class="niand-icon-spotify-mic"></i>
+                        </div>
+                        <div>
+                            <i class="niand-icon-spotify-playlist"></i>
+                        </div>
+                        <div>
+                            <i class="niand-icon-spotify-loudspeaker"></i>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="niand-icon-spotify-volumn"></i>
+                            <div class="volumn-bar rounded-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 </body>
-<?php require_once 'script.php';?>
+<?php require_once 'script.php'; ?>
 
 </html>
