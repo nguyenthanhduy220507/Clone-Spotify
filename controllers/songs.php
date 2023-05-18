@@ -20,7 +20,7 @@ class Songs extends Controller
             if($album->getAlbumArtist()->getArtistId() == $current_album->getAlbumArtist()->getArtistId() && $album->getAlbumId() != $current_album->getAlbumId()) {
                 $list_album[] = $album;
             }
-        }
+        } 
 
         $this->view('songs/song-login', [
             'id' => $id,
