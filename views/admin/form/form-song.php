@@ -68,7 +68,7 @@
                 <label for="image-url">Image url:</label>
                 <input type="url" class="form-control" value="<?php if (isset($data['song'])) echo $data['song']->getSongImageUrl(); ?>" id="image-url" placeholder="Enter image url" name="image-url" required>
                 <!-- <input id="chooser-image" class="btn btn-success mt-1" type="button" value="Chooser"> -->
-                <div id="screen-image"></div>
+                <div style="height: 300px;" id="screen-image"></div>
                 <script>
                     var options = {
                         // Shared link to Dropbox file
@@ -90,14 +90,14 @@
                 <label for="song-url">Song url:</label>
                 <input type="url" class="form-control" value="<?php if (isset($data['song'])) echo $data['song']->getSongUrl(); ?>" id="song-url" placeholder="Enter song url" name="song-url" required>
                 <!-- <input id="chooser-audio" class="btn btn-success mt-1" type="button" value="Chooser"> -->
-                <div id="screen-audio"></div>
+                <div style="height: 300px;" id="screen-audio"></div>
                 <script>
                     var options = {
                         // Shared link to Dropbox file
                         link: "https://www.dropbox.com/scl/fo/2ojgz37lercc1djeobmfq/h?dl=0&rlkey=eyyjx1geiav4m2rf2iasvwtnw",
                         file: {
                             // Sets the zoom mode for embedded files. Defaults to 'best'.
-                            zoom: "best" // or "fit"
+                            zoom: "fit" // or "fit"
                         },
                         folder: {
                             // Sets the view mode for embedded folders. Defaults to 'list'.
