@@ -31,7 +31,7 @@ if (!isset($_SESSION['username'])) {
 </head>
 
 <body>
-    <div class="container mt-3">
+    <div class="container mt-3 mb-5">
         <h2>Album</h2>
         <form method="post" id="form">
             <div class="mb-3 mt-3">
@@ -61,7 +61,7 @@ if (!isset($_SESSION['username'])) {
                 <label for="image-url">Image url:</label>
                 <input type="url" class="form-control" id="image-url" value="<?php if (isset($data['album'])) echo $data['album']->getAlbumImageUrl(); ?>" placeholder="Enter image url" name="image-url" required>
                 <!-- <input id="chooser" class="btn btn-success mt-1" type="button" value="Chooser"> -->
-                <div style="height: 300px;" id="screen-image"></div>
+                <div style="height: 500px;" id="screen-image"></div>
                 <script>
                     var options = {
                         // Shared link to Dropbox file
@@ -114,11 +114,11 @@ if (!isset($_SESSION['username'])) {
                     success: function(response) {
                         if (response.success) {
                             // authentication succeeds, redirect to dashboard or home page
-                            window.location.href = '?url=admin/management/albums';
+                            window.location.href = '?url=admin/management/albums/1';
                         } else {
                             // authentication fails, display error message
                             let html = `<div class="alert alert-danger mt-2">
-                                            <strong>Failed!</strong> Failed to login. Please try again.
+                                            <strong>Failed!</strong> Failed. Please try again.
                                         </div>`
                             $('#response-message').html(html);
                         }

@@ -11,7 +11,7 @@ class Auth extends Controller
     }
     public function login_view()
     {
-        $this->view('login');
+        $this->view('auth/login');
     }
 
     public function auth_login()
@@ -39,7 +39,7 @@ class Auth extends Controller
 
     public function register_view()
     {
-        $this->view('register');
+        $this->view('auth/register');
     }
 
     public function auth_register()
@@ -57,7 +57,7 @@ class Auth extends Controller
             $email = $_POST['email'];
             $date = $_POST['date'];
             $gender = $_POST['gender'];
-            $type = 'admin';
+            $type = 'normal';
             $success = $this->user_model->create($username, $hashed_password, $email, $date, $gender, $type);
             // return JSON response
             header('Content-Type: application/json');
