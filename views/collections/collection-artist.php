@@ -4,153 +4,30 @@
 
 <body>
     <div id="main" class="d-grid">
-        <header id="top-bar">
-            <div class="d-flex align-items-center justify-content-between gap-3">
-                <div id="action-buttons" class="d-flex flex-shrink-1">
-                    <button type="button" title="Quay lại" class="d-flex justify-content-center align-items-center d-xl-flex d-lg-flex d-md-flex d-sm-none d-none">
-                        <i class="niand-icon-spotify-left"></i>
-                    </button>
-                    <button type="button" title="Tiếp theo" class="d-flex justify-content-center align-items-center d-xl-flex d-lg-flex d-md-flex d-sm-none d-none">
-                        <i class="niand-icon-spotify-right"></i>
-                    </button>
-                    <div class="d-md-none d-block">
-                        <button type="button" title="Tiếp theo" class="d-flex justify-content-center align-items-center" id="open-btn">
-                            <i class="niand-icon-spotify-heart"></i>
-                        </button>
-                    </div>
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light py-0">
-                        <div class="container-fluid" style="background-color: #0d0d0d;">
-                            <div class="collapse navbar-collapse">
-                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                    <li class="nav-item">
-                                        <a class="nav-link text-white fw-bold" style="font-size:14px" aria-current="page" href="collection-playlist.html">Playlist</a>
-                                    </li>
-                                    <li class="nav-item ms-3 bg-secondary rounded-1" style="font-size:14px">
-                                        <a class="nav-link text-white fw-bold" href="#">Nghệ sĩ</a>
-                                    </li>
-                                    <li class="nav-item ms-3" style="font-size:14px">
-                                        <a class="nav-link text-white fw-bold" href="collection-album.html">Album</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-                <div id="sign-up-in" class="d-flex align-items-center flex-shrink-1">
-                    <button id="setting" type="button" class="rounded-5 ms-2 d-fex justify-content-center align-items-center d-xl-flex d-lg-flex d-md-flex d-sm-none d-none"><i class="niand-icon-spotify-install"></i>
-                        Cài đặt ứng dụng</button>
-                    <button id="icon" type="button" class="rounded-5 ms-2 dropdown-toggle" data-bs-toggle="dropdown"><i class="niand-icon-spotify-user"></i></button>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <div class="d-flex dropdown-item">
-                                <a class="text-dark flex-grow-1" href="account.html">Tài khoản</a>
-                                <i class="niand-icon-spotify-share-user text-dark"></i>
-                            </div>
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="#">Hồ sơ</a></li>
-                        <li>
-                            <div class="d-flex dropdown-item">
-                                <a class="text-dark flex-grow-1" href="#">Nâng cấp lên Premium</a>
-                                <i class="niand-icon-spotify-share-user text-dark"></i>
-                            </div>
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="help.html">Hỗ trợ</a></li>
-                        <li>
-                            <div class="d-flex dropdown-item">
-                                <a class="text-dark flex-grow-1" href="#">Tải xuống</a>
-                                <i class="niand-icon-spotify-share-user text-dark"></i>
-                            </div>
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="#">Cài đặt</a></li>
-                        <li>
-                            <hr class="dropdown-divider" style="border-top-color: #000000;">
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="">Đăng xuất</a></li>
-                    </ul>
-                </div>
-            </div>
-        </header>
-
+        <?php require_once 'header.php' ?>
         <main id="main-view">
-            <!-- TODO Nội dung của trang con -->
             <h2 class="m-4 text-white fw-bold">Nghệ sĩ</h2>
             <div class="container">
-                <div class="row d-flex justify-content-center align-items-center">
-                    <div class="col-md-2 col-sm-6 col-8 border border-dark ms-4 mb-4">
-                        <div class="card my-3" style="background-color:#1a1a1a">
-                            <div class="card mt-2 px-1" style="background-color:#1a1a1a">
-                                <img src="https://i.scdn.co/image/ab67616100005174f95b80329ff91f376acd43d9" class="card-img-top" alt="..." style="border-radius: 50%;">
-                            </div>
-                            <div class="card-body">
-                                <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
+                <div class="row d-flex justify-content-start align-items-center">
+                        <?php foreach($data['artists'] as $artist) { ?>
+                        <div class="col-md-2 col-sm-6 col-8 border border-dark  ms-4 mb-4">
+                            <div class="card my-3" style="background-color:#1a1a1a">
+                                <div class="card mt-2 px-1" style="background-color:#1a1a1a">
+                                    <img src="<?php echo $artist ->getArtistImageUrl() ?>" class="card-img-top" alt="..." style="border-radius: 50%;">
                                 </div>
-                                <h6 class="card-title fw-bold text-white">Đen</h6>
-                                <p class="card-text" style="color: #5b5b5b">Nghệ sĩ</p>
+                                <div class="card-body">
+                                    <div class="play-btn-wrapper">
+                                        <a href="#" class="btn play-btn"><i class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
+                                    </div>
+                                    <h6 class="card-title fw-bold text-white"><?php echo $artist->getArtistName() ?></h6>
+                                    <p class="card-text" style="color: #5b5b5b">Nghệ sĩ</p>
+                                </div>
                             </div>
                         </div>
+                        <?php } ?>
                     </div>
-                    <div class="col-md-2 col-sm-6 col-8 border border-dark ms-4 mb-4">
-                        <div class="card my-3" style="background-color:#1a1a1a">
-                            <div class="card mt-2 px-1" style="background-color:#1a1a1a">
-                                <img src="https://i.scdn.co/image/ab67616100005174f95b80329ff91f376acd43d9" class="card-img-top" alt="..." style="border-radius: 50%;">
-                            </div>
-                            <div class="card-body">
-                                <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
-                                </div>
-                                <h6 class="card-title fw-bold text-white">Đen</h6>
-                                <p class="card-text" style="color: #5b5b5b">Nghệ sĩ</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2 col-sm-6 col-8 border border-dark ms-4 mb-4">
-                        <div class="card my-3" style="background-color:#1a1a1a">
-                            <div class="card mt-2 px-1" style="background-color:#1a1a1a">
-                                <img src="https://i.scdn.co/image/ab67616100005174f95b80329ff91f376acd43d9" class="card-img-top" alt="..." style="border-radius: 50%;">
-                            </div>
-                            <div class="card-body">
-                                <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
-                                </div>
-                                <h6 class="card-title fw-bold text-white">Đen</h6>
-                                <p class="card-text" style="color: #5b5b5b">Nghệ sĩ</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2 col-sm-6 col-8 border border-dark ms-4 mb-4">
-                        <div class="card my-3" style="background-color:#1a1a1a">
-                            <div class="card mt-2 px-1" style="background-color:#1a1a1a">
-                                <img src="https://i.scdn.co/image/ab67616100005174f95b80329ff91f376acd43d9" class="card-img-top" alt="..." style="border-radius: 50%;">
-                            </div>
-                            <div class="card-body">
-                                <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
-                                </div>
-                                <h6 class="card-title fw-bold text-white">Đen</h6>
-                                <p class="card-text" style="color: #5b5b5b">Nghệ sĩ</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2 col-sm-6 col-8 border border-dark  ms-4 mb-4">
-                        <div class="card my-3" style="background-color:#1a1a1a">
-                            <div class="card mt-2 px-1" style="background-color:#1a1a1a">
-                                <img src="https://i.scdn.co/image/ab67616100005174f95b80329ff91f376acd43d9" class="card-img-top" alt="..." style="border-radius: 50%;">
-                            </div>
-                            <div class="card-body">
-                                <div class="play-btn-wrapper">
-                                    <a href="#" class="btn play-btn"><i class="niand-icon-spotify-play fs-5 hightlight1"> </i></a>
-                                </div>
-                                <h6 class="card-title fw-bold text-white">Đen</h6>
-                                <p class="card-text" style="color: #5b5b5b">Nghệ sĩ</p>
-                            </div>
-                        </div>
-                    </div>
-
-
                 </div>
-                <hr class="my-5 text-white">
-            </div>
+            <hr class="my-5 text-white">
         </main>
 
         <div id="side-bar" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex flex-column">
