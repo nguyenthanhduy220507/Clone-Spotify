@@ -77,7 +77,7 @@
                 <div class="row " style="background-color: rgb(144, 168, 192);">
                        
                     <div class="col-md-12 col-lg-12 col-xl-3 d-flex align-items-center justify-content-center anh">
-                        <img src="/image/home/peaceful.jpg" alt="error" class="img-fluid w-45 mx-2 my-5"> 
+                        <img src="<?php echo $data['playlist']->getPlaylistImageUrl(); ?>" alt="error" class="img-fluid w-45 mx-3 my-5"> 
                     </div>
                     <div class="col-lg-12 col-xl-9 my-5 text-white fw-bold" id="title">
                       <div  class="my-5">
@@ -85,8 +85,8 @@
                        <div  style="font-size: 6rem;"><?php echo $data['playlist']->getPlaylistName(); ?></div>
                        <div ><?php echo $data['playlist']->getPlaylistDescription(); ?></div>
                        <div> 
-                        <img src="/image/ab67757000003b8255c25988a6ac314394d3fbf5.jpg" alt="error"  style="width: 25px; height: 25px;"> Spotify 7.010.830 lượt thích
-                        ,302 bài hát <span>khoảng 11 giờ</span>
+                        <img src="/assets/images/spotify.png" alt="error"  style="width: 25px; height: 25px;"> Spotify 
+                        ,<?php echo $data['songplaylists_num'] . " bài hát" ?> <span>khoảng 11 giờ</span>
                          </div>
                       </div>
                     </div>
@@ -118,12 +118,15 @@
                         <div class=" col-4">
                         <span > Tiêu đề</span> 
                         </div>
+                        <div class=" col-3 ">
+                            
+                        </div>
                         <div class=" col-3 album">
                             Album
                         </div>
-                        <div class=" col-3 xemthem">
-                          Ngày thêm
-                      </div>
+                        <!-- <div class=" col-3 xemthem">
+                         
+                      </div> -->
                         <div class=" col-1 thoigian">
                            <i class="niand-icon-spotify-clock"></i>
                         </div>
@@ -149,110 +152,54 @@
                   </div>
                 </div>
                 <!-- Bai 1 -->
-                <div class="row my-3 mx-3 detailHover">
+                <?php
+             $counter = 1; 
+              foreach ($data['songplaylists'] as $songplaylists) { ?>
+                     <div class="row my-3 mx-3 detailHover">
                   <div class=" col-1 d-flex align-items-center">
-                    1
+                  <?php echo $counter;?>
                   </div>
                   <div class=" col-1 d-flex align-items-center">
-                    <img src="/image//song/Tjärnheden.jpg " alt="error" class="img-fluid " id="fix_img"  >
+                    <img src="<?php echo $songplaylists->getSong()->getSongImageUrl() ?> " alt="error" class="img-fluid " id="fix_img"  >
                   </div>
                   <div class="  col-3">
                     <div class="my-1 hightlightWord">
-                      <a href="#">Tjärnheden</a> 
+                      <a href="#"> <?php echo $songplaylists->getSong()->getSongTitle() ?></a> 
                      </div>
                      <div class="my-1 hightlightWord">
-                      <a href="#"> Farsjön</a> 
+                      <a href="#">  <?php echo $songplaylists->getSong()->getSongArtist()->getArtistName() ?></a> 
                      </div>
                   </div>
-                  <div class="  col-3 d-flex align-items-center hightlightWord">
-                    Fjäderlätt
-                  </div>
                   <div class="col-3 d-flex align-items-center xemthem">
-                    ...
+                
                 </div>
+                  <div class="  col-3 d-flex align-items-center hightlightWord">
+                  <?php echo $songplaylists->getSong()->getSongAlbum()->getAlbumTitle() ?>
+                  </div>
+                  <!-- <div class="col-3 d-flex align-items-center xemthem">
+                
+                </div> -->
                   <div class=" col-1 d-flex align-items-center thoigian">
-                     <i class="niand-icon-spotify-clock"></i>
+                  <span class="text-white">
+              <?php
+    $seconds = $songplaylists->getSong()->getSongDuration();
+    $minutes = floor($seconds / 60); // Lấy phần nguyên của số phút
+    $remainingSeconds = $seconds % 60; // Lấy số giây còn lại
+
+    // Định dạng chuỗi phút:giây
+    $formattedTime = sprintf("%d:%02d", $minutes, $remainingSeconds);
+
+    echo $formattedTime;
+    $counter++;
+    ?>
+              </span>
                   </div>
               </div>
-              <!-- Bai 2 -->
-              <div class="row my-3 mx-3 detailHover">
-                <div class="col-1 d-flex align-items-center">
-                  2
-                </div>
-                <div class="col-1 d-flex align-items-center">
-                  <img src="/image/song/Quand_vous_souriez.jpg " alt="error" class="img-fluid" >
-                </div>
-                <div class="col-3">
-                  <div class="my-1 hightlightWord">
-                    <a href="#"> Quand vous souriez</a> 
-                   </div>
-                   <div class="my-1 hightlightWord">
-                    <a href="#"> Libor Kolman</a> 
-                   </div>
-                </div>
-                <div class="col-3 d-flex align-items-center hightlightWord">
-                  Quand vous souriez
-                </div>
-                <div class="col-3 d-flex align-items-center ">
-                  ...
-                </div>
-                <div class="col-1 d-flex align-items-center">
-                   <i class="niand-icon-spotify-clock"></i>
-                </div>
-              </div>
+                <?php } ?>
+
+
                
-               <!-- Bai 3 -->
-               <div class="row my-3 mx-3 detailHover">
-                <div class="col-1 d-flex align-items-center" >
-                  3
-                </div>
-                <div class="col-1 d-flex align-items-center">
-                  <img src="/image/song/Allena.jpg" alt="error" class="img-fluid" >
-                </div>
-                <div class="col-3">
-                  <div class="my-1 hightlightWord">
-                    <a href="#">   Allena</a> 
-                   </div>
-                   <div class="my-1 hightlightWord">
-                    <a href="#">  M. Ljungström</a> 
-                   </div>
-                </div>
-                <div class="col-3 d-flex align-items-center hightlightWord">
-                  Nostalgia
-                </div>
-                <div class="col-3 d-flex align-items-center ">
-                  ...
-                </div>
-                <div class="col-1 d-flex align-items-center">
-                   <i class="niand-icon-spotify-clock"></i>
-                </div>
-              </div>
-              <!-- Bai 4 -->
-              <div class="row my-3 mx-3 detailHover">
-                <div class="col-1 d-flex align-items-center">
-                  4
-                </div>
-                <div class="col-1 d-flex align-items-center">
-                  <img src="/image/song/Saying_Things.jpg" alt="error" class="img-fluid" >
-                </div>
-                <div class="col-3">
-                  <div class="my-1 hightlightWord">
-                    <a href="#"> Saying Things</a> 
-                   </div>
-                   <div class="my-1 hightlightWord">
-                    <a href="#"> Emanuel Fremont</a> 
-                   </div>
-                </div>
-                <div class="col-3 d-flex align-items-center hightlightWord">
-                  Saying Things
-                </div>
-                <div class="col-3 d-flex align-items-center ">
-                  ...
-                </div>
-                <div class="col-1 d-flex align-items-center">
-                   <i class="niand-icon-spotify-clock"></i>
-                </div>
-              </div>
+              
                 
                  
               </div>  
