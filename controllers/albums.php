@@ -22,7 +22,8 @@ class Albums extends Controller
             }
         }
 
-        $this->view('client/album-login', [
+        $this->view('albums/album-login', [
+            'id' => $id,
             'album'=>$current_album,
             'albums'=>$list_album,
             'song_num'=>count($list_song),
@@ -49,7 +50,8 @@ class Albums extends Controller
             }
         }
 
-        $this->view('client/album', [
+        $this->view('albums/album', [
+            'id' => $id,
             'album'=>$current_album,
             'albums'=>$list_album,
             'song_num'=>count($list_song),
