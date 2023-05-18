@@ -6,6 +6,7 @@ class Collections extends Controller
     private $DB_user;
     private $DB_artist;
     private $DB_album;
+    private $DB_playlist;
 
     public function __construct()
     {
@@ -13,6 +14,8 @@ class Collections extends Controller
         $this->DB_user = $this->model('UserModel');
         $this->DB_artist = $this->model('ArtistModel');
         $this->DB_album = $this->model('AlbumModel');
+        $this->DB_playlist = $this->model('PlaylistModel');
+
     }
     public function collection_like_song()
     {
@@ -24,13 +27,8 @@ class Collections extends Controller
     public function collection_playlist()
     {
         $this->view('collections/collection-playlist', [
-
-        ]);
-    }
-    public function collection_episode()
-    {
-        $this->view('collections/collection-episode', [
-            
+            'playlists' => $this->DB_playlist->getAll(),
+            'songs' => $this->DB_song->getAll(),
         ]);
     }
     public function collection_artist()

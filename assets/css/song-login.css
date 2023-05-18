@@ -89,9 +89,9 @@ body #main {
 #action-buttons button:is(.active) {
   opacity: 1;
 }
-/* #action-buttons button:hover {
-  cursor: not-allowed;
-} */
+/* #action-buttons button:hover { */
+  /* cursor: not-allowed; */
+/* } */
 
 #vertical-line {
   width: 1px;
@@ -99,93 +99,49 @@ body #main {
   margin: 0 1rem;
   background: #fff;
 }
-/* viết từ đây */
-#sign-up-in #icon {
-  line-height: 2rem;
-  background-color: #000;
-  padding: 0rem 1rem;
-  color: white;
-  font-size: 1rem;
-  font-weight: 700;
-}
-#sign-up-in #icon:hover {
-  transform: scale(1.05);
-}
-
-
-#post_card{
-  background-color: #056952;
-  width:65%;
-  height: 270px;
-
-}
-.niand-icon-spotify-heart{
-  font-size: 55px;
-  color: #1ed760;
-}
-
-.niand-icon-spotify-tick-playlist1{
-  color: #1ed760;
-}
-
-
-/*  đến đây  */
-
 
 #sign-up-in {
   height: 2.5px;
 }
 #sign-up-in #sign-up {
   line-height: 2rem;
-  /* background-color: black; */
-  padding: 0rem 1rem;
+  background-color: black;
+  padding: 0.5rem 2rem;
+  color: black;
+  font-size: 1rem;
   font-weight: 700;
 }
 #sign-up-in #sign-up:hover {
-  opacity: 1;
   transform: scale(1.05);
 }
 #sign-up-in #sign-in {
   line-height: 2rem;
-  background-color: black;
-  padding: 0rem 1rem;
-  color: white;
+  background-color: white;
+  padding: 0.5rem 2rem;
+  color: dark;
   font-size: 1rem;
   font-weight: 700;
 }
 #sign-up-in #sign-in:hover {
   transform: scale(1.05);
 }
-/* viết từ */
-#main-view {
-  grid-area: main-view;
-  max-height: 690px; 
-  overflow-y: scroll; 
-}
-.hover_div:hover {
-  background-color: #34343a;
-}
+/* viết  từ đây*/
 
 .data-row:hover {
   background-color: #2a2a2a;
 }
 
-.data-row .icon_hidden {
+.data-row .icon {
   visibility: hidden;
 }
 
-.niand-icon-spotify-heart-full-green {
-  color: #1ed760;
-}
-
-.data-row:hover .icon_hidden {
+.data-row:hover .icon {
   visibility: visible;
 }
 
 .hover_a:hover {
   text-decoration: underline;
 }
-
 
 .play-btn {
   visibility: hidden;
@@ -222,24 +178,53 @@ body #main {
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
-/* reponsive */
-@media(max-width: 767px) {
-  #now-playing-bar-left {
-      width: 100%;
-  }
 
-  .player-controls-center {
-      margin-top: -70px;
-      margin-left: 650px;
-  }
+
+#sign-up-in-sub {
+  height: 100%;
 }
-/* đến đây */
+#sign-up-in-sub #sign-up-sub {
+  line-height: 2rem;
+  background-color: white;
+  padding: 0.5rem 2rem;
+  color: black;
+  font-size: 1rem;
+  font-weight: 700;
+}
+#sign-up-in-sub #sign-up-sub:hover {
+  transform: scale(1.05);
+}
+#sign-up-in-sub #sign-in-sub {
+  line-height: 2rem;
+  background-color: #2e77d0;
+  padding: 0.5rem 2rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+}
+#sign-up-in-sub #sign-in-sub:hover {
+  transform: scale(1.05);
+}
 
+
+#main-view {
+  grid-area: main-view;
+  max-height: 609px; 
+  overflow-y: scroll; 
+}
 #main-view::-webkit-scrollbar {
   display: none;
 }
+
+.hover_div:hover{
+  background-color: #34343a;
+}
+
+
+/* đến đây */
 
 #home-page {
   max-height: calc(100vh - 8.5rem);
@@ -416,57 +401,39 @@ body #main {
 footer {
   grid-area: now-playing-bar;
   width: 100%;
-  background-color: #181818;
+  background: linear-gradient(90deg, #af2896, #509bf5);
   color: white;
   height: auto;
 }
 footer #now-playing-bar {
   padding: 0.75rem 1rem;
+  gap: 1.5rem;
 }
-footer #now-playing-bar #now-playing-bar-left img {
-  width: 56px;
-  height: 56px;
+footer #now-playing-bar #data {
+  flex: 1;
 }
-footer #now-playing-bar #now-playing-bar-left .title {
+footer #now-playing-bar #data h6 {
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin: 0;
+}
+footer #now-playing-bar #data p {
   font-size: 1rem;
-  letter-spacing: -1px;
+  font-weight: 600;
+  margin: 0;
 }
-footer #now-playing-bar #now-playing-bar-left .authors {
-  font-size: 0.6rem;
+footer #now-playing-bar #btn-sign-up button {
+  background-color: white;
+  padding: 0.75rem 1.5rem;
+  color: black;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
 }
-footer #now-playing-bar #now-playing-bar-left .authors a {
-  color: #7c7c7c;
-}
-footer #now-playing-bar #now-playing-bar-left .authors a:hover {
-  color: #d9d9d9;
-  text-decoration: underline;
-}
-footer #now-playing-bar #now-playing-bar-left div > i {
-  opacity: 0.6;
-}
-footer #now-playing-bar #now-playing-bar-left div:hover > i {
-  opacity: 1;
-}
-footer #now-playing-bar #now-playing-bar-center .player-controls button {
-  width: 32px;
-  height: 32px;
-  background-color: #181818;
-}
-footer #now-playing-bar #now-playing-bar-center .player-controls button i {
-  color: #FFF;
-}
-footer #now-playing-bar #now-playing-bar-center .playback-bar .playback-position,
-footer #now-playing-bar #now-playing-bar-center .playback-bar .playback-duration {
-  font-size: 0.6rem;
-}
-footer #now-playing-bar #now-playing-bar-center .playback-bar .progress-bar {
-  background-color: #5e5e5e;
-  height: 4px;
-}
-footer #now-playing-bar #now-playing-bar-right .volumn-bar {
-  width: 100px;
-  background-color: #5e5e5e;
-  height: 4px;
+footer #now-playing-bar #btn-sign-up button:hover {
+  transform: scale(1.05);
 }
 
-/*# sourceMappingURL=index_login.css.map */
+/*# sourceMappingURL=index.css.map */

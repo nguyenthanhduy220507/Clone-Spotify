@@ -1,7 +1,8 @@
 <?php
-    require_once 'style.php';
+require_once 'style.php';
 ?>
 <link rel="stylesheet" href="./assets/css/index_account.css" />
+
 <body>
     <div id="container">
         <?php require_once 'header.php'; ?>
@@ -35,7 +36,52 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3 col-sm-12 px-auto bg-dark">
-                            <?php require_once 'sidebar.php' ?>
+                            <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark">
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <a href="/" class="d-flex text-white">
+                                        <i class="niand-icon-spotify-user" style="font-size:50px;"></i>
+                                    </a>
+                                </div>
+                                <hr>
+                                <ul class="nav nav-pills flex-column mb-auto">
+                                    <li class="nav-item border_li">
+                                        <a href="?url=accounts/account" class="nav-link active" aria-current="page">
+                                            <i class="niand-icon-spotify-home-account"></i>
+                                            Tổng quan về tài khoản
+                                        </a>
+                                    </li>
+                                    <li class="border_li nav-link-hover">
+                                        <a href="?url=accounts/profile" class="nav-link text-white">
+                                            <i class="niand-icon-spotify-edit-account"></i>
+                                            Chỉnh sửa hồ sơ
+                                        </a>
+                                    </li>
+                                    <li class="border_li nav-link-hover">
+                                        <a href="?url=accounts/change_password" class="nav-link text-white">
+                                            <i class="niand-icon-spotify-key-account"></i>
+                                            Đổi mật khẩu
+                                        </a>
+                                    </li>
+                                    <li class="border_li nav-link-hover">
+                                        <a href="?url=accounts/recover_playlists" class="nav-link text-white">
+                                            <i class="niand-icon-spotify-back-account"></i>
+                                            Khôi phục danh sách phát
+                                        </a>
+                                    </li>
+                                    <li class="border_li nav-link-hover">
+                                        <a href="?url=accounts/receipt" class="nav-link nav-link-hover text-white">
+                                            <i class="niand-icon-spotify-oclock-account"></i>
+                                            Biện nhận
+                                        </a>
+                                    </li>
+                                    <li class="border_li nav-link-hover">
+                                        <a href="?url=accounts/app" class="nav-link nav-link-hover text-white">
+                                            <i class="niand-icon-spotify-application-account"></i>
+                                            Ứng dụng
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="col-md-9 col-sm-12 bg-white">
                             <p class="fs-1 fw-bold m-4">Tổng quan về tài khoản</p>
@@ -46,7 +92,7 @@
                                         <p class="fs-6" style="color: #6b6b6b">Tên người dùng</p>
                                     </div>
                                     <div class="col-md-6 px-auto col-sm-12">
-                                        <p><?php echo $data['users'][0] ->getUsername() ?></p>
+                                        <p><?php echo $data['users'][0]->getUsername() ?></p>
                                     </div>
                                     <hr class="md-4 lg-3 sm-12">
                                 </div>
@@ -55,7 +101,7 @@
                                         <p class="fs-6" style="color: #6b6b6b">Email</p>
                                     </div>
                                     <div class="col-md-6 px-auto col-sm-12">
-                                        <p><?php echo $data['users'][0] ->getEmail() ?></p>
+                                        <p><?php echo $data['users'][0]->getEmail() ?></p>
                                     </div>
                                     <hr class="md-4 lg-3 sm-12">
                                 </div>
@@ -78,7 +124,7 @@
                                     <hr class="md-4 lg-3 sm-12">
                                 </div>
                                 <div id="sign-up-edit" class="d-flex my-3">
-                                    <button id="edit" type="button" class="rounded-5">Chỉnh sửa hồ sơ</button>
+                                    <a id="edit" type="button" class="rounded-5" href="?url=accounts/profile">Chỉnh sửa hồ sơ</a>
                                 </div>
                                 <p class="fw-bold fs-5 mt-5">Đăng xuất ở mọi nơi</p>
                                 <p style="font-size:13px">Thao tác này sẽ giúp bạn đăng xuất trên tất cả thiết bị di
@@ -99,5 +145,4 @@
         </main>
     </div>
 </body>
-<?php require_once 'script.php'; ?>
 </html>

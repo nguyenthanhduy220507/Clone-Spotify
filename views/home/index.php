@@ -67,6 +67,7 @@ if (isset($css)) {
 			</div>
 		</header>
 
+<<<<<<< HEAD
 		<main id="main-view">
 			<!-- TODO Nội dung của trang con -->
 			<div class="  text-white px-3 my-5 " id="chon">
@@ -78,6 +79,19 @@ if (isset($css)) {
 						<div class=" col-sm-3 col-lg-2 col-md-2 col-lg-2">
 							<span class="fw-bold fs-6  hightlightWord d-flex justify-content-end ">Hiện tất cả</span>
 						</div>
+=======
+    <main id="main-view">
+      <!-- TODO Nội dung của trang con -->
+      <div class="  text-white px-3 my-5 " id="chon">
+        <div class="row">
+          <div class="row">
+            <div class="col-xs-12 col-sm-9 col-lg-10">
+              <span class="fw-bold fs-4 hightlightWord mx-2 ">Spotify Playlist</span>
+            </div>
+            <div class=" col-sm-3 col-lg-2 col-md-2 col-lg-2">
+              <span class="fw-bold fs-6  hightlightWord d-flex justify-content-end ">Hiện tất cả</span>
+            </div>
+>>>>>>> ba7d8ee6cc841981febb1045eba50231161883b6
 
 					</div>
 					<br><br>
@@ -209,6 +223,7 @@ if (isset($css)) {
 						</div>
 					</div>
 
+<<<<<<< HEAD
 					<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 col-lg-2 d-flex flex-column">
 						<div class="m-1 flex-grow-1 card5">
 							<div class="card  bg-bg h-100">
@@ -493,6 +508,102 @@ if (isset($css)) {
 			})
 		}
 	</script>
+=======
+        </div>
+       
+       
+      </div>
+      <hr style="color: aliceblue; margin-top: 50px;">
+
+      <br><br><br> <br><br>
+
+    </main>
+
+    <div id="side-bar" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex flex-column">
+      <div id="logo">
+        <div class="w-100">
+          <a href="#" class="text-white">
+            <i class="niand-icon-spotify-logo"></i>
+          </a>
+        </div>
+      </div>
+      <nav id="menu" class="w-100">
+        <ul>
+          <li>
+            <a href="#" class="active text-white d-flex align-items-center">
+              <i class="niand-icon-spotify-home"></i>
+              <span>Trang chủ</span></a>
+          </li>
+          <li>
+            <a href="#" class="text-white d-flex align-items-center">
+              <i class="niand-icon-spotify-search"></i>
+              <span>Tìm kiếm</span></a>
+          </li>
+          <li>
+            <a href="#" class="text-white d-flex align-items-center">
+              <i class="niand-icon-spotify-library"></i>
+              <span>Thư viện</span></a>
+          </li>
+        </ul>
+      </nav>
+      <div id="user-actions" class="d-flex flex-column flex-grow-1">
+        <div class="mt-4">
+          <div class="w-100 action-button">
+            <button type="button" class="d-flex align-items-center">
+              <span class="playlist-add">
+                <i class="niand-icon-spotify-add"></i>
+              </span>
+              <span>Tạo playlist</span>
+            </button>
+          </div>
+          <div class="w-100 action-button">
+            <button type="button" class="d-flex align-items-center">
+              <span class="liked-song">
+                <i class="niand-icon-spotify-heart"></i>
+              </span>
+              <span>Bài hát đã thích</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="user-settings">
+        <div class="cookie w-100">
+          <a href="#" class="text-white">Cookie</a>
+        </div>
+        <div class="languages">
+          <button type="button" class="d-flex align-items-center">
+            <i class="niand-icon-spotify-internet"></i>
+            <span>Tiếng Việt</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div id="now-playing-bar" class="d-flex align-items-center">
+        <div id="data">
+          <h6>xem trước spotify</h6>
+          <p>Đăng ký để nghe không giới hạn các bài hát và podcast với quảng cáo không thường xuyên. Không cần
+            thẻ tín dụng.</p>
+        </div>
+        <div id="btn-sign-up">
+          <button type="button" class="rounded-5">Đăng ký miễn phí</button>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="/assets/js/script.js"></script>
+  <script>
+    window.onload = function() {
+      document.getElementById("open-btn").addEventListener('click', function() {
+        document.getElementById("side-bar").classList.toggle('d-sm-none');
+        document.getElementById("side-bar").classList.toggle('d-none');
+        document.getElementById("side-bar").style.width = '85vw';
+        document.getElementById("main-view").classList.toggle('d-none');
+      })
+    }
+  </script>
+>>>>>>> ba7d8ee6cc841981febb1045eba50231161883b6
 </body>
 
 </html>
