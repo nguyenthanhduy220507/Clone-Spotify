@@ -1,9 +1,9 @@
 <?php
-    require_once "./config/basehref.php";
-    $url = getUrl();
-    if (!isset($_SESSION['username'])) {
-        header("Location: ?url=albums/album/".$data['id']);
-    }
+require_once "./config/basehref.php";
+$url = getUrl();
+if (!isset($_SESSION['username'])) {
+    header("Location: ?url=albums/album/" . $data['id']);
+}
 
 ?>
 <!DOCTYPE html>
@@ -224,7 +224,7 @@
                                 <div class="col-1 d-flex align-items-center justify-content-center">
                                     <div class="col-12 col-md-2 d-flex align-items-center justify-content-end">
                                         <a href="" class="text-white me-4"><i class="niand-icon-spotify-heart-empty icon"></i></a>
-                                        <span class="text-white"><?php echo sprintf("%d:%02d", floor($song->getSongDuration() / 60), $song->getSongDuration()%60); ?></span>
+                                        <span class="text-white"><?php echo sprintf("%d:%02d", floor($song->getSongDuration() / 60), $song->getSongDuration() % 60); ?></span>
                                         <a href="" class="text-white ms-4"><i class="niand-icon-spotify-three-dots icon"></i></a>
                                     </div>
                                 </div>
@@ -418,23 +418,27 @@
     // Lấy tất cả các phần tử card-body
     var cardBodies = document.querySelectorAll('.card-body');
 
-    // Lặp qua từng phần tử card-body
-    cardBodies.forEach(function(cardBody) {
-        // Lấy phần tử chứa nút "play" của từng card-body
-        var playBtn = cardBody.querySelector('.play-btn');
+    if (cardBodies != null) {
+        // Lặp qua từng phần tử card-body
+        cardBodies.forEach(function(cardBody) {
+            // Lấy phần tử chứa nút "play" của từng card-body
+            var playBtn = cardBody.querySelector('.play-btn');
 
-        // Khi hover vào card-body
-        cardBody.addEventListener('mouseover', function() {
-            // Thêm lớp "show" vào phần tử chứa nút "play"
-            playBtn.classList.add('show');
-        });
+            if (cardBody != null) {
+                // Khi hover vào card-body
+                cardBody.addEventListener('mouseover', function() {
+                    // Thêm lớp "show" vào phần tử chứa nút "play"
+                    if (playBtn != null) playBtn.classList.add('show');
+                });
 
-        // Khi rời chuột khỏi card-body
-        cardBody.addEventListener('mouseout', function() {
-            // Loại bỏ lớp "show" khỏi phần tử chứa nút "play"
-            playBtn.classList.remove('show');
+                // Khi rời chuột khỏi card-body
+                cardBody.addEventListener('mouseout', function() {
+                    // Loại bỏ lớp "show" khỏi phần tử chứa nút "play"
+                    if (playBtn != null) playBtn.classList.remove('show');
+                });
+            }
         });
-    });
+    }
 
     //reponsive
     window.onload = function() {

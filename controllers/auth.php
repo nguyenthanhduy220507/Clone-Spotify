@@ -29,6 +29,7 @@ class Auth extends Controller
                 $success = true;
                 $type = $user->getType();
                 $_SESSION['username'] = $user->getUsername();
+                $_SESSION['current_song'] = $this->model('SongModel')->getAll()[0]->getSongId();
                 $_SESSION['type'] = $type;
             }
             // return JSON response
@@ -63,5 +64,10 @@ class Auth extends Controller
             header('Content-Type: application/json');
             echo json_encode(array('success' => $success));
         }
+    }
+
+    public function logout() {
+        session_destroy();
+        header('Location: ?url=home/index');
     }
 }
