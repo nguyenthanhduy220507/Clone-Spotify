@@ -129,7 +129,7 @@ body #main {
 
 #main-view {
   grid-area: main-view;
-  max-height: 609px; 
+  max-height: 690px; 
   overflow-y: scroll; 
 }
 #main-view::-webkit-scrollbar {
