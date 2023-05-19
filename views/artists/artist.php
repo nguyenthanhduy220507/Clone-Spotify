@@ -39,7 +39,7 @@ if (isset($_SESSION['username'])) {
 
         <main id="main-view">
             <!-- TODO Nội dung của trang con -->
-            <div class="row  bg-image" style="background-image: url();">
+            <div class="row  bg-image" style="background-image: url(<?php echo $data['artist']->getArtistImageUrl(); ?>);">
 
 
                 <div class="col-12 my-5 text-white fw-bold">
