@@ -27,7 +27,7 @@
 <div id="user-actions" class="d-flex flex-column flex-grow-1">
     <div class="mt-4">
         <div class="w-100 action-button">
-            <button type="button" class="d-flex align-items-center">
+            <button onclick="window.location.href = '?url=playlists/new_playlist'" type="button" class="d-flex align-items-center">
                 <span class="playlist-add">
                     <i class="niand-icon-spotify-add"></i>
                 </span>

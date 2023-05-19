@@ -78,7 +78,12 @@ if (!isset($_SESSION['username'])) {
                         </div>
                     </div>
                     <div class="col-3 d-flex align-items-center text-white">
-                        <!-- <a href="#">1.306.895.925</a>  -->
+                        <button class="btn dropdown-toggle text-white" data-bs-toggle="dropdown" style="border: 1px solid black; "><i class="  hightlight1 my-5 fs-4"> </i></button>
+                        <ul class="dropdown-menu" style="background-color: #242424">
+                            <?php foreach ($data['playlists'] as $playlist) { ?>
+                                <li><a class="dropdown-item text-white" href="?url=playlists/add_song_to_playlist/<?php echo $song->getSongId() ?>/<?php echo $playlist->getPlaylistId() ?>">Thêm vào playlist <?php echo $playlist->getPlaylistName() ?></a></li>
+                            <?php } ?>
+                        </ul>
                     </div>
 
                     <div class=" col-1 d-flex align-items-center">

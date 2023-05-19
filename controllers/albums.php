@@ -13,9 +13,11 @@ class Albums extends Controller
         $current_song = $songDB->getById($_SESSION['current_song']);
 
         $DB = $this->model('AlbumModel');
+        $playlistDB = $this->model('PlaylistModel');
         $current_album = $DB->getByID($id);
         $list_song = [];
         $list_album = [];
+        $list_playlist = [];
         //song
         foreach ($songDB->getALL() as $song) {
             if ($song->getSongAlbum()->getAlbumId() == $current_album->getAlbumId()) {
@@ -28,6 +30,12 @@ class Albums extends Controller
                 $list_album[] = $album;
             }
         }
+        // playlist
+        foreach ($playlistDB->getAll() as $playlist) {
+            if ($playlist->getPlaylistUser()->getUserId() == $user->getUserId()) {
+                $list_playlist[] = $playlist;
+            }
+        }
 
         $this->view('albums/album-login', [
             'id' => $id,
@@ -36,7 +44,8 @@ class Albums extends Controller
             'song_num'=>count($list_song),
             'songs' =>$list_song,
             'user'=>$user,
-            'song'=>$current_song
+            'song'=>$current_song,
+            'playlists'=>$list_playlist
         ]);
     }
     public function album($id)

@@ -40,8 +40,6 @@ if (isset($_SESSION['username'])) {
         <main id="main-view">
             <!-- TODO Nội dung của trang con -->
             <div class="row  bg-image" style="background-image: url(<?php echo $data['artist']->getArtistImageUrl(); ?>);">
-
-
                 <div class="col-12 my-5 text-white fw-bold">
                     <div class="my-5">
                         <i class="niand-icon-confirm text-primary mx-2"></i> Nghệ sĩ được xác nhận
@@ -83,12 +81,10 @@ if (isset($_SESSION['username'])) {
 
                     </div>
                     <div class="col-3 d-flex align-items-center text-white">
-                    <button class="btn dropdown-toggle text-white" data-bs-toggle="dropdown" style="border: 1px solid black; "><i class="  hightlight1 my-5 fs-4"> </i></button>
-                    <ul class="dropdown-menu" style="background-color: #242424">
-                        <li><a class="dropdown-item text-white" href="#">Thêm vào playlist</a></li>
-                       
-                    </ul>
-
+                        <button class="btn dropdown-toggle text-white" data-bs-toggle="dropdown" style="border: 1px solid black; "><i class="  hightlight1 my-5 fs-4"> </i></button>
+                        <ul class="dropdown-menu" style="background-color: #242424">
+                            <li><a class="dropdown-item text-white" href="#">Thêm vào playlist</a></li>
+                        </ul>
                     </div>
 
                     <div class=" col-1 d-flex align-items-center">

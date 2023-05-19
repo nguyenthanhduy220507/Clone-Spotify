@@ -86,7 +86,13 @@ if (!isset($_SESSION['username'])) {
                             <button class="btn dropdown-toggle " data-bs-toggle="dropdown" style="border: 1px solid black; "><i class="niand-icon-spotify-three-dots  hightlight1 my-5 fs-4"> </i></button>
                             <ul class="dropdown-menu " style="background-color: #242424">
                                 <li><a class="dropdown-item text-white" href="#">Thêm vào thư viện</a></li>
-                                <li><a class="dropdown-item text-white" href="#">Giới thiệu về nội dung đề xuất</a></li>
+                                <?php if ($data['can_edit']) { ?>
+                                    <li><a class="dropdown-item text-white">
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+                                                Update playlist
+                                            </button>
+                                        </a></li>
+                                <?php } ?>
                             </ul>
                         </div>
                     </div>
@@ -212,6 +218,81 @@ if (!isset($_SESSION['username'])) {
             });
         });
     </script>
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Update playlist</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form id="form" method="post">
+                        <div class="mb-3 mt-3">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" value="<?php if (isset($data['playlist'])) echo $data['playlist']->getPlaylistName(); ?>" placeholder="Enter name" name="name" required>
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="description">Description:</label>
+                            <input type="text" class="form-control" id="description" value="<?php if (isset($data['playlist'])) echo $data['playlist']->getPlaylistDescription(); ?>" placeholder="Enter description" name="description" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div id="response-message"></div>
+                    </form>
+                    <script>
+                        $(document).ready(function() {
+                            $('#form').submit(function(e) {
+                                e.preventDefault(); // prevent form submission
+                                var id = '<?php echo $data['playlist']->getPlaylistId() ?>';
+                                var name = $('#name').val();
+                                var description = $('#description').val();
+                                var user = '<?php echo $data['playlist']->getPlaylistUser()->getUserId() ?>';
+                                var image_url = '<?php echo $data['playlist']->getPlaylistImageUrl() ?>';
+                                $.ajax({
+                                    url: '?url=admin/auth_playlist_form/update',
+                                    type: 'POST',
+                                    data: {
+                                        id: id,
+                                        name: name,
+                                        description: description,
+                                        user: user,
+                                        image_url: image_url
+                                    },
+                                    success: function(response) {
+                                        if (response.success) {
+                                            // authentication succeeds, redirect to dashboard or home page
+                                            window.location.href = '?url=playlists/playlist/' + <?php echo $data['id'] ?>;;
+                                        } else {
+                                            // authentication fails, display error message
+                                            let html = `<div class="alert alert-danger mt-2">
+                                            <strong>Failed!</strong> Failed. Please try again.
+                                        </div>`
+                                            $('#response-message').html(html);
+                                        }
+                                    },
+                                    error: function() {
+                                        // handle AJAX error
+                                        $('#response-message').html('Error processing request');
+                                    }
+                                });
+                            });
+                        });
+                    </script>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
