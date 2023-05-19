@@ -166,11 +166,7 @@ if (!isset($_SESSION['username'])) {
                                 </div>
                                 <div class="col-10 d-flex align-items-center justify-content-left ps-0">
                                     <div class="card-body">
-                                        <<<<<<< HEAD <a data-id="<?php echo $song->getSongId() ?>" class="play-song card-title mt-2 text-white hover_a" style="font-size:15px"><?php echo $song->getSongTitle() ?>
-                                            =======
-                                            <a href="?url=albums/album/<?php echo $data['id']; ?>" class="card-title mt-2 text-white hover_a" style="font-size:15px"><?php echo $song->getSongTitle() ?>
-                                                >>>>>>> 17d1a1ae70383134a5674bb7798635fb698d362a
-                                            </a><br>
+                                        <a data-id="<?php echo $song->getSongId() ?>" class="play-song card-title mt-2 text-white hover_a" style="font-size:15px"><?php echo $song->getSongTitle() ?></a><br>
                                     </div>
                                 </div>
                                 <div class="col-1 d-flex align-items-center justify-content-center">
