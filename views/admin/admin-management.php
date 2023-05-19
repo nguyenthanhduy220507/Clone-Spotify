@@ -94,7 +94,7 @@ if (!isset($_SESSION['username'])) {
         <section id="main-content" class="d-flex flex-column flex-grow-1 p-2">
             <header class="d-flex mx-5 my-3 gap-3 justify-content-center align-items-center">
                 <section>
-                    <a class="d-flex gap-2 justify-content-center align-items-center text-decoration-none text-white" href="">
+                    <a class="d-flex gap-2 justify-content-center align-items-center text-decoration-none text-white" href="javascript:history.back()">
                         <i class="niand-icon-chevron-left"></i>
                         <span class="fw-semibold text-capitalize" style="color: #c2e1eb">Back</span>
                     </a>
@@ -107,7 +107,7 @@ if (!isset($_SESSION['username'])) {
                     </ul>
                 </nav>
                 <section>
-                    <a class="d-flex gap-2 justify-content-center align-items-center text-decoration-none text-white" href="">
+                    <a class="d-flex gap-2 justify-content-center align-items-center text-decoration-none text-white" href="?url=home/index">
                         <i class="niand-icon-user"></i>
                         <span class="fw-semibold" style="color: #c2e1eb"><?php echo $_SESSION['username']; ?></span>
                     </a>
@@ -117,8 +117,8 @@ if (!isset($_SESSION['username'])) {
                 <div class="d-flex justify-content-between align-items-center">
                     <h2 class="text-black mb-3"><?php echo $data["title"] ?></h2>
                     <button onclick="window.location.href='?url=admin/add_form/<?php echo $data['url'] ?>'" class="btn <?php if ($data['title'] == 'Song Playlist') {
-                    echo 'd-none';
-                } ?> btn-dark">Create new</button>
+                                                                                                                            echo 'd-none';
+                                                                                                                        } ?> btn-dark">Create new</button>
                 </div>
                 <div class="input-container my-3 mx-auto">
                     <input type="text" name="text" class="input" placeholder="search...">
@@ -256,10 +256,10 @@ if (!isset($_SESSION['username'])) {
                                             <td>' . $tb->getPlaylist()->getPlaylistName() . '</td>
                                             <td>' . $tb->getSongOrder() . '</td>
                                             <td>
-                                                <a class="text-decoration-none text-black" href="?url=admin/update_form/song_playlist/' . $tb->getSong()->getSongId() .'.'. $tb->getPlaylist()->getPlaylistId() . '">
+                                                <a class="text-decoration-none text-black" href="?url=admin/update_form/song_playlist/' . $tb->getSong()->getSongId() . '.' . $tb->getPlaylist()->getPlaylistId() . '">
                                                     <i class="niand-icon-edit"></i>
                                                 </a>
-                                                <a class="text-decoration-none text-black" href="?url=admin/delete/song_playlist/' . $tb->getSong()->getSongId() .'.'. $tb->getPlaylist()->getPlaylistId() . '">
+                                                <a class="text-decoration-none text-black" href="?url=admin/delete/song_playlist/' . $tb->getSong()->getSongId() . '.' . $tb->getPlaylist()->getPlaylistId() . '">
                                                     <i class="niand-icon-delete"></i>
                                                 </a>
                                             </td>

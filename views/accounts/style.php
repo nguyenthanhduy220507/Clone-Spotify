@@ -27,7 +27,6 @@ $url = getUrl();
     <!-- CSS - SCSS -->
     <style>
         @media(max-width: 767px) {
-
             #vertical-line,
             .btn-nav {
                 margin-left: -250px;
@@ -37,4 +36,5 @@ $url = getUrl();
             }
         }
     </style>
+    <link rel="stylesheet" href="">
 </head>

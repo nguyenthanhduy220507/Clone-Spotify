@@ -8,42 +8,55 @@ class Searchss extends Controller
         $DB_album = $this->model("AlbumModel");
         $DB_artist = $this->model("ArtistModel");
         $this->view('searchss/search', [
-            'playlist' => $DB->getAll(),
-            'album' => $DB_album->getAll(),
-            'artist' => $DB_artist->getAll(),
+            'playlists' => $DB->getAll(),
+            'albums' => $DB_album->getAll(),
+            'artists' => $DB_artist->getAll(),
         ]);
     }
-    
+
+    public function search_results($search_string) {
+        $userDB = $this->model("UserModel");
+        $songDB = $this->model("SongModel");
+        if (!isset($_SESSION['username'])) {
+            header("Location: ?url=home/index");
+        }
+        $user = $userDB->getUserByUsername($_SESSION['username']);
+        $current_song = $songDB->getById($_SESSION['current_song']);
+
+        $albumDB = $this->model("AlbumModel");
+        $playlistDB = $this->model("PlaylistModel");
+        $artistDB = $this->model("ArtistModel");
+        $playlist_list = $playlistDB->search($search_string);
+        $album_list = $albumDB->search($search_string);
+        $artist_list = $artistDB->search($search_string);
+        
+        $this->view('searchss/search_login', [
+            'artists' => $artist_list,
+            'playlists'=>$playlist_list,
+            'albums'=>$album_list,
+            'user'=>$user,
+            'song'=>$current_song
+        ]);
+    }
 
     public function search_login()
     {
         $userDB = $this->model("UserModel");
         $songDB = $this->model("SongModel");
-        $albumDB = $this->model("AlbumModel");
-        $DB = $this->model("PlaylistModel");
-        $playlist_sugs = [];
         if (!isset($_SESSION['username'])) {
             header("Location: ?url=home/index");
         }
         $user = $userDB->getUserByUsername($_SESSION['username']);
-        $song = $songDB->getById($_SESSION['current_song']);
-        $current_user_playlist = [];
-        foreach ($DB->getAll() as $playlist) {
-            if ($playlist->getPlaylistUser()->getType() == 'admin') {
-                $playlist_sugs[] = $playlist;
-            }
-            else {
-                if ($playlist->getPlaylistUser()->getUserId() == $user->getUserId()) {
-                    $current_user_playlist[] = $playlist;
-                }
-            }
-        }
-        $this->view('home/index_login', [
-            'current_user_playlist' => $current_user_playlist,
-            'playlist_sugs'=>$playlist_sugs,
-            'albums'=>$albumDB->getAll(),
+        $current_song = $songDB->getById($_SESSION['current_song']);
+        $DB = $this->model("PlaylistModel");
+        $DB_album = $this->model("AlbumModel");
+        $DB_artist = $this->model("ArtistModel");
+        $this->view('searchss/search_login', [
+            'playlists' => $DB->getAll(),
+            'albums' => $DB_album->getAll(),
+            'artists' => $DB_artist->getAll(),
             'user'=>$user,
-            'song'=>$song
+            'song'=>$current_song
         ]);
     }
 }

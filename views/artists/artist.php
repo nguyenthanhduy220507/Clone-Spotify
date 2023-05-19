@@ -28,11 +28,6 @@ if (isset($_SESSION['username'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <!-- CSS - SCSS -->
     <link rel="stylesheet" href="./assets/css/artist.css">
-    <?php
-    if (isset($css)) {
-        echo $css;
-    }
-    ?>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- include jQuery library -->
 </head>
 
@@ -112,10 +107,6 @@ if (isset($_SESSION['username'])) {
                     </div>
                 </div>
             <?php } ?>
-
-
-
-
             <div class="mx-5 hightlightWord text-white">
                 <!-- Xem thêm -->
             </div>
@@ -123,9 +114,7 @@ if (isset($_SESSION['username'])) {
                 <div class="fs-5 fw-bold my-4 mx-2 text-white">
                     Album
                 </div>
-
                 <?php
-
                 foreach ($data['albums'] as $album) { ?>
 
                     <div class="col-sm-4 col-md-4 col-lg-2 col-xl-2 d-flex mx-3 flex-column ">
@@ -150,71 +139,13 @@ if (isset($_SESSION['username'])) {
                         </div>
                     </div>
                 <?php } ?>
-
-
             </div>
             <br> <br><br> <br><br> <br> <br> <br><br> <br><br> <br><br> <br>
 
         </main>
 
         <div id="side-bar" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex flex-column">
-            <div id="logo">
-                <div class="w-100">
-                    <a href="#" class="text-white">
-                        <i class="niand-icon-spotify-logo"></i>
-                    </a>
-                </div>
-            </div>
-            <nav id="menu" class="w-100">
-                <ul>
-                    <li>
-                        <a href="#" class="active text-white d-flex align-items-center">
-                            <i class="niand-icon-spotify-home"></i>
-                            <span>Trang chủ</span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-white d-flex align-items-center">
-                            <i class="niand-icon-spotify-search"></i>
-                            <span>Tìm kiếm</span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-white d-flex align-items-center">
-                            <i class="niand-icon-spotify-library"></i>
-                            <span>Thư viện</span></a>
-                    </li>
-                </ul>
-            </nav>
-            <div id="user-actions" class="d-flex flex-column flex-grow-1">
-                <div class="mt-4">
-                    <div class="w-100 action-button">
-                        <button type="button" class="d-flex align-items-center">
-                            <span class="playlist-add">
-                                <i class="niand-icon-spotify-add"></i>
-                            </span>
-                            <span>Tạo playlist</span>
-                        </button>
-                    </div>
-                    <div class="w-100 action-button">
-                        <button type="button" class="d-flex align-items-center">
-                            <span class="liked-song">
-                                <i class="niand-icon-spotify-heart"></i>
-                            </span>
-                            <span>Bài hát đã thích</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div id="user-settings">
-                <div class="cookie w-100">
-                    <a href="#" class="text-white">Cookie</a>
-                </div>
-                <div class="languages">
-                    <button type="button" class="d-flex align-items-center">
-                        <i class="niand-icon-spotify-internet"></i>
-                        <span>Tiếng Việt</span>
-                    </button>
-                </div>
-            </div>
+            <?php require_once('./views/side-bar.php') ?>
         </div>
 
         <footer>

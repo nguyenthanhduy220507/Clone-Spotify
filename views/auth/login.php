@@ -1,15 +1,16 @@
 <?php
-    require_once "./config/basehref.php";
-    $url = getUrl();
-    if (isset($_SESSION['username'])) {
-        header("Location: ?url=home/index_login");
-    }
+require_once "./config/basehref.php";
+$url = getUrl();
+if (isset($_SESSION['username'])) {
+    header("Location: ?url=home/index_login");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <?php
-        echo "<base href='".$url."'>";
+    echo "<base href='" . $url . "'>";
     ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,13 +24,11 @@
     <link rel="stylesheet" href="../assets/fonts/ie7/ie7.css">
     <!--<![endif]-->
     <!-- Bootstrap 5.3.0 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- include jQuery library -->
 </head>
+
 <body>
     <div class="container">
         <div class="d-flex flex-column justify-content-center align-items-center w-50 m-auto">
@@ -69,15 +68,13 @@
                 align-items-center w-50 was-validated" method="post" id="login-form">
                 <div class="mb-3 mt-3 w-100">
                     <label for="username" class="form-label fw-bold">Email address or username</label>
-                    <input type="text" class="form-control border-dark"
-                        id="username" placeholder="Enter username" name="username">
+                    <input type="text" class="form-control border-dark" id="username" placeholder="Enter username" name="username">
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">Please fill out this field.</div>
                 </div>
                 <div class="mb-3 w-100">
                     <label for="password" class="form-label fw-bold">Password</label>
-                    <input type="password" class="form-control border-dark"
-                        id="password" placeholder="Password" name="password">
+                    <input type="password" class="form-control border-dark" id="password" placeholder="Password" name="password">
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">Please fill out this field.</div>
                 </div>
@@ -87,8 +84,7 @@
                         <input class="form-check-input" type="checkbox" name="remember"> Remember me
                     </label>
                 </div>
-                <button type="submit" class="btn rounded-pill p-2 pe-5 ps-5 fw-bolder w-50"
-                    style="background-color: #1fdf64;">Login</button>
+                <button type="submit" class="btn rounded-pill p-2 pe-5 ps-5 fw-bolder w-50" style="background-color: #1fdf64;">Login</button>
             </form>
             <div id="response-message">
                 <!-- TODO -->
@@ -118,8 +114,7 @@
                         if (response.success) {
                             if (response.type == 'admin') {
                                 window.location.href = '?url=admin/dashboard';
-                            }
-                            else {
+                            } else {
                                 window.location.href = '?url=home/index_login';
                             }
                         } else {
@@ -139,4 +134,5 @@
         });
     </script>
 </body>
+
 </html>

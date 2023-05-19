@@ -1,13 +1,13 @@
 <?php
-    require_once "./config/basehref.php";
-    $url = getUrl();
-    if (!isset($_SESSION['username'])) {
+require_once "./config/basehref.php";
+$url = getUrl();
+if (!isset($_SESSION['username'])) {
+    header("Location: ?url=home/index");
+} else {
+    if (!isset($_SESSION['type']) || !$_SESSION['type'] == 'admin') {
         header("Location: ?url=home/index");
-    } else {
-        if (!isset($_SESSION['type']) || !$_SESSION['type'] == 'admin') {
-            header("Location: ?url=home/index");
-        }
     }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +31,7 @@
 </head>
 
 <body>
-<div class="container mt-3 mb-5">
+    <div class="container mt-3 mb-5">
         <h2>Playlist</h2>
         <form id="form" method="post">
             <div class="mb-3 mt-3">
@@ -44,8 +44,7 @@
             </div>
             <div class="mb-3 mt-3">
                 <label for="description">Description:</label>
-                <input type="text" class="form-control" id="description" value="<?php if (isset($data['playlist'])) echo $data['playlist']->getPlaylistDescription(); ?>" placeholder="Enter description"
-                    name="description" required>
+                <input type="text" class="form-control" id="description" value="<?php if (isset($data['playlist'])) echo $data['playlist']->getPlaylistDescription(); ?>" placeholder="Enter description" name="description" required>
             </div>
             <div class="mb-3">
                 <label for="user" class="form-label">Select user:</label>
@@ -53,7 +52,7 @@
                 <datalist id="users">
                     <?php
                     foreach ($data['users'] as $user) {
-                        echo '<option value="'.$user->getUserId().'">'.$user->getUsername().'</option>';
+                        echo '<option value="' . $user->getUserId() . '">' . $user->getUsername() . '</option>';
                     } ?>
                 </datalist>
             </div>
@@ -85,15 +84,6 @@
     </div>
     <script>
         $(document).ready(function() {
-            // $('#chooser').click(function(e) {
-            //     openDropboxChooser(function(files) {
-            //         if (files != null) {
-            //             let object = files[0]; // Lấy phần tử đầu tiên trong mảng
-            //             let link = object.link;
-            //             $('#image-url').val(link);
-            //         }
-            //     });
-            // });
             $('#form').submit(function(e) {
                 e.preventDefault(); // prevent form submission
                 var id = $('#id').val();

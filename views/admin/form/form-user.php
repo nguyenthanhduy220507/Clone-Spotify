@@ -72,11 +72,11 @@ if (!isset($_SESSION['username'])) {
                 <label for="type_">Type:</label>
                 <select class="form-select" id="type_" name="type_" value="<?php if (isset($data['user'])) echo $data['user']->getType(); ?>">
                     <option <?php if (isset($data['user'])) {
-                        if ($data['user']->getType() == 'admin') echo 'selected';
-                    } ?> >admin</option>
+                                if ($data['user']->getType() == 'admin') echo 'selected';
+                            } ?>>admin</option>
                     <option <?php if (isset($data['user'])) {
-                        if ($data['user']->getType() == 'normal') echo 'selected';
-                    } ?> >normal</option>
+                                if ($data['user']->getType() == 'normal') echo 'selected';
+                            } ?>>normal</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>

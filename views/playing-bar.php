@@ -10,8 +10,8 @@
                         <?php echo $data['song']->getSongTitle(); ?>
                     </div>
                     <div class="authors">
-                        <a href="#"><?php echo $data['song']->getSongAlbum()->getAlbumTitle(); ?></a>
-                        <a href="#"><?php echo $data['song']->getSongArtist()->getArtistName(); ?></a></a>
+                        <a href="?url=albums/album/<?php echo $data['song']->getSongAlbum()->getAlbumId(); ?>"><?php echo $data['song']->getSongAlbum()->getAlbumTitle(); ?></a>
+                        <a href="?url=artists/artist/<?php echo $data['song']->getSongArtist()->getArtistId(); ?>"><?php echo $data['song']->getSongArtist()->getArtistName(); ?></a>
                     </div>
                 </div>
                 <div>
@@ -24,13 +24,13 @@
         </div>
         <div id="now-playing-bar-center" class="col d-flex align-items-center">
             <div class="d-flex flex-column w-100 gap-2">
-                <div class="player-controls d-xl-flex  d-flex align-items-center justify-content-center gap-4">
-                    <div class="player-controls-left d-lg-flex d-md-flex d-sm-none d-none   d-flex align-items-center justify-content-center gap-4">
+                <div class="player-controls d-xl-flex d-flex align-items-center justify-content-center gap-4">
+                    <div class="player-controls-left d-lg-flex d-md-flex d-sm-none d-none d-flex align-items-center justify-content-center gap-4">
                         <button type="button">
-                            <i class="niand-icon-spotify-mix "></i>
+                            <i class="niand-icon-spotify-mix"></i>
                         </button>
-                        <button type="button" class="">
-                            <i class="niand-icon-spotify-prev "></i>
+                        <button type="button">
+                            <i class="niand-icon-spotify-prev"></i>
                         </button>
                     </div>
                     <div class="player-controls-center">
@@ -38,7 +38,7 @@
                             <i class="niand-icon-spotify-play text-black"></i>
                         </button>
                     </div>
-                    <div class="player-controls-right  d-flex align-items-center justify-content-center gap-4">
+                    <div class="player-controls-right d-flex align-items-center justify-content-center gap-4">
                         <button type="button">
                             <i class="niand-icon-spotify-next d-lg-flex d-md-flex d-sm-none d-none"></i>
                         </button>
@@ -47,7 +47,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="playback-bar  d-flex align-items-center justify-content-center gap-2">
+                <div class="playback-bar d-flex align-items-center justify-content-center gap-2">
                     <div id="playback-position" class="playback-position">
                         0:00
                     </div>
@@ -73,7 +73,7 @@
             <div>
                 <i class="niand-icon-spotify-mic"></i>
             </div>
-            <div>
+            <div onclick="window.location.href='?url=queues/queue'">
                 <i class="niand-icon-spotify-playlist"></i>
             </div>
             <div>

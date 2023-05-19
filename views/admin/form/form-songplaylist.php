@@ -66,7 +66,7 @@ if (!isset($_SESSION['username'])) {
                 var order = $('#order').val();
                 var song = $('#song').val();
                 $.ajax({
-                    url: '?url=admin/auth_sp_form/<?php if (isset($data['type'])) {echo $data['type'];} else {echo "add";} ?>',
+                    url: '?url=admin/auth_sp_form/<?php if (isset($data['type'])) {echo $data['type']; } else { echo "add";} ?>',
                     type: 'POST',
                     data: {
                         id: id,

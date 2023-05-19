@@ -1,61 +1,11 @@
 <?php require_once 'style.php' ?>
 <link rel="stylesheet" href="./assets/css/collection-like-song.css">
-
+</head>
 <body>
     <div id="main" class="d-grid">
         <header id="top-bar" style="background-color:#4c3693">
-            <div class="d-flex align-items-center justify-content-between gap-3">
-                <div id="action-buttons" class=" d-flex flex-shrink-1">
-                    <button type="button" title="Quay lại" class="d-md-flex d-lg-flex d-xl-flex d-sm-none d-none d-flex justify-content-center align-items-center next_prev">
-                        <i class="niand-icon-spotify-left"></i>
-                    </button>
-                    <button type="button" title="Tiếp theo" class="d-md-flex d-lg-flex d-xl-flex d-sm-none d-none d-flex justify-content-center align-items-center next_prev">
-                        <i class="niand-icon-spotify-right"></i>
-                    </button>
-                    <div class="d-md-none d-block">
-                        <button type="button" class="d-flex justify-content-center align-items-center" id="open-btn">
-                            <i class="niand-icon-spotify-heart"></i>
-                        </button>
-                    </div>
-                </div>
-                <div id="sign-up-in" class="d-flex align-items-center flex-shrink-1">
-
-                    <button id="sign-up" type="button" class="text-black rounded-5 ms-2 d-md-flex d-lg-flex d-xl-flex d-sm-none d-none">Nâng
-                        cấp</button>
-                    <button id="sign-in" type="button" class="rounded-5 ms-2 d-md-flex d-lg-flex d-xl-flex d-sm-none d-none d-fex justify-content-center align-items-center"><i class="niand-icon-spotify-install"></i>
-                        Cài đặt ứng dụng</button>
-                    <button id="icon" type="button" class="rounded-5 ms-2 dropdown-toggle" data-bs-toggle="dropdown"><i class="niand-icon-spotify-user"></i></button>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <div class="d-flex dropdown-item">
-                                <a class="text-dark flex-grow-1" href="#">Tài khoản</a>
-                                <i class="niand-icon-spotify-share-user text-dark"></i>
-                            </div>
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="#">Hồ sơ</a></li>
-                        <li>
-                            <div class="d-flex dropdown-item">
-                                <a class="text-dark flex-grow-1" href="#">Nâng cấp lên Premium</a>
-                                <i class="niand-icon-spotify-share-user text-dark"></i>
-                            </div>
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="#">Hỗ trợ</a></li>
-                        <li>
-                            <div class="d-flex dropdown-item">
-                                <a class="text-dark flex-grow-1" href="#">Tải xuống</a>
-                                <i class="niand-icon-spotify-share-user text-dark"></i>
-                            </div>
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="#">Cài đặt</a></li>
-                        <li>
-                            <hr class="dropdown-divider" style="border-top-color: #000000;">
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="">Đăng xuất</a></li>
-                    </ul>
-                </div>
-            </div>
+            <?php require_once('./views/header-bar-login.php') ?>
         </header>
-
         <main id="main-view">
             <div class="p-2" style="background-color: #4c3693">
                 <div class="card mb-3" style="background-color: #4c3693; border: none">
@@ -106,7 +56,7 @@
                         </div>
                     </div>
                 </div>
-                <?php $counter =1; ?>
+                <?php $counter = 1; ?>
                 <?php foreach ($data['songs'] as $song) { ?>
                     <div class="container mt-2 data-row">
                         <div class="container-fuild">
@@ -155,65 +105,11 @@
         </main>
 
         <div id="side-bar" class="d-md-flex d-lg-flex d-xl-flex d-sm-none d-none d-flex flex-column">
-            <div id="logo">
-                <div class="w-100">
-                    <a href="#" class="text-white">
-                        <i class="niand-icon-spotify-logo"></i>
-                    </a>
-                </div>
-            </div>
-            <nav id="menu" class="w-100">
-                <ul>
-                    <li>
-                        <a href="#" class="active text-white d-flex align-items-center">
-                            <i class="niand-icon-spotify-home"></i>
-                            <span>Trang chủ</span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-white d-flex align-items-center">
-                            <i class="niand-icon-spotify-search"></i>
-                            <span>Tìm kiếm</span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-white d-flex align-items-center">
-                            <i class="niand-icon-spotify-library"></i>
-                            <span>Thư viện</span></a>
-                    </li>
-                </ul>
-            </nav>
-            <div id="user-actions" class="d-flex flex-column flex-grow-1">
-                <div class="mt-4">
-                    <div class="w-100 action-button">
-                        <button type="button" class="d-flex align-items-center">
-                            <span class="playlist-add">
-                                <i class="niand-icon-spotify-add"></i>
-                            </span>
-                            <span>Tạo playlist</span>
-                        </button>
-                    </div>
-                    <div class="w-100 action-button">
-                        <button type="button" class="d-flex align-items-center">
-                            <span class="liked-song">
-                                <i class="niand-icon-spotify-heart"></i>
-                            </span>
-                            <span>Bài hát đã thích</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div id="user-settings">
-                <div class="cookie w-100">
-                    <a href="#" class="text-white">Cookie</a>
-                </div>
-                <div class="languages">
-                    <button type="button" class="d-flex align-items-center">
-                        <i class="niand-icon-spotify-internet"></i>
-                        <span>Tiếng Việt</span>
-                    </button>
-                </div>
-            </div>
+            <?php require_once('./views/side-bar.php') ?>
         </div>
-        <?php require_once 'footer.php' ?>
+        <footer>
+            <?php require_once('./views/playing-bar.php') ?>
+        </footer>
     </div>
 </body>
 <?php require_once 'script.php' ?>

@@ -85,15 +85,6 @@ if (!isset($_SESSION['username'])) {
     </div>
     <script>
         $(document).ready(function() {
-            // $('#chooser').click(function(e) {
-            //     openDropboxChooser(function(files) {
-            //         if (files != null) {
-            //             let object = files[0]; // Lấy phần tử đầu tiên trong mảng
-            //             let link = object.link;
-            //             $('#image-url').val(link);
-            //         }
-            //     });
-            // });
             $('#form').submit(function(e) {
                 e.preventDefault(); // prevent form submission
                 var id = $('#id').val();

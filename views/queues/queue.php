@@ -74,58 +74,13 @@ $url = getUrl();
             }
         }
     </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- include jQuery library -->
 </head>
 
 <body>
     <div id="main" class="d-grid">
         <header id="top-bar">
-            <div class="d-flex align-items-center justify-content-between gap-3">
-                <div id="action-buttons" class="d-flex flex-shrink-1">
-                    <button type="button" title="Quay lại" class="d-flex justify-content-center align-items-center d-xl-flex d-lg-flex d-md-flex d-sm-none d-none">
-                        <i class="niand-icon-spotify-left"></i>
-                    </button>
-                    <button type="button" title="Tiếp theo" class="d-flex justify-content-center align-items-center d-xl-flex d-lg-flex d-md-flex d-sm-none d-none">
-                        <i class="niand-icon-spotify-right"></i>
-                    </button>
-                    <div class="d-md-none d-block">
-                        <button type="button" title="Tiếp theo" id="open-btn" class="d-flex justify-content-center align-items-center">
-                            <i class="niand-icon-spotify-heart"></i>
-                        </button>
-                    </div>
-                </div>
-                <div id="sign-up-in" class="d-flex align-items-center flex-shrink-1">
-                    <button id="sign-up" type="button" class="rounded-5 ms-2">Nâng cấp</button>
-                    <button id="sign-in" type="button" class="rounded-5 ms-2 text-white d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex justify-content-center align-items-center"><i class="niand-icon-spotify-install"></i> Cài đặt ứng dụng</button>
-                    <button id="icon" type="button" class="rounded-5 ms-2 dropdown-toggle" data-bs-toggle="dropdown"><i class="niand-icon-spotify-user"></i></button>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <div class="d-flex dropdown-item">
-                                <a class="text-dark flex-grow-1" href="#">Tài khoản</a>
-                                <i class="niand-icon-spotify-share-user text-dark"></i>
-                            </div>
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="#">Hồ sơ</a></li>
-                        <li>
-                            <div class="d-flex dropdown-item">
-                                <a class="text-dark flex-grow-1" href="#">Nâng cấp lên Premium</a>
-                                <i class="niand-icon-spotify-share-user text-dark"></i>
-                            </div>
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="#">Hỗ trợ</a></li>
-                        <li>
-                            <div class="d-flex dropdown-item">
-                                <a class="text-dark flex-grow-1" href="#">Tải xuống</a>
-                                <i class="niand-icon-spotify-share-user text-dark"></i>
-                            </div>
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="#">Cài đặt</a></li>
-                        <li>
-                            <hr class="dropdown-divider" style="border-top-color: #000000;">
-                        </li>
-                        <li><a class="dropdown-item text-dark" href="">Đăng xuất</a></li>
-                    </ul>
-                </div>
-            </div>
+            <?php require_once('./views/header-bar-login.php') ?>
         </header>
 
         <main id="main-view">
@@ -210,144 +165,11 @@ $url = getUrl();
         </main>
 
         <div id="side-bar" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex flex-column">
-            <div id="logo">
-                <div class="w-100">
-                    <a href="#" class="text-white">
-                        <i class="niand-icon-spotify-logo"></i>
-                    </a>
-                </div>
-            </div>
-            <nav id="menu" class="w-100">
-                <ul>
-                    <li>
-                        <a href="#" class="active text-white d-flex align-items-center">
-                            <i class="niand-icon-spotify-home"></i>
-                            <span>Trang chủ</span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-white d-flex align-items-center">
-                            <i class="niand-icon-spotify-search"></i>
-                            <span>Tìm kiếm</span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-white d-flex align-items-center">
-                            <i class="niand-icon-spotify-library"></i>
-                            <span>Thư viện</span></a>
-                    </li>
-                </ul>
-            </nav>
-            <div id="user-actions" class="d-flex flex-column flex-grow-1">
-                <div class="mt-4">
-                    <div class="w-100 action-button">
-                        <button type="button" class="d-flex align-items-center">
-                            <span class="playlist-add">
-                                <i class="niand-icon-spotify-add"></i>
-                            </span>
-                            <span>Tạo playlist</span>
-                        </button>
-                    </div>
-                    <div class="w-100 action-button">
-                        <button type="button" class="d-flex align-items-center">
-                            <span class="liked-song">
-                                <i class="niand-icon-spotify-heart"></i>
-                            </span>
-                            <span>Bài hát đã thích</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div id="user-settings">
-                <div class="cookie w-100">
-                    <a href="#" class="text-white">Cookie</a>
-                </div>
-                <div class="languages">
-                    <button type="button" class="d-flex align-items-center">
-                        <i class="niand-icon-spotify-internet"></i>
-                        <span>Tiếng Việt</span>
-                    </button>
-                </div>
-            </div>
+            <?php require_once('./views/side-bar.php') ?>
         </div>
 
         <footer>
-            <div id="now-playing-bar" class="pe-2 ps-2">
-                <div class="row row-cols-3 m-auto">
-                    <div id="now-playing-bar-left" class="col d-flex align-items-center">
-                        <div class="d-flex gap-3 justify-content-start align-items-center">
-                            <div>
-                                <img class="img-fluid rounded-1" src="https://i.scdn.co/image/ab67616d0000485170cb943c9a67b7eda3414366" alt="">
-                            </div>
-                            <div>
-                                <div class="title">
-                                    không nói ai mà biết
-                                </div>
-                                <div class="authors">
-                                    <a href="#">14 Casper</a>
-                                    <a href="#">Bon Nghiêm</a>
-                                </div>
-                            </div>
-                            <div>
-                                <i class="niand-icon-spotify-heart-empty"></i>
-                            </div>
-                            <div>
-                                <i class="niand-icon-spotify-picture-in-picture"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="now-playing-bar-center" class="col d-flex align-items-center">
-                        <div class="d-flex flex-column w-100 gap-2">
-                            <div class="player-controls d-flex align-items-center justify-content-center gap-4">
-                                <div class="player-controls-left d-flex align-items-center justify-content-center gap-4">
-                                    <button type="button">
-                                        <i class="niand-icon-spotify-mix"></i>
-                                    </button>
-                                    <button type="button">
-                                        <i class="niand-icon-spotify-prev"></i>
-                                    </button>
-                                </div>
-                                <div class="player-controls-center">
-                                    <button type="button" class="bg-white m-0 p-1 rounded-circle d-flex justify-content-center align-items-center">
-                                        <i class="niand-icon-spotify-play text-black"></i>
-                                    </button>
-                                </div>
-                                <div class="player-controls-right d-flex align-items-center justify-content-center gap-4">
-                                    <button type="button">
-                                        <i class="niand-icon-spotify-next"></i>
-                                    </button>
-                                    <button type="button">
-                                        <i class="niand-icon-spotify-loop"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none playback-bar d-flex align-items-center justify-content-center gap-2">
-                                <div class="playback-position">
-                                    0:00
-                                </div>
-                                <div class="progress-bar w-100 rounded-2">
-                                </div>
-                                <div class="playback-duration">
-                                    4:34
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="now-playing-bar-right" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none col d-flex justify-content-end align-items-center gap-3">
-                        <div>
-                            <i class="niand-icon-spotify-mic"></i>
-                        </div>
-                        <div>
-                            <i class="niand-icon-spotify-playlist"></i>
-                        </div>
-                        <div>
-                            <i class="niand-icon-spotify-loudspeaker"></i>
-                        </div>
-                        <div class="d-flex align-items-center gap-2">
-                            <i class="niand-icon-spotify-volumn"></i>
-                            <div class="volumn-bar rounded-2"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php require_once('./views/playing-bar.php') ?>
         </footer>
     </div>
 </body>

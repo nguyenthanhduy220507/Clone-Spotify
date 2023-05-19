@@ -15,7 +15,6 @@ class Collections extends Controller
         $this->DB_artist = $this->model('ArtistModel');
         $this->DB_album = $this->model('AlbumModel');
         $this->DB_playlist = $this->model('PlaylistModel');
-
     }
     public function collection_like_song()
     {

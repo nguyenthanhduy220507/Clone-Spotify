@@ -166,12 +166,11 @@ if (!isset($_SESSION['username'])) {
                                 </div>
                                 <div class="col-10 d-flex align-items-center justify-content-left ps-0">
                                     <div class="card-body">
-<<<<<<< HEAD
-                                        <a data-id="<?php echo $song->getSongId() ?>" class="play-song card-title mt-2 text-white hover_a" style="font-size:15px"><?php echo $song->getSongTitle() ?>
-=======
-                                        <a href="?url=albums/album/<?php echo $data['id']; ?>" class="card-title mt-2 text-white hover_a" style="font-size:15px"><?php echo $song->getSongTitle() ?>
->>>>>>> 17d1a1ae70383134a5674bb7798635fb698d362a
-                                        </a><br>
+                                        <<<<<<< HEAD <a data-id="<?php echo $song->getSongId() ?>" class="play-song card-title mt-2 text-white hover_a" style="font-size:15px"><?php echo $song->getSongTitle() ?>
+                                            =======
+                                            <a href="?url=albums/album/<?php echo $data['id']; ?>" class="card-title mt-2 text-white hover_a" style="font-size:15px"><?php echo $song->getSongTitle() ?>
+                                                >>>>>>> 17d1a1ae70383134a5674bb7798635fb698d362a
+                                            </a><br>
                                     </div>
                                 </div>
                                 <div class="col-1 d-flex align-items-center justify-content-center">
@@ -199,7 +198,6 @@ if (!isset($_SESSION['username'])) {
                 <p class="mb-0 text-white" style="font-size:13px">℗ <?php echo date('Y', strtotime($data['album']->getAlbumReleaseDate())); ?> XL Recordings Ltd</p>
                 <p class="mb-0 text-white" style="font-size:13px">℗ <?php echo date('Y', strtotime($data['album']->getAlbumReleaseDate())); ?> XL Recordings Ltd</p>
             </div>
-
 
             <div class="container">
                 <div id="title_font_list" class="m-2">
@@ -229,67 +227,10 @@ if (!isset($_SESSION['username'])) {
                     <?php } ?>
                 </div>
             </div>
-
         </main>
 
         <div id="side-bar" class="d-md-flex d-lg-flex d-xl-flex d-sm-none d-none flex-column">
-            <div id="logo">
-                <div class="w-100 d-flex justify-content-between">
-                    <a href="#" class="text-white">
-                        <i class="niand-icon-spotify-logo"></i>
-                    </a>
-                </div>
-            </div>
-            <nav id="menu" class="w-100">
-                <ul>
-                    <li>
-                        <a href="#" class="active text-white d-flex align-items-center">
-                            <i class="niand-icon-spotify-home"></i>
-                            <span>Trang chủ</span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-white d-flex align-items-center">
-                            <i class="niand-icon-spotify-search"></i>
-                            <span>Tìm kiếm</span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-white d-flex align-items-center">
-                            <i class="niand-icon-spotify-library"></i>
-                            <span>Thư viện</span></a>
-                    </li>
-                </ul>
-            </nav>
-            <div id="user-actions" class="d-flex flex-column flex-grow-1">
-                <div class="mt-4">
-                    <div class="w-100 action-button">
-                        <button type="button" class="d-flex align-items-center">
-                            <span class="playlist-add">
-                                <i class="niand-icon-spotify-add"></i>
-                            </span>
-                            <span>Tạo playlist</span>
-                        </button>
-                    </div>
-                    <div class="w-100 action-button">
-                        <button type="button" class="d-flex align-items-center">
-                            <span class="liked-song">
-                                <i class="niand-icon-spotify-heart"></i>
-                            </span>
-                            <span>Bài hát đã thích</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div id="user-settings">
-                <div class="cookie w-100">
-                    <a href="#" class="text-white">Cookie</a>
-                </div>
-                <div class="languages">
-                    <button type="button" class="d-flex align-items-center">
-                        <i class="niand-icon-spotify-internet"></i>
-                        <span>Tiếng Việt</span>
-                    </button>
-                </div>
-            </div>
+            <?php require_once('./views/side-bar.php') ?>
         </div>
 
         <footer>

@@ -1,13 +1,13 @@
 <?php
-    require_once "./config/basehref.php";
-    $url = getUrl();
-    if (!isset($_SESSION['username'])) {
+require_once "./config/basehref.php";
+$url = getUrl();
+if (!isset($_SESSION['username'])) {
+    header("Location: ?url=home/index");
+} else {
+    if (!isset($_SESSION['type']) || !$_SESSION['type'] == 'admin') {
         header("Location: ?url=home/index");
-    } else {
-        if (!isset($_SESSION['type']) || !$_SESSION['type'] == 'admin') {
-            header("Location: ?url=home/index");
-        }
     }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +48,7 @@
                 <datalist id="users">
                     <?php
                     foreach ($data['users'] as $user) {
-                        echo '<option value="'.$user->getUserId().'">'.$user->getUsername().'</option>';
+                        echo '<option value="' . $user->getUserId() . '">' . $user->getUsername() . '</option>';
                     }
                     ?>
                 </datalist>
@@ -59,7 +59,7 @@
                 <datalist id="songs">
                     <?php
                     foreach ($data['songs'] as $song) {
-                        echo '<option value="'.$song->getSongId().'">'.$song->getSongTitle().'</option>';
+                        echo '<option value="' . $song->getSongId() . '">' . $song->getSongTitle() . '</option>';
                     }
                     ?>
                 </datalist>

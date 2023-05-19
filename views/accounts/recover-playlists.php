@@ -4,7 +4,6 @@
 <body>
     <div id="container">
         <?php require_once 'header.php'; ?>
-
         <main id="main-view">
             <div class="container-fuild" style="background-color: #1f2a3a">
                 <div class="container">
@@ -18,7 +17,7 @@
                                 </div>
                                 <hr>
                                 <ul class="nav nav-pills flex-column mb-auto">
-                                    <li class="nav-item border_li">
+                                    <li class="nav-item border_li nav-link-hover">
                                         <a href="?url=accounts/account" class="nav-link text-white" aria-current="page">
                                             <i class="niand-icon-spotify-home-account"></i>
                                             Tổng quan về tài khoản

@@ -18,7 +18,7 @@
                                 </div>
                                 <hr>
                                 <ul class="nav nav-pills flex-column mb-auto">
-                                    <li class="nav-item border_li">
+                                    <li class="nav-item border_li nav-link-hover">
                                         <a href="?url=accounts/account" class="nav-link text-white" aria-current="page">
                                             <i class="niand-icon-spotify-home-account"></i>
                                             Tổng quan về tài khoản
@@ -75,7 +75,6 @@
                                                 <option <?php echo ($data['users'][0]->getGender() == 'Không muốn nêu cụ thể') ? 'selected' : ''; ?>>Không muốn nêu cụ thể</option>
                                                 <option <?php echo ($data['users'][0]->getGender() == 'Giới tính trung lập') ? 'selected' : ''; ?>>Giới tính trung lập</option>
                                             </select>
-
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label fw-bold">Ngày sinh</label>

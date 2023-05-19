@@ -31,11 +31,7 @@ if (isset($_SESSION['username'])) {
 	<link rel="stylesheet" href="./assets/css/index.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- include jQuery library -->
 </head>
-<?php
-if (isset($css)) {
-	echo $css;
-}
-?>
+
 
 <body>
 	<div id="main" class="d-grid">
@@ -91,64 +87,8 @@ if (isset($css)) {
 		</main>
 
 		<div id="side-bar" class="d-xl-flex d-lg-flex d-md-flex d-sm-none d-none d-flex flex-column">
-			<div id="logo">
-				<div class="w-100">
-					<a href="#" class="text-white">
-						<i class="niand-icon-spotify-logo"></i>
-					</a>
-				</div>
-			</div>
-			<nav id="menu" class="w-100">
-				<ul>
-					<li>
-						<a href="#" class="active text-white d-flex align-items-center">
-							<i class="niand-icon-spotify-home"></i>
-							<span>Trang chủ</span></a>
-					</li>
-					<li>
-						<a href="#" class="text-white d-flex align-items-center">
-							<i class="niand-icon-spotify-search"></i>
-							<span>Tìm kiếm</span></a>
-					</li>
-					<li>
-						<a href="#" class="text-white d-flex align-items-center">
-							<i class="niand-icon-spotify-library"></i>
-							<span>Thư viện</span></a>
-					</li>
-				</ul>
-			</nav>
-			<div id="user-actions" class="d-flex flex-column flex-grow-1">
-				<div class="mt-4">
-					<div class="w-100 action-button">
-						<button type="button" class="d-flex align-items-center">
-							<span class="playlist-add">
-								<i class="niand-icon-spotify-add"></i>
-							</span>
-							<span>Tạo playlist</span>
-						</button>
-					</div>
-					<div class="w-100 action-button">
-						<button type="button" class="d-flex align-items-center">
-							<span class="liked-song">
-								<i class="niand-icon-spotify-heart"></i>
-							</span>
-							<span>Bài hát đã thích</span>
-						</button>
-					</div>
-				</div>
-			</div>
-			<div id="user-settings">
-				<div class="cookie w-100">
-					<a href="#" class="text-white">Cookie</a>
-				</div>
-				<div class="languages">
-					<button type="button" class="d-flex align-items-center">
-						<i class="niand-icon-spotify-internet"></i>
-						<span>Tiếng Việt</span>
-					</button>
-				</div>
-			</div>
-		</div>
+            <?php require_once('./views/side-bar.php') ?>
+        </div>
 
 		<footer>
 			<div id="now-playing-bar" class="d-flex align-items-center">

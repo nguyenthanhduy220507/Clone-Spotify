@@ -11,7 +11,7 @@
         </button>
     </div>
     <div class="btn-nav flex-shrink-1"><a href="#" class="text-white t1">Premium</a></div>
-    <div class="btn-nav flex-shrink-1"><a href="#" class="text-white t1">Hỗ trợ</a></div>
+    <div class="btn-nav flex-shrink-1"><a href="?url=helps/help" class="text-white t1">Hỗ trợ</a></div>
     <div class="btn-nav flex-shrink-1"><a href="#" class="text-white t1">Tải xuống</a></div>
     <div id="vertical-line" class="t1"></div>
     <div id="sign-up-in" class="d-flex align-items-center flex-shrink-1">

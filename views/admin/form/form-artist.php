@@ -1,13 +1,13 @@
 <?php
-    require_once "./config/basehref.php";
-    $url = getUrl();
-    if (!isset($_SESSION['username'])) {
+require_once "./config/basehref.php";
+$url = getUrl();
+if (!isset($_SESSION['username'])) {
+    header("Location: ?url=home/index");
+} else {
+    if (!isset($_SESSION['type']) || !$_SESSION['type'] == 'admin') {
         header("Location: ?url=home/index");
-    } else {
-        if (!isset($_SESSION['type']) || !$_SESSION['type'] == 'admin') {
-            header("Location: ?url=home/index");
-        }
     }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,15 +74,6 @@
     </div>
     <script>
         $(document).ready(function() {
-            // $('#chooser').click(function(e) {
-            //     openDropboxChooser(function(files) {
-            //         if (files != null) {
-            //             let object = files[0]; // Lấy phần tử đầu tiên trong mảng
-            //             let link = object.link;
-            //             $('#image-url').val(link);
-            //         }
-            //     });
-            // });
             $('#form').submit(function(e) {
                 e.preventDefault(); // prevent form submission
                 var id = $('#id').val();

@@ -1,20 +1,20 @@
 <?php
-    require_once "./config/basehref.php";
-    $url = getUrl();
-    if (!isset($_SESSION['username'])) {
+require_once "./config/basehref.php";
+$url = getUrl();
+if (!isset($_SESSION['username'])) {
+    header("Location: ?url=home/index");
+} else {
+    if (!isset($_SESSION['type']) || !$_SESSION['type'] == 'admin') {
         header("Location: ?url=home/index");
-    } else {
-        if (!isset($_SESSION['type']) || !$_SESSION['type'] == 'admin') {
-            header("Location: ?url=home/index");
-        }
     }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <?php
-        echo "<base href='".$url."'>";
+    echo "<base href='" . $url . "'>";
     ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,11 +23,8 @@
     <meta property="og:image" content="./assets/images/spotify.png">
     <title>Admin Page - Settings User</title>
     <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="./assets/niand-admin-v1.0/style.css">
     <link rel="stylesheet" href="./assets/css/admin-index.css">
@@ -43,8 +40,7 @@
             </div>
             <nav id="nav-bar" class="my-3 my-scroll flex-grow-1 h-100" aria-labelledby="navigation sidebar">
                 <ul class="list-unstyled d-flex flex-column justify-content-center align-items-center gap-5 m-0">
-                    <li><a class="d-flex flex-column gap-2 active-nav justify-content-center align-items-center text-decoration-none fs-6"
-                            href="#">
+                    <li><a class="d-flex flex-column gap-2 active-nav justify-content-center align-items-center text-decoration-none fs-6" href="#">
                             <div class="d-flex justify-content-center align-items-center">
                                 <i class="niand-icon-cog"></i>
                             </div>
@@ -56,8 +52,7 @@
         <section id="main-content" class="d-flex flex-column flex-grow-1 p-2">
             <header class="d-flex mx-5 my-3 gap-3 justify-content-center align-items-center">
                 <section>
-                    <a class="d-flex gap-2 justify-content-center align-items-center text-decoration-none text-white"
-                        href="">
+                    <a class="d-flex gap-2 justify-content-center align-items-center text-decoration-none text-white" href="javascript:history.back()">
                         <i class="niand-icon-chevron-left"></i>
                         <span class="fw-semibold text-capitalize" style="color: #c2e1eb">Back</span>
                     </a>
@@ -71,8 +66,7 @@
                     </ul>
                 </nav>
                 <section>
-                    <a class="d-flex gap-2 justify-content-center align-items-center text-decoration-none text-white"
-                        href="#">
+                    <a class="d-flex gap-2 justify-content-center align-items-center text-decoration-none text-white" href="#">
                         <i class="niand-icon-user"></i>
                         <span class="fw-semibold" style="color: #c2e1eb"><?php echo $_SESSION['username']; ?></span>
                     </a>
@@ -84,35 +78,35 @@
                     <input class="d-none" type="text" id="id-user" value="1">
                     <div class="flex">
                         <label>
-                            <input required="" placeholder="" type="text" class="input">
+                            <input required placeholder type="text" class="input">
                             <span>name</span>
                         </label>
 
                         <label>
-                            <input required="" placeholder="" type="password" class="input">
+                            <input required placeholder type="password" class="input">
                             <span>password</span>
                         </label>
                     </div>
                     <label>
-                        <input required="" placeholder="" type="email" class="input">
+                        <input required placeholder type="email" class="input">
                         <span>email</span>
                     </label>
 
                     <label>
-                        <input required="" type="date" value="2002-05-16" class="input">
+                        <input required type="date" value="2002-05-16" class="input">
                         <span></span>
                     </label>
                     <div class="d-flex gap-3 align-items-center">
                         <div>
-                            <input required="" name="gender" type="radio" checked value="nam" class="input">
+                            <input required name="gender" type="radio" checked value="nam" class="input">
                             <span class="text-black-50">nam</span>
                         </div>
                         <div>
-                            <input required="" name="gender" type="radio" value="nữ" class="input">
+                            <input required name="gender" type="radio" value="nữ" class="input">
                             <span class="text-black-50">nữ</span>
                         </div>
                         <div>
-                            <input required="" name="gender" type="radio" value="khác" class="input">
+                            <input required name="gender" type="radio" value="khác" class="input">
                             <span class="text-black-50">khác</span>
                         </div>
                     </div>

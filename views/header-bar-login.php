@@ -18,7 +18,7 @@
         <ul class="dropdown-menu">
             <li>
                 <div class="d-flex dropdown-item">
-                    <a class="text-dark flex-grow-1" href="#">Tài khoản</a>
+                    <a class="text-dark flex-grow-1" href="?url=accounts/account">Tài khoản</a>
                     <i class="znake-icon-spotify-share-user text-dark"></i>
                 </div>
             </li>
@@ -29,14 +29,14 @@
                     <i class="znake-icon-spotify-share-user text-dark"></i>
                 </div>
             </li>
-            <li><a class="dropdown-item text-dark" href="#">Hỗ trợ</a></li>
+            <li><a class="dropdown-item text-dark" href="?url=helps/help">Hỗ trợ</a></li>
             <li>
                 <div class="d-flex dropdown-item">
                     <a class="text-dark flex-grow-1" href="#">Tải xuống</a>
                     <i class="znake-icon-spotify-share-user text-dark"></i>
                 </div>
             </li>
-            <li><a class="dropdown-item text-dark" href="#">Cài đặt</a></li>
+            <li><a class="dropdown-item text-dark" href="?url=settingss/setting">Cài đặt</a></li>
             <li>
                 <hr class="dropdown-divider" style="border-top-color: #000000;">
             </li>

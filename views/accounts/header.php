@@ -19,8 +19,8 @@
             <div id="sign-up-in" class="d-flex align-items-center flex-shrink-1">
                 <button id="sign-in-icon" type="button" class="rounded-5 dropdown-toggle" data-bs-toggle="dropdown"><i class="niand-icon-spotify-user"></i> Hồ sơ</button>
                 <ul class="dropdown-menu " style="background-color: #fff">
-                    <li><a class="dropdown-item text-dark" href="#">Tài khoản</a></li>
-                    <li><a class="dropdown-item text-muted" href="">Đăng xuất</a></li>
+                    <li><a class="dropdown-item text-dark" href="?url=accounts/account">Tài khoản</a></li>
+                    <li><a class="dropdown-item text-muted" href="?url=auth/logout">Đăng xuất</a></li>
                 </ul>
             </div>
         </div>

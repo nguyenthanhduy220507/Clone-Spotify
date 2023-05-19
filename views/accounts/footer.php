@@ -43,11 +43,9 @@
                         <li class="me-3"><a href="" class="rounded-5 p-2 fs-4 border border-circle" style="background-color:#3b3b3b"><i class="niand-icon-instagram text-white"></i></a></li>
                         <li class="me-3"><a href="" class="rounded-5 p-2 fs-4 border border-circle" style="background-color:#3b3b3b"><i class="niand-icon-twitter text-white"></i></a></li>
                         <li class="me-3"><a href="" class="rounded-5 p-2 fs-4 border border-circle" style="background-color:#3b3b3b"><i class="niand-icon-facebook text-white"></i></a></li>
-
                     </ul>
                 </div>
             </div>
-
         </div>
         <div class="container" style="background-color:#000000; padding-top: 65px">
             <div class="d-flex justify-content-end">
