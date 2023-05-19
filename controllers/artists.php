@@ -19,6 +19,7 @@ class Artists extends Controller
         $DB_album = $this->model('AlbumModel');
         $list_album = [];
         $list_playlist = [];
+        $list_song_from_playlist = [];
         //song
         foreach ($songDB->getALL() as $song) {
             if ($song->getSongArtist()->getArtistId() == $current_artist->getArtistId()) {
@@ -35,6 +36,7 @@ class Artists extends Controller
         foreach ($playlistDB->getAll() as $playlist) {
             if ($playlist->getPlaylistUser()->getUserId() == $user->getUserId()) {
                 $list_playlist[] = $playlist;
+                $list_song_from_playlist[] = $this->model('SongPlaylistModel')->getPlaylistSongs($playlist->getPlaylistId());
             }
         }
 
@@ -46,7 +48,8 @@ class Artists extends Controller
             'songs' => $list_song,
             'user'=>$user,
             'song'=>$current_song,
-            'playlists'=>$list_playlist
+            'playlists'=>$list_playlist,
+            'list_song_playlist'=>$list_song_from_playlist
         ]);
     }
     public function artist($id)

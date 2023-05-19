@@ -58,6 +58,12 @@ class Playlists extends Controller
         header('Location: ?url=playlists/playlist/'.$playlist_id);
     }
 
+    public function clear_all($id) {
+        $DB = $this->model('SongPlaylistModel');
+        $DB->clearPlaylist($id);
+        header('Location: ?url=playlists/playlist/'.$id);
+    }
+
     public function playlist_login($id)
     {
         $userDB = $this->model("UserModel");

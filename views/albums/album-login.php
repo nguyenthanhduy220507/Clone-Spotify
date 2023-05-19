@@ -173,12 +173,14 @@ if (!isset($_SESSION['username'])) {
                                     <button type="button" class="rounded-2 ms-4 btn" data-bs-toggle="dropdown" style="background-color: #1a1a1a"><i class="niand-icon-spotify-desc text-white icon"></i></button>
                                     <ul class="dropdown-menu">
                                         <?php foreach ($data['playlists'] as $playlist) { ?>
-                                        <li>
-                                            <div class="d-flex dropdown-item">
-                                                <a class="text-dark flex-grow-1" href="?url=playlists/add_song_to_playlist/<?php echo $song->getSongId() ?>/<?php echo $playlist->getPlaylistId() ?>">Thêm vào playlist <?php echo $playlist->getPlaylistName() ?> </a>
-                                                <i class="znake-icon-spotify-share-user text-dark"></i>
-                                            </div>
-                                        </li>
+                                            <?php if (!in_array($song, $data['list_song_playlist'][array_search($playlist, $data['playlists'])])) { ?>
+                                                <li>
+                                                    <div class="d-flex dropdown-item">
+                                                        <a class="text-dark flex-grow-1" href="?url=playlists/add_song_to_playlist/<?php echo $song->getSongId() ?>/<?php echo $playlist->getPlaylistId() ?>">Thêm vào playlist <?php echo $playlist->getPlaylistName() ?> </a>
+                                                        <i class="znake-icon-spotify-share-user text-dark"></i>
+                                                    </div>
+                                                </li>
+                                            <?php } ?>
                                         <?php } ?>
                                     </ul>
                                 </div>

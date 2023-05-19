@@ -92,6 +92,7 @@ if (!isset($_SESSION['username'])) {
                                                 Update playlist
                                             </button>
                                         </a></li>
+                                        <li><a class="dropdown-item text-white" href="?url=playlists/clear_all/<?php echo $data['playlist']->getPlaylistId() ?>">Clear playlist</a></li>
                                 <?php } ?>
                             </ul>
                         </div>
@@ -139,7 +140,7 @@ if (!isset($_SESSION['username'])) {
                             <div class="col-3 d-flex align-items-center xemthem">
 
                             </div>
-                            <div class="  col-3 d-flex align-items-center hightlightWord">
+                            <div onclick="window.location.href = '?url=albums/album/<?php echo $songplaylists->getSong()->getSongAlbum()->getAlbumId() ?>'" class="col-3 d-flex align-items-center hightlightWord">
                                 <?php echo $songplaylists->getSong()->getSongAlbum()->getAlbumTitle() ?>
                             </div>
                             <!-- <div class="col-3 d-flex align-items-center xemthem">

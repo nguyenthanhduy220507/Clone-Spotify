@@ -18,6 +18,7 @@ class Albums extends Controller
         $list_song = [];
         $list_album = [];
         $list_playlist = [];
+        $list_song_from_playlist = [];
         //song
         foreach ($songDB->getALL() as $song) {
             if ($song->getSongAlbum()->getAlbumId() == $current_album->getAlbumId()) {
@@ -34,6 +35,7 @@ class Albums extends Controller
         foreach ($playlistDB->getAll() as $playlist) {
             if ($playlist->getPlaylistUser()->getUserId() == $user->getUserId()) {
                 $list_playlist[] = $playlist;
+                $list_song_from_playlist[] = $this->model('SongPlaylistModel')->getPlaylistSongs($playlist->getPlaylistId());
             }
         }
 
@@ -45,7 +47,8 @@ class Albums extends Controller
             'songs' =>$list_song,
             'user'=>$user,
             'song'=>$current_song,
-            'playlists'=>$list_playlist
+            'playlists'=>$list_playlist,
+            'list_song_playlist'=>$list_song_from_playlist
         ]);
     }
     public function album($id)

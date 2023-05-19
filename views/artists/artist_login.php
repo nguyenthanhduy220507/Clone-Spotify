@@ -81,7 +81,9 @@ if (!isset($_SESSION['username'])) {
                         <button class="btn dropdown-toggle text-white" data-bs-toggle="dropdown" style="border: 1px solid black; "><i class="  hightlight1 my-5 fs-4"> </i></button>
                         <ul class="dropdown-menu" style="background-color: #242424">
                             <?php foreach ($data['playlists'] as $playlist) { ?>
-                                <li><a class="dropdown-item text-white" href="?url=playlists/add_song_to_playlist/<?php echo $song->getSongId() ?>/<?php echo $playlist->getPlaylistId() ?>">Thêm vào playlist <?php echo $playlist->getPlaylistName() ?></a></li>
+                                <?php if (!in_array($song, $data['list_song_playlist'][array_search($playlist, $data['playlists'])])) { ?>
+                                    <li><a class="dropdown-item text-white" href="?url=playlists/add_song_to_playlist/<?php echo $song->getSongId() ?>/<?php echo $playlist->getPlaylistId() ?>">Thêm vào playlist <?php echo $playlist->getPlaylistName() ?></a></li>
+                                <?php } ?>
                             <?php } ?>
                         </ul>
                     </div>

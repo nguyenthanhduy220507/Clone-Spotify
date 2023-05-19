@@ -18,7 +18,7 @@
                 <span>Tìm kiếm</span></a>
         </li>
         <li>
-            <a href="?collections/collection_playlist" class="text-white d-flex align-items-center">
+            <a href="?url=collections/collection_playlist" class="text-white d-flex align-items-center">
                 <i class="niand-icon-spotify-library"></i>
                 <span>Thư viện</span></a>
         </li>

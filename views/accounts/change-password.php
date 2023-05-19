@@ -61,26 +61,70 @@
                             <p class="fs-1 fw-bold m-4">Đổi mật khẩu của bạn</p>
                             <div class="container ms-4 px-0">
                                 <div class="container ps-0 pe-5">
-                                    <form>
+                                    <form id="form" method="post">
                                         <div class="mb-3">
                                             <label class="form-label lh-1">Mật khẩu hiện tại</label>
-                                            <input type="password" class="form-control">
+                                            <input id="password" type="password" class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label lh-1">Mật khẩu mới</label>
-                                            <input type="password" class="form-control">
+                                            <input id="new_password" type="password" class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label lh-1">Lặp lại mật khẩu mới</label>
-                                            <input type="password" class="form-control">
+                                            <input id="confirm" type="password" class="form-control">
+                                            <div id="password-message"></div>
+                                        </div>
+                                        <div id="response-message"></div>
+                                        <div id="sign-up-save" class="d-flex my-3 justify-content-end">
+                                            <button id="edit" type="button" ckass="text-muted" style="margin-right: 10px;">
+                                                Hủy</button>
+                                            <button id="password_new" type="submit" class="rounded-5">Cài đặt mặt khẩu
+                                                mới</button>
                                         </div>
                                     </form>
-                                </div>
-                                <div id="sign-up-save" class="d-flex my-3 justify-content-end me-5">
-                                    <button id="edit" type="button" ckass="text-muted" style="margin-right: 10px;">
-                                        Hủy</button>
-                                    <button id="password_new" type="button" class="rounded-5">Cài đặt mặt khẩu
-                                        mới</button>
+                                    <script>
+                                        $(document).ready(function() {
+                                            $('#form').submit(function(e) {
+                                                e.preventDefault(); // prevent form submission
+                                                var id = '<?php echo $data['user']->getUserId() ?>';
+                                                var password = $('#password').val();
+                                                var new_password = $('#new_password').val();
+                                                var confirm = $('#confirm').val();
+                                                if (new_password != confirm) {
+                                                    $('#password-message').html(`<div class="alert alert-danger mt-2">
+                                                                        <strong>Failed!</strong> Password does not match
+                                                                    </div>`);
+                                                    return;
+                                                }
+                                                $.ajax({
+                                                    url: '?url=accounts/change_password_auth',
+                                                    type: 'POST',
+                                                    data: {
+                                                        id: id,
+                                                        password: password,
+                                                        new_password: new_password
+                                                    },
+                                                    success: function(response) {
+                                                        if (response.success) {
+                                                            // authentication succeeds, redirect to dashboard or home page
+                                                            window.location.href = '?url=accounts/change_password';
+                                                        } else {
+                                                            // authentication fails, display error message
+                                                            let html = `<div class="alert alert-danger mt-2">
+                                                                        <strong>Failed!</strong> Failed. Please try again.
+                                                                    </div>`
+                                                            $('#response-message').html(html);
+                                                        }
+                                                    },
+                                                    error: function() {
+                                                        // handle AJAX error
+                                                        $('#response-message').html('Error processing request');
+                                                    }
+                                                });
+                                            });
+                                        });
+                                    </script>
                                 </div>
                             </div>
                         </div>

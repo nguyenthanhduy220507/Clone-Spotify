@@ -92,7 +92,7 @@ require_once 'style.php';
                                         <p class="fs-6" style="color: #6b6b6b">Tên người dùng</p>
                                     </div>
                                     <div class="col-md-6 px-auto col-sm-12">
-                                        <p><?php echo $data['users'][0]->getUsername() ?></p>
+                                        <p><?php echo $data['user']->getUsername() ?></p>
                                     </div>
                                     <hr class="md-4 lg-3 sm-12">
                                 </div>
@@ -101,7 +101,7 @@ require_once 'style.php';
                                         <p class="fs-6" style="color: #6b6b6b">Email</p>
                                     </div>
                                     <div class="col-md-6 px-auto col-sm-12">
-                                        <p><?php echo $data['users'][0]->getEmail() ?></p>
+                                        <p><?php echo $data['user']->getEmail() ?></p>
                                     </div>
                                     <hr class="md-4 lg-3 sm-12">
                                 </div>
@@ -110,7 +110,7 @@ require_once 'style.php';
                                         <p class="fs-6" style="color: #6b6b6b">Ngày sinh</p>
                                     </div>
                                     <div class="col-md-6 px-auto col-sm-12">
-                                        <p><?php echo date('d', strtotime($data['users'][0]->getDayOfBirth())) . ' tháng ' . date('m, Y', strtotime($data['users'][0]->getDayOfBirth())) ?></p>
+                                        <p><?php echo date('d', strtotime($data['user']->getDayOfBirth())) . ' tháng ' . date('m, Y', strtotime($data['user']->getDayOfBirth())) ?></p>
                                     </div>
                                     <hr class="md-4 lg-3 sm-12">
                                 </div>

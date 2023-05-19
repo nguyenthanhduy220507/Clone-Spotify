@@ -61,19 +61,17 @@
                             <p class="fs-1 fw-bold m-4">Chỉnh sửa hồ sơ</p>
                             <div class="container ms-4 px-0">
                                 <div class="container ps-0 pe-5">
-                                    <form>
+                                    <form id="form" method="post">
+                                        <input id="id" type="number" class="d-none" value="<?php echo $data['user']->getUserId() ?>">
                                         <div class="mb-3">
                                             <label class="form-label fw-bold">Email</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $data['users'][0]->getEmail() ?>">
+                                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" value="<?php echo $data['user']->getEmail() ?>">
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label fw-bold">Giới tính</label>
-                                            <select class="form-select" aria-label="Default select example">
-                                                <option <?php echo ($data['users'][0]->getGender() == 'Nam') ? 'selected' : ''; ?>>Nam</option>
-                                                <option <?php echo ($data['users'][0]->getGender() == 'Nữ') ? 'selected' : ''; ?>>Nữ</option>
-                                                <option <?php echo ($data['users'][0]->getGender() == 'Khác') ? 'selected' : ''; ?>>Khác</option>
-                                                <option <?php echo ($data['users'][0]->getGender() == 'Không muốn nêu cụ thể') ? 'selected' : ''; ?>>Không muốn nêu cụ thể</option>
-                                                <option <?php echo ($data['users'][0]->getGender() == 'Giới tính trung lập') ? 'selected' : ''; ?>>Giới tính trung lập</option>
+                                            <select id="gender" class="form-select" aria-label="Default select example">
+                                                <option <?php echo ($data['user']->getGender() == 'Nam') ? 'selected' : ''; ?>>Nam</option>
+                                                <option <?php echo ($data['user']->getGender() == 'Nữ') ? 'selected' : ''; ?>>Nữ</option>
                                             </select>
                                         </div>
                                         <div class="mb-3">
@@ -81,26 +79,26 @@
                                             <div class="container">
                                                 <div class="row">
                                                     <div class="col-3 ps-0">
-                                                        <input type="text" class="form-control" value="<?php echo date('d', strtotime($data['users'][0]->getDayOfBirth())) ?>">
+                                                        <input id="day" type="text" class="form-control" value="<?php echo date('d', strtotime($data['user']->getDayOfBirth())) ?>">
                                                     </div>
                                                     <div class="col-3 ps-0">
-                                                        <select class="form-select" aria-label="Default select example">
-                                                            <option value="1" <?php echo (date('m', strtotime($data['users'][0]->getDayOfBirth())) == 1) ? 'selected' : ''; ?>>Tháng Một</option>
-                                                            <option value="2" <?php echo (date('m', strtotime($data['users'][0]->getDayOfBirth())) == 2) ? 'selected' : ''; ?>>Tháng Hai</option>
-                                                            <option value="3" <?php echo (date('m', strtotime($data['users'][0]->getDayOfBirth())) == 3) ? 'selected' : ''; ?>>Tháng Ba</option>
-                                                            <option value="4" <?php echo (date('m', strtotime($data['users'][0]->getDayOfBirth())) == 4) ? 'selected' : ''; ?>>Tháng Tư</option>
-                                                            <option value="5" <?php echo (date('m', strtotime($data['users'][0]->getDayOfBirth())) == 5) ? 'selected' : ''; ?>>Tháng Năm</option>
-                                                            <option value="6" <?php echo (date('m', strtotime($data['users'][0]->getDayOfBirth())) == 6) ? 'selected' : ''; ?>>Tháng Sáu</option>
-                                                            <option value="7" <?php echo (date('m', strtotime($data['users'][0]->getDayOfBirth())) == 7) ? 'selected' : ''; ?>>Tháng Bảy</option>
-                                                            <option value="8" <?php echo (date('m', strtotime($data['users'][0]->getDayOfBirth())) == 8) ? 'selected' : ''; ?>>Tháng Tám</option>
-                                                            <option value="9" <?php echo (date('m', strtotime($data['users'][0]->getDayOfBirth())) == 9) ? 'selected' : ''; ?>>Tháng Chín</option>
-                                                            <option value="10" <?php echo (date('m', strtotime($data['users'][0]->getDayOfBirth())) == 10) ? 'selected' : ''; ?>>Tháng Mười</option>
-                                                            <option value="11" <?php echo (date('m', strtotime($data['users'][0]->getDayOfBirth())) == 11) ? 'selected' : ''; ?>>Tháng Mười Một</option>
-                                                            <option value="12" <?php echo (date('m', strtotime($data['users'][0]->getDayOfBirth())) == 12) ? 'selected' : ''; ?>>Tháng Mười Hai</option>
+                                                        <select id="month" class="form-select" aria-label="Default select example">
+                                                            <option value="1" <?php echo (date('m', strtotime($data['user']->getDayOfBirth())) == 1) ? 'selected' : ''; ?>>Tháng Một</option>
+                                                            <option value="2" <?php echo (date('m', strtotime($data['user']->getDayOfBirth())) == 2) ? 'selected' : ''; ?>>Tháng Hai</option>
+                                                            <option value="3" <?php echo (date('m', strtotime($data['user']->getDayOfBirth())) == 3) ? 'selected' : ''; ?>>Tháng Ba</option>
+                                                            <option value="4" <?php echo (date('m', strtotime($data['user']->getDayOfBirth())) == 4) ? 'selected' : ''; ?>>Tháng Tư</option>
+                                                            <option value="5" <?php echo (date('m', strtotime($data['user']->getDayOfBirth())) == 5) ? 'selected' : ''; ?>>Tháng Năm</option>
+                                                            <option value="6" <?php echo (date('m', strtotime($data['user']->getDayOfBirth())) == 6) ? 'selected' : ''; ?>>Tháng Sáu</option>
+                                                            <option value="7" <?php echo (date('m', strtotime($data['user']->getDayOfBirth())) == 7) ? 'selected' : ''; ?>>Tháng Bảy</option>
+                                                            <option value="8" <?php echo (date('m', strtotime($data['user']->getDayOfBirth())) == 8) ? 'selected' : ''; ?>>Tháng Tám</option>
+                                                            <option value="9" <?php echo (date('m', strtotime($data['user']->getDayOfBirth())) == 9) ? 'selected' : ''; ?>>Tháng Chín</option>
+                                                            <option value="10" <?php echo (date('m', strtotime($data['user']->getDayOfBirth())) == 10) ? 'selected' : ''; ?>>Tháng Mười</option>
+                                                            <option value="11" <?php echo (date('m', strtotime($data['user']->getDayOfBirth())) == 11) ? 'selected' : ''; ?>>Tháng Mười Một</option>
+                                                            <option value="12" <?php echo (date('m', strtotime($data['user']->getDayOfBirth())) == 12) ? 'selected' : ''; ?>>Tháng Mười Hai</option>
                                                         </select>
                                                     </div>
                                                     <div class="col-3 ps-0">
-                                                        <input type="text" class="form-control" value="<?php echo date('Y', strtotime($data['users'][0]->getDayOfBirth())) ?>">
+                                                        <input id="year" type="text" class="form-control" value="<?php echo date('Y', strtotime($data['user']->getDayOfBirth())) ?>">
                                                     </div>
 
                                                 </div>
@@ -119,13 +117,61 @@
                                                 thị.</label>
                                         </div>
                                         <hr class="mt-3 mb-5">
+                                        <div id="response-message"></div>
+                                        <div id="sign-up-save" class="d-flex my-3 justify-content-end">
+                                            <button id="edit" type="button" class="text-muted" style="margin-right: 10px;">
+                                                Hủy</button>
+                                            <button id="save" type="submit" class="rounded-5">Lưu hồ sơ</button>
+                                        </div>
                                     </form>
                                 </div>
-                                <div id="sign-up-save" class="d-flex my-3 justify-content-end me-5">
-                                    <button id="edit" type="button" ckass="text-muted" style="margin-right: 10px;">
-                                        Hủy</button>
-                                    <button id="save" type="button" class="rounded-5">Lưu hồ sơ</button>
-                                </div>
+
+                                <script>
+                                    $(document).ready(function() {
+                                        $('#form').submit(function(e) {
+                                            e.preventDefault(); // prevent form submission
+                                            var id = $('#id').val();
+                                            var username = '<?php echo $data['user']->getUsername() ?>';
+                                            var password = '<?php echo $data['user']->getPassword() ?>';
+                                            var email = $('#email').val();
+                                            var day = $('#day').val();
+                                            var month = $('#month').val();
+                                            var year = $('#year').val();
+                                            var formattedDate = year + "-" + ("0" + month).slice(-2) + "-" + ("0" + day).slice(-2);
+                                            var gender = $('#gender').val();
+                                            var type = '<?php echo $data['user']->getType() ?>';
+                                            $.ajax({
+                                                url: '?url=admin/auth_user_form/update',
+                                                type: 'POST',
+                                                data: {
+                                                    id: id,
+                                                    username: username,
+                                                    password: password,
+                                                    email: email,
+                                                    day_of_birth: formattedDate,
+                                                    gender: gender,
+                                                    type: type
+                                                },
+                                                success: function(response) {
+                                                    if (response.success) {
+                                                        // authentication succeeds, redirect to dashboard or home page
+                                                        window.location.href = '?url=accounts/profile';
+                                                    } else {
+                                                        // authentication fails, display error message
+                                                        let html = `<div class="alert alert-danger mt-2">
+                                                                        <strong>Failed!</strong> Failed. Please try again.
+                                                                    </div>`
+                                                        $('#response-message').html(html);
+                                                    }
+                                                },
+                                                error: function() {
+                                                    // handle AJAX error
+                                                    $('#response-message').html('Error processing request');
+                                                }
+                                            });
+                                        });
+                                    });
+                                </script>
                             </div>
                         </div>
                     </div>

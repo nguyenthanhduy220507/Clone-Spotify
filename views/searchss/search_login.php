@@ -35,7 +35,7 @@ if (!isset($_SESSION['username'])) {
 <body>
     <div id="main" class="d-grid">
         <header id="top-bar">
-            <?php require_once('./views/header-bar.php') ?>
+            <?php require_once('./views/header-bar-login.php') ?>
         </header>
 
         <main id="main-view">
@@ -43,7 +43,6 @@ if (!isset($_SESSION['username'])) {
             <div id="popup">
                 <div id="popup-content">
                     <div class="row">
-
                         <input type="text" class="form-control" placeholder="Bạn muốn nghe gì?" aria-label="Bạn muốn nghe gì?" aria-describedby="basic-addon2">
                     </div>
 

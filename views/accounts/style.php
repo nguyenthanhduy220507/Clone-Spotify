@@ -36,5 +36,5 @@ $url = getUrl();
             }
         }
     </style>
-    <link rel="stylesheet" href="">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- include jQuery library -->
 </head>

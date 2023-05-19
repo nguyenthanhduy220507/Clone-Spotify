@@ -122,7 +122,7 @@
             });
         });
         audio.addEventListener('ended', function() {
-            playButton.innerHTML = '<i class="niand-icon-spotify-pause text-black"></i>'; // Thay đổi biểu tượng thành nút pause
+            playButton.innerHTML = '<i class="niand-icon-spotify-play text-black"></i>'; // Thay đổi biểu tượng thành nút pause
         });
         var volumeBar = document.getElementById('volume-bar');
         var volumeProgress = document.getElementById('volume-progress');
