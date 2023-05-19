@@ -164,10 +164,21 @@ if (!isset($_SESSION['username'])) {
                                 <div class="col-1 d-flex align-items-center justify-content-center">
                                     <span class="text-white"><?php echo array_search($song, $data['songs']) + 1; ?></span>
                                 </div>
-                                <div class="col-10 d-flex align-items-center justify-content-left ps-0">
+                                <div class="col-6 d-flex align-items-center justify-content-left ps-0">
                                     <div class="card-body">
                                         <a data-id="<?php echo $song->getSongId() ?>" class="play-song card-title mt-2 text-white hover_a" style="font-size:15px"><?php echo $song->getSongTitle() ?></a><br>
                                     </div>
+                                </div>
+                                <div class="col-4 d-flex align-items-center justify-content-left ps-0">
+                                    <button type="button" class="rounded-2 ms-4 btn" data-bs-toggle="dropdown" style="background-color: #1a1a1a"><i class="niand-icon-spotify-desc text-white icon"></i></button>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <div class="d-flex dropdown-item">
+                                                <a class="text-dark flex-grow-1" href="#">Thêm vào playlist</a>
+                                                <i class="znake-icon-spotify-share-user text-dark"></i>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
                                 <div class="col-1 d-flex align-items-center justify-content-center">
                                     <div class="col-12 col-md-2 d-flex align-items-center justify-content-end">

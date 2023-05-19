@@ -57,7 +57,7 @@ if (isset($_SESSION['username'])) {
                 <br><br>
                 <?php foreach ($data['playlists'] as $playlist) { ?>
                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex flex-column ">
-                        <a href="#" class="text-decoration-none">
+                        <a href="?url=playlists/playlist/<?php echo $playlist->getPlaylistId(); ?>" class="text-decoration-none">
                             <div class="m-1">
                                 <div class="card  " id="top_hit">
                                     <h5 class="card-title hightlightWord mx-2 my-1  "><?php echo $playlist->getPlaylistName(); ?></h5>
@@ -80,7 +80,7 @@ if (isset($_SESSION['username'])) {
                 <br><br>
                 <?php foreach ($data['albums'] as $album) { ?>
                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex flex-column ">
-                        <a href="#" class="text-decoration-none">
+                        <a href="?url=albums/album/<?php echo $album->getAlbumId(); ?>" class="text-decoration-none">
                             <div class="m-1">
                                 <div class="card  " style="height: 200px;" id="top_hit">
                                     <h5 class="card-title hightlightWord mx-2 my-1  "><?php echo $album->getAlbumTitle(); ?></h5>
@@ -103,7 +103,7 @@ if (isset($_SESSION['username'])) {
                 <br><br>
                 <?php foreach ($data['artists'] as $artist) { ?>
                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex flex-column card-container">
-                        <a href="#" class="text-decoration-none">
+                        <a href="?url=artists/artist/<?php echo $artist->getArtistId(); ?>" class="text-decoration-none">
                             <div class="m-1">
                                 <div class="card" style="height: 200px;" id="top_hit">
                                     <h5 class="card-title hightlightWord mx-2 my-1"><?php echo $artist->getArtistName(); ?></h5>
